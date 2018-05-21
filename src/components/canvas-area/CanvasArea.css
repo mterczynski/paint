@@ -1,0 +1,14 @@
+.CanvasArea{
+	background: rgb(216, 225, 239);
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.CanvasArea__canvas{
+	position: relative;
+	top: 5px;
+	left: 5px;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.15);
+	background: white;
+}
