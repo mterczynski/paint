@@ -26,17 +26,17 @@ class TitleBarComponent extends React.Component{
 		return <div className="TitleBar">
 			<div className="TitleBar__window-icons">
 				<div className="TitleBar__window-icons__icon">
-					<img src={'dist/' + require('./../../assets/icons/minimize.png')}
+					<img src={'dist/' + require('./../../assets/icons/top/minimize.png')}
 					className="TitleBar__window-icons__icon__image"/>
 				</div>
 
 				<div className="TitleBar__window-icons__icon" onClick={this.maximizeWindow}>
-					<img src={'dist/' + require('./../../assets/icons/maximize.png')}
+					<img src={'dist/' + require('./../../assets/icons/top/maximize.png')}
 					className="TitleBar__window-icons__icon__image"/>
 				</div>
 
 				<div className="TitleBar__window-icons__icon TitleBar__window-icons__icon--close">
-					<img src={'dist/' + require('./../../assets/icons/close.png')}
+					<img src={'dist/' + require('./../../assets/icons/top/close.png')}
 					className="TitleBar__window-icons__icon__image"/>
 				</div>
 			</div>

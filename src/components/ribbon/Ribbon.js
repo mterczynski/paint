@@ -50,12 +50,12 @@ class RibbonComponent extends React.Component{
 				<div className="Ribbon__head__icons">
 					<div className="Ribbon__head__icons__icon" onClick={this.toggleRibbon}>
 						<img className={"Ribbon__head__icons__icon__image " + (this.state.isCollapsed ? 'Ribbon__head__icons__icon__image--reversed' : '')}
-						src={'dist/' + require('../../assets/icons/collapse.png')}/>
+						src={'dist/' + require('../../assets/icons/top/collapse.png')}/>
 					</div>
 
 					<div className="Ribbon__head__icons__icon">
 						<img className="Ribbon__head__icons__icon__image" 
-						src={'dist/' + require('../../assets/icons/help.png')}/>
+						src={'dist/' + require('../../assets/icons/top/help.png')}/>
 					</div>
 				</div>
 			</div>
