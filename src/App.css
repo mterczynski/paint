@@ -13,6 +13,7 @@ body{
 .App{
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start;
 	position: absolute;
 	left: 50px;
 	top: 50px;

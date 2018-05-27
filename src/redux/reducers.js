@@ -6,13 +6,14 @@ const tabs = {
 }
 
 const initialState = {
-	currentTab: tabs.tools
+	currentTab: tabs.tools,
+	isMaximized: false
 };
 
 const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case actionTypes.SET_TAB:
-			break;
+		case actionTypes.MAXIMIZE:
+			return {...state, isMaximized: true};
 	}
 	return state;
 };

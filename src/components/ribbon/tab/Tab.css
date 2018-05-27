@@ -1,25 +1,5 @@
 .Tab{
 	position: absolute;
-	background: rgb(245, 246, 247);
-	height: 93px;
-	border-top: 1px solid rgb(218, 219, 220);
-	bottom: 0;
+	height: 100%;
 	width: 100%;
-}
-
-.Tab__title{
-	background: whitesmoke;
-	position: absolute;
-	border-top: 1px solid rgb(218, 219, 220);
-	border-left: 1px solid rgb(218, 219, 220);
-	border-right: 1px solid rgb(218, 219, 220);
-	left: 20px;
-	/* width: 100px; */
-	top: -24px;
-	height: 24px;
-	box-sizing: border-box;
-	font-size: 12px;
-	text-align: center;
-	/* line-height: 18px; */
-	padding: 5px 15px;
 }

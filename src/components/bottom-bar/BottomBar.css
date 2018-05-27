@@ -5,6 +5,7 @@
 	bottom: 0;
 	width: 100%;
 	height: 30px;
+	flex-shrink: 0;
 }
 
 .BottomBar__col{
