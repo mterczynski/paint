@@ -93,7 +93,7 @@ class ViewTabComponent extends React.Component{
 					<div className="ViewTab__content">
 						<figure className="ViewTab__figure">
 							<img className="ViewTab__icon" alt="" 
-							src={require('../../../assets/icons/view-tab/fullScreen.PNG')}/>
+							src={require('../../../assets/icons/view-tab/fullScreen.png')}/>
 							<figcaption className="ViewTab__figcaption">
 								Pełny <br/> Ekran
 							</figcaption>
