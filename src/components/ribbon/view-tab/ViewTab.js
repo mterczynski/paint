@@ -8,7 +8,10 @@ require('./ViewTab.scss');
 import Tab from '../tab/Tab';
 
 const mapStateToProps = (state) => {
-	return { currentTab: state.currentTab };
+	return { 
+		currentTab: state.currentTab,
+		isBottomBarVisible: state.isBottomBarVisible
+	};
 };
   
 class ViewTabComponent extends React.Component{
@@ -20,6 +23,7 @@ class ViewTabComponent extends React.Component{
 		}
 
 		this.toggleBottomBar = this.toggleBottomBar.bind(this);
+		console.log(props)
 	}
 
 	toggleBottomBar(){
@@ -78,8 +82,10 @@ class ViewTabComponent extends React.Component{
 							</li>
 
 							<li>
-								<label className="ViewTab__label" onClick={this.toggleBottomBar}>	
-									<input type="checkbox" className="ViewTab__checkboxInput"/>
+								<label className="ViewTab__label" >	
+									<input type="checkbox" className="ViewTab__checkboxInput"
+									checked={this.props.isBottomBarVisible}
+									onChange={this.toggleBottomBar}/>
 									<span className="ViewTab__customCheckbox"></span>
 									<span className="ViewTab__checkboxDesc">Pasek stanu</span>
 								</label>
