@@ -90,7 +90,24 @@ class ViewTabComponent extends React.Component{
 				</div>
 
 				<div className="ViewTab__group">
-					<div className="ViewTab__content"></div>
+					<div className="ViewTab__content">
+						<figure className="ViewTab__figure">
+							<img className="ViewTab__icon" alt="" 
+							src={require('../../../assets/icons/view-tab/fullScreen.PNG')}/>
+							<figcaption className="ViewTab__figcaption">
+								Pełny <br/> Ekran
+							</figcaption>
+						</figure>
+
+						<figure className="ViewTab__figure">
+							<img alt="" className="ViewTab__icon"
+							src={require('../../../assets/icons/view-tab/miniature.png')}/>
+							<figcaption className="ViewTab__figcaption">
+								Miniatura
+							</figcaption>
+						</figure>
+
+					</div>
 					<h1 className="ViewTab__description">Wyświetlanie</h1>
 				</div>
 			</div>		
