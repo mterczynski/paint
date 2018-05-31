@@ -7,3 +7,7 @@ export const setTab = (tabName) => ({
 export const maximize = () => ({ 
 	type: actionTypes.MAXIMIZE,
 });
+
+export const toggleBottomBar = () => ({ 
+	type: actionTypes.TOGGLE_BOTTOM_BAR,
+});

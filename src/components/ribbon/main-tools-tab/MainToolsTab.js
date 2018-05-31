@@ -21,13 +21,17 @@ class MainToolsTabComponent extends React.Component{
 	}
 
 	render(){
-		return <Tab className="MainToolsTab">
-		MainToolsTab
-			<div className="MainToolsTab__window-icons">
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
+		return <Tab>
+			<div className="MainToolsTab">
+				<div>Schowek</div>
+				<div>Obraz</div>
+				<div>Narzędzia</div>
+				<div>Pędzle</div>
+				<div>Kształty</div>
+				<div>Rozmiar</div>
+				<div>Kolory</div>
+				<div>Paint 3d</div>	
+			</div>		
 		</Tab>
 	}
 }

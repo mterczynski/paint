@@ -1,0 +1,10 @@
+.MainToolsTab{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+.MainToolsTab > *{
+	border-right: 1px solid gray;
+	display: inline-block;
+}

@@ -1,2 +1,4 @@
 dist
 node_modules
+deploy.sh
+firstDeploy.sh

@@ -16,7 +16,7 @@ class RibbonComponent extends React.Component{
 	constructor(props) {
 		super(props)
 		this.state = {
-			activeTab: 'mainTools',
+			activeTab: 'view',
 			isCollapsed: false
 		}
 		this.toggleRibbon = this.toggleRibbon.bind(this);
@@ -50,12 +50,12 @@ class RibbonComponent extends React.Component{
 				<div className="Ribbon__head__icons">
 					<div className="Ribbon__head__icons__icon" onClick={this.toggleRibbon}>
 						<img className={"Ribbon__head__icons__icon__image " + (this.state.isCollapsed ? 'Ribbon__head__icons__icon__image--reversed' : '')}
-						src={'dist/' + require('../../assets/icons/top/collapse.png')}/>
+						src={require('../../assets/icons/top/collapse.png')}/>
 					</div>
 
 					<div className="Ribbon__head__icons__icon">
 						<img className="Ribbon__head__icons__icon__image" 
-						src={'dist/' + require('../../assets/icons/top/help.png')}/>
+						src={require('../../assets/icons/top/help.png')}/>
 					</div>
 				</div>
 			</div>
