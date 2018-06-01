@@ -16,7 +16,7 @@ class RibbonComponent extends React.Component{
 	constructor(props) {
 		super(props)
 		this.state = {
-			activeTab: 'view',
+			activeTab: 'mainTools',
 			isCollapsed: false
 		}
 		this.toggleRibbon = this.toggleRibbon.bind(this);

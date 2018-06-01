@@ -3,9 +3,12 @@ import store from '../../../redux/store';
 import * as actions from '../../../redux/actions';
 import { connect } from "react-redux";
 
-require('./MainToolsTab.css');
+require('./MainToolsTab.scss');
 
 import Tab from '../tab/Tab';
+import Group from './group/Group';
+
+import Brushes from './groups/brushes/Brushes';
 
 const mapStateToProps = (state) => {
 	return { currentTab: state.currentTab };
@@ -23,14 +26,15 @@ class MainToolsTabComponent extends React.Component{
 	render(){
 		return <Tab>
 			<div className="MainToolsTab">
-				<div>Schowek</div>
+				<Group> <Brushes/> </Group>
+				{/* <div>Schowek</div>
 				<div>Obraz</div>
 				<div>Narzędzia</div>
 				<div>Pędzle</div>
 				<div>Kształty</div>
 				<div>Rozmiar</div>
 				<div>Kolory</div>
-				<div>Paint 3d</div>	
+				<div>Paint 3d</div>	 */}
 			</div>		
 		</Tab>
 	}

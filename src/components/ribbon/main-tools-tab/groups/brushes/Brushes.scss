@@ -1,0 +1,39 @@
+.Brushes{
+	font-size: 12px;
+	height: 75px;
+	text-align: center;
+	width: 52px;
+}
+
+.Brushes__content{
+	border: 1px solid transparent;
+	box-sizing: border-box;
+	height: 64px;
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 42px;
+	&:hover{
+		border: 1px solid blue;
+	}
+}
+
+.Brushes__top{
+	// border-bottom: 1px solid blue;
+	height: 32px;
+	padding: 2px 0;
+	width: 100%;
+}
+
+.Brushes__mainIcon{
+	height: 32px;
+	width: 32px;
+}
+
+.Brushes__arrowDown{
+	bottom: 2px;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%);
+}

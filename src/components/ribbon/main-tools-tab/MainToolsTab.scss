@@ -1,0 +1,50 @@
+.MainToolsTab{
+	display: block;
+	height: 100%;
+
+	&__content{
+		display: flex;
+		height: 70px;
+		padding-left: 6px;
+		padding-right: 6px;
+		padding-top: 4px;
+		position: relative;
+		width: 100%;
+	}
+
+	&__description{
+		font-size: 12px;
+		font-weight: normal;	
+		margin: 0 4px;
+		position: relative;
+		text-align: center;	
+	}
+
+	&__figure{
+		border: 1px solid transparent;
+		box-sizing: border-box;
+		display: inline-block;
+		height: 100%;
+		min-width: 42px;
+		padding: 2px;
+		position: relative;
+		text-align: center;
+		&:hover{
+			background: rgb(232, 239, 247);
+			border: 1px solid rgb(164, 206, 249);
+		}
+	}
+
+	&__figcaption{
+		font-size: 13px;
+		text-align: center;
+	}
+
+	&__group{
+		border-right: 1px solid rgb(226, 227, 228);
+		display: inline-block;
+		height: 100%;
+		position: relative;
+		width: fit-content;
+	}
+}

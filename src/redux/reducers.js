@@ -8,7 +8,10 @@ const tabs = {
 const initialState = {
 	currentTab: tabs.tools,
 	isMaximized: false,
-	isBottomBarVisible: true
+	isBottomBarVisible: true,
+	isBrushActive: false,
+	activeBrush: 1,
+	selectedColor: 1
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -17,6 +20,8 @@ const rootReducer = (state = initialState, action) => {
 			return {...state, isMaximized: true};
 		case actionTypes.TOGGLE_BOTTOM_BAR:
 			return {...state, isBottomBarVisible: !state.isBottomBarVisible};
+		case actionTypes.TOGGLE_BRUSH:
+			return {...state, isBrushActive: !state.isBrushActive};
 	}
 	return state;
 };
