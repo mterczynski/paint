@@ -1,0 +1,86 @@
+.Clipboard{
+	font-size: 12px;
+	height: 75px;
+	text-align: center;
+	width: 113px;
+}
+
+.Clipboard__content{
+	font-size: 12px;
+	height: 66px;
+	margin: 5px 6px;
+	text-align: center;
+	display: flex;
+}
+
+.Clipboard__description{
+	text-align: center;
+}
+
+.Clipboard__arrowDown{
+	position: absolute;
+	bottom: 6px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.Clipboard__pasteGroup{
+	// border: 1px solid purple;
+	box-sizing: border-box;
+	width: 42px;
+	// height: 66px;
+
+	&Top{
+		border: 1px solid transparent;
+		box-sizing: border-box;
+		width: 100%;
+		height: 38px;
+
+		&:hover{
+			border: 1px solid rgb(147, 190, 234);
+		}
+	}
+
+	&Bottom{
+		position: relative;
+		top: -1px;
+		border: 1px solid transparent;
+		box-sizing: border-box;
+		width: 100%;
+		height: 29px;
+		padding-bottom: 6px;
+
+		&:hover{
+			border: 1px solid rgb(147, 190, 234);
+		}
+	}
+}
+
+.Clipboard__pasteImage{
+	width: 25px;
+	height: 31px;
+}
+
+.Clipboard__button{
+	border: 1px solid transparent;
+	box-sizing: border-box;
+	width: 59px;
+	height: 22px;
+
+	&Image{
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	// &Text{
+	// 	position: absolute;
+	// 	right: 2px;
+	// }
+
+	&:hover{
+		border: 1px solid rgb(164, 206, 249);
+		background: rgb(232, 239, 247);
+	}
+}
+

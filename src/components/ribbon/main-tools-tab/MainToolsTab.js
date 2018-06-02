@@ -9,6 +9,8 @@ import Tab from '../tab/Tab';
 import Group from './group/Group';
 
 import Brushes from './groups/brushes/Brushes';
+import Clipboard from './groups/clipboard/Clipboard';
+
 
 const mapStateToProps = (state) => {
 	return { currentTab: state.currentTab };
@@ -26,6 +28,7 @@ class MainToolsTabComponent extends React.Component{
 	render(){
 		return <Tab>
 			<div className="MainToolsTab">
+				<Group> <Clipboard/> </Group>
 				<Group> <Brushes/> </Group>
 				{/* <div>Schowek</div>
 				<div>Obraz</div>
