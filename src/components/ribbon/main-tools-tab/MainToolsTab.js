@@ -12,6 +12,7 @@ import Brushes from './groups/brushes/Brushes';
 import Clipboard from './groups/clipboard/Clipboard';
 import Tools from './groups/tools/Tools';
 import Size from './groups/size/Size';
+import Paint3d from './groups/paint3d/Paint3d';
 
 const mapStateToProps = (state) => {
 	return { currentTab: state.currentTab };
@@ -33,6 +34,7 @@ class MainToolsTabComponent extends React.Component{
 				<Group> <Tools/> </Group>
 				<Group> <Brushes/> </Group>
 				<Group> <Size/> </Group>
+				<Group> <Paint3d/> </Group>
 				{/* <div>Schowek</div>
 				<div>Obraz</div>
 				<div>Narzędzia</div>
