@@ -1,0 +1,69 @@
+// .Tools{
+
+// }
+
+.Tools{
+	padding-top: 5px;
+}
+
+.Tools__iconRow{
+	display: flex;
+	margin-left: 4px;
+	margin-right: 6px;
+	margin-top: 7px;
+}
+
+.Tools__description{
+	position: absolute;
+	bottom: 3px;
+	width: 100%;
+	font-size: 12px;
+	text-align: center;
+}
+
+.Tools__icon{
+	&-1, &-2, &-3{
+		position: relative;
+		box-sizing: border-box;
+		height: 22px;
+		border: 1px solid transparent;
+		&:hover{
+			border: 1px solid rgb(164, 206, 249);
+			background: rgb(232, 239, 247);
+		}
+
+		&:active{
+			border: 1px solid rgb(98, 162, 228);
+			background: rgb(201, 224, 247);
+		}
+	}
+
+	&-1{
+		width: 23px;
+	}
+	&-2{
+		width: 24px;
+	}
+	&-3{
+		width: 22px;
+	}
+
+	&--active{
+		border: 1px solid rgb(98, 162, 228);
+		background: rgb(201, 224, 247);
+	}
+
+	&Image{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	// 23x22
+	// 24x22
+	// 22x22
+
+	// 23x22
+	// 24x22
+	// 22x22
+}
