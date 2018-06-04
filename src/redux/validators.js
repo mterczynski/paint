@@ -12,13 +12,13 @@ export function isInteger(input){
 
 export function isFromRange(input, from, to){
 	isNumber(input);
-	if(from < to){
+	if(from > to){
 		throw new Error('"From" must be less than "to"');
 	}
 	if(input < from){
 		throw new Error('Input is too small');
 	}
-	if(input > from){
+	if(input > to){
 		throw new Error('Input is too big');
 	}
 }

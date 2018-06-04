@@ -1,5 +1,7 @@
 import * as actionTypes from './action-types';
 
+import {isFromRange, isInteger, isNumber} from './validators';
+
 export const setTab = (tabName) => ({ 
 	type: actionTypes.SET_TAB, data: tabName
 });
@@ -17,15 +19,19 @@ export const toggleBrush = () => ({
 });
 
 export const changeBrush = (brushId) => {
-	if(![1,2,3,4,5,6,7,8,9].includes(brushId)){
-		throw new Error('brush ID must be integer from 1 to 9');
-	}
+	isInteger(brushId);
+	isFromRange(brushId, 1, 9);
 	return {type: actionTypes.CHANGE_BRUSH, brushId};
 }
 
 export const selectColor = (colorId) => {
-	if(colorId !== 1 && colorId !== 2 && colorId !== '1' && colorId !== '2'){
-		throw new Error('color id must be 1 or 2');
-	}
+	isInteger(colorId);
+	isFromRange(colorId, 1, 2);
 	return {type: actionTypes.SELECT_COLOR, colorId};
+}
+
+export const selectTool = (toolId) => {
+	isInteger(toolId);
+	isFromRange(toolId, 1, 6);
+	return {type: actionTypes.SELECT_TOOL, toolId};
 }
