@@ -127,6 +127,8 @@ const rootReducer = (state = initialState, action) => {
 			return {...state, isBrushActive: !state.isBrushActive};
 		case actionTypes.SELECT_TOOL:
 			return {...state, selectedTool: action.toolId};
+		case actionTypes.SELECT_MAIN_COLOR:
+			return {...state, colors: {...state.colors, selectedMainColor:action.colorId}};
 	}
 	return state;
 };

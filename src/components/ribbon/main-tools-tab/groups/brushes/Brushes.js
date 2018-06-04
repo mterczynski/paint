@@ -25,7 +25,7 @@ class BrushesComponent extends React.Component{
 		return <div className="Brushes">
 			<div className="Brushes__content">
 				<div className="Brushes__top">
-					<img className="Brushes__mainIcon" 
+					<img className="Brushes__mainIcon" draggable="false"
 					src={require("../../../../../assets/icons/main-tools-tab/4_brushes/1.png")} 
 					alt=""/>
 				</div>
@@ -34,7 +34,7 @@ class BrushesComponent extends React.Component{
 						Pędzle
 					</div>
 
-					<img className="Brushes__arrowDown"
+					<img className="Brushes__arrowDown" draggable="false"
 					src={require("../../../../../assets/icons/arrow_down.png")} 
 					alt=""/>
 				</div>

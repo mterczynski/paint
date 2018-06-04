@@ -24,12 +24,12 @@ class SizeComponent extends React.Component{
 	render(){
 		return <div className="Size">
 			<div className="Size__content">
-				<img className="Size__mainIcon"
+				<img draggable="false" className="Size__mainIcon"
 				src={require('../../../../../assets/icons/main-tools-tab/6_size.png')} alt=""/>
 				<div>
 					Rozmiar
 				</div>
-				<img className="Size__arrowDown"
+				<img draggable="false" className="Size__arrowDown"
 				src={require('../../../../../assets/icons/arrow_down.png')} alt=""/>
 			</div>
 		</div>		

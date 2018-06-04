@@ -1,0 +1,129 @@
+.Colors__content{
+	display: flex;
+	border: 1px solid transparent;
+	box-sizing: border-box;
+	font-size: 11px;
+	height: 66px;
+	margin-left: 4px;
+	margin-right: 6px;
+	margin-top: 4px;
+	padding-top: 3px;
+	position: relative;
+	text-align: center;
+	width: 346px;
+}
+
+.Colors__mainColor{
+	box-sizing: border-box;
+	width: 42px;
+	height: 66px;
+	border: 1px solid transparent;
+	position: relative;
+	padding-top: 2px;
+	line-height: 13px;
+	// padding-left: 4px;
+	// padding-right: 4px;
+
+	&:hover{
+		background: rgb(232, 239, 247);
+		border: 1px solid rgb(164, 206, 249);
+	}
+
+	&--active{
+		background: rgb(201, 224, 247);
+		border: 1px solid rgb(98, 162, 228);
+		&:hover{
+			background: rgb(213, 230, 247);
+			border: 1px solid rgb(122, 176, 231);
+		}
+	}
+}
+
+.Colors__colorBox{
+	box-sizing: border-box;
+	height: 30px; // + 2 from box shadow - total 32
+	width: 30px; // + 2 from box shadow - total 32
+	border: 1px solid rgb(245, 246, 247); // todo change to transparent with background
+	outline: 1px solid gray;
+	
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 3px;
+
+	&--small{
+		height: 22px !important; // + 2 from box shadow
+		width: 22px !important; // + 2 from box shadow
+		top: 6px;
+	}
+	&--tiny{
+		height: 18px !important; // + 2 from box shadow
+		width: 18px !important; // + 2 from box shadow
+		border: 1px solid white;
+		outline: 1px solid rgb(160, 160, 160);
+		position: static;
+		transform: none;
+		&:hover{
+			border: 1px solid rgb(203, 228, 253);
+			outline: 1px solid rgb(100, 165, 231);
+		}
+		&--disabled{
+			height: 18px !important; // + 2 from box shadow
+			width: 18px !important; // + 2 from box shadow
+			border: 1px solid white;
+			outline: 1px solid rgb(160, 160, 160);
+			position: static;
+			transform: none;
+		}
+	}
+
+	&Text{
+		text-align: center;
+		position: absolute;
+		left:0;
+		bottom: 1px;
+		width: 100%;
+	}
+}
+
+.Colors__colors{
+	// display: flex;
+	// flex-direction: row;
+	width: 218px;
+	position: relative;
+	left: 2px;
+	top: 2px;
+}
+
+.Colors__colorRow{
+	// background: red;
+	display: flex;
+	justify-content: space-between;
+	width: 216px;
+	height: 22px;
+}
+
+.Colors__editColors{
+	margin-left: 4px;
+	box-sizing: border-box;
+	width: 42px;
+	height: 66px;
+	border: 1px solid transparent;
+	position: relative;
+	padding-top: 2px;
+	line-height: 13px;
+	// padding-left: 4px;
+	// padding-right: 4px;
+
+	&:hover{
+		background: rgb(232, 239, 247);
+		border: 1px solid rgb(164, 206, 249);
+	}
+
+	&Icon{
+		width: 25px;
+		height: 25px;
+		border: 1px solid white;
+		outline: 1px solid rgb(145, 145, 145);
+	}
+}

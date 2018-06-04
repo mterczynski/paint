@@ -1,0 +1,77 @@
+.Shapes{
+	font-size: 11px;
+}
+
+.Shapes__content{
+	display: flex;
+	height: 60px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 7px;
+	padding-top: 3px;
+	position: relative;
+	text-align: center;
+	width: 260px;
+}
+
+.Shapes__shapeList{
+	border: 1px solid rgb(220, 220, 221);
+	box-sizing: border-box;
+	width: 157px;
+	height: 60px;
+
+	&Content{
+		width: 141px;
+		height: 58px;
+		background: rgb(250, 251, 252);
+		border-right: 1px solid rgb(220, 220, 221);
+		overflow: hidden;
+		line-height: 0;
+	}
+}
+
+.Shapes__shape{
+	box-sizing: border-box;
+	width: 20px;
+	height: 20px;
+	border: 1px solid transparent;
+	// todo:
+
+	// position: relative;
+	// left: -1px;
+	// top: -1px;
+
+	&:hover{
+		background: rgb(239, 246, 254);
+		border: 1px solid rgb(170, 211, 254);
+	}
+}
+
+.Shapes__description{
+	position: absolute;
+	bottom: 3px;
+	width: 100%;
+	text-align: center;
+}
+
+.Shapes__options{
+	margin-left: 3px;
+}
+
+.Shapes__option{
+	text-align: left;
+	padding: 2px;
+	height: 22px;
+	box-sizing: border-box;
+	border: 1px solid transparent;
+
+	&:hover{
+		background: rgb(239, 246, 254);
+		border: 1px solid rgb(170, 211, 254);
+	}
+
+	&:active{
+		background: rgb(201, 224, 247);
+		border: 1px solid rgb(98, 162, 228);
+	}
+}

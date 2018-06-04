@@ -24,7 +24,7 @@ class Paint3dComponent extends React.Component{
 	render(){
 		return <div className="Paint3d">
 			<div className="Paint3d__content">
-				<img className="Paint3d__mainIcon"
+				<img draggable="false" className="Paint3d__mainIcon"
 				src={require('../../../../../assets/icons/main-tools-tab/8_paint3d.png')}
 				alt=""/>
 

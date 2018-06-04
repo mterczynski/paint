@@ -24,10 +24,10 @@ export const changeBrush = (brushId) => {
 	return {type: actionTypes.CHANGE_BRUSH, brushId};
 }
 
-export const selectColor = (colorId) => {
+export const selectMainColor = (colorId) => {
 	isInteger(colorId);
 	isFromRange(colorId, 1, 2);
-	return {type: actionTypes.SELECT_COLOR, colorId};
+	return {type: actionTypes.SELECT_MAIN_COLOR, colorId};
 }
 
 export const selectTool = (toolId) => {

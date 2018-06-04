@@ -36,7 +36,7 @@ class ViewTabComponent extends React.Component{
 				<div className="ViewTab__group">
 					<div className="ViewTab__content">
 						<figure className="ViewTab__figure">
-							<img className="ViewTab__icon" alt="" 
+							<img draggable="false" className="ViewTab__icon" alt="" 
 							src={require('../../../assets/icons/view-tab/zoomIn.png')}/>
 							<figcaption className="ViewTab__figcaption">
 								Powiększ
@@ -44,7 +44,7 @@ class ViewTabComponent extends React.Component{
 						</figure>
 
 						<figure className="ViewTab__figure">
-							<img alt="" className="ViewTab__icon"
+							<img draggable="false" alt="" className="ViewTab__icon"
 							src={require('../../../assets/icons/view-tab/zoomOut.png')}/>
 							<figcaption className="ViewTab__figcaption">
 								Pomniejsz
@@ -52,7 +52,7 @@ class ViewTabComponent extends React.Component{
 						</figure>
 
 						<figure className="ViewTab__figure">
-							<img alt="" className="ViewTab__icon"
+							<img draggable="false" alt="" className="ViewTab__icon"
 							src={require('../../../assets/icons/view-tab/maximize.png')}/>
 							<figcaption className="ViewTab__figcaption">
 								100 <br/> %
@@ -98,7 +98,7 @@ class ViewTabComponent extends React.Component{
 				<div className="ViewTab__group">
 					<div className="ViewTab__content">
 						<figure className="ViewTab__figure">
-							<img className="ViewTab__icon" alt="" 
+							<img draggable="false" className="ViewTab__icon" alt="" 
 							src={require('../../../assets/icons/view-tab/fullScreen.png')}/>
 							<figcaption className="ViewTab__figcaption">
 								Pełny <br/> Ekran
@@ -106,7 +106,7 @@ class ViewTabComponent extends React.Component{
 						</figure>
 
 						<figure className="ViewTab__figure">
-							<img alt="" className="ViewTab__icon"
+							<img draggable="false" alt="" className="ViewTab__icon"
 							src={require('../../../assets/icons/view-tab/miniature.png')}/>
 							<figcaption className="ViewTab__figcaption">
 								Miniatura
