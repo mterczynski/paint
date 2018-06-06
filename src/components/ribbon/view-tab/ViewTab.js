@@ -55,7 +55,7 @@ class ViewTabComponent extends React.Component{
 							<img draggable="false" alt="" className="ViewTab__icon"
 							src={require('../../../assets/icons/view-tab/maximize.png')}/>
 							<figcaption className="ViewTab__figcaption">
-								100 <br/> %
+								100<br/>%
 							</figcaption>
 						</figure>
 					</div>
@@ -101,7 +101,7 @@ class ViewTabComponent extends React.Component{
 							<img draggable="false" className="ViewTab__icon" alt="" 
 							src={require('../../../assets/icons/view-tab/fullScreen.png')}/>
 							<figcaption className="ViewTab__figcaption">
-								Pełny <br/> Ekran
+								Pełny<br/>ekran
 							</figcaption>
 						</figure>
 

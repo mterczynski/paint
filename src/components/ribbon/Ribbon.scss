@@ -34,7 +34,7 @@
 			height: 100%;
 			padding: 0 19px;
 			line-height: 23px;
-			// transition-duration: 0.3s;
+			// todo animation on file hover(only on mouseleave, no anim on mouseenter)
 			&:hover{
 				background: rgb(41, 140, 225);
 			}

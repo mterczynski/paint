@@ -23,17 +23,20 @@
 
 	&__checkboxDesc{
 		font-size: 11px;
+		position: relative;
+		bottom: 2px;
 		white-space: nowrap;
 	}
 
 	&__customCheckbox{
 		display: inline-block;
 		position: relative;
-		margin-right: 5px;
+		margin-right: 7px;
 		height: 13px;
 		width: 13px;
 		box-sizing: border-box;
 		background: white;
+		line-height: 17px;
 		border: 1px solid rgb(97, 121, 160);
 
 		&::after{
@@ -72,7 +75,7 @@
 	}
 
 	&__figcaption{
-		font-size: 13px;
+		font-size: 11px;
 		text-align: center;
 	}
 
@@ -96,9 +99,8 @@
 
 	&__list{
 		position: absolute;
-		left: 50%;
+		left: 33px;
 		top: 0;
-		transform: translateX(-50%);
 		list-style: none;
 		margin-top: 8px;
 	}

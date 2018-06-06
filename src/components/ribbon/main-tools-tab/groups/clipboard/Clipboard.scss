@@ -25,10 +25,8 @@
 }
 
 .Clipboard__pasteGroup{
-	// border: 1px solid purple;
 	box-sizing: border-box;
 	width: 42px;
-	// height: 66px;
 
 	&Top{
 		border: 1px solid transparent;
@@ -72,11 +70,6 @@
 		top: 50%;
 		transform: translateY(-50%);
 	}
-
-	// &Text{
-	// 	position: absolute;
-	// 	right: 2px;
-	// }
 
 	&:hover{
 		border: 1px solid rgb(164, 206, 249);

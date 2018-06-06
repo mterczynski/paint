@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 
 require('./Paint3d.scss');
 
-
 const mapStateToProps = (state) => {
 	return { 
 		isBrushActive: state.isBrushActive
@@ -28,7 +27,7 @@ class Paint3dComponent extends React.Component{
 				src={require('../../../../../assets/icons/main-tools-tab/8_paint3d.png')}
 				alt=""/>
 
-				<div>
+				<div className="Paint3d__description">
 					Otwórz aplikację Paint 3D
 				</div>
 			</div>

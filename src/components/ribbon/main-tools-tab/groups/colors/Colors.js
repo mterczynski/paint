@@ -124,6 +124,7 @@ class ColorsComponent extends React.Component{
 					</div>
 				</div>
 			</div>
+			<div className="Colors__description">Kolory</div>
 		</div>		
 	}
 }

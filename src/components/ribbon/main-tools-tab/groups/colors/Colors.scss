@@ -1,12 +1,11 @@
 .Colors__content{
-	display: flex;
 	border: 1px solid transparent;
 	box-sizing: border-box;
+	display: flex;
 	font-size: 11px;
 	height: 66px;
 	margin-left: 4px;
 	margin-right: 6px;
-	margin-top: 4px;
 	padding-top: 3px;
 	position: relative;
 	text-align: center;
@@ -14,15 +13,13 @@
 }
 
 .Colors__mainColor{
-	box-sizing: border-box;
-	width: 42px;
-	height: 66px;
 	border: 1px solid transparent;
-	position: relative;
-	padding-top: 2px;
+	box-sizing: border-box;
+	height: 66px;
 	line-height: 13px;
-	// padding-left: 4px;
-	// padding-right: 4px;
+	padding-top: 2px;
+	position: relative;
+	width: 42px;
 
 	&:hover{
 		background: rgb(232, 239, 247);
@@ -87,8 +84,6 @@
 }
 
 .Colors__colors{
-	// display: flex;
-	// flex-direction: row;
 	width: 218px;
 	position: relative;
 	left: 2px;
@@ -96,7 +91,6 @@
 }
 
 .Colors__colorRow{
-	// background: red;
 	display: flex;
 	justify-content: space-between;
 	width: 216px;
@@ -112,8 +106,6 @@
 	position: relative;
 	padding-top: 2px;
 	line-height: 13px;
-	// padding-left: 4px;
-	// padding-right: 4px;
 
 	&:hover{
 		background: rgb(232, 239, 247);
@@ -126,4 +118,12 @@
 		border: 1px solid white;
 		outline: 1px solid rgb(145, 145, 145);
 	}
+}
+
+.Colors__description{
+	font-size: 11px;
+	position: absolute;
+	bottom: 3px;
+	text-align: center;
+	width: 100%;
 }

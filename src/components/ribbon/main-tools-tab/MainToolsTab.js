@@ -33,20 +33,13 @@ class MainToolsTabComponent extends React.Component{
 		return <Tab>
 			<div className="MainToolsTab">
 				<Group> <Clipboard/> </Group>
+				{/* <Group> <Image/> </Group> */}
 				<Group> <Tools/> </Group>
 				<Group> <Brushes/> </Group>
 				<Group> <Shapes/> </Group>
 				<Group> <Size/> </Group>
 				<Group> <Colors/> </Group>
 				<Group> <Paint3d/> </Group>
-				{/* <div>Schowek</div>
-				<div>Obraz</div>
-				<div>Narzędzia</div>
-				<div>Pędzle</div>
-				<div>Kształty</div>
-				<div>Rozmiar</div>
-				<div>Kolory</div>
-				<div>Paint 3d</div>	 */}
 			</div>		
 		</Tab>
 	}
