@@ -15,6 +15,7 @@ import Size from './groups/size/Size';
 import Paint3d from './groups/paint3d/Paint3d';
 import Colors from './groups/colors/Colors';
 import Shapes from './groups/shapes/Shapes';
+import Image from './groups/image/Image';
 
 const mapStateToProps = (state) => {
 	return { currentTab: state.currentTab };
@@ -33,7 +34,7 @@ class MainToolsTabComponent extends React.Component{
 		return <Tab>
 			<div className="MainToolsTab">
 				<Group> <Clipboard/> </Group>
-				{/* <Group> <Image/> </Group> */}
+				<Group> <Image/> </Group>
 				<Group> <Tools/> </Group>
 				<Group> <Brushes/> </Group>
 				<Group> <Shapes/> </Group>
