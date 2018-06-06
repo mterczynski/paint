@@ -1,7 +1,11 @@
+export const APP_CLICK = "APP_CLICK";
 export const CHANGE_BRUSH = "CHANGE_BRUSH";
+export const CLOSE_DROPDOWN = "CLOSE_DROPDOWN";
 export const MAXIMIZE = "MAXIMIZE";
+export const OPEN_DROPDOWN = "OPEN_DROPDOWN";
 export const SELECT_MAIN_COLOR = "SELECT_MAIN_COLOR";
 export const SELECT_TOOL = "SELECT_TOOL";
 export const SET_TAB = "SET_TAB";
+export const SET_TOOL_SIZE = "SET_TOOL_SIZE";
 export const TOGGLE_BOTTOM_BAR = "TOGGLE_BOTTOM_BAR";
 export const TOGGLE_BRUSH = "TOGGLE_BRUSH";

@@ -35,3 +35,21 @@ export const selectTool = (toolId) => {
 	isFromRange(toolId, 1, 6);
 	return {type: actionTypes.SELECT_TOOL, toolId};
 }
+
+export const openDropdown = () => {
+	return {type: actionTypes.OPEN_DROPDOWN};
+}
+
+export const closeDropdown = () => {
+	return {type: actionTypes.CLOSE_DROPDOWN};
+}
+
+export const setToolSize = (toolSize) => {
+	isInteger(toolSize);
+	isFromRange(toolSize, 1, 4);
+	return {type: actionTypes.SET_TOOL_SIZE, toolSize};
+}
+
+export const appClick = () => {
+	return {type: actionTypes.APP_CLICK};
+}

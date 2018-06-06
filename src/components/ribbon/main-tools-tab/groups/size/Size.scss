@@ -30,3 +30,15 @@
 	position: absolute;
 	transform: translateX(-50%);
 }
+
+.Size__list{
+	list-style: none;
+	width: 100px;
+}
+
+.Size__li{
+	display: block;
+	&:hover{
+		background: darkturquoise;
+	}
+}

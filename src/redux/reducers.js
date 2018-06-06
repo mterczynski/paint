@@ -8,10 +8,13 @@ const tabs = {
 const initialState = {
 
 	/* General: */
-	isMaximized: false,
-	isMinimized: false,
+	isMaximized: false, // boolean
+	isMinimized: false, // boolean
 
 	currentTab: tabs.tools,
+
+	isDropdownActive: false, // boolean
+	preventNextAppClick: false, // boolean
 	
 	zoom: 1, // from [0.125, 0.25, 0.5, 1, 2, 3, 4, 5, 6, 7, 8]
 	mousePosition: null , // {x:number, y:number} or null if mouse is off canvas
@@ -42,12 +45,9 @@ const initialState = {
 	/* Main tools tab: */
 
 	// 1_clipboard
-	isPasteListOpened: false, // boolean
 
 	// 2_image
 	selectionMode: 1, // or 2
-	isSelectionListOpened: false, // boolean
-	isRotateImageListOpened: false, // boolean
 	isResizeWindowOpened: false, // boolean
 
 	// 3_tools
@@ -56,12 +56,11 @@ const initialState = {
 
 	// 4_brushes
 	selectedBrush: 1, // from 1-9
-	isBrushListOpened: false, // boolean
 	isBrushActive: false, // boolean
 	
 	// 5_shapes
 	selectedShape: null, // from 1-23 or null
-	shapeListLevel: 1, // or 2
+	shapeListLevel: 1, // from 1-3
 	isShapeListExpanded: false, // boolean
 	shapeOutline: 2, // from 1-7
 	shapeFill: 1, // from 1-7
@@ -128,7 +127,18 @@ const rootReducer = (state = initialState, action) => {
 		case actionTypes.SELECT_TOOL:
 			return {...state, selectedTool: action.toolId};
 		case actionTypes.SELECT_MAIN_COLOR:
-			return {...state, colors: {...state.colors, selectedMainColor:action.colorId}};
+			return {...state, colors: {...state.colors, selectedMainColor: action.colorId}};
+		case actionTypes.CLOSE_DROPDOWN:
+			return {...state, isDropdownActive: false};
+		case actionTypes.OPEN_DROPDOWN:
+			return {...state, isDropdownActive: true, preventNextAppClick:true};
+		case actionTypes.SET_TOOL_SIZE:
+			return {...state, toolSize: action.toolSize};
+		case actionTypes.APP_CLICK:
+			if(state.preventNextAppClick){
+				return {...state, preventNextAppClick: false};
+			}
+			return {...state, preventNextAppClick: false, isDropdownActive: false};
 	}
 	return state;
 };
