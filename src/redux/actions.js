@@ -1,6 +1,6 @@
 import * as actionTypes from './action-types';
 
-import {isFromRange, isInteger, isNumber} from './validators';
+import {isFromRange, isInteger, isNumber, isRGBColor} from './validators';
 
 export const setTab = (tabName) => ({ 
 	type: actionTypes.SET_TAB, data: tabName
@@ -52,4 +52,10 @@ export const setToolSize = (toolSize) => {
 
 export const appClick = () => {
 	return {type: actionTypes.APP_CLICK};
+}
+
+export const setSelectedMainColor = (newColor) => {
+	console.log(newColor)
+	isRGBColor(newColor);
+	return {type: actionTypes.SET_SELECTED_MAIN_COLOR, newColor};
 }

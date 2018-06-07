@@ -22,3 +22,17 @@ export function isFromRange(input, from, to){
 		throw new Error('Input is too big');
 	}
 }
+
+export function isString(input){
+	if(typeof input != 'string'){
+		throw new Error('Input must be string');
+	}
+}
+
+export function isRGBColor(input){
+	isString(input);
+	const regex = /rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/;
+	if(regex.exec(input) == null){
+		throw new Error('Input must be rgb color');
+	}
+}

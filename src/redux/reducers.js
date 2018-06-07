@@ -139,6 +139,12 @@ const rootReducer = (state = initialState, action) => {
 				return {...state, preventNextAppClick: false};
 			}
 			return {...state, preventNextAppClick: false, isDropdownActive: false};
+		case actionTypes.SET_SELECTED_MAIN_COLOR:
+			if(state.colors.selectedMainColor == 1){
+				return {...state, colors: {...state.colors, color1: action.newColor}};	
+			} else {
+				return {...state, colors: {...state.colors, color2: action.newColor}};	
+			}
 	}
 	return state;
 };

@@ -25,19 +25,19 @@ class ImageComponent extends React.Component{
 
 		return <div className="Image">
 			<div className="Image__content">
-				<div class="Image__leftColumn">
-					<div class="Image__selectionIcon">
+				<div className="Image__leftColumn">
+					<div className="Image__selectionIcon">
 						<img src={require('../../../../../assets/icons/main-tools-tab/2_image/1.png')} alt=""/>
 					</div>
 
-					<div class="Image__expandSelectionButton">
+					<div className="Image__expandSelectionButton">
 						Zaznacz
 						<br/>
 						<img src={arrow_down} alt=""/>
 					</div>
 				</div>
 
-				<ul class="Image__rightColumn">
+				<ul className="Image__rightColumn">
 					<li>
 						<img src={require('../../../../../assets/icons/main-tools-tab/2_image/2.png')} alt=""/> Przytnij
 					</li>
