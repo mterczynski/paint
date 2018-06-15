@@ -1,6 +1,6 @@
 import * as actionTypes from './action-types';
 
-import {isFromRange, isInteger, isNumber, isRGBColor} from './validators';
+import {isFromRange, isInteger, isRGBColor, isDropdown} from './validators';
 
 export const setTab = (tabName) => ({ 
 	type: actionTypes.SET_TAB, data: tabName
@@ -36,12 +36,9 @@ export const selectTool = (toolId) => {
 	return {type: actionTypes.SELECT_TOOL, toolId};
 }
 
-export const openDropdown = () => {
-	return {type: actionTypes.OPEN_DROPDOWN};
-}
-
-export const closeDropdown = () => {
-	return {type: actionTypes.CLOSE_DROPDOWN};
+export const setDropdown = (dropdown) =>{
+	isDropdown(dropdown);
+	return {type: actionTypes.SET_DROPDOWN, dropdown};
 }
 
 export const setToolSize = (toolSize) => {
@@ -55,7 +52,6 @@ export const appClick = () => {
 }
 
 export const setSelectedMainColor = (newColor) => {
-	console.log(newColor)
 	isRGBColor(newColor);
 	return {type: actionTypes.SET_SELECTED_MAIN_COLOR, newColor};
 }

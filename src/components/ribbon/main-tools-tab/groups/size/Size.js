@@ -3,13 +3,13 @@ import store from '../../../../../redux/store';
 import * as actions from '../../../../../redux/actions';
 import { connect } from "react-redux";
 import Dropdown from '../../../../../componentWrappers/dropdown';
+import { dropdowns } from '../../../../../redux/enums/dropdowns';
 
 require('./Size.scss');
 
 const mapStateToProps = (state) => {
 	return { 
-		isBrushActive: state.isBrushActive,
-		isDropdownActive: state.isDropdownActive
+		isBrushActive: state.isBrushActive
 	};
 };
   
@@ -17,17 +17,20 @@ class SizeComponent extends React.Component{
 
 	constructor(props) {
 		super(props)
+		this.state = {
+			isDropdownActive: false
+		}
 
 		this.openDropdown = this.openDropdown.bind(this);
 	}
 
 	setToolSize(toolSize){
 		store.dispatch(actions.setToolSize(toolSize));
-		store.dispatch(actions.closeDropdown());
+		store.dispatch(actions.setDropdown(dropdowns.none)); // optional ? - todo check
 	}
 
 	openDropdown(){
-		store.dispatch(actions.openDropdown());
+		store.dispatch(actions.setDropdown(dropdowns.size));
 	}
 
 	render(){
@@ -42,7 +45,7 @@ class SizeComponent extends React.Component{
 				src={require('../../../../../assets/icons/arrow_down.png')} alt=""/>
 			</div>
 
-			<Dropdown>
+			<Dropdown provider={dropdowns.size}>
 				<ul className="Size__list">
 					<li className="Size__li" onClick={()=>this.setToolSize(1)}>Size 1px</li>
 					<li className="Size__li" onClick={()=>this.setToolSize(2)}>Size 2px</li>

@@ -1,26 +1,33 @@
 import React from 'react';
 import { connect } from "react-redux";
-import store from '../redux/store';
-import * as actions from '../redux/actions';
 
 const mapStateToProps = (state) => {
 	return { 
-		isDropdownActive: state.isDropdownActive
+		openedDropdown: state.openedDropdown,
 	};
 };
 
 require('./dropdown.scss');
 
 export class UnmappedDropdown extends React.Component{
+	constructor(props){
+		super(props);
+	}
+
 	render(){
-		if(!this.props.isDropdownActive){
+		if(this.props.openedDropdown !== this.props.provider){
 			return null;
 		}
+
+		if(this.props.disabled){
+			return null;
+		}
+
 		return <div className="Dropdown">
 			<div className="Dropdown__content">
 				{this.props.children}
 			</div>
-		</div>	
+		</div>		
 	}
 }
 

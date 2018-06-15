@@ -1,3 +1,5 @@
+import {dropdowns} from '../redux/enums/dropdowns';
+
 export function isNumber(input){
 	if(typeof input != 'number'){
 		throw new Error('Input must be number');
@@ -34,5 +36,13 @@ export function isRGBColor(input){
 	const regex = /rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/;
 	if(regex.exec(input) == null){
 		throw new Error('Input must be rgb color');
+	}
+}
+
+export function isDropdown(input){
+	if(dropdowns[input] !== input){
+		console.warn('input', input)
+		console.warn('dropdowns[input]', dropdowns[input])
+		throw new Error('Selected unknown dropdown');
 	}
 }

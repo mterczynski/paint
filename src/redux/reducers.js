@@ -1,9 +1,7 @@
 import * as actionTypes from './action-types';
 
-const tabs = {
-	tools: 'tools',
-	view: 'view'
-}
+import {dropdowns} from './enums/dropdowns';
+import {tabs} from './enums/tabs';
 
 const initialState = {
 
@@ -13,7 +11,7 @@ const initialState = {
 
 	currentTab: tabs.tools,
 
-	isDropdownActive: false, // boolean
+	openedDropdown: dropdowns.none,
 	preventNextAppClick: false, // boolean
 	
 	zoom: 1, // from [0.125, 0.25, 0.5, 1, 2, 3, 4, 5, 6, 7, 8]
@@ -128,23 +126,22 @@ const rootReducer = (state = initialState, action) => {
 			return {...state, selectedTool: action.toolId};
 		case actionTypes.SELECT_MAIN_COLOR:
 			return {...state, colors: {...state.colors, selectedMainColor: action.colorId}};
-		case actionTypes.CLOSE_DROPDOWN:
-			return {...state, isDropdownActive: false};
-		case actionTypes.OPEN_DROPDOWN:
-			return {...state, isDropdownActive: true, preventNextAppClick:true};
 		case actionTypes.SET_TOOL_SIZE:
 			return {...state, toolSize: action.toolSize};
 		case actionTypes.APP_CLICK:
 			if(state.preventNextAppClick){
 				return {...state, preventNextAppClick: false};
 			}
-			return {...state, preventNextAppClick: false, isDropdownActive: false};
+			return {...state, preventNextAppClick: false, openedDropdown: dropdowns.none};
 		case actionTypes.SET_SELECTED_MAIN_COLOR:
 			if(state.colors.selectedMainColor == 1){
 				return {...state, colors: {...state.colors, color1: action.newColor}};	
 			} else {
 				return {...state, colors: {...state.colors, color2: action.newColor}};	
 			}
+
+		case actionTypes.SET_DROPDOWN:
+			return {...state, openedDropdown: action.dropdown, preventNextAppClick:true};
 	}
 	return state;
 };
