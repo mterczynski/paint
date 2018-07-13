@@ -1,9 +1,7 @@
 import React from 'react';
-// import store from '../../redux/store';
-// import * as actions from '../../redux/actions';
 import { connect } from "react-redux";
 
-require('./BottomBar.css');
+require('./BottomBar.scss');
 
 const srcs = {
 	axis: require('../../assets/icons/bottom-bar/axis.png'),

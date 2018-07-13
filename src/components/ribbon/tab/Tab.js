@@ -1,23 +1,13 @@
 import React from 'react';
-import store from '../../../redux/store';
-import * as actions from '../../../redux/actions';
 import { connect } from "react-redux";
 
-require('./Tab.css');
+require('./Tab.scss');
 
 const mapStateToProps = (state) => {
 	return { currentTab: state.currentTab };
 };
   
 class TabComponent extends React.Component{
-
-	constructor(props) {
-		super(props)
-		this.state = {
-			
-		}
-	}
-
 	render(){
 		return <div className="Tab">
 			{this.props.children}

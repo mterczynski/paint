@@ -12,7 +12,7 @@ import Ribbon from './components/ribbon/Ribbon';
 import CanvasArea from './components/canvas-area/CanvasArea';
 import BottomBar from './components/bottom-bar/BottomBar';
 
-require('./App.css');
+require('./App.scss');
 
 const mapStateToProps = (state) => {
 	return { 
