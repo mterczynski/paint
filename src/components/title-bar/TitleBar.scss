@@ -35,5 +35,16 @@
 			top: 50%;
 			transform: translate(-50%, -50%);
 		}
+
+		&__minimizeTile{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&__minimize{
+			width: 10px;
+			border-bottom: 1px solid black;
+		}
 	}
 }

@@ -25,9 +25,8 @@ class TitleBarComponent extends React.Component{
 	render(){
 		return <div className="TitleBar">
 			<div className="TitleBar__window-icons">
-				<div className="TitleBar__window-icons__icon">
-					<img draggable="false" src={require('./../../assets/icons/top/minimize.png')}
-					className="TitleBar__window-icons__icon__image"/>
+				<div className="TitleBar__window-icons__icon TitleBar__window-icons__icon__minimizeTile">
+					<div className="TitleBar__window-icons__icon__minimize"></div>
 				</div>
 
 				<div className="TitleBar__window-icons__icon" onClick={this.maximizeWindow}>
