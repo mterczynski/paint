@@ -66,6 +66,23 @@ const initialState = {
 	// 6_size:
 	toolSize: 3, // from 1-4
 
+	// todo:
+
+	// toolSizes:{
+	// 	pencil: 3, // from 1-4
+	// 	rubber: 3, // from 1-4
+	// 	brushes: {
+	// 		_1,
+	// 		_2_and_3,
+	// 		_4,
+	// 		_5,
+	// 		_6,
+	// 		_7,
+	// 		_8,
+	// 		_9
+	// 	}
+	// }
+
 	// 7_colors:
 	colors: {
 		color1: 'black', // css color
