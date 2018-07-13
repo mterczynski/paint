@@ -1,6 +1,6 @@
 import React from 'react';
-import store from '../../redux/store';
-import * as actions from '../../redux/actions';
+// import store from '../../redux/store';
+// import * as actions from '../../redux/actions';
 import { connect } from "react-redux";
 
 require('./BottomBar.css');
@@ -12,12 +12,12 @@ const mapStateToProps = (state) => {
   
 class BottomBarComponent extends React.Component{
 
-	constructor(props) {
-		super(props)
-		this.state = {
+	// constructor(props) {
+	// 	super(props)
+	// 	this.state = {
 			
-		}
-	}
+	// 	}
+	// }
 
 	render(){
 		if(this.props.isBottomBarVisible){
