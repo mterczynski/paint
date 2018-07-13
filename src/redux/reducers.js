@@ -126,8 +126,8 @@ const initialState = {
 		dpi: 96,
 		unit: 'px', // or 'inch' or 'cm'
 		colorMode: true, // boolean
-		width: 1152, // always in px
-		height: 648 // always in px
+		width: 500, // always in px
+		height: 500 // always in px
 	}
 }
 

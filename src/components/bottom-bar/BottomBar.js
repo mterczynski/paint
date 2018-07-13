@@ -5,34 +5,68 @@ import { connect } from "react-redux";
 
 require('./BottomBar.css');
 
+const srcs = {
+	axis: require('../../assets/icons/bottom-bar/axis.png'),
+	floppy: require('../../assets/icons/bottom-bar/floppy.png'),
+	image_size: require('../../assets/icons/bottom-bar/image_size.png'),
+	minus: require('../../assets/icons/bottom-bar/minus.png'),
+	minus_hover: require('../../assets/icons/bottom-bar/minus_hover.png'),
+	minus_pressed: require('../../assets/icons/bottom-bar/minus_pressed.png'),
+	plus: require('../../assets/icons/bottom-bar/plus.png'),
+	plus_hover: require('../../assets/icons/bottom-bar/plus_hover.png'),
+	plus_pressed: require('../../assets/icons/bottom-bar/plus_pressed.png'),
+	selection: require('../../assets/icons/bottom-bar/selection.png'),
+	slider: require('../../assets/icons/bottom-bar/slider.png'),
+	dots: require('../../assets/icons/bottom-bar/dots.png'),
+}
+
 const mapStateToProps = (state) => {
-	return { currentTab: state.currentTab,
-	isBottomBarVisible: state.isBottomBarVisible };
+	return { 
+		isBottomBarVisible: state.isBottomBarVisible,
+		image: {
+			width: state.imageSettings.width,
+			height: state.imageSettings.height,
+		},
+	};
 };
   
 class BottomBarComponent extends React.Component{
-
-	// constructor(props) {
-	// 	super(props)
-	// 	this.state = {
-			
-	// 	}
-	// }
-
 	render(){
-		if(this.props.isBottomBarVisible){
-			return <div className="BottomBar">
-				<div className="BottomBar__col BottomBar__col--small"></div>
-				<div className="BottomBar__col BottomBar__col--small"></div>
-				<div className="BottomBar__col BottomBar__col--small">3 x  5piks.</div>
-				<div className="BottomBar__col BottomBar__col--small"></div>
-				<div className="BottomBar__col BottomBar__col--stretched"></div>
-				<div className="BottomBar__col BottomBar__col--small"> 100% - suwak +</div>
-			</div>
-		} else {
-			return <div style={{display:'none', position:'absolute'}}></div>
+		if(!this.props.isBottomBarVisible){
+			return null;
 		}
-		
+		return <div className="BottomBar">
+			<div className="BottomBar__col BottomBar__col--small">
+				<img className="BottomBar__iconImage" draggable="false" 
+				src={srcs.axis} alt=""/>
+			</div>
+			<div className="BottomBar__col BottomBar__col--small">
+				<img className="BottomBar__iconImage" draggable="false" 
+				src={srcs.selection} alt=""/>
+			</div>
+			<div className="BottomBar__col BottomBar__col--small">
+				<img className="BottomBar__iconImage" draggable="false" 
+				src={srcs.image_size} alt="" style={{marginRight: '6px'}}/>
+				{this.props.image.width} &times; {this.props.image.height}piks.
+			</div>
+			<div className="BottomBar__col BottomBar__col--small"></div>
+			<div className="BottomBar__col BottomBar__col--stretched"></div>
+			<div className="BottomBar__col BottomBar__col--medium"> 
+				<span className="BottomBar__zoom-indicator">100%</span>
+				<img className="BottomBar__iconImage--size16" draggable="false" 
+				src={srcs.minus} alt=""/>
+
+				<div className="BottomBar__slider">
+					<div className="BottomBar__slider-background"></div>
+					<img draggable="false" src={srcs.slider} alt=""
+					className="BottomBar__slider-image"/>
+				</div>
+
+				<img className="BottomBar__iconImage--size16" draggable="false" src={srcs.plus} alt=""/>
+
+				<img className="BottomBar__iconImage--dots" draggable="false" src={srcs.dots} alt=""/>
+			</div>
+		</div>	
 	}
 }
 
