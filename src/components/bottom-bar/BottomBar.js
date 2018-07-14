@@ -39,11 +39,11 @@ class BottomBarComponent extends React.Component{
 				src={srcs.axis} alt=""/>
 			</div>
 			<div className="BottomBar__col BottomBar__col--small">
-				<img className="BottomBar__iconImage" draggable="false" 
+				<img className="BottomBar__iconImage--top1" draggable="false" 
 				src={srcs.selection} alt=""/>
 			</div>
 			<div className="BottomBar__col BottomBar__col--small">
-				<img className="BottomBar__iconImage" draggable="false" 
+				<img className="BottomBar__iconImage--top1" draggable="false" 
 				src={srcs.image_size} alt="" style={{marginRight: '6px'}}/>
 				{this.props.image.width} &times; {this.props.image.height}piks.
 			</div>
@@ -51,8 +51,9 @@ class BottomBarComponent extends React.Component{
 			<div className="BottomBar__col BottomBar__col--stretched"></div>
 			<div className="BottomBar__col BottomBar__col--medium"> 
 				<span className="BottomBar__zoom-indicator">100%</span>
-				<img className="BottomBar__iconImage--size16" draggable="false" 
-				src={srcs.minus} alt=""/>
+				
+				
+				<div className="BottomBar__minus"></div>
 
 				<div className="BottomBar__slider">
 					<div className="BottomBar__slider-background"></div>
@@ -60,7 +61,7 @@ class BottomBarComponent extends React.Component{
 					className="BottomBar__slider-image"/>
 				</div>
 
-				<img className="BottomBar__iconImage--size16" draggable="false" src={srcs.plus} alt=""/>
+				<div className="BottomBar__plus"></div>
 
 				<img className="BottomBar__iconImage--dots" draggable="false" src={srcs.dots} alt=""/>
 			</div>
