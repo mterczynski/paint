@@ -8,53 +8,53 @@ import { dropdowns } from '../../../../../redux/enums/dropdowns';
 require('./Image.scss');
 
 const mapStateToProps = (state) => {
-	return { 
+	return {
 		isBrushActive: state.isBrushActive
 	};
 };
-  
-class ImageComponent extends React.Component{
+
+class ImageComponent extends React.Component {
 
 	constructor(props) {
 		super(props)
 	}
 
-	openDropdown(dropdown){
+	openDropdown(dropdown) {
 		store.dispatch(actions.setDropdown(dropdown));
 	}
 
-	render(){
+	render() {
 		const arrow_down = require('../../../../../assets/icons/arrow_down.png');
-		console.log('Image render');
 
 		return <div className="Image">
 			<div className="Image__content">
 				<div className="Image__leftColumn">
 					<div className="Image__selectionIcon">
-						<img src={require('../../../../../assets/icons/main-tools-tab/2_image/1.png')} alt=""/>
+						<img src={require('../../../../../assets/icons/main-tools-tab/2_image/1.png')} alt="" />
 					</div>
 
-					<div className="Image__expandSelectionButton" 
-					onClick={()=>{
-						this.openDropdown(dropdowns.selection)
-					}}>
+					<div
+						className="Image__expandSelectionButton"
+						onClick={() => {
+							this.openDropdown(dropdowns.selection)
+						}}>
 						Zaznacz
-						<br/>
-						<img src={arrow_down} alt=""/>
+						<br />
+						<img src={arrow_down} alt="" />
 					</div>
 				</div>
 
 				<ul className="Image__rightColumn">
 					<li>
-						<img src={require('../../../../../assets/icons/main-tools-tab/2_image/2.png')} alt=""/> Przytnij
+						<img src={require('../../../../../assets/icons/main-tools-tab/2_image/2.png')} alt="" /> Przytnij
 					</li>
 
 					<li>
-						<img src={require('../../../../../assets/icons/main-tools-tab/2_image/3.png')} alt=""/> Zmień rozmiar
+						<img src={require('../../../../../assets/icons/main-tools-tab/2_image/3.png')} alt="" /> Zmień rozmiar
 					</li>
 
 					<li>
-						<img src={require('../../../../../assets/icons/main-tools-tab/2_image/4.png')} alt=""/> Obróć <img className="Image__rotateLi-arrowDown" src={arrow_down} alt=""/>
+						<img src={require('../../../../../assets/icons/main-tools-tab/2_image/4.png')} alt="" /> Obróć <img className="Image__rotateLi-arrowDown" src={arrow_down} alt="" />
 					</li>
 				</ul>
 			</div>
@@ -71,7 +71,7 @@ class ImageComponent extends React.Component{
 			<div className="Image__description">
 				Obraz
 			</div>
-		</div>		
+		</div>
 	}
 }
 
