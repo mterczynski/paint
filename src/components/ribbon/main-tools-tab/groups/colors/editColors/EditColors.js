@@ -6,12 +6,12 @@ import { connect } from "react-redux";
 require('./EditColors.scss');
 
 const mapStateToProps = (state) => {
-	return { 
+	return {
 		isBrushActive: state.isBrushActive
 	};
 };
-  
-class EditColorsComponent extends React.Component{
+
+class EditColorsComponent extends React.Component {
 
 	basicColors = [
 		'rgb(255,128,128)',
@@ -76,9 +76,8 @@ class EditColorsComponent extends React.Component{
 		}
 	}
 
-	render(){
-		return <div className="EditColors">
-		</div>		
+	render() {
+		return <div className="EditColors"></div>
 	}
 }
 

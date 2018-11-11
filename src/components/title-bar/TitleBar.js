@@ -8,8 +8,8 @@ require('./TitleBar.scss');
 const mapStateToProps = (state) => {
 	return { currentTab: state.currentTab };
 };
-  
-class TitleBarComponent extends React.Component{
+
+class TitleBarComponent extends React.Component {
 
 	constructor(props) {
 		super(props)
@@ -17,12 +17,11 @@ class TitleBarComponent extends React.Component{
 		this.maximizeWindow = this.maximizeWindow.bind(this);
 	}
 
-	maximizeWindow(){
+	maximizeWindow() {
 		store.dispatch(actions.maximize());
-		console.log(store.getState());
 	}
 
-	render(){
+	render() {
 		return <div className="TitleBar">
 			<div className="TitleBar__window-icons">
 				<div className="TitleBar__window-icons__icon TitleBar__window-icons__icon__minimizeTile">
@@ -31,12 +30,12 @@ class TitleBarComponent extends React.Component{
 
 				<div className="TitleBar__window-icons__icon" onClick={this.maximizeWindow}>
 					<img draggable="false" src={require('./../../assets/icons/top/maximize.png')}
-					className="TitleBar__window-icons__icon__image"/>
+						className="TitleBar__window-icons__icon__image" />
 				</div>
 
 				<div className="TitleBar__window-icons__icon TitleBar__window-icons__icon--close">
 					<img draggable="false" src={require('./../../assets/icons/top/close.png')}
-					className="TitleBar__window-icons__icon__image"/>
+						className="TitleBar__window-icons__icon__image" />
 				</div>
 			</div>
 		</div>

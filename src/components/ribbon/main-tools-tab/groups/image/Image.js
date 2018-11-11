@@ -19,28 +19,28 @@ class ImageComponent extends React.Component {
 		super(props)
 	}
 
-	openDropdown(dropdown) {
-		store.dispatch(actions.setDropdown(dropdown));
+	openDropdown() {
+		store.dispatch(actions.setDropdown(dropdowns.selection));
 	}
 
 	render() {
-		const arrow_down = require('../../../../../assets/icons/arrow_down.png');
+		const arrowDownImage = require('../../../../../assets/icons/arrow_down.png');
+		const selectionFieldImage = require('../../../../../assets/icons/main-tools-tab/2_image/1.png');
 
 		return <div className="Image">
 			<div className="Image__content">
 				<div className="Image__leftColumn">
 					<div className="Image__selectionIcon">
-						<img src={require('../../../../../assets/icons/main-tools-tab/2_image/1.png')} alt="" />
+						<img src={selectionFieldImage} alt="" />
 					</div>
 
 					<div
 						className="Image__expandSelectionButton"
-						onClick={() => {
-							this.openDropdown(dropdowns.selection)
-						}}>
+						onClick={this.openDropdown}
+					>
 						Zaznacz
 						<br />
-						<img src={arrow_down} alt="" />
+						<img src={arrowDownImage} alt="" />
 					</div>
 				</div>
 
@@ -54,7 +54,12 @@ class ImageComponent extends React.Component {
 					</li>
 
 					<li>
-						<img src={require('../../../../../assets/icons/main-tools-tab/2_image/4.png')} alt="" /> Obróć <img className="Image__rotateLi-arrowDown" src={arrow_down} alt="" />
+						<img src={require('../../../../../assets/icons/main-tools-tab/2_image/4.png')} alt="" /> Obróć
+						<img
+							className="Image__rotateLi-arrowDown"
+							src={arrowDownImage}
+							alt=""
+						/>
 					</li>
 				</ul>
 			</div>
