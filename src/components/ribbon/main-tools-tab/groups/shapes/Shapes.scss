@@ -1,8 +1,8 @@
-.Shapes{
+.Shapes {
 	font-size: 11px;
 }
 
-.Shapes__content{
+.Shapes__content {
 	display: flex;
 	height: 60px;
 	margin-left: 5px;
@@ -14,13 +14,13 @@
 	width: 260px;
 }
 
-.Shapes__shapeList{
+.Shapes__shapeList {
 	border: 1px solid rgb(220, 220, 221);
 	box-sizing: border-box;
 	width: 157px;
 	height: 60px;
 
-	&Content{
+	&Content {
 		width: 141px;
 		height: 58px;
 		background: rgb(250, 251, 252);
@@ -30,7 +30,7 @@
 	}
 }
 
-.Shapes__shape{
+.Shapes__shape {
 	box-sizing: border-box;
 	width: 20px;
 	height: 20px;
@@ -41,36 +41,36 @@
 	// left: -1px;
 	// top: -1px;
 
-	&:hover{
+	&:hover {
 		background: rgb(239, 246, 254);
 		border: 1px solid rgb(170, 211, 254);
 	}
 }
 
-.Shapes__description{
+.Shapes__description {
 	position: absolute;
 	bottom: 3px;
 	width: 100%;
 	text-align: center;
 }
 
-.Shapes__options{
+.Shapes__options {
 	margin-left: 3px;
 }
 
-.Shapes__option{
+.Shapes__option {
 	text-align: left;
 	padding: 2px;
 	height: 22px;
 	box-sizing: border-box;
 	border: 1px solid transparent;
 
-	&:hover{
+	&:hover {
 		background: rgb(239, 246, 254);
 		border: 1px solid rgb(170, 211, 254);
 	}
 
-	&:active{
+	&:active {
 		background: rgb(201, 224, 247);
 		border: 1px solid rgb(98, 162, 228);
 	}

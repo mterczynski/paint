@@ -1,4 +1,4 @@
-.Image__content{
+.Image__content {
 	border: 1px solid transparent;
 	box-sizing: border-box;
 	display: flex;
@@ -12,7 +12,7 @@
 	width: 153px;
 }
 
-.Image__description{
+.Image__description {
 	font-size: 11px;
 	position: absolute;
 	bottom: 3px;
@@ -20,22 +20,22 @@
 	width: 100%;
 }
 
-.Image__leftColumn{
+.Image__leftColumn {
 	flex-shrink: 0;
-	position: relative;	
+	position: relative;
 	box-sizing: border-box;
 	border: 1px solid transparent;
 	width: 45px;
 }
 
-.Image__selectionIcon{
+.Image__selectionIcon {
 	position: relative;
 	box-sizing: border-box;
 	border: 1px solid transparent;
 	// border: 1px solid rgb(0, 130, 248);
 	height: 38px;
 
-	>img{
+	> img {
 		display: block;
 		position: absolute;
 		left: 50%;
@@ -43,13 +43,13 @@
 		transform: translate(-50%, -50%);
 	}
 
-	&:hover{
+	&:hover {
 		background: rgb(232, 239, 247);
 		border: 1px solid rgb(164, 206, 249);
 	}
 }
 
-.Image__expandSelectionButton{
+.Image__expandSelectionButton {
 	position: relative;
 	box-sizing: border-box;
 	top: -1px;
@@ -58,17 +58,17 @@
 	border: 1px solid transparent;
 	height: 29px;
 
-	&:hover{
+	&:hover {
 		background: rgb(232, 239, 247);
 		border: 1px solid rgb(164, 206, 249);
 	}
 }
 
-.Image__rightColumn{
+.Image__rightColumn {
 	width: 100%;
 	list-style: none;
 
-	>li{
+	> li {
 		box-sizing: border-box;
 		height: 22px;
 		text-align: left;
@@ -76,19 +76,19 @@
 		padding: 3px;
 		width: fit-content;
 
-		&:hover{
+		&:hover {
 			background: rgb(232, 239, 247);
 			border: 1px solid rgb(164, 206, 249);
 		}
 
-		&:active{
+		&:active {
 			background: rgb(201, 224, 247);
 			border: 1px solid rgb(98, 162, 228);
 		}
 	}
 }
 
-.Image__rotateLi-arrowDown{
+.Image__rotateLi-arrowDown {
 	position: relative;
 	bottom: 3px;
 }

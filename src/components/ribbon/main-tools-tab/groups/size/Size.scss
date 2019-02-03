@@ -1,4 +1,4 @@
-.Size__content{
+.Size__content {
 	border: 1px solid transparent;
 	box-sizing: border-box;
 	font-size: 11px;
@@ -11,34 +11,34 @@
 	text-align: center;
 	width: 46px;
 
-	&:hover{
+	&:hover {
 		background: rgb(232, 239, 247);
 		border: 1px solid rgb(164, 206, 249);
 	}
 }
 
-.Size__mainIcon{
+.Size__mainIcon {
 	height: 27px;
 	margin-bottom: 4px;
 	position: relative;
 	width: 32px;
 }
 
-.Size__arrowDown{
+.Size__arrowDown {
 	bottom: 6px;
 	left: 50%;
 	position: absolute;
 	transform: translateX(-50%);
 }
 
-.Size__list{
+.Size__list {
 	list-style: none;
 	width: 100px;
 }
 
-.Size__li{
+.Size__li {
 	display: block;
-	&:hover{
+	&:hover {
 		background: darkturquoise;
 	}
 }

@@ -1,4 +1,4 @@
-.Paint3d__content{
+.Paint3d__content {
 	border: 1px solid transparent;
 	box-sizing: border-box;
 	font-size: 11px;
@@ -11,19 +11,19 @@
 	text-align: center;
 	width: 91px;
 
-	&:hover{
+	&:hover {
 		background: rgb(232, 239, 247);
 		border: 1px solid rgb(164, 206, 249);
 	}
 }
 
-.Paint3d__mainIcon{
+.Paint3d__mainIcon {
 	height: 30px;
 	position: relative;
 	width: 30px;
 }
 
-.Paint3d__description{
+.Paint3d__description {
 	line-height: 11px;
 	position: relative;
 	top: 1px;

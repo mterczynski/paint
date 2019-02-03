@@ -1,44 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import store from './redux/store';
-import * as actions from './redux/actions';
-import { connect } from "react-redux";
-import { Provider } from "react-redux";
-
-// components:
-
-import TitleBar from './components/title-bar/TitleBar';
-import Ribbon from './components/ribbon/Ribbon';
-import CanvasArea from './components/canvas-area/CanvasArea';
+import { connect, Provider } from 'react-redux';
 import BottomBar from './components/bottom-bar/BottomBar';
+import CanvasArea from './components/canvas-area/CanvasArea';
+import Ribbon from './components/ribbon/Ribbon';
+// components:
+import TitleBar from './components/title-bar/TitleBar';
+import * as actions from './redux/actions';
+import store from './redux/store';
 
 require('./App.scss');
 
-const mapStateToProps = (state) => {
-	return { 
+const mapStateToProps = state => {
+	return {
 		isDropdownActive: state.isDropdownActive
 	};
 };
 
-class UnconnectedApp extends React.Component{
-	constructor(props){
+class UnconnectedApp extends React.Component {
+	constructor(props) {
 		super(props);
 		this.onClick = this.onClick.bind(this);
 	}
 
-	onClick(e){
+	onClick(e) {
 		store.dispatch(actions.appClick());
 	}
 
-	render(){
-		return <Provider store={store}>       
-			<div className="App" onClick={this.onClick}>
-				<TitleBar/>
-				<Ribbon/>
-				<CanvasArea/>
-				<BottomBar/>
-			</div>
-		</Provider>
+	render() {
+		return (
+			<Provider store={store}>
+				<div className="App" onClick={this.onClick}>
+					<TitleBar />
+					<Ribbon />
+					<CanvasArea />
+					<BottomBar />
+				</div>
+			</Provider>
+		);
 	}
 }
 
@@ -46,7 +45,9 @@ const App = connect(mapStateToProps)(UnconnectedApp);
 
 export default App;
 
-ReactDOM.render(<Provider store={store}> 
-	<App/>
- </Provider>, document.getElementById('root'));
- 
+ReactDOM.render(
+	<Provider store={store}>
+		<App />
+	</Provider>,
+	document.getElementById('root')
+);

@@ -1,4 +1,4 @@
-.BottomBar{
+.BottomBar {
 	display: flex;
 	background: rgb(240, 240, 240);
 	position: absolute;
@@ -11,7 +11,7 @@
 	font-size: 12px;
 }
 
-.BottomBar__col{
+.BottomBar__col {
 	position: relative;
 	border-right: 1px solid gray;
 	height: 100%;
@@ -21,64 +21,64 @@
 	box-sizing: border-box;
 }
 
-.BottomBar__col:last-child{
+.BottomBar__col:last-child {
 	border: none;
 }
 
-.BottomBar__iconImage--size16{
+.BottomBar__iconImage--size16 {
 	height: 16px;
 	width: 16px;
 }
 
-.BottomBar__iconImage--top1{
+.BottomBar__iconImage--top1 {
 	position: relative;
 	top: 1px;
 }
 
-.BottomBar__col--small{
+.BottomBar__col--small {
 	width: 155px;
 	flex-shrink: 0;
 }
 
-.BottomBar__col--medium{
+.BottomBar__col--medium {
 	width: 217px;
 	flex-shrink: 0;
 	display: flex;
 	align-items: center;
 }
 
-.BottomBar__col--medium>*{
+.BottomBar__col--medium > * {
 	margin-left: 10px;
 	flex-shrink: 0;
-	/* todo: change - every element should have 
+	/* todo: change - every element should have
 	different margin-left value  */
 }
 
-.BottomBar__col--stretched{
+.BottomBar__col--stretched {
 	width: 100%;
 }
 
-.BottomBar__slider{
+.BottomBar__slider {
 	position: relative;
 	display: inline-block;
 	width: 85px;
 	height: 100%;
 }
 
-.BottomBar__slider-image{
+.BottomBar__slider-image {
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
 }
 
-.BottomBar__slider-image:hover{
+.BottomBar__slider-image:hover {
 	filter: brightness(0);
 }
 
-.BottomBar__slider-background{
+.BottomBar__slider-background {
 	position: absolute;
-	left:0;
+	left: 0;
 	top: 50%;
 	transform: translateY(-50%);
 	border: 1px solid rgb(214, 214, 214);
@@ -88,36 +88,35 @@
 	height: 4px;
 }
 
-.BottomBar__zoom-indicator{
+.BottomBar__zoom-indicator {
 	height: 100%;
 }
 
-
-.BottomBar__plus{
+.BottomBar__plus {
 	height: 16px;
 	width: 16px;
 	background: url(../../assets/icons/bottom-bar/plus.png);
-	&:hover{
+	&:hover {
 		background: url(../../assets/icons/bottom-bar/plus_hover.png);
 	}
-	&:active{
+	&:active {
 		background: url(../../assets/icons/bottom-bar/plus_pressed.png);
 	}
 }
 
-.BottomBar__minus{
+.BottomBar__minus {
 	height: 16px;
 	width: 16px;
 	background: url(../../assets/icons/bottom-bar/minus.png);
-	&:hover{
+	&:hover {
 		background: url(../../assets/icons/bottom-bar/minus_hover.png);
 	}
-	&:active{
+	&:active {
 		background: url(../../assets/icons/bottom-bar/minus_pressed.png);
 	}
 }
 
-.BottomBar__iconImage--dots{
+.BottomBar__iconImage--dots {
 	height: 8px;
 	width: 8px;
 	position: absolute;

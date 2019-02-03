@@ -1,15 +1,15 @@
-.Tools{
+.Tools {
 	padding-top: 5px;
 }
 
-.Tools__iconRow{
+.Tools__iconRow {
 	display: flex;
 	margin-left: 4px;
 	margin-right: 6px;
 	margin-top: 7px;
 }
 
-.Tools__description{
+.Tools__description {
 	bottom: 3px;
 	font-size: 11px;
 	position: absolute;
@@ -17,39 +17,41 @@
 	width: 100%;
 }
 
-.Tools__icon{
-	&-1, &-2, &-3{
+.Tools__icon {
+	&-1,
+	&-2,
+	&-3 {
 		border: 1px solid transparent;
 		box-sizing: border-box;
 		height: 22px;
 		position: relative;
-		&:hover{
+		&:hover {
 			background: rgb(232, 239, 247);
 			border: 1px solid rgb(164, 206, 249);
 		}
 
-		&:active{
+		&:active {
 			background: rgb(201, 224, 247);
 			border: 1px solid rgb(98, 162, 228);
 		}
 	}
 
-	&-1{
+	&-1 {
 		width: 23px;
 	}
-	&-2{
+	&-2 {
 		width: 24px;
 	}
-	&-3{
+	&-3 {
 		width: 22px;
 	}
 
-	&--active{
+	&--active {
 		background: rgb(201, 224, 247) !important;
 		border: 1px solid rgb(98, 162, 228) !important;
 	}
 
-	&Image{
+	&Image {
 		left: 50%;
 		position: absolute;
 		top: 50%;

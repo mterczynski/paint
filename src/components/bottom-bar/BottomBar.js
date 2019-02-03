@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
 require('./BottomBar.scss');
 
@@ -15,57 +15,80 @@ const srcs = {
 	plus_pressed: require('../../assets/icons/bottom-bar/plus_pressed.png'),
 	selection: require('../../assets/icons/bottom-bar/selection.png'),
 	slider: require('../../assets/icons/bottom-bar/slider.png'),
-	dots: require('../../assets/icons/bottom-bar/dots.png'),
-}
+	dots: require('../../assets/icons/bottom-bar/dots.png')
+};
 
-const mapStateToProps = (state) => {
-	return { 
+const mapStateToProps = state => {
+	return {
 		isBottomBarVisible: state.isBottomBarVisible,
 		image: {
 			width: state.imageSettings.width,
-			height: state.imageSettings.height,
-		},
+			height: state.imageSettings.height
+		}
 	};
 };
-  
-class BottomBarComponent extends React.Component{
-	render(){
-		if(!this.props.isBottomBarVisible){
+
+class BottomBarComponent extends React.Component {
+	render() {
+		if (!this.props.isBottomBarVisible) {
 			return null;
 		}
-		return <div className="BottomBar">
-			<div className="BottomBar__col BottomBar__col--small">
-				<img className="BottomBar__iconImage" draggable="false" 
-				src={srcs.axis} alt=""/>
-			</div>
-			<div className="BottomBar__col BottomBar__col--small">
-				<img className="BottomBar__iconImage--top1" draggable="false" 
-				src={srcs.selection} alt=""/>
-			</div>
-			<div className="BottomBar__col BottomBar__col--small">
-				<img className="BottomBar__iconImage--top1" draggable="false" 
-				src={srcs.image_size} alt="" style={{marginRight: '6px'}}/>
-				{this.props.image.width} &times; {this.props.image.height}piks.
-			</div>
-			<div className="BottomBar__col BottomBar__col--small"></div>
-			<div className="BottomBar__col BottomBar__col--stretched"></div>
-			<div className="BottomBar__col BottomBar__col--medium"> 
-				<span className="BottomBar__zoom-indicator">100%</span>
-				
-				
-				<div className="BottomBar__minus"></div>
-
-				<div className="BottomBar__slider">
-					<div className="BottomBar__slider-background"></div>
-					<img draggable="false" src={srcs.slider} alt=""
-					className="BottomBar__slider-image"/>
+		return (
+			<div className="BottomBar">
+				<div className="BottomBar__col BottomBar__col--small">
+					<img
+						className="BottomBar__iconImage"
+						draggable="false"
+						src={srcs.axis}
+						alt=""
+					/>
 				</div>
+				<div className="BottomBar__col BottomBar__col--small">
+					<img
+						className="BottomBar__iconImage--top1"
+						draggable="false"
+						src={srcs.selection}
+						alt=""
+					/>
+				</div>
+				<div className="BottomBar__col BottomBar__col--small">
+					<img
+						className="BottomBar__iconImage--top1"
+						draggable="false"
+						src={srcs.image_size}
+						alt=""
+						style={{ marginRight: '6px' }}
+					/>
+					{this.props.image.width} &times; {this.props.image.height}piks.
+				</div>
+				<div className="BottomBar__col BottomBar__col--small" />
+				<div className="BottomBar__col BottomBar__col--stretched" />
+				<div className="BottomBar__col BottomBar__col--medium">
+					<span className="BottomBar__zoom-indicator">100%</span>
 
-				<div className="BottomBar__plus"></div>
+					<div className="BottomBar__minus" />
 
-				<img className="BottomBar__iconImage--dots" draggable="false" src={srcs.dots} alt=""/>
+					<div className="BottomBar__slider">
+						<div className="BottomBar__slider-background" />
+						<img
+							draggable="false"
+							src={srcs.slider}
+							alt=""
+							className="BottomBar__slider-image"
+						/>
+					</div>
+
+					<div className="BottomBar__plus" />
+
+					<img
+						className="BottomBar__iconImage--dots"
+						draggable="false"
+						src={srcs.dots}
+						alt=""
+					/>
+				</div>
 			</div>
-		</div>	
+		);
 	}
 }
 

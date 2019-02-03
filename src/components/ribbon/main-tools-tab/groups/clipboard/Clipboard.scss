@@ -1,11 +1,11 @@
-.Clipboard{
+.Clipboard {
 	font-size: 11px;
 	height: 75px;
 	text-align: center;
 	width: 113px;
 }
 
-.Clipboard__content{
+.Clipboard__content {
 	font-size: 11px;
 	height: 66px;
 	margin: 5px 6px;
@@ -13,33 +13,33 @@
 	display: flex;
 }
 
-.Clipboard__description{
+.Clipboard__description {
 	text-align: center;
 }
 
-.Clipboard__arrowDown{
+.Clipboard__arrowDown {
 	position: absolute;
 	bottom: 6px;
 	left: 50%;
 	transform: translateX(-50%);
 }
 
-.Clipboard__pasteGroup{
+.Clipboard__pasteGroup {
 	box-sizing: border-box;
 	width: 42px;
 
-	&Top{
+	&Top {
 		border: 1px solid transparent;
 		box-sizing: border-box;
 		width: 100%;
 		height: 38px;
 
-		&:hover{
+		&:hover {
 			border: 1px solid rgb(147, 190, 234);
 		}
 	}
 
-	&Bottom{
+	&Bottom {
 		position: relative;
 		top: -1px;
 		border: 1px solid transparent;
@@ -48,32 +48,31 @@
 		height: 29px;
 		padding-bottom: 6px;
 
-		&:hover{
+		&:hover {
 			border: 1px solid rgb(147, 190, 234);
 		}
 	}
 }
 
-.Clipboard__pasteImage{
+.Clipboard__pasteImage {
 	width: 25px;
 	height: 31px;
 }
 
-.Clipboard__button{
+.Clipboard__button {
 	border: 1px solid transparent;
 	box-sizing: border-box;
 	width: 59px;
 	height: 22px;
 
-	&Image{
+	&Image {
 		position: relative;
 		top: 50%;
 		transform: translateY(-50%);
 	}
 
-	&:hover{
+	&:hover {
 		border: 1px solid rgb(164, 206, 249);
 		background: rgb(232, 239, 247);
 	}
 }
-

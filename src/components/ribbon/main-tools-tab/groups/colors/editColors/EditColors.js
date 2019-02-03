@@ -1,18 +1,15 @@
 import React from 'react';
-import store from '../../../../../../redux/store';
-import * as actions from '../../../../../../redux/actions';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
 require('./EditColors.scss');
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
 	return {
 		isBrushActive: state.isBrushActive
 	};
 };
 
 class EditColorsComponent extends React.Component {
-
 	basicColors = [
 		'rgb(255,128,128)',
 		'rgb(255,255,128)',
@@ -67,17 +64,17 @@ class EditColorsComponent extends React.Component {
 		'rgb(192,192,192)',
 		'rgb(64,0,64)',
 		'rgb(255,255,255)'
-	]
+	];
 
 	constructor(props) {
-		super(props)
+		super(props);
 		this.state = {
 			isListCollapsed: false
-		}
+		};
 	}
 
 	render() {
-		return <div className="EditColors"></div>
+		return <div className="EditColors" />;
 	}
 }
 

@@ -1,11 +1,11 @@
-.Brushes{
+.Brushes {
 	font-size: 11px;
 	height: 75px;
 	text-align: center;
 	width: 52px;
 }
 
-.Brushes__content{
+.Brushes__content {
 	border: 1px solid transparent;
 	box-sizing: border-box;
 	height: 64px;
@@ -14,23 +14,23 @@
 	top: 4px;
 	transform: translateX(-50%);
 	width: 42px;
-	&:hover{
+	&:hover {
 		border: 1px solid blue;
 	}
 }
 
-.Brushes__top{
+.Brushes__top {
 	height: 32px;
 	padding: 2px 0;
 	width: 100%;
 }
 
-.Brushes__mainIcon{
+.Brushes__mainIcon {
 	height: 32px;
 	width: 32px;
 }
 
-.Brushes__arrowDown{
+.Brushes__arrowDown {
 	bottom: 2px;
 	left: 50%;
 	position: absolute;

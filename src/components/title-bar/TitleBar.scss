@@ -1,4 +1,4 @@
-.TitleBar{
+.TitleBar {
 	position: relative;
 	min-width: 120px;
 	width: 100%;
@@ -7,42 +7,42 @@
 	flex-shrink: 0;
 }
 
-.TitleBar__window-icons{
+.TitleBar__window-icons {
 	position: absolute;
 	right: 0;
 	top: 0;
 	display: flex;
 	height: 100%;
-	&__icon{
+	&__icon {
 		position: relative;
 		height: 100%;
 		width: 45px;
 
-		&:hover{
+		&:hover {
 			background: rgb(229, 229, 229);
 		}
 
-		&--close:hover{
+		&--close:hover {
 			background: rgb(232, 17, 35);
-			&>.TitleBar__window-icons__icon__image{
+			& > .TitleBar__window-icons__icon__image {
 				filter: invert(100%);
 			}
 		}
 
-		&__image{
+		&__image {
 			position: absolute;
 			left: 50%;
 			top: 50%;
 			transform: translate(-50%, -50%);
 		}
 
-		&__minimizeTile{
+		&__minimizeTile {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 		}
 
-		&__minimize{
+		&__minimize {
 			width: 10px;
 			border-bottom: 1px solid black;
 		}

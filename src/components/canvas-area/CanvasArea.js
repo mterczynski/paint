@@ -1,18 +1,19 @@
 import React from 'react';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
 require('./CanvasArea.scss');
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
 	return { currentTab: state.currentTab };
 };
 
-class CanvasAreaComponent extends React.Component{
-	render(){
-		return <div className="CanvasArea">
-			<canvas className="CanvasArea__canvas" width="500" height="500">
-			</canvas>
-		</div>
+class CanvasAreaComponent extends React.Component {
+	render() {
+		return (
+			<div className="CanvasArea">
+				<canvas className="CanvasArea__canvas" width="500" height="500" />
+			</div>
+		);
 	}
 }
 

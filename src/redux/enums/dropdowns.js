@@ -1,4 +1,4 @@
-export const dropdowns = {
+export const dropdowns = Object.freeze({
 	// file window:
 	file: 'file',
 	// main tools tab:
@@ -15,4 +15,4 @@ export const dropdowns = {
 	fontSize: 'fontSize',
 	// no opened:
 	none: 'none'
-}
+});

@@ -1,7 +1,7 @@
-.ViewTab{
+.ViewTab {
 	display: block;
 
-	&__content{
+	&__content {
 		position: relative;
 		display: flex;
 		width: 100%;
@@ -11,24 +11,24 @@
 		padding-right: 6px;
 	}
 
-	&__checkboxInput{
+	&__checkboxInput {
 		position: absolute;
 		opacity: 0;
 		cursor: pointer;
 
-		&:checked ~.ViewTab__customCheckbox::after{
+		&:checked ~ .ViewTab__customCheckbox::after {
 			display: inline;
 		}
 	}
 
-	&__checkboxDesc{
+	&__checkboxDesc {
 		font-size: 11px;
 		position: relative;
 		bottom: 2px;
 		white-space: nowrap;
 	}
 
-	&__customCheckbox{
+	&__customCheckbox {
 		display: inline-block;
 		position: relative;
 		margin-right: 7px;
@@ -39,27 +39,27 @@
 		line-height: 17px;
 		border: 1px solid rgb(97, 121, 160);
 
-		&::after{
+		&::after {
 			display: none;
 			position: absolute;
 			top: -4px;
 			left: 0;
 			height: 11px;
 			width: 11px;
-			content: url('../../../assets/icons/view-tab/checked.png');
+			content: url("../../../assets/icons/view-tab/checked.png");
 			z-index: 100;
 		}
 	}
 
-	&__description{
+	&__description {
 		position: relative;
 		font-size: 11px;
-		font-weight: normal;	
-		text-align: center;	
+		font-weight: normal;
+		text-align: center;
 		margin: 0 4px;
 	}
 
-	&__figure{
+	&__figure {
 		position: relative;
 		text-align: center;
 		display: inline-block;
@@ -68,18 +68,18 @@
 		padding: 2px;
 		box-sizing: border-box;
 		min-width: 42px;
-		&:hover{
+		&:hover {
 			border: 1px solid rgb(164, 206, 249);
 			background: rgb(232, 239, 247);
 		}
 	}
 
-	&__figcaption{
+	&__figcaption {
 		font-size: 11px;
 		text-align: center;
 	}
 
-	&__group{
+	&__group {
 		display: inline-block;
 		position: relative;
 		height: 100%;
@@ -87,17 +87,17 @@
 		width: fit-content;
 	}
 
-	&__label{
+	&__label {
 		position: relative;
 		white-space: nowrap;
 
-		&:hover > .ViewTab__customCheckbox{
+		&:hover > .ViewTab__customCheckbox {
 			background: rgb(243, 249, 255);
 			border: 1px solid rgb(51, 153, 255);
 		}
 	}
 
-	&__list{
+	&__list {
 		position: absolute;
 		left: 33px;
 		top: 0;

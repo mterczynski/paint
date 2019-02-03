@@ -1,44 +1,53 @@
 import React from 'react';
-import store from '../../redux/store';
+import { connect } from 'react-redux';
 import * as actions from '../../redux/actions';
-import { connect } from "react-redux";
+import store from '../../redux/store';
 
 require('./TitleBar.scss');
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
 	return { currentTab: state.currentTab };
 };
 
 class TitleBarComponent extends React.Component {
-
 	constructor(props) {
-		super(props)
+		super(props);
 		this.state = {};
-		this.maximizeWindow = this.maximizeWindow.bind(this);
 	}
 
-	maximizeWindow() {
+	maximizeWindow = () => {
 		store.dispatch(actions.maximize());
-	}
+	};
 
 	render() {
-		return <div className="TitleBar">
-			<div className="TitleBar__window-icons">
-				<div className="TitleBar__window-icons__icon TitleBar__window-icons__icon__minimizeTile">
-					<div className="TitleBar__window-icons__icon__minimize"></div>
-				</div>
+		return (
+			<div className="TitleBar">
+				<div className="TitleBar__window-icons">
+					<div className="TitleBar__window-icons__icon TitleBar__window-icons__icon__minimizeTile">
+						<div className="TitleBar__window-icons__icon__minimize" />
+					</div>
 
-				<div className="TitleBar__window-icons__icon" onClick={this.maximizeWindow}>
-					<img draggable="false" src={require('./../../assets/icons/top/maximize.png')}
-						className="TitleBar__window-icons__icon__image" />
-				</div>
+					<div
+						className="TitleBar__window-icons__icon"
+						onClick={this.maximizeWindow}
+					>
+						<img
+							draggable="false"
+							src={require('./../../assets/icons/top/maximize.png')}
+							className="TitleBar__window-icons__icon__image"
+						/>
+					</div>
 
-				<div className="TitleBar__window-icons__icon TitleBar__window-icons__icon--close">
-					<img draggable="false" src={require('./../../assets/icons/top/close.png')}
-						className="TitleBar__window-icons__icon__image" />
+					<div className="TitleBar__window-icons__icon TitleBar__window-icons__icon--close">
+						<img
+							draggable="false"
+							src={require('./../../assets/icons/top/close.png')}
+							className="TitleBar__window-icons__icon__image"
+						/>
+					</div>
 				</div>
 			</div>
-		</div>
+		);
 	}
 }
 

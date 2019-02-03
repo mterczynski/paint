@@ -1,14 +1,3 @@
-/* things stored in localStorage:
-
-	viewTab:{
-		rulers
-		bottomBar
-		gridLines
-	},
-	isRibbonAlwaysCollapsed
-*/
-
-
 export const localStorageService = {
 	prefix: '_10D@9dF_msPaint_', // unique prefix for localstorage, could be '' on production
 
@@ -42,7 +31,9 @@ export const localStorageService = {
 				bottomBar: localStorageService.read('viewTab__bottomBar'),
 				gridLines: localStorageService.read('viewTab__gridLines')
 			},
-			isRibbonAlwaysCollapsed: localStorageService.read('isRibbonAlwaysCollapsed')
-		}
+			isRibbonAlwaysCollapsed: localStorageService.read(
+				'isRibbonAlwaysCollapsed'
+			)
+		};
 	}
-}
+};
