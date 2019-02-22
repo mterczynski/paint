@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "watch": "webpack --progress --watch",
-    "start": "webpack --progress --watch"
+    "start": "webpack --progress --watch",
+		"build": "webpack"
   },
   "dependencies": {
     "react": "^16.3.2",
