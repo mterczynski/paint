@@ -1,35 +1,20 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
-const mapStateToProps = state => {
-	return {
-		openedDropdown: state.openedDropdown
-	};
-};
+import { useSelector } from 'react-redux';
 
 require('./dropdown.scss');
 
-export class UnmappedDropdown extends React.Component {
-	constructor(props) {
-		super(props);
+const Dropdown = ({ provider, disabled, children }) => {
+	const openedDropdown = useSelector(state => state.openedDropdown);
+
+	if (openedDropdown !== provider || disabled) {
+		return null;
 	}
 
-	render() {
-		if (
-			this.props.openedDropdown !== this.props.provider ||
-			this.props.disabled
-		) {
-			return null;
-		}
-
-		return (
-			<div className="Dropdown">
-				<div className="Dropdown__content">{this.props.children}</div>
-			</div>
-		);
-	}
-}
-
-const Dropdown = connect(mapStateToProps)(UnmappedDropdown);
+	return (
+		<div className="Dropdown">
+			<div className="Dropdown__content">{children}</div>
+		</div>
+	);
+};
 
 export default Dropdown;
