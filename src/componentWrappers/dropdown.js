@@ -15,11 +15,10 @@ export class UnmappedDropdown extends React.Component {
 	}
 
 	render() {
-		if (this.props.openedDropdown !== this.props.provider) {
-			return null;
-		}
-
-		if (this.props.disabled) {
+		if (
+			this.props.openedDropdown !== this.props.provider ||
+			this.props.disabled
+		) {
 			return null;
 		}
 
