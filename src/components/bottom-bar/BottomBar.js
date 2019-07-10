@@ -1,9 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 require('./BottomBar.scss');
 
-const srcs = {
+const images = {
 	axis: require('../../assets/icons/bottom-bar/axis.png'),
 	floppy: require('../../assets/icons/bottom-bar/floppy.png'),
 	image_size: require('../../assets/icons/bottom-bar/image_size.png'),
@@ -18,80 +18,73 @@ const srcs = {
 	dots: require('../../assets/icons/bottom-bar/dots.png')
 };
 
-const mapStateToProps = state => {
-	return {
-		isBottomBarVisible: state.isBottomBarVisible,
-		image: {
-			width: state.imageSettings.width,
-			height: state.imageSettings.height
-		}
+const BottomBar = ({}) => {
+	const isBottomBarVisible = useSelector(state => state.isBottomBarVisible);
+	const image = {
+		width: useSelector(state => state.imageSettings.width),
+		height: useSelector(state => state.imageSettings.height)
 	};
-};
 
-class BottomBarComponent extends React.Component {
-	render() {
-		if (!this.props.isBottomBarVisible) {
-			return null;
-		}
-		return (
-			<div className="BottomBar">
-				<div className="BottomBar__col BottomBar__col--small">
-					<img
-						className="BottomBar__iconImage"
-						draggable="false"
-						src={srcs.axis}
-						alt=""
-					/>
-				</div>
-				<div className="BottomBar__col BottomBar__col--small">
-					<img
-						className="BottomBar__iconImage--top1"
-						draggable="false"
-						src={srcs.selection}
-						alt=""
-					/>
-				</div>
-				<div className="BottomBar__col BottomBar__col--small">
-					<img
-						className="BottomBar__iconImage--top1"
-						draggable="false"
-						src={srcs.image_size}
-						alt=""
-						style={{ marginRight: '6px' }}
-					/>
-					{this.props.image.width} &times; {this.props.image.height}piks.
-				</div>
-				<div className="BottomBar__col BottomBar__col--small" />
-				<div className="BottomBar__col BottomBar__col--stretched" />
-				<div className="BottomBar__col BottomBar__col--medium">
-					<span className="BottomBar__zoom-indicator">100%</span>
-
-					<div className="BottomBar__minus" />
-
-					<div className="BottomBar__slider">
-						<div className="BottomBar__slider-background" />
-						<img
-							draggable="false"
-							src={srcs.slider}
-							alt=""
-							className="BottomBar__slider-image"
-						/>
-					</div>
-
-					<div className="BottomBar__plus" />
-
-					<img
-						className="BottomBar__iconImage--dots"
-						draggable="false"
-						src={srcs.dots}
-						alt=""
-					/>
-				</div>
-			</div>
-		);
+	if (!isBottomBarVisible) {
+		return null;
 	}
-}
 
-const BottomBar = connect(mapStateToProps)(BottomBarComponent);
+	return (
+		<div className="BottomBar">
+			<div className="BottomBar__col BottomBar__col--small">
+				<img
+					className="BottomBar__iconImage"
+					draggable="false"
+					src={images.axis}
+					alt=""
+				/>
+			</div>
+			<div className="BottomBar__col BottomBar__col--small">
+				<img
+					className="BottomBar__iconImage--top1"
+					draggable="false"
+					src={images.selection}
+					alt=""
+				/>
+			</div>
+			<div className="BottomBar__col BottomBar__col--small">
+				<img
+					className="BottomBar__iconImage--top1"
+					draggable="false"
+					src={images.image_size}
+					alt=""
+					style={{ marginRight: '6px' }}
+				/>
+				{image.width} &times; {image.height}piks.
+			</div>
+			<div className="BottomBar__col BottomBar__col--small" />
+			<div className="BottomBar__col BottomBar__col--stretched" />
+			<div className="BottomBar__col BottomBar__col--medium">
+				<span className="BottomBar__zoom-indicator">100%</span>
+
+				<div className="BottomBar__minus" />
+
+				<div className="BottomBar__slider">
+					<div className="BottomBar__slider-background" />
+					<img
+						draggable="false"
+						src={images.slider}
+						alt=""
+						className="BottomBar__slider-image"
+					/>
+				</div>
+
+				<div className="BottomBar__plus" />
+
+				<img
+					className="BottomBar__iconImage--dots"
+					draggable="false"
+					src={images.dots}
+					alt=""
+				/>
+			</div>
+		</div>
+	);
+};
 
 export default BottomBar;
