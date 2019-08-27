@@ -4,7 +4,6 @@ import { connect, Provider } from 'react-redux';
 import BottomBar from './components/bottom-bar/BottomBar';
 import CanvasArea from './components/canvas-area/CanvasArea';
 import Ribbon from './components/ribbon/Ribbon';
-// components:
 import TitleBar from './components/title-bar/TitleBar';
 import * as actions from './redux/actions';
 import store from './redux/store';
