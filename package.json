@@ -3,6 +3,7 @@
 	"version": "0.0.1",
 	"scripts": {
 		"start": "webpack-dev-server",
+		"start:open": "webpack-dev-server --open",
 		"build": "webpack"
 	},
 	"dependencies": {
