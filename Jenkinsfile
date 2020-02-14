@@ -3,9 +3,11 @@ pipeline {
 
 	stages {
 		stage('Install') {
-			sh '''
-				yarn
-			'''
+			steps{
+				sh '''
+					yarn
+				'''
+			}
 		}
 
 		stage('Build') {
