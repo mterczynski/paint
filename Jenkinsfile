@@ -21,8 +21,9 @@ pipeline {
 		stage('Deploy') {
 			steps {
 				bat '''
-					sh -c "scp -r dist root@mterczynski.pl:/var/www/html/paint/dist"
-					sh -c "scp -r index.html root@mterczynski.pl:/var/www/html/paint/index.html"
+				    sh -c "echo ~"
+					#sh -c "echo ~; scp -r dist root@mterczynski.pl:/var/www/html/paint/dist"
+					#sh -c "scp -r index.html root@mterczynski.pl:/var/www/html/paint/index.html"
 				'''
 			}
 		}
