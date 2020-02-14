@@ -163,29 +163,17 @@ const rootReducer = (state = initialState, action) => {
 			return { ...state, isBrushActive: !state.isBrushActive };
 		case actionTypes.SELECT_TOOL:
 			return { ...state, selectedTool: action.toolId };
-			case actionTypes.SET_TOOL_SIZE:
+		case actionTypes.SET_TOOL_SIZE:
 				return { ...state, toolSize: action.toolSize };
-				case actionTypes.APP_CLICK:
-					if (state.preventNextAppClick) {
-						return { ...state, preventNextAppClick: false };
-					}
-					return {
-						...state,
-						preventNextAppClick: false,
-						openedDropdown: dropdowns.none
-					};
-
-		case actionTypes.SELECT_MAIN_COLOR_INDEX:
+		case actionTypes.APP_CLICK:
+			if (state.preventNextAppClick) {
+				return { ...state, preventNextAppClick: false };
+			}
 			return {
 				...state,
-				colors: colorReducer(state.colors, action)
-			}
-		case actionTypes.SET_SELECTED_MAIN_COLOR:
-			return {
-				...state,
-				colors: colorReducer(state.colors, action)
-			}
-
+				preventNextAppClick: false,
+				openedDropdown: dropdowns.none
+			};
 		case actionTypes.SET_DROPDOWN:
 			return {
 				...state,
@@ -193,7 +181,11 @@ const rootReducer = (state = initialState, action) => {
 				preventNextAppClick: true
 			};
 	}
-	return state;
+
+	return {
+		...state,
+		colors: colorReducer(state.colors, action)
+	};
 };
 
 export default rootReducer;
