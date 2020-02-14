@@ -37,7 +37,7 @@ const basicColors = [
 const mapStateToProps = state => {
 	return {
 		isBrushActive: state.isBrushActive,
-		selectedMainColor: state.colors.selectedMainColor,
+		selectedMainColorIndex: state.colors.selectedMainColorIndex,
 		mainColor1: state.colors.color1,
 		mainColor2: state.colors.color2
 	};
@@ -63,8 +63,8 @@ class ColorsComponent extends React.Component {
 		};
 	}
 
-	selectMainColor(id) {
-		store.dispatch(actions.selectMainColor(id));
+	selectMainColorIndex(id) {
+		store.dispatch(actions.selectMainColorIndex(id));
 	}
 
 	setSelectedMainColor(color) {
@@ -77,12 +77,12 @@ class ColorsComponent extends React.Component {
 				<div className="Colors__content">
 					<div
 						className={
-							(this.props.selectedMainColor == 1
+							(this.props.selectedMainColorIndex == 1
 								? 'Colors__mainColor--active'
 								: '') + ' Colors__mainColor'
 						}
 						onClick={() => {
-							this.selectMainColor(1);
+							this.selectMainColorIndex(1);
 						}}
 					>
 						<div
@@ -96,12 +96,12 @@ class ColorsComponent extends React.Component {
 
 					<div
 						className={
-							(this.props.selectedMainColor == 2
+							(this.props.selectedMainColorIndex == 2
 								? 'Colors__mainColor--active'
 								: '') + ' Colors__mainColor'
 						}
 						onClick={() => {
-							this.selectMainColor(2);
+							this.selectMainColorIndex(2);
 						}}
 					>
 						<div

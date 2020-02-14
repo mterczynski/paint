@@ -85,7 +85,7 @@ const initialState = {
 	colors: {
 		color1: 'black', // css color
 		color2: 'white', // css color
-		selectedMainColor: 1, // or 2
+		selectedMainColorIndex: 1, // or 2
 		lastUsedCustomColors: new Array(10).fill(null), // array of nulls or css colors
 		isEditColorsWindowOpened: false, // boolean
 		editColorsWindow: {
@@ -139,10 +139,10 @@ const rootReducer = (state = initialState, action) => {
 			return { ...state, isBrushActive: !state.isBrushActive };
 		case actionTypes.SELECT_TOOL:
 			return { ...state, selectedTool: action.toolId };
-		case actionTypes.SELECT_MAIN_COLOR:
+		case actionTypes.SELECT_MAIN_COLOR_INDEX:
 			return {
 				...state,
-				colors: { ...state.colors, selectedMainColor: action.colorId }
+				colors: { ...state.colors, selectedMainColorIndex: action.colorIndex }
 			};
 		case actionTypes.SET_TOOL_SIZE:
 			return { ...state, toolSize: action.toolSize };
@@ -156,7 +156,7 @@ const rootReducer = (state = initialState, action) => {
 				openedDropdown: dropdowns.none
 			};
 		case actionTypes.SET_SELECTED_MAIN_COLOR:
-			if (state.colors.selectedMainColor == 1) {
+			if (state.colors.selectedMainColorIndex == 1) {
 				return {
 					...state,
 					colors: { ...state.colors, color1: action.newColor }
