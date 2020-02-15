@@ -10,12 +10,13 @@ const mapStateToProps = state => {
 };
 
 class RibbonComponent extends React.Component {
+	readonly state = {
+		activeTab: 'mainTools',
+		isCollapsed: false
+	}
+
 	constructor(props) {
 		super(props);
-		this.state = {
-			activeTab: 'mainTools',
-			isCollapsed: false
-		};
 		this.toggleRibbon = this.toggleRibbon.bind(this);
 	}
 

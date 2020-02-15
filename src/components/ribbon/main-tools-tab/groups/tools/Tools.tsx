@@ -3,22 +3,21 @@ import store from '../../../../../redux/store';
 import * as actions from '../../../../../redux/actions';
 import { connect } from "react-redux";
 
-require('./Tools.scss');
+import './Tools.scss';
+
+interface PropTypes {
+	selectedTool: number;
+}
 
 const mapStateToProps = (state) => {
-	return { 
+	return {
 		selectedTool: state.selectedTool
 	};
 };
-  
-class ToolsComponent extends React.Component{
 
+class ToolsComponent extends React.Component<PropTypes>{
 	selectTool(toolId){
 		store.dispatch(actions.selectTool(toolId));
-	}
-
-	constructor(props) {
-		super(props)
 	}
 
 	render(){
@@ -29,7 +28,7 @@ class ToolsComponent extends React.Component{
 					<img className="Tools__iconImage" draggable="false"
 					src={require('../../../../../assets/icons/main-tools-tab/3_tools/1.png')} alt=""/>
 				</div>
-				
+
 				<div onClick={()=>this.selectTool(2)}
 				className={"Tools__icon-2 " + (this.props.selectedTool == 2 ? 'Tools__icon--active' : '')}>
 					<img className="Tools__iconImage" draggable="false"
@@ -66,7 +65,7 @@ class ToolsComponent extends React.Component{
 			<div className="Tools__description">
 				Narzędzia
 			</div>
-		</div>		
+		</div>
 	}
 }
 

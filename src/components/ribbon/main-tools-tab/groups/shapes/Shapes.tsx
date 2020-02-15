@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-require('./Shapes.scss');
+import './Shapes.scss';
 
 const shapesImages = [];
 

@@ -5,7 +5,7 @@ import * as actions from '../../../../../redux/actions';
 import { dropdowns } from '../../../../../redux/enums/dropdowns';
 import store from '../../../../../redux/store';
 
-require('./Image.scss');
+import './Image.scss';
 
 const mapStateToProps = state => {
 	return {

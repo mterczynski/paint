@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-require('./Paint3d.scss');
+import './Paint3d.scss';
 
 const mapStateToProps = state => {
 	return {

@@ -5,14 +5,14 @@ import { connect } from "react-redux";
 import Dropdown from '../../../../../componentWrappers/dropdown';
 import { dropdowns } from '../../../../../redux/enums/dropdowns';
 
-require('./Size.scss');
+import './Size.scss';
 
 const mapStateToProps = (state) => {
-	return { 
+	return {
 		isBrushActive: state.isBrushActive
 	};
 };
-  
+
 class SizeComponent extends React.Component{
 
 	constructor(props) {
@@ -53,7 +53,7 @@ class SizeComponent extends React.Component{
 					<li className="Size__li" onClick={()=>this.setToolSize(4)}>Size 4px</li>
 				</ul>
 			</Dropdown>
-		</div>		
+		</div>
 	}
 }
 

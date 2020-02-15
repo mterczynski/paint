@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-require('./dropdown.scss');
+import './dropdown.scss';
 
-const Dropdown = ({ provider, disabled, children }) => {
+const Dropdown = ({ provider, disabled = false, children }) => {
 	const openedDropdown = useSelector(state => state.openedDropdown);
 
 	if (openedDropdown !== provider || disabled) {

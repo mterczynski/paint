@@ -3,11 +3,18 @@ import { connect } from 'react-redux';
 import * as actions from '../../../../../redux/actions';
 import store from '../../../../../redux/store';
 
-require('./Colors.scss');
+import './Colors.scss';
 
-const basicColors = [
+interface PropTypes {
+	isBrushActive: boolean,
+	selectedMainColorIndex: 1 | 2,
+	mainColor1: string,
+	mainColor2: string
+}
+
+const basicColors = Object.freeze([
 	// first row:
-	[
+	Object.freeze([
 		'rgb(0,0,0)',
 		'rgb(127,127,127)',
 		'rgb(136,0,21)',
@@ -18,9 +25,9 @@ const basicColors = [
 		'rgb(0,162,232)',
 		'rgb(63,72,204)',
 		'rgb(163,73,164)'
-	],
+	]),
 	// second row:
-	[
+	Object.freeze([
 		'rgb(255,255,255)',
 		'rgb(195,195,195)',
 		'rgb(185,122,87)',
@@ -31,8 +38,8 @@ const basicColors = [
 		'rgb(153,217,234)',
 		'rgb(112,146,190)',
 		'rgb(200,191,231)'
-	]
-];
+	])
+]);
 
 const mapStateToProps = state => {
 	return {
@@ -40,27 +47,28 @@ const mapStateToProps = state => {
 		selectedMainColorIndex: state.colors.selectedMainColorIndex,
 		mainColor1: state.colors.color1,
 		mainColor2: state.colors.color2
-	};
+	} as PropTypes;
 };
 
-class ColorsComponent extends React.Component {
+class ColorsComponent extends React.Component<PropTypes> {
+	readonly state = Object.freeze({
+		isListCollapsed: false,
+		lastUsedCustomColors: Object.freeze([
+			'rgb(255, 111, 0)',
+			'rgb(0, 0, 0)',
+			'rgb(255, 255, 255)',
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		])
+	})
+
 	constructor(props) {
 		super(props);
-		this.state = {
-			isListCollapsed: false,
-			lastUsedCustomColors: [
-				'rgb(255, 111, 0)',
-				'rgb(0, 0, 0)',
-				'rgb(255, 255, 255)',
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null
-			]
-		};
 	}
 
 	selectMainColorIndex(id) {
