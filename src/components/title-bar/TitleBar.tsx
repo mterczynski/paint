@@ -6,7 +6,7 @@ import store from '../../redux/store';
 import './TitleBar.scss';
 
 const mapStateToProps = state => {
-	return { currentTab: state.currentTab };
+	return { };
 };
 
 class TitleBarComponent extends React.Component {

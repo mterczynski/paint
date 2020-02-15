@@ -14,7 +14,7 @@ import Tools from './groups/tools/Tools';
 import './MainToolsTab.scss';
 
 const mapStateToProps = state => {
-	return { currentTab: state.currentTab };
+	return {};
 };
 
 class MainToolsTabComponent extends React.Component {

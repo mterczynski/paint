@@ -6,7 +6,7 @@ import ViewTab from './view-tab/ViewTab';
 import './Ribbon.scss';
 
 const mapStateToProps = state => {
-	return { currentTab: state.currentTab };
+	return { };
 };
 
 class RibbonComponent extends React.Component {
