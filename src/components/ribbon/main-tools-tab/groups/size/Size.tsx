@@ -9,7 +9,6 @@ import './Size.scss';
 
 const mapStateToProps = (state) => {
 	return {
-		isBrushActive: state.isBrushActive
 	};
 };
 

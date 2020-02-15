@@ -5,7 +5,6 @@ import './Brushes.scss';
 
 const mapStateToProps = state => {
 	return {
-		isBrushActive: state.isBrushActive
 	};
 };
 

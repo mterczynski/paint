@@ -5,7 +5,6 @@ import './EditColors.scss';
 
 const mapStateToProps = state => {
 	return {
-		isBrushActive: state.isBrushActive
 	};
 };
 

@@ -5,7 +5,6 @@ import './Paint3d.scss';
 
 const mapStateToProps = state => {
 	return {
-		isBrushActive: state.isBrushActive
 	};
 };
 

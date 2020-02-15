@@ -43,7 +43,6 @@ const basicColors = Object.freeze([
 
 const mapStateToProps = state => {
 	return {
-		isBrushActive: state.isBrushActive,
 		selectedMainColorIndex: state.colors.selectedMainColorIndex,
 		mainColor1: state.colors.color1,
 		mainColor2: state.colors.color2
