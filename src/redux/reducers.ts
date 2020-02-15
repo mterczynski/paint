@@ -6,6 +6,7 @@ const initialState = {
 	/* General: */
 	isMaximized: false, // boolean
 	isMinimized: false, // boolean
+	isBottomBarVisible: false,
 
 	currentTab: tabs.tools,
 
