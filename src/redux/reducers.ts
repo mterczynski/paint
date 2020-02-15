@@ -1,34 +1,62 @@
 import * as actionTypes from './action-types';
 import { dropdowns } from './enums/dropdowns';
-import { tabs } from './enums/tabs';
+
+type AvailableZoomLevels = 0.125 | 0.25 | 0.5 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+
+interface AppState {
+	isMaximized: boolean,
+	isBottomBarVisible: boolean,
+
+	openedDropdown: any, // todo
+	preventNextAppClick: boolean,
+
+	zoom: AvailableZoomLevels,
+	selection: null, // todo
+	selectedTool: null, // from 1-6 or null, todo rename to selectedToolIndex, or use enum
+	isBrushActive: boolean,
+	toolSize: 1 | 2 | 3 | 4,
+
+	colors: {
+		color1: string, // css color
+		color2: string, // css color
+		selectedMainColorIndex: 1 | 2,
+		lastUsedCustomColors: Array<null | string> & {length: 10}, // array of nulls and css colors, size of array: 10
+		isEditColorsWindowOpened: boolean,
+	},
+
+	imageSettings: {
+		width: number, // in px
+		height: number // in px
+	}
+}
 
 const initialState = {
-	isMaximized: false, // boolean
+	isMaximized: false,
 	isBottomBarVisible: false,
 
 	openedDropdown: dropdowns.none,
-	preventNextAppClick: false, // boolean
+	preventNextAppClick: false,
 
-	zoom: 1, // from [0.125, 0.25, 0.5, 1, 2, 3, 4, 5, 6, 7, 8]
+	zoom: 1,
 	selection: null,
-	selectionMode: 1, // 1 or 2
-	selectedTool: null, // from 1-6 or null
-	isBrushActive: false, // boolean
-	toolSize: 3, // from 1-4
+	selectionMode: 1,
+	selectedTool: null,
+	isBrushActive: false,
+	toolSize: 3,
 
 	colors: {
-		color1: 'black', // css color
-		color2: 'white', // css color
-		selectedMainColorIndex: 1, // 1 or 2
-		lastUsedCustomColors: new Array(10).fill(null), // array of nulls or css colors
+		color1: 'black',
+		color2: 'white',
+		selectedMainColorIndex: 1,
+		lastUsedCustomColors: new Array(10).fill(null),
 		isEditColorsWindowOpened: false,
 	},
 
 	imageSettings: {
-		width: 500, // in px
-		height: 500 // in px
+		width: 500,
+		height: 500
 	}
-};
+} as AppState;
 
 const colorReducer = (state, action) => {
 	switch(action.type) {
