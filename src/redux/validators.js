@@ -1,4 +1,4 @@
-import { dropdowns } from '../redux/enums/dropdowns';
+import { dropdowns } from './enums/dropdowns';
 
 export function isNumber(input) {
 	if (typeof input != 'number') {
