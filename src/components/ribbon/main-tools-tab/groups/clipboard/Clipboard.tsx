@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-require('./Clipboard.scss');
+import './Clipboard.scss';
 
 const mapStateToProps = state => {
 	return {};

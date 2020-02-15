@@ -1,6 +1,6 @@
 import React from 'react';
 
-require('./Group.scss');
+import './Group.scss';
 
 const Group = props => (
 	<div className="MainToolsTab__group">{props.children}</div>

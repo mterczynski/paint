@@ -8,7 +8,7 @@ import TitleBar from './components/title-bar/TitleBar';
 import * as actions from './redux/actions';
 import store from './redux/store';
 
-require('./App.scss');
+import './App.scss';
 
 const mapStateToProps = state => {
 	return {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import MainToolsTab from './main-tools-tab/MainToolsTab';
 import ViewTab from './view-tab/ViewTab';
 
-require('./Ribbon.scss');
+import './Ribbon.scss';
 
 const mapStateToProps = state => {
 	return { currentTab: state.currentTab };

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import './Shapes.scss';
 
-const shapesImages = [];
+const shapesImages = [] as any[];
 
 for (let i = 1; i <= 23; i++) {
 	shapesImages.push(
@@ -11,7 +11,7 @@ for (let i = 1; i <= 23; i++) {
 	);
 }
 
-const shapesDescriptions = [
+const shapeDescriptions = [
 	// first row:
 	'Linia',
 	'Krzywa',

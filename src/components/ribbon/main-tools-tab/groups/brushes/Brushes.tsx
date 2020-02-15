@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-require('./Brushes.scss');
+import './Brushes.scss';
 
 const mapStateToProps = state => {
 	return {

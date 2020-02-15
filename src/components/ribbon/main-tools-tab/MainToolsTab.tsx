@@ -11,7 +11,7 @@ import Shapes from './groups/shapes/Shapes';
 import Size from './groups/size/Size';
 import Tools from './groups/tools/Tools';
 
-require('./MainToolsTab.scss');
+import './MainToolsTab.scss';
 
 const mapStateToProps = state => {
 	return { currentTab: state.currentTab };

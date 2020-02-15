@@ -1,6 +1,6 @@
 import React from 'react';
 
-require('./CanvasArea.scss');
+import './CanvasArea.scss';
 
 const CanvasArea = () => (
 	<div className="CanvasArea">

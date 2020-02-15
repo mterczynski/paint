@@ -1,6 +1,6 @@
 import React from 'react';
 
-require('./Tab.scss');
+import './Tab.scss';
 
 const Tab = ({ children }) => {
 	return <div className="Tab">{children}</div>;

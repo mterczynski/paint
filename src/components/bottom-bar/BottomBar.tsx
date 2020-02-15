@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-require('./BottomBar.scss');
+import './BottomBar.scss';
 
 const images = {
 	axis: require('../../assets/icons/bottom-bar/axis.png'),

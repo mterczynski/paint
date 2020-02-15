@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../redux/actions';
 import store from '../../redux/store';
 
-require('./TitleBar.scss');
+import './TitleBar.scss';
 
 const mapStateToProps = state => {
 	return { currentTab: state.currentTab };
