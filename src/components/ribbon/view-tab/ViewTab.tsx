@@ -4,16 +4,15 @@ import * as actions from '../../../redux/actions';
 import store from '../../../redux/store';
 import Tab from '../tab/Tab';
 
-require('./ViewTab.scss');
+import './ViewTab.scss';
 
 const mapStateToProps = state => {
 	return {
-		currentTab: state.currentTab,
 		isBottomBarVisible: state.isBottomBarVisible
 	};
 };
 
-class ViewTabComponent extends React.Component {
+class ViewTabComponent extends React.Component<{isBottomBarVisible: boolean}> {
 	constructor(props) {
 		super(props);
 
