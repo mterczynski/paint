@@ -2,6 +2,12 @@
 	"presets": ["@babel/preset-react"],
 	"plugins": [
 		"@babel/plugin-transform-spread",
-		"@babel/plugin-proposal-class-properties"
-	]
+		"@babel/plugin-proposal-class-properties",
+		"react-css-modules"
+	],
+	"filetypes": {
+		".scss": {
+			"syntax": "postcss-scss"
+		}
+	}
 }
