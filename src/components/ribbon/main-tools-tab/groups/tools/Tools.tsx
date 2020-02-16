@@ -17,7 +17,7 @@ const mapStateToProps = state => {
 };
 
 class ToolsComponent extends React.Component<PropTypes> {
-	selectTool(toolId) {
+	selectTool(toolId: AvailableTools) {
 		store.dispatch(actions.selectTool(toolId));
 	}
 

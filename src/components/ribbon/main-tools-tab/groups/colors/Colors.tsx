@@ -70,11 +70,11 @@ class ColorsComponent extends React.Component<PropTypes> {
 		super(props);
 	}
 
-	selectMainColorIndex(id) {
-		store.dispatch(actions.selectMainColorIndex(id));
+	selectMainColorIndex(colorIndex: 1 | 2) {
+		store.dispatch(actions.selectMainColorIndex(colorIndex));
 	}
 
-	setSelectedMainColor(color) {
+	setSelectedMainColor(color: string) {
 		store.dispatch(actions.setSelectedMainColor(color));
 	}
 

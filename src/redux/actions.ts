@@ -1,10 +1,7 @@
+import { AvailableTools } from '../types';
+import { Dropdowns } from '../types/dropdowns';
 import { ActionTypes } from './action-types.enum';
-import { isDropdown, isFromRange, isInteger, isRGBColor } from './validators';
-
-export const setTab = tabName => ({
-	type: ActionTypes.SET_TAB,
-	data: tabName,
-});
+import { isRGBColor } from './validators';
 
 export const maximize = () => ({
 	type: ActionTypes.MAXIMIZE,
@@ -14,36 +11,19 @@ export const toggleBottomBar = () => ({
 	type: ActionTypes.TOGGLE_BOTTOM_BAR,
 });
 
-export const toggleBrush = () => ({
-	type: ActionTypes.TOGGLE_BRUSH,
-});
-
-export const changeBrush = brushId => {
-	isInteger(brushId);
-	isFromRange(brushId, 1, 9);
-	return { type: ActionTypes.CHANGE_BRUSH, brushId };
-};
-
-export const selectMainColorIndex = colorIndex => {
-	isInteger(colorIndex);
-	isFromRange(colorIndex, 1, 2);
+export const selectMainColorIndex = (colorIndex: 1 | 2) => {
 	return { type: ActionTypes.SELECT_MAIN_COLOR_INDEX, colorIndex };
 };
 
-export const selectTool = toolId => {
-	isInteger(toolId);
-	isFromRange(toolId, 1, 6);
+export const selectTool = (toolId: AvailableTools) => {
 	return { type: ActionTypes.SELECT_TOOL, toolId };
 };
 
-export const setDropdown = dropdown => {
-	isDropdown(dropdown);
+export const setDropdown = (dropdown: Dropdowns) => {
 	return { type: ActionTypes.SET_DROPDOWN, dropdown };
 };
 
-export const setToolSize = toolSize => {
-	isInteger(toolSize);
-	isFromRange(toolSize, 1, 4);
+export const setToolSize = (toolSize: 1 | 2 | 3 | 4) => {
 	return { type: ActionTypes.SET_TOOL_SIZE, toolSize };
 };
 
@@ -51,7 +31,7 @@ export const appClick = () => {
 	return { type: ActionTypes.APP_CLICK };
 };
 
-export const setSelectedMainColor = newColor => {
+export const setSelectedMainColor = (newColor: string) => {
 	isRGBColor(newColor);
 	return { type: ActionTypes.SET_SELECTED_MAIN_COLOR, newColor };
 };

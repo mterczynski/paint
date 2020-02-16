@@ -20,7 +20,7 @@ class SizeComponent extends React.Component {
 		this.openDropdown = this.openDropdown.bind(this);
 	}
 
-	setToolSize(toolSize) {
+	setToolSize(toolSize: 1 | 2 | 3 | 4) {
 		store.dispatch(actions.setToolSize(toolSize));
 		store.dispatch(actions.setDropdown(Dropdowns.none)); // optional ? - todo check
 	}
