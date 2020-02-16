@@ -15,14 +15,14 @@ const images = {
 	plus_pressed: require('../../assets/icons/bottom-bar/plus_pressed.png'),
 	selection: require('../../assets/icons/bottom-bar/selection.png'),
 	slider: require('../../assets/icons/bottom-bar/slider.png'),
-	dots: require('../../assets/icons/bottom-bar/dots.png')
+	dots: require('../../assets/icons/bottom-bar/dots.png'),
 };
 
 const BottomBar = ({}) => {
 	const isBottomBarVisible = useSelector(state => state.isBottomBarVisible);
 	const image = {
+		height: useSelector(state => state.imageSettings.height),
 		width: useSelector(state => state.imageSettings.width),
-		height: useSelector(state => state.imageSettings.height)
 	};
 
 	if (!isBottomBarVisible) {
@@ -30,57 +30,57 @@ const BottomBar = ({}) => {
 	}
 
 	return (
-		<div className="BottomBar">
-			<div className="BottomBar__col BottomBar__col--small">
+		<div className='BottomBar'>
+			<div className='BottomBar__col BottomBar__col--small'>
 				<img
-					className="BottomBar__iconImage"
-					draggable="false"
+					className='BottomBar__iconImage'
+					draggable='false'
 					src={images.axis}
-					alt=""
+					alt=''
 				/>
 			</div>
-			<div className="BottomBar__col BottomBar__col--small">
+			<div className='BottomBar__col BottomBar__col--small'>
 				<img
-					className="BottomBar__iconImage--top1"
-					draggable="false"
+					className='BottomBar__iconImage--top1'
+					draggable='false'
 					src={images.selection}
-					alt=""
+					alt=''
 				/>
 			</div>
-			<div className="BottomBar__col BottomBar__col--small">
+			<div className='BottomBar__col BottomBar__col--small'>
 				<img
-					className="BottomBar__iconImage--top1"
-					draggable="false"
+					className='BottomBar__iconImage--top1'
+					draggable='false'
 					src={images.image_size}
-					alt=""
+					alt=''
 					style={{ marginRight: '6px' }}
 				/>
 				{image.width} &times; {image.height}piks.
 			</div>
-			<div className="BottomBar__col BottomBar__col--small" />
-			<div className="BottomBar__col BottomBar__col--stretched" />
-			<div className="BottomBar__col BottomBar__col--medium">
-				<span className="BottomBar__zoom-indicator">100%</span>
+			<div className='BottomBar__col BottomBar__col--small' />
+			<div className='BottomBar__col BottomBar__col--stretched' />
+			<div className='BottomBar__col BottomBar__col--medium'>
+				<span className='BottomBar__zoom-indicator'>100%</span>
 
-				<div className="BottomBar__minus" />
+				<div className='BottomBar__minus' />
 
-				<div className="BottomBar__slider">
-					<div className="BottomBar__slider-background" />
+				<div className='BottomBar__slider'>
+					<div className='BottomBar__slider-background' />
 					<img
-						draggable="false"
+						draggable='false'
 						src={images.slider}
-						alt=""
-						className="BottomBar__slider-image"
+						alt=''
+						className='BottomBar__slider-image'
 					/>
 				</div>
 
-				<div className="BottomBar__plus" />
+				<div className='BottomBar__plus' />
 
 				<img
-					className="BottomBar__iconImage--dots"
-					draggable="false"
+					className='BottomBar__iconImage--dots'
+					draggable='false'
 					src={images.dots}
-					alt=""
+					alt=''
 				/>
 			</div>
 		</div>

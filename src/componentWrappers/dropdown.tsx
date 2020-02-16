@@ -11,8 +11,8 @@ const Dropdown = ({ provider, disabled = false, children }) => {
 	}
 
 	return (
-		<div className="Dropdown">
-			<div className="Dropdown__content">{children}</div>
+		<div className='Dropdown'>
+			<div className='Dropdown__content'>{children}</div>
 		</div>
 	);
 };

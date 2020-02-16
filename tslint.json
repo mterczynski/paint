@@ -1,0 +1,14 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+      "mterczynski-tslint"
+    ],
+    "jsRules": {},
+    "rules": {
+			"indent": [true, "tabs"],
+			"object-literal-sort-keys": false,
+			"variable-name": false,
+			"newline-before-return": false
+		},
+    "rulesDirectory": []
+}

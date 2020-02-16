@@ -6,10 +6,10 @@ import store from '../../../../../redux/store';
 import './Colors.scss';
 
 interface PropTypes {
-	isBrushActive: boolean,
-	selectedMainColorIndex: 1 | 2,
-	mainColor1: string,
-	mainColor2: string
+	isBrushActive: boolean;
+	selectedMainColorIndex: 1 | 2;
+	mainColor1: string;
+	mainColor2: string;
 }
 
 const basicColors = Object.freeze([
@@ -24,7 +24,7 @@ const basicColors = Object.freeze([
 		'rgb(34,177,76)',
 		'rgb(0,162,232)',
 		'rgb(63,72,204)',
-		'rgb(163,73,164)'
+		'rgb(163,73,164)',
 	]),
 	// second row:
 	Object.freeze([
@@ -37,15 +37,15 @@ const basicColors = Object.freeze([
 		'rgb(181,230,29)',
 		'rgb(153,217,234)',
 		'rgb(112,146,190)',
-		'rgb(200,191,231)'
-	])
+		'rgb(200,191,231)',
+	]),
 ]);
 
 const mapStateToProps = state => {
 	return {
-		selectedMainColorIndex: state.colors.selectedMainColorIndex,
 		mainColor1: state.colors.color1,
-		mainColor2: state.colors.color2
+		mainColor2: state.colors.color2,
+		selectedMainColorIndex: state.colors.selectedMainColorIndex,
 	} as PropTypes;
 };
 
@@ -62,9 +62,9 @@ class ColorsComponent extends React.Component<PropTypes> {
 			null,
 			null,
 			null,
-			null
-		])
-	})
+			null,
+		]),
+	});
 
 	constructor(props) {
 		super(props);
@@ -80,11 +80,11 @@ class ColorsComponent extends React.Component<PropTypes> {
 
 	render() {
 		return (
-			<div className="Colors">
-				<div className="Colors__content">
+			<div className='Colors'>
+				<div className='Colors__content'>
 					<div
 						className={
-							(this.props.selectedMainColorIndex == 1
+							(this.props.selectedMainColorIndex === 1
 								? 'Colors__mainColor--active'
 								: '') + ' Colors__mainColor'
 						}
@@ -94,16 +94,16 @@ class ColorsComponent extends React.Component<PropTypes> {
 					>
 						<div
 							style={{ background: this.props.mainColor1 }}
-							className="Colors__colorBox"
+							className='Colors__colorBox'
 						/>
-						<div className="Colors__colorBoxText">
+						<div className='Colors__colorBoxText'>
 							Kolor <br /> 1
 						</div>
 					</div>
 
 					<div
 						className={
-							(this.props.selectedMainColorIndex == 2
+							(this.props.selectedMainColorIndex === 2
 								? 'Colors__mainColor--active'
 								: '') + ' Colors__mainColor'
 						}
@@ -113,22 +113,22 @@ class ColorsComponent extends React.Component<PropTypes> {
 					>
 						<div
 							style={{ background: this.props.mainColor2 }}
-							className="Colors__colorBox Colors__colorBox--small"
+							className='Colors__colorBox Colors__colorBox--small'
 						/>
-						<div className="Colors__colorBoxText">
+						<div className='Colors__colorBoxText'>
 							Kolor
 							<br />2
 						</div>
 					</div>
 
-					<div className="Colors__colors">
-						<div className="Colors__colorRow">
+					<div className='Colors__colors'>
+						<div className='Colors__colorRow'>
 							{basicColors[0].map((color, i) => {
 								return (
 									<div
 										style={{ background: color }}
 										key={i}
-										className="Colors__colorBox Colors__colorBox--tiny"
+										className='Colors__colorBox Colors__colorBox--tiny'
 										onClick={() => {
 											this.setSelectedMainColor(color);
 										}}
@@ -137,13 +137,13 @@ class ColorsComponent extends React.Component<PropTypes> {
 							})}
 						</div>
 
-						<div className="Colors__colorRow">
+						<div className='Colors__colorRow'>
 							{basicColors[1].map((color, i) => {
 								return (
 									<div
 										style={{ background: color }}
 										key={i}
-										className="Colors__colorBox Colors__colorBox--tiny"
+										className='Colors__colorBox Colors__colorBox--tiny'
 										onClick={() => {
 											this.setSelectedMainColor(color);
 										}}
@@ -152,23 +152,24 @@ class ColorsComponent extends React.Component<PropTypes> {
 							})}
 						</div>
 
-						<div className="Colors__colorRow">
+						<div className='Colors__colorRow'>
 							{this.state.lastUsedCustomColors.map((color, i) => {
 								if (color) {
 									return (
 										<div
 											style={{ background: color }}
 											key={i}
-											className="Colors__colorBox Colors__colorBox--tiny"
+											className='Colors__colorBox Colors__colorBox--tiny'
 											onClick={() => {
 												this.setSelectedMainColor(color);
 											}}
 										/>
 									);
 								}
+
 								return (
 									<div
-										className="Colors__colorBox Colors__colorBox--tiny--disabled"
+										className='Colors__colorBox Colors__colorBox--tiny--disabled'
 										key={i}
 									/>
 								);
@@ -176,20 +177,20 @@ class ColorsComponent extends React.Component<PropTypes> {
 						</div>
 					</div>
 
-					<div className="Colors__editColors">
+					<div className='Colors__editColors'>
 						<img
-							className="Colors__editColorsIcon"
+							className='Colors__editColorsIcon'
 							src={require('../../../../../assets/icons/main-tools-tab/7_colors.png')}
-							alt=""
+							alt=''
 						/>
-						<div className="Colors__colorBoxText">
+						<div className='Colors__colorBoxText'>
 							Edytuj
 							<br />
 							kolory
 						</div>
 					</div>
 				</div>
-				<div className="Colors__description">Kolory</div>
+				<div className='Colors__description'>Kolory</div>
 			</div>
 		);
 	}

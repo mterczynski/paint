@@ -1,6 +1,6 @@
+import { AppState, AvailableTools } from '../types';
 import * as actionTypes from './action-types';
 import { dropdowns } from './enums/dropdowns';
-import { AvailableTools, AppState } from '../types';
 
 const initialState = {
 	isMaximized: false,
@@ -26,33 +26,33 @@ const initialState = {
 
 	imageSettings: {
 		width: 500,
-		height: 500
-	}
+		height: 500,
+	},
 } as AppState;
 
 const colorReducer = (state, action) => {
-	switch(action.type) {
+	switch (action.type) {
 		case actionTypes.SELECT_MAIN_COLOR_INDEX:
 			return {
 				...state,
-				selectedMainColorIndex: action.colorIndex
+				selectedMainColorIndex: action.colorIndex,
 			};
 		case actionTypes.SET_SELECTED_MAIN_COLOR:
-			if (state.selectedMainColorIndex == 1) {
+			if (state.selectedMainColorIndex === 1) {
 				return {
 					...state,
-					color1: action.newColor
+					color1: action.newColor,
 				};
 			} else {
 				return {
 					...state,
-				 	color2: action.newColor
+				 	color2: action.newColor,
 				};
 			}
 	}
 
 	return state;
-}
+};
 
 const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
@@ -70,22 +70,23 @@ const rootReducer = (state = initialState, action) => {
 			if (state.preventNextAppClick) {
 				return { ...state, preventNextAppClick: false };
 			}
+
 			return {
 				...state,
 				preventNextAppClick: false,
-				openedDropdown: dropdowns.none
+				openedDropdown: dropdowns.none,
 			};
 		case actionTypes.SET_DROPDOWN:
 			return {
 				...state,
 				openedDropdown: action.dropdown,
-				preventNextAppClick: true
+				preventNextAppClick: true,
 			};
 	}
 
 	return {
 		...state,
-		colors: colorReducer(state.colors, action)
+		colors: colorReducer(state.colors, action),
 	};
 };
 

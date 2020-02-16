@@ -12,22 +12,22 @@ class Paint3dComponent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isListCollapsed: false
+			isListCollapsed: false,
 		};
 	}
 
 	render() {
 		return (
-			<div className="Paint3d">
-				<div className="Paint3d__content">
+			<div className='Paint3d'>
+				<div className='Paint3d__content'>
 					<img
-						draggable="false"
-						className="Paint3d__mainIcon"
+						draggable='false'
+						className='Paint3d__mainIcon'
 						src={require('../../../../../assets/icons/main-tools-tab/8_paint3d.png')}
-						alt=""
+						alt=''
 					/>
 
-					<div className="Paint3d__description">Otwórz aplikację Paint 3D</div>
+					<div className='Paint3d__description'>Otwórz aplikację Paint 3D</div>
 				</div>
 			</div>
 		);

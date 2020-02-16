@@ -7,7 +7,7 @@ const shapesImages = [] as any[];
 
 for (let i = 1; i <= 23; i++) {
 	shapesImages.push(
-		require(`../../../../../assets/icons/main-tools-tab/5_shapes/${i}.png`)
+		require(`../../../../../assets/icons/main-tools-tab/5_shapes/${i}.png`),
 	);
 }
 
@@ -38,7 +38,7 @@ const shapeDescriptions = [
 	'Objaśnienie w kształcie chmury',
 	// fourth row:
 	'Serce',
-	'Błyskawica'
+	'Błyskawica',
 ];
 
 const mapStateToProps = state => {
@@ -50,7 +50,7 @@ class ShapesComponent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isListCollapsed: false
+			isListCollapsed: false,
 		};
 	}
 
@@ -61,38 +61,38 @@ class ShapesComponent extends React.Component {
 		const fill = require('../../../../../assets/icons/main-tools-tab/5_shapes/fill_active.png');
 
 		return (
-			<div className="Shapes">
-				<div className="Shapes__content">
-					<div className="Shapes__shapeList">
-						<div className="Shapes__shapeListContent">
+			<div className='Shapes'>
+				<div className='Shapes__content'>
+					<div className='Shapes__shapeList'>
+						<div className='Shapes__shapeListContent'>
 							{shapesImages.map((shape, i) => (
 								<img
-									draggable="false"
-									className="Shapes__shape"
+									draggable='false'
+									className='Shapes__shape'
 									src={shape}
-									alt=""
+									alt=''
 									key={i}
 								/>
 							))}
 						</div>
-						<div className="Shapes__shapeListControls" />
+						<div className='Shapes__shapeListControls' />
 					</div>
 
-					<div className="Shapes__options">
-						<div className="Shapes__option Shapes__option--first">
-							<img draggable="false" src={contourActive} alt="" />
+					<div className='Shapes__options'>
+						<div className='Shapes__option Shapes__option--first'>
+							<img draggable='false' src={contourActive} alt='' />
 							<span>Kontur</span>
-							<img draggable="false" alt="" src={arrDown} />
+							<img draggable='false' alt='' src={arrDown} />
 						</div>
 
-						<div className="Shapes__option Shapes__option--second">
-							<img draggable="false" src={contourActive} alt="" />
+						<div className='Shapes__option Shapes__option--second'>
+							<img draggable='false' src={contourActive} alt='' />
 							<span>Wypełnienie</span>
-							<img draggable="false" alt="" src={arrDown} />
+							<img draggable='false' alt='' src={arrDown} />
 						</div>
 					</div>
 				</div>
-				<div className="Shapes__description">Kształty</div>
+				<div className='Shapes__description'>Kształty</div>
 			</div>
 		);
 	}

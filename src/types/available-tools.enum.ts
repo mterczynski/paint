@@ -5,5 +5,5 @@ export enum AvailableTools {
 	Text = 3,
 	Eraser = 4,
 	ColorPicker = 5,
-	Magnifier = 6
+	Magnifier = 6,
 }

@@ -3,19 +3,19 @@ import { isDropdown, isFromRange, isInteger, isRGBColor } from './validators';
 
 export const setTab = tabName => ({
 	type: actionTypes.SET_TAB,
-	data: tabName
+	data: tabName,
 });
 
 export const maximize = () => ({
-	type: actionTypes.MAXIMIZE
+	type: actionTypes.MAXIMIZE,
 });
 
 export const toggleBottomBar = () => ({
-	type: actionTypes.TOGGLE_BOTTOM_BAR
+	type: actionTypes.TOGGLE_BOTTOM_BAR,
 });
 
 export const toggleBrush = () => ({
-	type: actionTypes.TOGGLE_BRUSH
+	type: actionTypes.TOGGLE_BRUSH,
 });
 
 export const changeBrush = brushId => {

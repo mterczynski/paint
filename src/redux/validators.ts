@@ -1,13 +1,13 @@
 import { dropdowns } from './enums/dropdowns';
 
 export function isNumber(input) {
-	if (typeof input != 'number') {
+	if (typeof input !== 'number') {
 		throw new Error('Input must be number');
 	}
 }
 
 export function isInteger(input) {
-	if (Number.isInteger(input) == false) {
+	if (Number.isInteger(input) === false) {
 		throw new Error('Input must be integer');
 	}
 }
@@ -26,7 +26,7 @@ export function isFromRange(input, from, to) {
 }
 
 export function isString(input) {
-	if (typeof input != 'string') {
+	if (typeof input !== 'string') {
 		throw new Error('Input must be string');
 	}
 }

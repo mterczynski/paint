@@ -12,7 +12,6 @@ import './App.scss';
 
 const mapStateToProps = state => {
 	return {
-		isDropdownActive: state.isDropdownActive
 	};
 };
 
@@ -29,7 +28,7 @@ class UnconnectedApp extends React.Component {
 	render() {
 		return (
 			<Provider store={store}>
-				<div className="App" onClick={this.onClick}>
+				<div className='App' onClick={this.onClick}>
 					<TitleBar />
 					<Ribbon />
 					<CanvasArea />
@@ -48,5 +47,5 @@ ReactDOM.render(
 	<Provider store={store}>
 		<App />
 	</Provider>,
-	document.getElementById('root')
+	document.getElementById('root'),
 );

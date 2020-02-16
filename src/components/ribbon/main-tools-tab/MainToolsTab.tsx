@@ -26,7 +26,7 @@ class MainToolsTabComponent extends React.Component {
 	render() {
 		return (
 			<Tab>
-				<div className="MainToolsTab">
+				<div className='MainToolsTab'>
 					<Group>
 						<Clipboard />
 					</Group>

@@ -12,8 +12,8 @@ const mapStateToProps = state => {
 class RibbonComponent extends React.Component {
 	readonly state = {
 		activeTab: 'mainTools',
-		isCollapsed: false
-	}
+		isCollapsed: false,
+	};
 
 	constructor(props) {
 		super(props);
@@ -30,16 +30,16 @@ class RibbonComponent extends React.Component {
 
 	render() {
 		return (
-			<div className="Ribbon">
-				<div className="Ribbon__head">
-					<div className="Ribbon__head__tabNames">
-						<div className="Ribbon__head__tabNames__file">Plik</div>
+			<div className='Ribbon'>
+				<div className='Ribbon__head'>
+					<div className='Ribbon__head__tabNames'>
+						<div className='Ribbon__head__tabNames__file'>Plik</div>
 
 						<div
 							onClick={() => this.changeTab('mainTools')}
 							className={
 								'Ribbon__head__tabNames__tab ' +
-								(this.state.activeTab == 'mainTools'
+								(this.state.activeTab === 'mainTools'
 									? 'Ribbon__head__tabNames__tab--active'
 									: '')
 							}
@@ -51,7 +51,7 @@ class RibbonComponent extends React.Component {
 							onClick={() => this.changeTab('view')}
 							className={
 								'Ribbon__head__tabNames__tab ' +
-								(this.state.activeTab == 'view'
+								(this.state.activeTab === 'view'
 									? 'Ribbon__head__tabNames__tab--active'
 									: '')
 							}
@@ -60,13 +60,13 @@ class RibbonComponent extends React.Component {
 						</div>
 					</div>
 
-					<div className="Ribbon__head__icons">
+					<div className='Ribbon__head__icons'>
 						<div
-							className="Ribbon__head__icons__icon"
+							className='Ribbon__head__icons__icon'
 							onClick={this.toggleRibbon}
 						>
 							<img
-								draggable="false"
+								draggable='false'
 								className={
 									'Ribbon__head__icons__icon__image ' +
 									(this.state.isCollapsed
@@ -77,19 +77,19 @@ class RibbonComponent extends React.Component {
 							/>
 						</div>
 
-						<div className="Ribbon__head__icons__icon">
+						<div className='Ribbon__head__icons__icon'>
 							<img
-								draggable="false"
-								className="Ribbon__head__icons__icon__image"
+								draggable='false'
+								className='Ribbon__head__icons__icon__image'
 								src={require('../../assets/icons/top/help.png')}
 							/>
 						</div>
 					</div>
 				</div>
 
-				{this.state.isCollapsed == false ? (
-					<div className="Ribbon__body">
-						{this.state.activeTab == 'mainTools' ? (
+				{this.state.isCollapsed === false ? (
+					<div className='Ribbon__body'>
+						{this.state.activeTab === 'mainTools' ? (
 							<MainToolsTab />
 						) : (
 							<ViewTab />

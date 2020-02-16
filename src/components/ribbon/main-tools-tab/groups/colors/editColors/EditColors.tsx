@@ -62,18 +62,18 @@ class EditColorsComponent extends React.Component {
 		'rgb(64,128,128)',
 		'rgb(192,192,192)',
 		'rgb(64,0,64)',
-		'rgb(255,255,255)'
+		'rgb(255,255,255)',
 	];
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			isListCollapsed: false
+			isListCollapsed: false,
 		};
 	}
 
 	render() {
-		return <div className="EditColors" />;
+		return <div className='EditColors' />;
 	}
 }
 
