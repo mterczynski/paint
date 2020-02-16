@@ -1,8 +1,10 @@
+import { languages } from '../lang';
 import { AppState, AvailableTools } from '../types';
 import * as actionTypes from './action-types';
 import { dropdowns } from './enums/dropdowns';
 
 const initialState = {
+	language: languages.PL,
 	isMaximized: false,
 	isBottomBarVisible: false,
 
@@ -46,7 +48,7 @@ const colorReducer = (state, action) => {
 			} else {
 				return {
 					...state,
-				 	color2: action.newColor,
+					color2: action.newColor,
 				};
 			}
 	}
