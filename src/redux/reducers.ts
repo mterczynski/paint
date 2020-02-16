@@ -1,16 +1,16 @@
-import { AppState, ColorState } from '../types';
+import { ColorState } from '../types';
 import { Dropdowns } from '../types/dropdowns';
-import * as actionTypes from './action-types';
+import { ActionTypes } from './action-types.enum';
 import { initialState } from './initial-state';
 
 const colorReducer = (state: ColorState, action) => {
 	switch (action.type) {
-		case actionTypes.SELECT_MAIN_COLOR_INDEX:
+		case ActionTypes.SELECT_MAIN_COLOR_INDEX:
 			return {
 				...state,
 				selectedMainColorIndex: action.colorIndex,
 			};
-		case actionTypes.SET_SELECTED_MAIN_COLOR:
+		case ActionTypes.SET_SELECTED_MAIN_COLOR:
 			if (state.selectedMainColorIndex === 1) {
 				return {
 					...state,
@@ -29,17 +29,17 @@ const colorReducer = (state: ColorState, action) => {
 
 const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case actionTypes.MAXIMIZE:
+		case ActionTypes.MAXIMIZE:
 			return { ...state, isMaximized: true };
-		case actionTypes.TOGGLE_BOTTOM_BAR:
+		case ActionTypes.TOGGLE_BOTTOM_BAR:
 			return { ...state, isBottomBarVisible: !state.isBottomBarVisible };
-		case actionTypes.TOGGLE_BRUSH:
+		case ActionTypes.TOGGLE_BRUSH:
 			return { ...state, isBrushActive: !state.isBrushActive };
-		case actionTypes.SELECT_TOOL:
+		case ActionTypes.SELECT_TOOL:
 			return { ...state, selectedTool: action.toolId };
-		case actionTypes.SET_TOOL_SIZE:
+		case ActionTypes.SET_TOOL_SIZE:
 				return { ...state, toolSize: action.toolSize };
-		case actionTypes.APP_CLICK:
+		case ActionTypes.APP_CLICK:
 			if (state.preventNextAppClick) {
 				return { ...state, preventNextAppClick: false };
 			}
@@ -49,7 +49,7 @@ const rootReducer = (state = initialState, action) => {
 				preventNextAppClick: false,
 				openedDropdown: Dropdowns.none,
 			};
-		case actionTypes.SET_DROPDOWN:
+		case ActionTypes.SET_DROPDOWN:
 			return {
 				...state,
 				openedDropdown: action.dropdown,
