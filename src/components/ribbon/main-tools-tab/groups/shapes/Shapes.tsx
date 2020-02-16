@@ -81,13 +81,13 @@ class ShapesComponent extends React.Component {
 					<div className='Shapes__options'>
 						<div className='Shapes__option Shapes__option--first'>
 							<img draggable='false' src={contourActive} alt='' />
-							<span>Kontur</span>
+							<span>Kontur </span>
 							<img draggable='false' alt='' src={arrDown} />
 						</div>
 
 						<div className='Shapes__option Shapes__option--second'>
 							<img draggable='false' src={contourActive} alt='' />
-							<span>Wypełnienie</span>
+							<span>Wypełnienie </span>
 							<img draggable='false' alt='' src={arrDown} />
 						</div>
 					</div>

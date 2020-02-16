@@ -65,7 +65,7 @@ class ImageComponent extends React.Component {
 								src={require('../../../../../assets/icons/main-tools-tab/2_image/4.png')}
 								alt=''
 							/>{' '}
-							Obróć
+							<span>Obróć </span>
 							<img
 								className='Image__rotateLi-arrowDown'
 								src={arrowDownImage}
