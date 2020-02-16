@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import { AppState } from '../../types';
 import './BottomBar.scss';
 
 const images = {
@@ -19,10 +20,10 @@ const images = {
 };
 
 const BottomBar = ({}) => {
-	const isBottomBarVisible = useSelector(state => state.isBottomBarVisible);
+	const isBottomBarVisible = useSelector((state: AppState) => state.isBottomBarVisible);
 	const image = {
-		height: useSelector(state => state.imageSettings.height),
-		width: useSelector(state => state.imageSettings.width),
+		height: useSelector((state: AppState) => state.imageSettings.height),
+		width: useSelector((state: AppState) => state.imageSettings.width),
 	};
 
 	if (!isBottomBarVisible) {
