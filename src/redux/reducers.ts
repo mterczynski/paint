@@ -3,7 +3,7 @@ import { AppState, AvailableTools } from '../types';
 import * as actionTypes from './action-types';
 import { dropdowns } from './enums/dropdowns';
 
-const initialState = {
+const initialState: AppState = {
 	language: languages.PL,
 	isMaximized: false,
 	isBottomBarVisible: false,
@@ -13,7 +13,6 @@ const initialState = {
 
 	zoom: 1,
 	selection: null,
-	selectionMode: 1,
 	selectedTool: AvailableTools.None,
 	isBrushActive: false,
 	toolSize: 3,
@@ -30,7 +29,7 @@ const initialState = {
 		width: 500,
 		height: 500,
 	},
-} as AppState;
+};
 
 const colorReducer = (state, action) => {
 	switch (action.type) {

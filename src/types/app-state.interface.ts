@@ -21,7 +21,7 @@ export interface AppState {
 		color1: string, // css color
 		color2: string, // css color
 		selectedMainColorIndex: 1 | 2,
-		lastUsedCustomColors: Array<null | string> & {length: 10}, // array of nulls and css colors, size of array: 10
+		lastUsedCustomColors: Array<null | string>, // array of nulls and css colors, size of array: 10
 		isEditColorsWindowOpened: boolean,
 	};
 
