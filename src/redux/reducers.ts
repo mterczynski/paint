@@ -1,37 +1,9 @@
-import { languages } from '../lang';
-import { AppState, AvailableTools } from '../types';
+import { AppState, ColorState } from '../types';
+import { Dropdowns } from '../types/dropdowns';
 import * as actionTypes from './action-types';
-import { dropdowns } from './enums/dropdowns';
+import { initialState } from './initial-state';
 
-const initialState: AppState = {
-	language: languages.PL,
-	isMaximized: false,
-	isBottomBarVisible: false,
-
-	openedDropdown: dropdowns.none,
-	preventNextAppClick: false,
-
-	zoom: 1,
-	selection: null,
-	selectedTool: AvailableTools.None,
-	isBrushActive: false,
-	toolSize: 3,
-
-	colors: {
-		color1: 'black',
-		color2: 'white',
-		selectedMainColorIndex: 1,
-		lastUsedCustomColors: new Array(10).fill(null),
-		isEditColorsWindowOpened: false,
-	},
-
-	imageSettings: {
-		width: 500,
-		height: 500,
-	},
-};
-
-const colorReducer = (state, action) => {
+const colorReducer = (state: ColorState, action) => {
 	switch (action.type) {
 		case actionTypes.SELECT_MAIN_COLOR_INDEX:
 			return {
@@ -75,7 +47,7 @@ const rootReducer = (state = initialState, action) => {
 			return {
 				...state,
 				preventNextAppClick: false,
-				openedDropdown: dropdowns.none,
+				openedDropdown: Dropdowns.none,
 			};
 		case actionTypes.SET_DROPDOWN:
 			return {

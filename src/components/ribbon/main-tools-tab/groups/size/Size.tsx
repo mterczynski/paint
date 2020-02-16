@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Dropdown from '../../../../../componentWrappers/dropdown';
 import * as actions from '../../../../../redux/actions';
-import { dropdowns } from '../../../../../redux/enums/dropdowns';
 import store from '../../../../../redux/store';
+import { Dropdowns } from '../../../../../types/dropdowns';
 
 import './Size.scss';
 
@@ -22,11 +22,11 @@ class SizeComponent extends React.Component {
 
 	setToolSize(toolSize) {
 		store.dispatch(actions.setToolSize(toolSize));
-		store.dispatch(actions.setDropdown(dropdowns.none)); // optional ? - todo check
+		store.dispatch(actions.setDropdown(Dropdowns.none)); // optional ? - todo check
 	}
 
 	openDropdown() {
-		store.dispatch(actions.setDropdown(dropdowns.size));
+		store.dispatch(actions.setDropdown(Dropdowns.size));
 	}
 
 	render() {
@@ -41,7 +41,7 @@ class SizeComponent extends React.Component {
 				src={require('../../../../../assets/icons/arrow_down.png')} alt=''/>
 			</div>
 
-			<Dropdown provider={dropdowns.size}>
+			<Dropdown provider={Dropdowns.size}>
 				<ul className='Size__list'>
 					<li className='Size__li' onClick={() => this.setToolSize(1)}>Size 1px</li>
 					<li className='Size__li' onClick={() => this.setToolSize(2)}>Size 2px</li>

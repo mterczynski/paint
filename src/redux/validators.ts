@@ -1,4 +1,4 @@
-import { dropdowns } from './enums/dropdowns';
+import { Dropdowns } from '../types/dropdowns';
 
 export function isNumber(input) {
 	if (typeof input !== 'number') {
@@ -40,9 +40,9 @@ export function isRGBColor(input) {
 }
 
 export function isDropdown(input) {
-	if (dropdowns[input] !== input) {
+	if (Dropdowns[input] !== input) {
 		console.warn('input', input);
-		console.warn('dropdowns[input]', dropdowns[input]);
+		console.warn('dropdowns[input]', Dropdowns[input]);
 		throw new Error('Selected unknown dropdown');
 	}
 }

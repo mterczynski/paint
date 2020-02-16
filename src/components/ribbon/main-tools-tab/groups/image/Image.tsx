@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Dropdown from '../../../../../componentWrappers/dropdown';
 import * as actions from '../../../../../redux/actions';
-import { dropdowns } from '../../../../../redux/enums/dropdowns';
 import store from '../../../../../redux/store';
+import { Dropdowns } from '../../../../../types/dropdowns';
 
 import './Image.scss';
 
@@ -18,7 +18,7 @@ class ImageComponent extends React.Component {
 	}
 
 	openDropdown() {
-		store.dispatch(actions.setDropdown(dropdowns.selection));
+		store.dispatch(actions.setDropdown(Dropdowns.selection));
 	}
 
 	render() {
@@ -75,7 +75,7 @@ class ImageComponent extends React.Component {
 					</ul>
 				</div>
 
-				<Dropdown provider={dropdowns.selection}>
+				<Dropdown provider={Dropdowns.selection}>
 					<ul className='Image__list'>
 						<li className='Image__li'>Size 1px</li>
 						<li className='Image__li'>Size 2px</li>
