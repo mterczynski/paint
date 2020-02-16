@@ -5,6 +5,12 @@ export type Lang = Readonly<{
 			paste: {
 				title: string;
 			},
+			cut: {
+				title: string;
+			},
+			copy: {
+				title: string;
+			},
 		},
 		image: {
 			select: {

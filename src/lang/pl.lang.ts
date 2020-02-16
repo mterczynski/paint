@@ -7,6 +7,12 @@ export const PL_Lang: Lang = Object.freeze({
 			paste: {
 				title: 'Wklej',
 			},
+			copy: {
+				title: 'Kopiuj',
+			},
+			cut: {
+				title: 'Wytnij',
+			},
 		},
 		image: {
 			select: {

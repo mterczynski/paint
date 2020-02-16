@@ -5,7 +5,7 @@ import { AppState } from '../../../../../types';
 import './Clipboard.scss';
 
 const Clipboard = () => {
-	const language = useSelector((state: AppState)  => state.language);
+	const language = useSelector((state: AppState)  => state.language.homeTabs.clipboard);
 
 	return (
 		<div className='Clipboard'>
@@ -21,7 +21,7 @@ const Clipboard = () => {
 					</div>
 
 					<div className='Clipboard__pasteGroupBottom'>
-						<div>{language.homeTabs.clipboard.paste.title}</div>
+						<div>{language.paste.title}</div>
 						<img
 							className='Clipboard__arrowDown'
 							draggable='false'
@@ -40,7 +40,7 @@ const Clipboard = () => {
 							alt=''
 						/>
 
-						<span className='Clipboard_buttonText'> Wytnij</span>
+						<span className='Clipboard_buttonText'> {language.cut.title}</span>
 					</div>
 
 					<div className='Clipboard__button'>
@@ -50,11 +50,11 @@ const Clipboard = () => {
 							className='Clipboard__buttonImage'
 							alt=''
 						/>
-						<span className='Clipboard__buttonText'> Kopiuj</span>
+						<span className='Clipboard__buttonText'> {language.copy.title}</span>
 					</div>
 				</div>
 			</div>
-			<div className='Clipboard__description'>Schowek</div>
+			<div className='Clipboard__description'>{language.title}</div>
 		</div>
 	);
 };
