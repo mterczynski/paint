@@ -5,11 +5,7 @@ import ViewTab from './view-tab/ViewTab';
 
 import './Ribbon.scss';
 
-const mapStateToProps = state => {
-	return { };
-};
-
-class RibbonComponent extends React.Component {
+export default class Ribbon extends React.Component {
 	readonly state = {
 		activeTab: 'mainTools',
 		isCollapsed: false,
@@ -100,7 +96,3 @@ class RibbonComponent extends React.Component {
 		);
 	}
 }
-
-const Ribbon = connect(mapStateToProps)(RibbonComponent);
-
-export default Ribbon;

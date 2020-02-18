@@ -1,5 +1,6 @@
 import { AvailableTools } from '.';
 import { Lang } from '../lang';
+import { Dropdowns } from './dropdowns';
 
 type AvailableZoomLevels = 0.125 | 0.25 | 0.5 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
@@ -16,11 +17,10 @@ export interface AppState {
 	isMaximized: boolean;
 	isBottomBarVisible: boolean;
 
-	openedDropdown: any; // todo
+	openedDropdown: Dropdowns;
 	preventNextAppClick: boolean;
 
 	zoom: AvailableZoomLevels;
-	selection: null; // todo
 	selectedTool: AvailableTools;
 	isBrushActive: boolean;
 	toolSize: 1 | 2 | 3 | 4;

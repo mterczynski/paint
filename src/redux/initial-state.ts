@@ -11,7 +11,6 @@ export const initialState: AppState = {
 	preventNextAppClick: false,
 
 	zoom: 1,
-	selection: null,
 	selectedTool: AvailableTools.None,
 	isBrushActive: false,
 	toolSize: 3,
