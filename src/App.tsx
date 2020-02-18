@@ -10,18 +10,13 @@ import store from './redux/store';
 
 import './App.scss';
 
-const mapStateToProps = state => {
-	return {
-	};
-};
-
-class UnconnectedApp extends React.Component {
+class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onClick = this.onClick.bind(this);
 	}
 
-	onClick(e) {
+	onClick(e: React.MouseEvent) {
 		store.dispatch(actions.appClick());
 	}
 
@@ -38,8 +33,6 @@ class UnconnectedApp extends React.Component {
 		);
 	}
 }
-
-const App = connect(mapStateToProps)(UnconnectedApp);
 
 export default App;
 
