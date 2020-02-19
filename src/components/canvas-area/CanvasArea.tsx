@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux';
 import { AppState, AvailableTools } from '../../types';
 import './CanvasArea.scss';
 
-const cursors = {
+const cursors = Object.freeze({
 	[AvailableTools.Pencil]: `url(${require('../../assets/cursors/pencil.png')}), auto`,
 	[AvailableTools.None]: 'default',
-};
+});
 
 const CanvasArea = () => {
 	const selectedTool = useSelector((state: AppState) => state.selectedTool);
