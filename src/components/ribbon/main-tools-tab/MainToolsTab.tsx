@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Tab from '../tab/Tab';
 import Group from './group/Group';
 import Brushes from './groups/brushes/Brushes';
@@ -13,50 +12,37 @@ import Tools from './groups/tools/Tools';
 
 import './MainToolsTab.scss';
 
-const mapStateToProps = state => {
-	return {};
+const MainToolsTab = () => {
+	return (
+		<Tab>
+			<div className='MainToolsTab'>
+				<Group>
+					<Clipboard />
+				</Group>
+				<Group>
+					<Image />
+				</Group>
+				<Group>
+					<Tools />
+				</Group>
+				<Group>
+					<Brushes />
+				</Group>
+				<Group>
+					<Shapes />
+				</Group>
+				<Group>
+					<Size />
+				</Group>
+				<Group>
+					<Colors />
+				</Group>
+				<Group>
+					<Paint3d />
+				</Group>
+			</div>
+		</Tab>
+	);
 };
-
-class MainToolsTabComponent extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
-
-	render() {
-		return (
-			<Tab>
-				<div className='MainToolsTab'>
-					<Group>
-						<Clipboard />
-					</Group>
-					<Group>
-						<Image />
-					</Group>
-					<Group>
-						<Tools />
-					</Group>
-					<Group>
-						<Brushes />
-					</Group>
-					<Group>
-						<Shapes />
-					</Group>
-					<Group>
-						<Size />
-					</Group>
-					<Group>
-						<Colors />
-					</Group>
-					<Group>
-						<Paint3d />
-					</Group>
-				</div>
-			</Tab>
-		);
-	}
-}
-
-const MainToolsTab = connect(mapStateToProps)(MainToolsTabComponent);
 
 export default MainToolsTab;
