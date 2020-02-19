@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { connect, Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import BottomBar from './components/bottom-bar/BottomBar';
 import CanvasArea from './components/canvas-area/CanvasArea';
 import Ribbon from './components/ribbon/Ribbon';
@@ -10,35 +10,24 @@ import store from './redux/store';
 
 import './App.scss';
 
-class App extends React.Component {
-	constructor(props) {
-		super(props);
-		this.onClick = this.onClick.bind(this);
-	}
-
-	onClick(e: React.MouseEvent) {
-		store.dispatch(actions.appClick());
-	}
-
-	render() {
-		return (
-			<Provider store={store}>
-				<div className='App' onClick={this.onClick}>
-					<TitleBar />
-					<Ribbon />
-					<CanvasArea />
-					<BottomBar />
-				</div>
-			</Provider>
-		);
-	}
+function onClick() {
+	store.dispatch(actions.appClick());
 }
 
-export default App;
+const App = () => {
+	return (
+		<div className='App' onClick={onClick}>
+			<Provider store={store}>
+				<TitleBar />
+				<Ribbon />
+				<CanvasArea />
+				<BottomBar />
+			</Provider>
+		</div>
+	);
+};
 
 ReactDOM.render(
-	<Provider store={store}>
-		<App />
-	</Provider>,
+	<App />,
 	document.getElementById('root'),
 );
