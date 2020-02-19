@@ -2517,10 +2517,10 @@ ms@2.1.1, ms@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
 
-mterczynski-tslint@^1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/mterczynski-tslint/-/mterczynski-tslint-1.9.0.tgz#b211a6d499765dbafe7127e5545852389a3e31a0"
-  integrity sha512-BhWYk9BAoilGGO+PlLCjLu6P3c4vJDSE0RjUXhwMLXQk7q1UH9qFr04lZveIjfBLGiHRnZdfGSe/2c0qFyg6lQ==
+mterczynski-tslint@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/mterczynski-tslint/-/mterczynski-tslint-1.10.0.tgz#149c6fa303bb2dd819f5d0de9e798929865e8b03"
+  integrity sha512-BVoUGxIHgximiGg2z9ACq8gQFHm3a5j8jtmHkq0HOBS+GcW9/I3JZeVYZMRv5fuoWWmqKPBQkvlH7Xuni6IhFg==
 
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"
