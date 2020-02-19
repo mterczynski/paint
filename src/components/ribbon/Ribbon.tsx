@@ -1,13 +1,17 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import MainToolsTab from './main-tools-tab/MainToolsTab';
 import ViewTab from './view-tab/ViewTab';
 
 import './Ribbon.scss';
 
+enum Tabs {
+	MainTools = 'MainTools',
+	View = 'View',
+}
+
 export default class Ribbon extends React.Component {
 	readonly state = {
-		activeTab: 'mainTools',
+		activeTab: Tabs.MainTools,
 		isCollapsed: false,
 	};
 
@@ -16,7 +20,7 @@ export default class Ribbon extends React.Component {
 		this.toggleRibbon = this.toggleRibbon.bind(this);
 	}
 
-	changeTab(tabName) {
+	changeTab(tabName: Tabs) {
 		this.setState({ activeTab: tabName });
 	}
 
@@ -32,10 +36,10 @@ export default class Ribbon extends React.Component {
 						<div className='Ribbon__head__tabNames__file'>Plik</div>
 
 						<div
-							onClick={() => this.changeTab('mainTools')}
+							onClick={() => this.changeTab(Tabs.MainTools)}
 							className={
 								'Ribbon__head__tabNames__tab ' +
-								(this.state.activeTab === 'mainTools'
+								(this.state.activeTab === Tabs.MainTools
 									? 'Ribbon__head__tabNames__tab--active'
 									: '')
 							}
@@ -44,10 +48,10 @@ export default class Ribbon extends React.Component {
 						</div>
 
 						<div
-							onClick={() => this.changeTab('view')}
+							onClick={() => this.changeTab(Tabs.View)}
 							className={
 								'Ribbon__head__tabNames__tab ' +
-								(this.state.activeTab === 'view'
+								(this.state.activeTab === Tabs.View
 									? 'Ribbon__head__tabNames__tab--active'
 									: '')
 							}
@@ -85,7 +89,7 @@ export default class Ribbon extends React.Component {
 
 				{this.state.isCollapsed === false ? (
 					<div className='Ribbon__body'>
-						{this.state.activeTab === 'mainTools' ? (
+						{this.state.activeTab === Tabs.MainTools ? (
 							<MainToolsTab />
 						) : (
 							<ViewTab />
