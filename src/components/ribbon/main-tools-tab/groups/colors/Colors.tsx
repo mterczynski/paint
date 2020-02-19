@@ -1,16 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import * as actions from '../../../../../redux/actions';
 import store from '../../../../../redux/store';
 
+import { AppState, IndexOfMainColor } from '../../../../../types';
 import './Colors.scss';
-
-interface PropTypes {
-	isBrushActive: boolean;
-	selectedMainColorIndex: 1 | 2;
-	mainColor1: string;
-	mainColor2: string;
-}
 
 const basicColors = Object.freeze([
 	// first row:
@@ -41,161 +35,134 @@ const basicColors = Object.freeze([
 	]),
 ]);
 
-const mapStateToProps = state => {
-	return {
-		mainColor1: state.colors.color1,
-		mainColor2: state.colors.color2,
-		selectedMainColorIndex: state.colors.selectedMainColorIndex,
-	} as PropTypes;
-};
+const lastUsedCustomColors = Object.freeze([
+	'rgb(255, 111, 0)',
+	'rgb(0, 0, 0)',
+	'rgb(255, 255, 255)',
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+]);
 
-class ColorsComponent extends React.Component<PropTypes> {
-	readonly state = Object.freeze({
-		isListCollapsed: false,
-		lastUsedCustomColors: Object.freeze([
-			'rgb(255, 111, 0)',
-			'rgb(0, 0, 0)',
-			'rgb(255, 255, 255)',
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-		]),
-	});
-
-	constructor(props) {
-		super(props);
-	}
-
-	selectMainColorIndex(colorIndex: 1 | 2) {
-		store.dispatch(actions.selectMainColorIndex(colorIndex));
-	}
-
-	setSelectedMainColor(color: string) {
-		store.dispatch(actions.setSelectedMainColor(color));
-	}
-
-	render() {
-		return (
-			<div className='Colors'>
-				<div className='Colors__content'>
-					<div
-						className={
-							(this.props.selectedMainColorIndex === 1
-								? 'Colors__mainColor--active'
-								: '') + ' Colors__mainColor'
-						}
-						onClick={() => {
-							this.selectMainColorIndex(1);
-						}}
-					>
-						<div
-							style={{ background: this.props.mainColor1 }}
-							className='Colors__colorBox'
-						/>
-						<div className='Colors__colorBoxText'>
-							Kolor <br /> 1
-						</div>
-					</div>
-
-					<div
-						className={
-							(this.props.selectedMainColorIndex === 2
-								? 'Colors__mainColor--active'
-								: '') + ' Colors__mainColor'
-						}
-						onClick={() => {
-							this.selectMainColorIndex(2);
-						}}
-					>
-						<div
-							style={{ background: this.props.mainColor2 }}
-							className='Colors__colorBox Colors__colorBox--small'
-						/>
-						<div className='Colors__colorBoxText'>
-							Kolor
-							<br />2
-						</div>
-					</div>
-
-					<div className='Colors__colors'>
-						<div className='Colors__colorRow'>
-							{basicColors[0].map((color, i) => {
-								return (
-									<div
-										style={{ background: color }}
-										key={i}
-										className='Colors__colorBox Colors__colorBox--tiny'
-										onClick={() => {
-											this.setSelectedMainColor(color);
-										}}
-									/>
-								);
-							})}
-						</div>
-
-						<div className='Colors__colorRow'>
-							{basicColors[1].map((color, i) => {
-								return (
-									<div
-										style={{ background: color }}
-										key={i}
-										className='Colors__colorBox Colors__colorBox--tiny'
-										onClick={() => {
-											this.setSelectedMainColor(color);
-										}}
-									/>
-								);
-							})}
-						</div>
-
-						<div className='Colors__colorRow'>
-							{this.state.lastUsedCustomColors.map((color, i) => {
-								if (color) {
-									return (
-										<div
-											style={{ background: color }}
-											key={i}
-											className='Colors__colorBox Colors__colorBox--tiny'
-											onClick={() => {
-												this.setSelectedMainColor(color);
-											}}
-										/>
-									);
-								}
-
-								return (
-									<div
-										className='Colors__colorBox Colors__colorBox--tiny--disabled'
-										key={i}
-									/>
-								);
-							})}
-						</div>
-					</div>
-
-					<div className='Colors__editColors'>
-						<img
-							className='Colors__editColorsIcon'
-							src={require('../../../../../assets/icons/main-tools-tab/7_colors.png')}
-							alt=''
-						/>
-						<div className='Colors__colorBoxText'>
-							Edytuj
-							<br />
-							kolory
-						</div>
-					</div>
-				</div>
-				<div className='Colors__description'>Kolory</div>
-			</div>
-		);
-	}
+function selectMainColorIndex(colorIndex: IndexOfMainColor) {
+	store.dispatch(actions.selectMainColorIndex(colorIndex));
 }
 
-const Colors = connect(mapStateToProps)(ColorsComponent);
+function setSelectedMainColor(color: string) {
+	store.dispatch(actions.setSelectedMainColor(color));
+}
+
+const Colors = () => {
+	const stateOfColors = useSelector((appState: AppState) => appState.colors);
+
+	return (
+		<div className='Colors'>
+			<div className='Colors__content'>
+				<div
+					className={
+						(stateOfColors.selectedMainColorIndex === 1
+							? 'Colors__mainColor--active'
+							: '') + ' Colors__mainColor'
+					}
+					onClick={() => selectMainColorIndex(1)}
+				>
+					<div
+						style={{ background: stateOfColors.color1 }}
+						className='Colors__colorBox'
+					/>
+					<div className='Colors__colorBoxText'>
+						Kolor <br /> 1
+					</div>
+				</div>
+
+				<div
+					className={
+						(stateOfColors.selectedMainColorIndex === 2
+							? 'Colors__mainColor--active'
+							: '') + ' Colors__mainColor'
+					}
+					onClick={() => selectMainColorIndex(2)}
+				>
+					<div
+						style={{ background: stateOfColors.color2 }}
+						className='Colors__colorBox Colors__colorBox--small'
+					/>
+					<div className='Colors__colorBoxText'>
+						Kolor
+						<br />2
+					</div>
+				</div>
+
+				<div className='Colors__colors'>
+					<div className='Colors__colorRow'>
+						{basicColors[0].map((color, i) => {
+							return (
+								<div
+									style={{ background: color }}
+									key={i}
+									className='Colors__colorBox Colors__colorBox--tiny'
+									onClick={() => setSelectedMainColor(color)}
+								/>
+							);
+						})}
+					</div>
+
+					<div className='Colors__colorRow'>
+						{basicColors[1].map((color, i) => {
+							return (
+								<div
+									style={{ background: color }}
+									key={i}
+									className='Colors__colorBox Colors__colorBox--tiny'
+									onClick={() => setSelectedMainColor(color)}
+								/>
+							);
+						})}
+					</div>
+
+					<div className='Colors__colorRow'>
+						{lastUsedCustomColors.map((color, i) => {
+							if (color) {
+								return (
+									<div
+										style={{ background: color }}
+										key={i}
+										className='Colors__colorBox Colors__colorBox--tiny'
+										onClick={() => setSelectedMainColor(color)}
+									/>
+								);
+							}
+
+							return (
+								<div
+									className='Colors__colorBox Colors__colorBox--tiny--disabled'
+									key={i}
+								/>
+							);
+						})}
+					</div>
+				</div>
+
+				<div className='Colors__editColors'>
+					<img
+						className='Colors__editColorsIcon'
+						src={require('../../../../../assets/icons/main-tools-tab/7_colors.png')}
+						alt=''
+					/>
+					<div className='Colors__colorBoxText'>
+						Edytuj
+						<br />
+						kolory
+					</div>
+				</div>
+			</div>
+			<div className='Colors__description'>Kolory</div>
+		</div>
+	);
+};
 
 export default Colors;
