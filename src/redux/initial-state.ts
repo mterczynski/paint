@@ -16,8 +16,8 @@ export const initialState: AppState = {
 	toolSize: 3,
 
 	colors: {
-		color1: 'black',
-		color2: 'white',
+		color1: 'rgb(0,0,0)',
+		color2: 'rgb(255,255,255)',
 		selectedMainColorIndex: 1,
 		lastUsedCustomColors: new Array(10).fill(null),
 		isEditColorsWindowOpened: false,
