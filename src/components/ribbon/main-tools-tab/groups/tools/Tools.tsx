@@ -16,10 +16,11 @@ const mapStateToProps = state => {
 	};
 };
 
+function selectTool(toolId: AvailableTools) {
+	store.dispatch(actions.selectTool(toolId));
+}
+
 class ToolsComponent extends React.Component<PropTypes> {
-	selectTool(toolId: AvailableTools) {
-		store.dispatch(actions.selectTool(toolId));
-	}
 
 	getToolClassName(tool: AvailableTools, iconType: 1 | 2 | 3) {
 		return `Tools__icon-${iconType} ` + (this.props.selectedTool === tool ? 'Tools__icon--active' : '');
@@ -28,21 +29,21 @@ class ToolsComponent extends React.Component<PropTypes> {
 	render() {
 		return <div className='Tools'>
 			<div className='Tools__iconRow'>
-				<div onClick={() => this.selectTool(AvailableTools.Pencil)}
+				<div onClick={() => selectTool(AvailableTools.Pencil)}
 					className={this.getToolClassName(AvailableTools.Pencil, 1)}
 				>
 					<img className='Tools__iconImage' draggable='false'
 					src={require('../../../../../assets/icons/main-tools-tab/3_tools/1.png')} alt=''/>
 				</div>
 
-				<div onClick={() => this.selectTool(AvailableTools.Fill)}
+				<div onClick={() => selectTool(AvailableTools.Fill)}
 					className={this.getToolClassName(AvailableTools.Fill, 2)}
 				>
 					<img className='Tools__iconImage' draggable='false'
 					src={require('../../../../../assets/icons/main-tools-tab/3_tools/2.png')} alt=''/>
 				</div>
 
-				<div onClick={() => this.selectTool(AvailableTools.Text)}
+				<div onClick={() => selectTool(AvailableTools.Text)}
 					className={this.getToolClassName(AvailableTools.Text, 3)}
 				>
 					<img className='Tools__iconImage' draggable='false'
@@ -51,21 +52,21 @@ class ToolsComponent extends React.Component<PropTypes> {
 			</div>
 
 			<div className='Tools__iconRow'>
-				<div onClick={() => this.selectTool(AvailableTools.Eraser)}
+				<div onClick={() => selectTool(AvailableTools.Eraser)}
 					className={this.getToolClassName(AvailableTools.Eraser, 1)}
 				>
 					<img className='Tools__iconImage' draggable='false'
 					src={require('../../../../../assets/icons/main-tools-tab/3_tools/4.png')} alt=''/>
 				</div>
 
-				<div onClick={() => this.selectTool(AvailableTools.ColorPicker)}
+				<div onClick={() => selectTool(AvailableTools.ColorPicker)}
 					className={this.getToolClassName(AvailableTools.ColorPicker, 2)}
 				>
 					<img className='Tools__iconImage' draggable='false'
 					src={require('../../../../../assets/icons/main-tools-tab/3_tools/5.png')} alt=''/>
 				</div>
 
-				<div onClick={() => this.selectTool(AvailableTools.Magnifier)}
+				<div onClick={() => selectTool(AvailableTools.Magnifier)}
 					className={this.getToolClassName(AvailableTools.Magnifier, 3)}
 				>
 					<img className='Tools__iconImage' draggable='false'
