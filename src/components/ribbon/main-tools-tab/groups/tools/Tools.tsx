@@ -1,61 +1,52 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import * as actions from '../../../../../redux/actions';
 import store from '../../../../../redux/store';
 
-import { AvailableTools } from '../../../../../types';
+import { AppState, AvailableTools } from '../../../../../types';
 import './Tools.scss';
 
-interface PropTypes {
-	selectedTool: number;
+type IconType = 1 | 2 | 3;
+
+function selectTool(tool: AvailableTools) {
+	store.dispatch(actions.selectTool(tool));
 }
 
-const mapStateToProps = state => {
-	return {
-		selectedTool: state.selectedTool,
+const Tool = ({tool, iconType}: {
+	tool: AvailableTools,
+	iconType: IconType,
+}) => {
+	const selectedTool = useSelector((state: AppState) => state.selectedTool);
+
+	const getToolClassName = () => {
+		return `Tools__icon-${iconType} ` + (selectedTool === tool ? 'Tools__icon--active' : '');
 	};
+
+	return <div onClick={() => selectTool(tool)}
+		className={getToolClassName()}
+	>
+		<img className='Tools__iconImage' draggable='false'
+		src={require(`../../../../../assets/icons/main-tools-tab/3_tools/${tool}.png`)} alt=''/>
+	</div>;
 };
 
-function selectTool(toolId: AvailableTools) {
-	store.dispatch(actions.selectTool(toolId));
-}
+const ToolsIconRow = ({tools}: {tools: AvailableTools[]}) => {
+	return 	<div className='Tools__iconRow'>
+		<Tool tool={tools[0]} iconType={1}></Tool>
+		<Tool tool={tools[1]} iconType={2}></Tool>
+		<Tool tool={tools[2]} iconType={3}></Tool>
+	</div>;
+};
 
-class ToolsComponent extends React.Component<PropTypes> {
+const Tools = () => {
+	return <div className='Tools'>
+		<ToolsIconRow tools={[AvailableTools.Pencil, AvailableTools.Fill, AvailableTools.Text]}></ToolsIconRow>
+		<ToolsIconRow tools={[AvailableTools.Eraser, AvailableTools.ColorPicker, AvailableTools.Magnifier]}></ToolsIconRow>
 
-	ToolComponent = ({tool, iconType}: {tool: AvailableTools, iconType: 1 | 2 | 3}) => {
-		return <div onClick={() => selectTool(tool)}
-			className={this.getToolClassName(tool, iconType)}
-		>
-			<img className='Tools__iconImage' draggable='false'
-			src={require(`../../../../../assets/icons/main-tools-tab/3_tools/${tool}.png`)} alt=''/>
-		</div>;
-	}
-
-	getToolClassName(tool: AvailableTools, iconType: 1 | 2 | 3) {
-		return `Tools__icon-${iconType} ` + (this.props.selectedTool === tool ? 'Tools__icon--active' : '');
-	}
-
-	render() {
-		return <div className='Tools'>
-			<div className='Tools__iconRow'>
-				<this.ToolComponent tool={AvailableTools.Pencil} iconType={1}></this.ToolComponent>
-				<this.ToolComponent tool={AvailableTools.Fill} iconType={2}></this.ToolComponent>
-				<this.ToolComponent tool={AvailableTools.Text} iconType={3}></this.ToolComponent>
-			</div>
-
-			<div className='Tools__iconRow'>
-				<this.ToolComponent tool={AvailableTools.Eraser} iconType={1}></this.ToolComponent>
-				<this.ToolComponent tool={AvailableTools.ColorPicker} iconType={2}></this.ToolComponent>
-				<this.ToolComponent tool={AvailableTools.Magnifier} iconType={3}></this.ToolComponent>
-			</div>
-
-			<div className='Tools__description'>
-				Narzędzia
-			</div>
-		</div>;
-	}
-}
-
-const Tools = connect(mapStateToProps)(ToolsComponent);
+		<div className='Tools__description'>
+			Narzędzia
+		</div>
+	</div>;
+};
 
 export default Tools;
