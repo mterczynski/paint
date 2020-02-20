@@ -14,9 +14,16 @@ function onClick() {
 	store.dispatch(actions.appClick());
 }
 
+function blockContextMenu(e: React.MouseEvent) {
+	e.preventDefault();
+	return false;
+}
+
 const App = () => {
 	return (
-		<div className='App' onClick={onClick}>
+		<div className='App' onClick={onClick}
+		onContextMenu={blockContextMenu}
+		>
 			<Provider store={store}>
 				<TitleBar />
 				<Ribbon />
