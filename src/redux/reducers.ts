@@ -1,9 +1,10 @@
 import { ColorState } from '../types';
 import { Dropdowns } from '../types/dropdowns';
 import { ActionTypes } from './action-types.enum';
+import { Action } from './action.type';
 import { initialState } from './initial-state';
 
-const colorReducer = (state: ColorState, action) => {
+const colorReducer = (state: ColorState, action: Action) => {
 	switch (action.type) {
 		case ActionTypes.SELECT_MAIN_COLOR_INDEX:
 			return {
@@ -27,7 +28,7 @@ const colorReducer = (state: ColorState, action) => {
 	return state;
 };
 
-const rootReducer = (state = initialState, action) => {
+const rootReducer = (state = initialState, action: Action) => {
 	switch (action.type) {
 		case ActionTypes.MAXIMIZE:
 			return { ...state, isMaximized: true };

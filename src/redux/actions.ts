@@ -1,4 +1,4 @@
-import { AvailableTools } from '../types';
+import { AvailableTools, IndexOfMainColor, ToolSize } from '../types';
 import { Dropdowns } from '../types/dropdowns';
 import { ActionTypes } from './action-types.enum';
 import { isRGBColor } from './validators';
@@ -11,7 +11,7 @@ export const toggleBottomBar = () => ({
 	type: ActionTypes.TOGGLE_BOTTOM_BAR,
 });
 
-export const selectMainColorIndex = (colorIndex: 1 | 2) => {
+export const selectMainColorIndex = (colorIndex: IndexOfMainColor) => {
 	return { type: ActionTypes.SELECT_MAIN_COLOR_INDEX, colorIndex };
 };
 
@@ -23,7 +23,7 @@ export const setDropdown = (dropdown: Dropdowns) => {
 	return { type: ActionTypes.SET_DROPDOWN, dropdown };
 };
 
-export const setToolSize = (toolSize: 1 | 2 | 3 | 4) => {
+export const setToolSize = (toolSize: ToolSize) => {
 	return { type: ActionTypes.SET_TOOL_SIZE, toolSize };
 };
 
