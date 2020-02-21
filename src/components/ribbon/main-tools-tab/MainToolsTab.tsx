@@ -16,30 +16,14 @@ const MainToolsTab = () => {
 	return (
 		<Tab>
 			<div className='MainToolsTab'>
-				<Group>
-					<Clipboard />
-				</Group>
-				<Group>
-					<Image />
-				</Group>
-				<Group>
-					<Tools />
-				</Group>
-				<Group>
-					<Brushes />
-				</Group>
-				<Group>
-					<Shapes />
-				</Group>
-				<Group>
-					<Size />
-				</Group>
-				<Group>
-					<Colors />
-				</Group>
-				<Group>
-					<Paint3d />
-				</Group>
+				<Group> <Clipboard /> </Group>
+				<Group>	<Image /> </Group>
+				<Group> <Tools /> </Group>
+				<Group>	<Brushes /> </Group>
+				<Group> <Shapes /> </Group>
+				<Group> <Size /> </Group>
+				<Group>	<Colors /> </Group>
+				<Group> <Paint3d /> </Group>
 			</div>
 		</Tab>
 	);
