@@ -37,7 +37,12 @@ const CanvasArea = () => {
 		return () => window.removeEventListener('mouseup', onMouseUp);
 	}, []);
 
-	function onMouseMove(mouseEvent: React.MouseEvent) {
+	useEffect(() => {
+		window.addEventListener('mousemove', onMouseMove);
+		return () => window.removeEventListener('mousemove', onMouseMove);
+	}, [drawingColorMode, lastMousePosition]);
+
+	function onMouseMove(mouseEvent: MouseEvent) {
 		if (!canvasRef.current || drawingColorMode === DrawingColor.None) {
 			return;
 		}
@@ -74,8 +79,7 @@ const CanvasArea = () => {
 			<canvas className='CanvasArea__canvas' width='500' height='500'
 				onMouseDown={onMouseDown}
 				style={{ cursor }}
-				ref={canvasRef}
-				onMouseMove={onMouseMove} />
+				ref={canvasRef}/>
 		</div>
 	);
 };
