@@ -2,7 +2,7 @@ import React from 'react';
 import Dropdown from '../../../../../componentWrappers/dropdown';
 import * as actions from '../../../../../redux/actions';
 import store from '../../../../../redux/store';
-import { Dropdowns } from '../../../../../types/dropdowns';
+import { Dropdowns } from '../../../../../types';
 
 import './Image.scss';
 

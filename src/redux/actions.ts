@@ -1,5 +1,5 @@
 import { AvailableTools, IndexOfMainColor, ToolSize } from '../types';
-import { Dropdowns } from '../types/dropdowns';
+import { Dropdowns } from '../types';
 import { ActionTypes } from './action-types.enum';
 import { isRGBColor } from './validators';
 

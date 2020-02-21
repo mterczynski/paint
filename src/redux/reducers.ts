@@ -1,5 +1,4 @@
-import { ColorState } from '../types';
-import { Dropdowns } from '../types/dropdowns';
+import { ColorState, Dropdowns } from '../types';
 import { ActionTypes } from './action-types.enum';
 import { Action } from './action.type';
 import { initialState } from './initial-state';

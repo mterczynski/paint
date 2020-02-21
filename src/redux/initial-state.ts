@@ -1,6 +1,6 @@
 import { languages } from '../lang';
 import { AppState, AvailableTools } from '../types';
-import { Dropdowns } from '../types/dropdowns';
+import { Dropdowns } from '../types';
 
 export const initialState: AppState = {
 	language: languages.PL,
