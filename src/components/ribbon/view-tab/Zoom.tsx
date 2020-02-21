@@ -1,44 +1,32 @@
 import React from 'react';
 
+const Figure = ({imgPath, children}: {
+	imgPath: string,
+	children: React.ReactNode,
+}) => {
+	return <figure className='ViewTab__figure'>
+		<img
+			draggable='false'
+			alt=''
+			className='ViewTab__icon'
+			src={require(imgPath)}
+		/>
+		<figcaption className='ViewTab__figcaption'>
+			{children}
+		</figcaption>
+	</figure>;
+};
+
 const Zoom = () => {
 	return <div className='ViewTab__group'>
 		<div className='ViewTab__content'>
-			<figure className='ViewTab__figure'>
-				<img
-					draggable='false'
-					className='ViewTab__icon'
-					alt=''
-					src={require('../../../assets/icons/view-tab/zoomIn.png')}
-				/>
-				<figcaption className='ViewTab__figcaption'>
-					Powiększ
-				</figcaption>
-			</figure>
-
-			<figure className='ViewTab__figure'>
-				<img
-					draggable='false'
-					alt=''
-					className='ViewTab__icon'
-					src={require('../../../assets/icons/view-tab/zoomOut.png')}
-				/>
-				<figcaption className='ViewTab__figcaption'>
-					Pomniejsz
-				</figcaption>
-			</figure>
-
-			<figure className='ViewTab__figure'>
-				<img
-					draggable='false'
-					alt=''
-					className='ViewTab__icon'
-					src={require('../../../assets/icons/view-tab/maximize.png')}
-				/>
-				<figcaption className='ViewTab__figcaption'>
-					100
-					<br />%
-				</figcaption>
-			</figure>
+			<Figure imgPath={'../../../assets/icons/view-tab/zoomIn.png'}>Powiększ</Figure>
+			<Figure imgPath={'../../../assets/icons/view-tab/zoomOut.png'}>Pomniejsz</Figure>
+			<Figure imgPath={'../../../assets/icons/view-tab/maximize.png'}>
+				100
+				<br/>
+				%
+			</Figure>
 		</div>
 		<h1 className='ViewTab__description'>Powiększenie</h1>
 	</div>;
