@@ -16,6 +16,12 @@ interface DrawLineArgs {
 	to: Point;
 }
 
+enum DrawingColor {
+	None = 0,
+	Main = 1,
+	Secondary = 2,
+}
+
 const cursorYOffset = 20;
 
 const cursors = Object.freeze({
@@ -36,16 +42,17 @@ const CanvasArea = () => {
 	const colors = useSelector((state: AppState) => state.colors);
 
 	const selectedColor = colors.selectedMainColorIndex === 1 ? colors.color1 : colors.color2;
+	const secondaryColor = colors.selectedMainColorIndex === 1 ? colors.color2 : colors.color1;
 
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const [lastMousePosition, setLastMousePosition] = useState<null | Point>(null);
-	const [isDrawing, setIsDrawing] = useState(false);
+	const [drawingColorMode, setDrawingColorMode] = useState(DrawingColor.None);
 
 	const cursor: string = cursors[selectedTool];
 
 	useEffect(() => {
 		const onMouseUp = () => {
-			setIsDrawing(false);
+			setDrawingColorMode(DrawingColor.None);
 			setLastMousePosition(null);
 		};
 
@@ -55,9 +62,11 @@ const CanvasArea = () => {
 	}, []);
 
 	function onMouseMove(mouseEvent: React.MouseEvent) {
-		if (!canvasRef.current || !isDrawing) {
+		if (!canvasRef.current || drawingColorMode === DrawingColor.None) {
 			return;
 		}
+
+		const drawingColor = drawingColorMode === DrawingColor.Main ? selectedColor : secondaryColor;
 
 		const canvasPosition = canvasRef.current.getBoundingClientRect();
 		const mouseX = mouseEvent.clientX - canvasPosition.left;
@@ -71,7 +80,7 @@ const CanvasArea = () => {
 			if (context) {
 				drawLine({
 					context,
-					color: selectedColor,
+					color: drawingColor,
 					from: lastMousePosition,
 					to: currentMousePosition,
 				});
@@ -81,8 +90,12 @@ const CanvasArea = () => {
 		setLastMousePosition(currentMousePosition);
 	}
 
-	function onMouseDown() {
-		setIsDrawing(true);
+	function onMouseDown(e: React.MouseEvent) {
+		if (e.button === 0) {
+			setDrawingColorMode(DrawingColor.Main);
+		} else if (e.button === 2) {
+			setDrawingColorMode(DrawingColor.Secondary);
+		}
 	}
 
 	return (

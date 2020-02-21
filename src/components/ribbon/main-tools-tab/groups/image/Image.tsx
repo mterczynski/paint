@@ -39,7 +39,7 @@ const Image = () => {
 							alt=''
 						/>{' '}
 						Przytnij
-						</li>
+					</li>
 
 					<li>
 						<img
@@ -47,7 +47,7 @@ const Image = () => {
 							alt=''
 						/>{' '}
 						Zmień rozmiar
-						</li>
+					</li>
 
 					<li>
 						<img
