@@ -1,5 +1,11 @@
 import React from 'react';
 
+const imgs = {
+	zoomIn: require('../../../assets/icons/view-tab/zoomIn.png'),
+	zoomOut: require('../../../assets/icons/view-tab/zoomOut.png'),
+	maximize: require('../../../assets/icons/view-tab/maximize.png'),
+};
+
 const Figure = ({imgPath, children}: {
 	imgPath: string,
 	children: React.ReactNode,
@@ -9,7 +15,7 @@ const Figure = ({imgPath, children}: {
 			draggable='false'
 			alt=''
 			className='ViewTab__icon'
-			src={require(imgPath)}
+			src={imgPath}
 		/>
 		<figcaption className='ViewTab__figcaption'>
 			{children}
@@ -20,9 +26,9 @@ const Figure = ({imgPath, children}: {
 const Zoom = () => {
 	return <div className='ViewTab__group'>
 		<div className='ViewTab__content'>
-			<Figure imgPath={'../../../assets/icons/view-tab/zoomIn.png'}>Powiększ</Figure>
-			<Figure imgPath={'../../../assets/icons/view-tab/zoomOut.png'}>Pomniejsz</Figure>
-			<Figure imgPath={'../../../assets/icons/view-tab/maximize.png'}>
+			<Figure imgPath={imgs.zoomIn}>Powiększ</Figure>
+			<Figure imgPath={imgs.zoomOut}>Pomniejsz</Figure>
+			<Figure imgPath={imgs.maximize}>
 				100
 				<br/>
 				%
