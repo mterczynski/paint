@@ -3,38 +3,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AppState, AvailableTools } from '../../types';
 import './CanvasArea.scss';
-
-interface Point {
-	x: number;
-	y: number;
-}
-
-interface DrawLineArgs {
-	color: string;
-	context: CanvasRenderingContext2D;
-	from: Point;
-	to: Point;
-}
+import { cursors } from './cursors';
+import { Point } from './types';
+import { drawLine, getMousePositionRelativeToCanvas } from './utils';
 
 enum DrawingColor {
 	None = 0,
 	Main = 1,
 	Secondary = 2,
-}
-
-const cursorYOffset = 20;
-
-const cursors = Object.freeze({
-	[AvailableTools.Pencil]: `url(${require('../../assets/cursors/pencil.png')}) 0 ${cursorYOffset}, auto`,
-	[AvailableTools.None]: 'default',
-});
-
-function drawLine({color, context, from, to}: DrawLineArgs) {
-	context.beginPath();
-	context.moveTo(from.x, from.y);
-	context.lineTo(to.x, to.y);
-	context.strokeStyle = color;
-	context.stroke();
 }
 
 const CanvasArea = () => {
@@ -67,12 +43,7 @@ const CanvasArea = () => {
 		}
 
 		const drawingColor = drawingColorMode === DrawingColor.Main ? selectedColor : secondaryColor;
-
-		const canvasPosition = canvasRef.current.getBoundingClientRect();
-		const mouseX = mouseEvent.clientX - canvasPosition.left;
-		const mouseY = mouseEvent.clientY - canvasPosition.top;
-
-		const currentMousePosition = {x: mouseX, y: mouseY};
+		const currentMousePosition = getMousePositionRelativeToCanvas(canvasRef.current, mouseEvent);
 
 		if (lastMousePosition && selectedTool === AvailableTools.Pencil) {
 			const context = canvasRef.current.getContext('2d');

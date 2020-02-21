@@ -19,11 +19,11 @@ const images = {
 	dots: require('../../assets/icons/bottom-bar/dots.png'),
 };
 
-const BottomBar = ({}) => {
+const BottomBar = () => {
 	const isBottomBarVisible = useSelector((state: AppState) => state.isBottomBarVisible);
 	const image = {
-		height: useSelector((state: AppState) => state.imageSettings.height),
-		width: useSelector((state: AppState) => state.imageSettings.width),
+		height: useSelector((state: AppState) => state.imageSettings.heightInPx),
+		width: useSelector((state: AppState) => state.imageSettings.widthInPx),
 	};
 
 	if (!isBottomBarVisible) {

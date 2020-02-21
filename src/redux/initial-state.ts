@@ -24,7 +24,7 @@ export const initialState: AppState = {
 	},
 
 	imageSettings: {
-		width: 500,
-		height: 500,
+		widthInPx: 500,
+		heightInPx: 500,
 	},
 };

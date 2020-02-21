@@ -7,10 +7,10 @@ export type IndexOfMainColor = 1 | 2;
 export type ToolSize = 1 | 2 | 3 | 4;
 
 export interface ColorState {
-	color1: string; // css color
-	color2: string; // css color
+	color1: string; // rgb color
+	color2: string; // rgb color
 	selectedMainColorIndex: IndexOfMainColor;
-	lastUsedCustomColors: Array<null | string>; // array of nulls and css colors, size of array: 10
+	lastUsedCustomColors: Array<null | string>; // array of nulls and rgb colors, size of array: 10
 	isEditColorsWindowOpened: boolean;
 }
 
@@ -30,7 +30,7 @@ export interface AppState {
 	colors: ColorState;
 
 	imageSettings: {
-		width: number, // in px
-		height: number, // in px
+		widthInPx: number,
+		heightInPx: number,
 	};
 }
