@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as actions from '../../redux/actions';
 import MainToolsTab from './main-tools-tab/MainToolsTab';
 import ViewTab from './view-tab/ViewTab';
@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import store from '../../redux/store';
 import { AppState, Tabs } from '../../types';
 import './Ribbon.scss';
+import { RibbonToggler } from './RibbonToggler';
 
 const HelpIcon = () => {
 	return <div className='Ribbon__head__icons__icon'>
@@ -35,7 +36,7 @@ const MainToolsTabLink = () => {
 		}
 	>
 		Narzędzia główne
-</div>;
+	</div>;
 };
 
 const ViewTabLink = () => {
@@ -51,34 +52,12 @@ const ViewTabLink = () => {
 		}
 	>
 		Widok
-</div>;
+	</div>;
 };
 
 const Ribbon = () => {
 	const activeTab = useSelector((appState: AppState) => appState.activeTab);
-	const [isCollapsed, setIsColapsed] = useState(false);
-
-	function toggleRibbon() {
-		setIsColapsed(!isCollapsed);
-	}
-
-	const RibbonToggler = () => {
-		return <div
-			className='Ribbon__head__icons__icon'
-			onClick={toggleRibbon}
-		>
-			<img
-				draggable='false'
-				className={
-					'Ribbon__head__icons__icon__image ' +
-					(isCollapsed
-						? 'Ribbon__head__icons__icon__image--reversed'
-						: '')
-				}
-				src={require('../../assets/icons/top/collapse.png')}
-			/>
-		</div>;
-	};
+	const isRibbonCollapsed = useSelector((state: AppState) => state.isRibbonCollapsed);
 
 	return (
 		<div className='Ribbon'>
@@ -95,7 +74,7 @@ const Ribbon = () => {
 				</div>
 			</div>
 
-			{isCollapsed === false ? (
+			{isRibbonCollapsed === false ? (
 				<div className='Ribbon__body'>
 					{activeTab === Tabs.MainTools ? (
 						<MainToolsTab />

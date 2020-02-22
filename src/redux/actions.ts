@@ -35,6 +35,10 @@ export const appClick = () => {
 	return { type: ActionTypes.APP_CLICK };
 };
 
+export const toggleRibbon = () => {
+	return {type: ActionTypes.TOGGLE_RIBBON};
+};
+
 export const setSelectedMainColor = (newColor: string) => {
 	isRGBColor(newColor);
 	return { type: ActionTypes.SET_SELECTED_MAIN_COLOR, newColor };

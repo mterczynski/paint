@@ -32,6 +32,7 @@ export interface AppState {
 	isBrushActive: boolean;
 	toolSize: ToolSize;
 	activeTab: Tabs;
+	isRibbonCollapsed: boolean;
 
 	colors: ColorState;
 

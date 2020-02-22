@@ -15,6 +15,7 @@ export const initialState: AppState = {
 	isBrushActive: false,
 	toolSize: 3,
 	activeTab: Tabs.MainTools,
+	isRibbonCollapsed: false,
 
 	colors: {
 		color1: 'rgb(0,0,0)',
