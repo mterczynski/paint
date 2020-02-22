@@ -13,6 +13,18 @@ const Ribbon = () => {
 	const activeTab = useSelector((appState: AppState) => appState.activeTab);
 	const isRibbonCollapsed = useSelector((state: AppState) => state.isRibbonCollapsed);
 
+	const ActiveTab = () => {
+		return isRibbonCollapsed === false ? (
+			<div className='Ribbon__activeTab'>
+				{activeTab === Tabs.MainTools ? (
+					<MainToolsTab />
+				) : (
+						<ViewTab />
+					)}
+			</div>
+		) : null;
+	};
+
 	return (
 		<div className='Ribbon'>
 			<div className='Ribbon__head'>
@@ -28,15 +40,7 @@ const Ribbon = () => {
 				</div>
 			</div>
 
-			{isRibbonCollapsed === false ? (
-				<div className='Ribbon__body'>
-					{activeTab === Tabs.MainTools ? (
-						<MainToolsTab />
-					) : (
-							<ViewTab />
-						)}
-				</div>
-			) : null}
+			<ActiveTab></ActiveTab>
 		</div>
 	);
 };
