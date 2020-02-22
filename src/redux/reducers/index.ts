@@ -32,6 +32,11 @@ export const rootReducer = (state = initialState, action: Action) => {
 				openedDropdown: action.dropdown,
 				preventNextAppClick: true,
 			};
+		case ActionTypes.SET_ACTIVE_TAB:
+			return {
+				...state,
+				activeTab: action.tab,
+			};
 	}
 
 	return {

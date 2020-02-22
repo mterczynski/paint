@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
+import * as actions from '../../redux/actions';
 import MainToolsTab from './main-tools-tab/MainToolsTab';
 import ViewTab from './view-tab/ViewTab';
 
+import { useSelector } from 'react-redux';
+import store from '../../redux/store';
+import { AppState, Tabs } from '../../types';
 import './Ribbon.scss';
-
-enum Tabs {
-	MainTools = 'MainTools',
-	View = 'View',
-}
 
 const HelpIcon = () => {
 	return <div className='Ribbon__head__icons__icon'>
@@ -19,8 +18,44 @@ const HelpIcon = () => {
 	</div>;
 };
 
+function setActiveTab(tab: Tabs) {
+	store.dispatch(actions.setActiveTab(tab));
+}
+
+const MainToolsTabLink = () => {
+	const activeTab = useSelector((appState: AppState) => appState.activeTab);
+
+	return <div
+		onClick={() => setActiveTab(Tabs.MainTools)}
+		className={
+			'Ribbon__head__tabNames__tab ' +
+			(activeTab === Tabs.MainTools
+				? 'Ribbon__head__tabNames__tab--active'
+				: '')
+		}
+	>
+		Narzędzia główne
+</div>;
+};
+
+const ViewTabLink = () => {
+	const activeTab = useSelector((appState: AppState) => appState.activeTab);
+
+	return <div
+		onClick={() => setActiveTab(Tabs.View)}
+		className={
+			'Ribbon__head__tabNames__tab ' +
+			(activeTab === Tabs.View
+				? 'Ribbon__head__tabNames__tab--active'
+				: '')
+		}
+	>
+		Widok
+</div>;
+};
+
 const Ribbon = () => {
-	const [activeTab, setActiveTab] = useState(Tabs.MainTools);
+	const activeTab = useSelector((appState: AppState) => appState.activeTab);
 	const [isCollapsed, setIsColapsed] = useState(false);
 
 	function toggleRibbon() {
@@ -50,30 +85,8 @@ const Ribbon = () => {
 			<div className='Ribbon__head'>
 				<div className='Ribbon__head__tabNames'>
 					<div className='Ribbon__head__tabNames__file'>Plik</div>
-
-					<div
-						onClick={() => setActiveTab(Tabs.MainTools)}
-						className={
-							'Ribbon__head__tabNames__tab ' +
-							(activeTab === Tabs.MainTools
-								? 'Ribbon__head__tabNames__tab--active'
-								: '')
-						}
-					>
-						Narzędzia główne
-						</div>
-
-					<div
-						onClick={() => setActiveTab(Tabs.View)}
-						className={
-							'Ribbon__head__tabNames__tab ' +
-							(activeTab === Tabs.View
-								? 'Ribbon__head__tabNames__tab--active'
-								: '')
-						}
-					>
-						Widok
-						</div>
+					<MainToolsTabLink></MainToolsTabLink>
+					<ViewTabLink></ViewTabLink>
 				</div>
 
 				<div className='Ribbon__head__icons'>

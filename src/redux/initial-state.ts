@@ -1,5 +1,5 @@
 import { languages } from '../lang';
-import { AppState, AvailableTools } from '../types';
+import { AppState, AvailableTools, Tabs } from '../types';
 import { Dropdowns } from '../types';
 
 export const initialState: AppState = {
@@ -14,6 +14,7 @@ export const initialState: AppState = {
 	selectedTool: AvailableTools.Pencil,
 	isBrushActive: false,
 	toolSize: 3,
+	activeTab: Tabs.MainTools,
 
 	colors: {
 		color1: 'rgb(0,0,0)',

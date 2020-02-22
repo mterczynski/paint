@@ -1,4 +1,4 @@
-import { AvailableTools, IndexOfMainColor, ToolSize } from '../types';
+import { AvailableTools, IndexOfMainColor, Tabs, ToolSize } from '../types';
 import { Dropdowns } from '../types';
 import { ActionTypes } from './action-types.enum';
 import { isRGBColor } from './validators';
@@ -13,6 +13,10 @@ export const toggleBottomBar = () => ({
 
 export const selectMainColorIndex = (colorIndex: IndexOfMainColor) => {
 	return { type: ActionTypes.SELECT_MAIN_COLOR_INDEX, colorIndex };
+};
+
+export const setActiveTab = (tab: Tabs) => {
+	return { type: ActionTypes.SET_ACTIVE_TAB, tab };
 };
 
 export const selectTool = (toolId: AvailableTools) => {

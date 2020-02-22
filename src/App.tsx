@@ -21,8 +21,9 @@ function blockContextMenu(e: React.MouseEvent) {
 
 const App = () => {
 	return (
-		<div className='App' onClick={onClick}
-		onContextMenu={blockContextMenu}
+		<div className='App'
+			onClick={onClick}
+			onContextMenu={blockContextMenu}
 		>
 			<Provider store={store}>
 				<TitleBar />
