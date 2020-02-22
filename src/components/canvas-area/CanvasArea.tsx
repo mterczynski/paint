@@ -53,14 +53,14 @@ const CanvasArea = () => {
 		if (lastMousePosition && selectedTool === AvailableTools.Pencil) {
 			const context = canvasRef.current.getContext('2d');
 
-			if (context) {
-				drawLine({
-					context,
-					color: drawingColor,
-					from: lastMousePosition,
-					to: currentMousePosition,
-				});
-			}
+			if (!context) { return; }
+
+			drawLine({
+				context,
+				color: drawingColor,
+				from: lastMousePosition,
+				to: currentMousePosition,
+			});
 		}
 
 		setLastMousePosition(currentMousePosition);
