@@ -5,7 +5,7 @@ import { AppState, AvailableTools } from '../../types';
 import './CanvasArea.scss';
 import { cursors } from './cursors';
 import { Point } from './types';
-import { drawLine, getMousePositionRelativeToCanvas } from './utils';
+import { drawLine, generateEraserCursorImage, getMousePositionRelativeToCanvas } from './utils';
 
 enum DrawingColor {
 	None = 0,
@@ -78,7 +78,7 @@ const CanvasArea = () => {
 		<div className='CanvasArea'>
 			<canvas className='CanvasArea__canvas' width='500' height='500'
 				onMouseDown={onMouseDown}
-				style={{ cursor }}
+				style={{ cursor: generateEraserCursorImage({eraserColor: 'brown', totalCursorWidthInPx: 32}) }}
 				ref={canvasRef}/>
 		</div>
 	);
