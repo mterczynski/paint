@@ -14,30 +14,26 @@ export enum Tabs {
 export interface ColorState {
 	color1: string; // rgb color
 	color2: string; // rgb color
-	selectedMainColorIndex: IndexOfMainColor;
-	lastUsedCustomColors: Array<null | string>; // array of nulls and rgb colors, size of array: 10
 	isEditColorsWindowOpened: boolean;
+	lastUsedCustomColors: Array<null | string>; // array of nulls and rgb colors, size of array: 10
+	selectedMainColorIndex: IndexOfMainColor;
 }
 
 export interface AppState {
-	language: Lang;
-	isMaximized: boolean;
-	isBottomBarVisible: boolean;
-
-	openedDropdown: Dropdowns;
-	preventNextAppClick: boolean;
-
-	zoom: AvailableZoomLevels;
-	selectedTool: AvailableTools;
-	isBrushActive: boolean;
-	toolSize: ToolSize;
 	activeTab: Tabs;
-	isRibbonCollapsed: boolean;
-
 	colors: ColorState;
-
 	imageSettings: {
 		widthInPx: number,
 		heightInPx: number,
 	};
+	isBottomBarVisible: boolean;
+	isBrushActive: boolean;
+	isMaximized: boolean;
+	isRibbonCollapsed: boolean;
+	language: Lang;
+	openedDropdown: Dropdowns;
+	preventNextAppClick: boolean;
+	selectedTool: AvailableTools;
+	toolSize: ToolSize;
+	zoom: AvailableZoomLevels;
 }

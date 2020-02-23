@@ -15,8 +15,54 @@ export enum ActionTypes {
 	TOGGLE_RIBBON = 'TOGGLE_RIBBON',
 }
 
+export type Actions = AppClickAction |
+	MaximizeAction |
+	SelectMainColorIndexAction |
+	SelectToolAction |
+	SetActiveTabAction |
+	SetDropdownAction |
+	SetSelectedMainColorAction |
+	SetToolSize |
+	ToggleBottomBarAction |
+	ToggleBrushAction |
+	ToggleRibbonAction;
+
+interface AppClickAction {
+	type: ActionTypes.APP_CLICK;
+}
+
 interface MaximizeAction {
 	type: ActionTypes.MAXIMIZE;
+}
+
+interface SelectMainColorIndexAction {
+	type: ActionTypes.SELECT_MAIN_COLOR_INDEX;
+	colorIndex: IndexOfMainColor;
+}
+
+interface SelectToolAction {
+	type: ActionTypes.SELECT_TOOL;
+	toolId: AvailableTools;
+}
+
+interface SetActiveTabAction {
+	type: ActionTypes.SET_ACTIVE_TAB;
+	tab: Tabs;
+}
+
+interface SetDropdownAction {
+	type: ActionTypes.SET_DROPDOWN;
+	dropdown: Dropdowns;
+}
+
+interface SetSelectedMainColorAction {
+	type: ActionTypes.SET_SELECTED_MAIN_COLOR;
+	newColor: string;
+}
+
+interface SetToolSize {
+	type: ActionTypes.SET_TOOL_SIZE;
+	toolSize: ToolSize;
 }
 
 interface ToggleBottomBarAction {
@@ -27,52 +73,6 @@ interface ToggleBrushAction {
 	type: ActionTypes.TOGGLE_BRUSH;
 }
 
-interface SelectToolAction {
-	type: ActionTypes.SELECT_TOOL;
-	toolId: AvailableTools;
-}
-
-interface SetToolSize {
-	type: ActionTypes.SET_TOOL_SIZE;
-	toolSize: ToolSize;
-}
-
-interface AppClickAction {
-	type: ActionTypes.APP_CLICK;
-}
-
-interface SetDropdownAction {
-	type: ActionTypes.SET_DROPDOWN;
-	dropdown: Dropdowns;
-}
-
-interface SetActiveTabAction {
-	type: ActionTypes.SET_ACTIVE_TAB;
-	tab: Tabs;
-}
-
 interface ToggleRibbonAction {
 	type: ActionTypes.TOGGLE_RIBBON;
 }
-
-interface SelectMainColorIndexAction {
-	type: ActionTypes.SELECT_MAIN_COLOR_INDEX;
-	colorIndex: IndexOfMainColor;
-}
-
-interface SetSelectedMainColorAction {
-	type: ActionTypes.SET_SELECTED_MAIN_COLOR;
-	newColor: string;
-}
-
-export type Actions = MaximizeAction |
-	ToggleBottomBarAction |
-	ToggleBrushAction |
-	SelectToolAction |
-	SetToolSize |
-	AppClickAction |
-	SetDropdownAction |
-	SetActiveTabAction |
-	ToggleRibbonAction |
-	SelectMainColorIndexAction |
-	SetSelectedMainColorAction;

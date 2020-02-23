@@ -8,18 +8,18 @@ export const colorReducer = (state: ColorState, action: Actions) => {
 				...state,
 				selectedMainColorIndex: action.colorIndex,
 			};
+
 		case ActionTypes.SET_SELECTED_MAIN_COLOR:
 			if (state.selectedMainColorIndex === 1) {
 				return {
 					...state,
 					color1: action.newColor,
 				};
-			} else {
-				return {
-					...state,
-					color2: action.newColor,
-				};
 			}
+			return {
+				...state,
+				color2: action.newColor,
+			};
 	}
 
 	return state;
