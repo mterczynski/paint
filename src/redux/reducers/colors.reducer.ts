@@ -1,8 +1,7 @@
 import { ColorState } from '../../types';
-import { ActionTypes } from '../action-types.enum';
-import { Action } from '../action.type';
+import { Actions, ActionTypes } from '../action.types';
 
-export const colorReducer = (state: ColorState, action: Action) => {
+export const colorReducer = (state: ColorState, action: Actions) => {
 	switch (action.type) {
 		case ActionTypes.SELECT_MAIN_COLOR_INDEX:
 			return {

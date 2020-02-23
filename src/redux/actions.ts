@@ -1,45 +1,45 @@
 import { AvailableTools, IndexOfMainColor, Tabs, ToolSize } from '../types';
 import { Dropdowns } from '../types';
-import { ActionTypes } from './action-types.enum';
+import { Actions, ActionTypes } from './action.types';
 import { isRGBColor } from './validators';
 
-export const maximize = () => ({
+export const maximize = (): Actions => ({
 	type: ActionTypes.MAXIMIZE,
 });
 
-export const toggleBottomBar = () => ({
+export const toggleBottomBar = (): Actions => ({
 	type: ActionTypes.TOGGLE_BOTTOM_BAR,
 });
 
-export const selectMainColorIndex = (colorIndex: IndexOfMainColor) => {
+export const selectMainColorIndex = (colorIndex: IndexOfMainColor): Actions => {
 	return { type: ActionTypes.SELECT_MAIN_COLOR_INDEX, colorIndex };
 };
 
-export const setActiveTab = (tab: Tabs) => {
+export const setActiveTab = (tab: Tabs): Actions => {
 	return { type: ActionTypes.SET_ACTIVE_TAB, tab };
 };
 
-export const selectTool = (toolId: AvailableTools) => {
+export const selectTool = (toolId: AvailableTools): Actions => {
 	return { type: ActionTypes.SELECT_TOOL, toolId };
 };
 
-export const setDropdown = (dropdown: Dropdowns) => {
+export const setDropdown = (dropdown: Dropdowns): Actions => {
 	return { type: ActionTypes.SET_DROPDOWN, dropdown };
 };
 
-export const setToolSize = (toolSize: ToolSize) => {
+export const setToolSize = (toolSize: ToolSize): Actions => {
 	return { type: ActionTypes.SET_TOOL_SIZE, toolSize };
 };
 
-export const appClick = () => {
+export const appClick = (): Actions => {
 	return { type: ActionTypes.APP_CLICK };
 };
 
-export const toggleRibbon = () => {
+export const toggleRibbon = (): Actions => {
 	return {type: ActionTypes.TOGGLE_RIBBON};
 };
 
-export const setSelectedMainColor = (newColor: string) => {
+export const setSelectedMainColor = (newColor: string): Actions => {
 	isRGBColor(newColor);
 	return { type: ActionTypes.SET_SELECTED_MAIN_COLOR, newColor };
 };

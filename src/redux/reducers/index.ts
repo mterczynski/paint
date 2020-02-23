@@ -1,10 +1,9 @@
 import { AppState, Dropdowns } from '../../types';
-import { ActionTypes } from '../action-types.enum';
-import { Action } from '../action.type';
+import { Actions, ActionTypes } from '../action.types';
 import { initialState } from '../initial-state';
 import { colorReducer } from './colors.reducer';
 
-export const rootReducer = (state = initialState, action: Action): AppState => {
+export const rootReducer = (state = initialState, action: Actions): AppState => {
 	switch (action.type) {
 		case ActionTypes.MAXIMIZE:
 			return { ...state, isMaximized: true };
@@ -15,7 +14,7 @@ export const rootReducer = (state = initialState, action: Action): AppState => {
 		case ActionTypes.SELECT_TOOL:
 			return { ...state, selectedTool: action.toolId };
 		case ActionTypes.SET_TOOL_SIZE:
-				return { ...state, toolSize: action.toolSize };
+			return { ...state, toolSize: action.toolSize };
 		case ActionTypes.APP_CLICK:
 			if (state.preventNextAppClick) {
 				return { ...state, preventNextAppClick: false };
