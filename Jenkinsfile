@@ -4,7 +4,7 @@ pipeline {
 	stages {
 		stage('Install') {
 			steps{
-				bat '''
+				sh '''
 					yarn
 				'''
 			}
@@ -12,7 +12,7 @@ pipeline {
 
 		stage('Build') {
 			steps {
-				bat '''
+				sh '''
 					yarn build
 				'''
 			}
@@ -20,11 +20,9 @@ pipeline {
 
 		stage('Deploy') {
 			steps {
-				bat '''
-					SET Path=%PATH%; %GIT_HOME%\bin;
-				  sh -c "echo ~"
-					sh -c "scp -r dist root@mterczynski.pl:/var/www/html/paint/dist"
-					sh -c "scp -r index.html root@mterczynski.pl:/var/www/html/paint/index.html"
+				sh '''
+					scp -r dist root@mterczynski.pl:/var/www/html/paint/dist
+					scp -r index.html root@mterczynski.pl:/var/www/html/paint/index.html
 				'''
 			}
 		}
