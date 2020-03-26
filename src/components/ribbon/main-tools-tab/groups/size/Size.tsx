@@ -1,16 +1,16 @@
 import React from 'react';
 import Dropdown from '../../../../../componentWrappers/dropdown';
-import * as actions from '../../../../../redux/actions';
+import * as actionCreators from '../../../../../redux/action-creators';
 import store from '../../../../../redux/store';
 import { Dropdowns, ToolSize } from '../../../../../types';
 import './Size.scss';
 
 function openDropdown() {
-	store.dispatch(actions.setDropdown(Dropdowns.size));
+	store.dispatch(actionCreators.setDropdown(Dropdowns.size));
 }
 
 function setToolSize(toolSize: ToolSize) {
-	store.dispatch(actions.setToolSize(toolSize));
+	store.dispatch(actionCreators.setToolSize(toolSize));
 }
 
 const Size = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import * as actions from '../../../../../redux/actions';
+import * as actionCreators from '../../../../../redux/action-creators';
 import store from '../../../../../redux/store';
 
 import { AppState, AvailableTools } from '../../../../../types';
@@ -9,7 +9,7 @@ import './Tools.scss';
 type IconType = 1 | 2 | 3;
 
 function selectTool(tool: AvailableTools) {
-	store.dispatch(actions.selectTool(tool));
+	store.dispatch(actionCreators.selectTool(tool));
 }
 
 const Tool = ({tool, iconType}: {

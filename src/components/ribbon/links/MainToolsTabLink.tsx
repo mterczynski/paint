@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import * as actions from '../../../redux/actions';
+import * as actionCreators from '../../../redux/action-creators';
 import store from '../../../redux/store';
 import { AppState, Tabs } from '../../../types';
 
 const setActiveTab = (tab: Tabs) => {
-	store.dispatch(actions.setActiveTab(tab));
+	store.dispatch(actionCreators.setActiveTab(tab));
 };
 
 export const MainToolsTabLink = () => {

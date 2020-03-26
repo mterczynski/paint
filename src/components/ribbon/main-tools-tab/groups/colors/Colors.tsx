@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import * as actions from '../../../../../redux/actions';
+import * as actionCreators from '../../../../../redux/action-creators';
 import store from '../../../../../redux/store';
 
 import { AppState, IndexOfMainColor } from '../../../../../types';
@@ -49,11 +49,11 @@ const lastUsedCustomColors = Object.freeze([
 ]);
 
 function selectMainColorIndex(colorIndex: IndexOfMainColor) {
-	store.dispatch(actions.selectMainColorIndex(colorIndex));
+	store.dispatch(actionCreators.selectMainColorIndex(colorIndex));
 }
 
 function setSelectedMainColor(color: string) {
-	store.dispatch(actions.setSelectedMainColor(color));
+	store.dispatch(actionCreators.setSelectedMainColor(color));
 }
 
 const EditColors = () => {

@@ -1,11 +1,11 @@
 import React from 'react';
-import * as actions from '../../redux/actions';
+import * as actionCreators from '../../redux/action-creators';
 import store from '../../redux/store';
 
 import './TitleBar.scss';
 
 function maximizeWindow() {
-	store.dispatch(actions.maximize());
+	store.dispatch(actionCreators.maximize());
 }
 
 const TitleBar = () => {

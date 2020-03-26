@@ -5,13 +5,13 @@ import BottomBar from './components/bottom-bar/BottomBar';
 import CanvasArea from './components/canvas-area/CanvasArea';
 import Ribbon from './components/ribbon/Ribbon';
 import TitleBar from './components/title-bar/TitleBar';
-import * as actions from './redux/actions';
+import * as actionCreators from './redux/action-creators';
 import store from './redux/store';
 
 import './App.scss';
 
 function onClick() {
-	store.dispatch(actions.appClick());
+	store.dispatch(actionCreators.appClick());
 }
 
 function blockContextMenu(e: React.MouseEvent) {

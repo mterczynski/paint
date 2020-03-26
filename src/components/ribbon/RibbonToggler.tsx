@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import * as actions from '../../redux/actions';
+import * as actionCreators from '../../redux/action-creators';
 import store from '../../redux/store';
 import { AppState } from '../../types';
 
 const toggleRibbon = () => {
-	store.dispatch(actions.toggleRibbon());
+	store.dispatch(actionCreators.toggleRibbon());
 };
 
 export const RibbonToggler = () => {

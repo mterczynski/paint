@@ -1,6 +1,6 @@
 import React from 'react';
 import Dropdown from '../../../../../componentWrappers/dropdown';
-import * as actions from '../../../../../redux/actions';
+import * as actionCreators from '../../../../../redux/action-creators';
 import store from '../../../../../redux/store';
 import { Dropdowns } from '../../../../../types';
 
@@ -10,7 +10,7 @@ const arrowDownImage = require('../../../../../assets/icons/arrow_down.png');
 const selectionFieldImage = require('../../../../../assets/icons/main-tools-tab/2_image/1.png');
 
 function openDropdown() {
-	store.dispatch(actions.setDropdown(Dropdowns.selection));
+	store.dispatch(actionCreators.setDropdown(Dropdowns.selection));
 }
 
 const Image = () => {
