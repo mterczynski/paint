@@ -1,5 +1,32 @@
 const path = require('path');
 
+const CSSModuleLoader = {
+  loader: 'css-loader',
+  options: {
+    modules: true,
+    sourceMap: true,
+    localIdentName: '[local]__[hash:base64:5]',
+    minimize: true
+  }
+}
+
+const CSSLoader = {
+  loader: 'css-loader',
+  options: {
+    modules: false,
+    sourceMap: true,
+    minimize: true
+  }
+}
+
+const postCSSLoader = {
+  loader: 'postcss-loader',
+  options: {
+    ident: 'postcss',
+    sourceMap: true,
+  }
+}
+
 module.exports = {
 	entry: './src/App.tsx',
 	output: {
@@ -24,12 +51,21 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
+				exclude: /\.module\.scss$/,
+				use: ['style-loader', CSSLoader,
+				// postCSSLoader,
+				 'sass-loader']
+			},
+			{
+				test: /\.module\.scss$/,
 				use: [
-					"style-loader", // creates style nodes from JS strings
-					"css-loader", // translates CSS into CommonJS
-					"sass-loader" // compiles Sass to CSS
+					'style-loader',
+					CSSModuleLoader,
+					// postCSSLoader,
+					'sass-loader',
 				]
 			},
+
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
