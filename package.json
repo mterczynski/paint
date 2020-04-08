@@ -5,6 +5,7 @@
 		"start": "webpack-dev-server",
 		"start:open": "webpack-dev-server --open",
 		"build": "webpack --mode=production",
+		"test": "jest",
 		"lint": "tslint --project ."
 	},
 	"dependencies": {
@@ -31,7 +32,10 @@
 		"webpack-cli": "^3.3.11"
 	},
 	"devDependencies": {
+		"@types/jest": "^25.2.1",
+		"jest": "^25.3.0",
 		"mterczynski-tslint": "^1.11.0",
+		"ts-jest": "^25.3.1",
 		"webpack-dev-server": "^3.10.3"
 	}
 }
