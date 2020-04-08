@@ -15,7 +15,7 @@ export interface ColorState {
 	color1: string; // rgb color
 	color2: string; // rgb color
 	isEditColorsWindowOpened: boolean;
-	lastUsedCustomColors: Array<null | string>; // array of nulls and rgb colors, size of array: 10
+	lastUsedCustomColors: (null | string)[]; // array of nulls and rgb colors, size of array: 10
 	selectedMainColorIndex: IndexOfMainColor;
 }
 

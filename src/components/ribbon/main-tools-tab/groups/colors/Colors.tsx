@@ -71,7 +71,7 @@ const EditColors = () => {
 	</div>;
 };
 
-const RowOfColors = ({ colors }: { colors: Readonly<Array<string | null>> }) => {
+const RowOfColors = ({ colors }: { colors: Readonly<(string | null)[]> }) => {
 	return <div className='Colors__colorRow'>
 		{colors.map((color, i) => {
 			if (color) {
