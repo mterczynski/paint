@@ -47,14 +47,16 @@ const CanvasArea = () => {
 			return;
 		}
 
+		const context = canvasRef.current.getContext('2d');
+
+		if(!context) {
+			return;
+		}
+
 		const drawingColor = drawingColorMode === DrawingColor.Main ? selectedColor : secondaryColor;
 		const currentMousePosition = getMousePositionRelativeToCanvas(canvasRef.current, mouseEvent);
 
 		if (lastMousePosition && selectedTool === AvailableTools.Pencil) {
-			const context = canvasRef.current.getContext('2d');
-
-			if (!context) { return; }
-
 			drawLine({
 				context,
 				color: drawingColor,
