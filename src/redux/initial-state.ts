@@ -25,4 +25,5 @@ export const initialState: AppState = {
 	selectedTool: AvailableTools.Pencil,
 	toolSize: 3,
 	zoom: 1,
+	canvasContext: null
 };

@@ -36,4 +36,5 @@ export interface AppState {
 	selectedTool: AvailableTools;
 	toolSize: ToolSize;
 	zoom: AvailableZoomLevels;
+	canvasContext: CanvasRenderingContext2D | null
 }

@@ -23,6 +23,10 @@ export const setActiveTab = (tab: Tabs): Actions => {
 	return { type: ActionTypes.SET_ACTIVE_TAB, tab };
 };
 
+export const setCanvasContext = (context: CanvasRenderingContext2D | null): Actions => {
+	return { type: ActionTypes.SET_CANVAS_CONTEXT, context };
+};
+
 export const setDropdown = (dropdown: Dropdowns): Actions => {
 	return { type: ActionTypes.SET_DROPDOWN, dropdown };
 };

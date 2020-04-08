@@ -6,6 +6,8 @@ import './CanvasArea.scss';
 import { cursors } from './cursors';
 import { Point } from './types';
 import { drawLine, getMousePositionRelativeToCanvas } from './utils';
+import store from '../../redux/store';
+import * as actionCreators from '../../redux/action-creators';
 
 enum DrawingColor {
 	None = 0,
@@ -42,6 +44,13 @@ const CanvasArea = () => {
 		return () => window.removeEventListener('mousemove', onMouseMove);
 	}, [drawingColorMode, lastMousePosition]);
 
+	useEffect(() => {
+		const context = canvasRef.current && canvasRef.current.getContext('2d');
+		store.dispatch(actionCreators.setCanvasContext(context));
+
+		return () => {store.dispatch(actionCreators.setCanvasContext(null));};
+	}, [canvasRef]);
+
 	function onMouseMove(mouseEvent: MouseEvent) {
 		if (!canvasRef.current || drawingColorMode === DrawingColor.None) {
 			return;
@@ -53,8 +62,8 @@ const CanvasArea = () => {
 			return;
 		}
 
-		const drawingColor = drawingColorMode === DrawingColor.Main ? selectedColor : secondaryColor;
 		const currentMousePosition = getMousePositionRelativeToCanvas(canvasRef.current, mouseEvent);
+		const drawingColor = drawingColorMode === DrawingColor.Main ? selectedColor : secondaryColor;
 
 		if (lastMousePosition && selectedTool === AvailableTools.Pencil) {
 			drawLine({

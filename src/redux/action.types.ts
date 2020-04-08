@@ -7,6 +7,7 @@ export enum ActionTypes {
 	SELECT_MAIN_COLOR_INDEX = 'SELECT_MAIN_COLOR_INDEX',
 	SELECT_TOOL = 'SELECT_TOOL',
 	SET_ACTIVE_TAB = 'SET_ACTIVE_TAB',
+	SET_CANVAS_CONTEXT = 'SET_CANVAS_CONTEXT',
 	SET_DROPDOWN = 'SET_DROPDOWN',
 	SET_SELECTED_MAIN_COLOR = 'SET_SELECTED_MAIN_COLOR',
 	SET_TOOL_SIZE = 'SET_TOOL_SIZE',
@@ -20,6 +21,7 @@ export type Actions = AppClickAction |
 	SelectMainColorIndexAction |
 	SelectToolAction |
 	SetActiveTabAction |
+	SetCanvasContext |
 	SetDropdownAction |
 	SetSelectedMainColorAction |
 	SetToolSize |
@@ -48,6 +50,11 @@ interface SelectToolAction {
 interface SetActiveTabAction {
 	type: ActionTypes.SET_ACTIVE_TAB;
 	tab: Tabs;
+}
+
+interface SetCanvasContext {
+	type: ActionTypes.SET_CANVAS_CONTEXT;
+	context: CanvasRenderingContext2D | null
 }
 
 interface SetDropdownAction {
