@@ -4,7 +4,8 @@
 	"scripts": {
 		"start": "webpack-dev-server",
 		"start:open": "webpack-dev-server --open",
-		"build": "webpack --mode=production"
+		"build": "webpack --mode=production",
+		"lint": "tslint --project ."
 	},
 	"dependencies": {
 		"@babel/core": "^7.9.0",

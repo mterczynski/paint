@@ -10,6 +10,14 @@ pipeline {
 			}
 		}
 
+		stage('TSLint') {
+			steps {
+				sh '''
+					yarn lint
+				'''
+			}
+		}
+
 		stage('Build') {
 			steps {
 				sh '''
