@@ -18,6 +18,14 @@ pipeline {
 			}
 		}
 
+		stage('Test') {
+			steps {
+				sh '''
+					yarn test
+				'''
+			}
+		}
+
 		stage('Build') {
 			steps {
 				sh '''
