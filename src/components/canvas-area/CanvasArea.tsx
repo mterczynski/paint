@@ -56,7 +56,7 @@ const CanvasArea = () => {
 			return;
 		}
 
-		const context = canvasRef.current.getContext('2d');
+		const context = store.getState().canvasContext;
 
 		if(!context) {
 			return;

@@ -21,6 +21,9 @@ export const rootReducer = (state = initialState, action: Actions): AppState => 
 		case ActionTypes.SET_ACTIVE_TAB:
 			return {...state, activeTab: action.tab};
 
+		case ActionTypes.SET_CANVAS_CONTEXT:
+			return {...state, canvasContext: action.context};
+
 		case ActionTypes.SELECT_TOOL:
 			return { ...state, selectedTool: action.toolId };
 
