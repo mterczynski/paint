@@ -1,12 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-
-import { AppState } from '../../../../../types';
 import './Clipboard.scss';
-import { useLang } from '../../../../../hooks/useLang';
+import { useLang } from '../../../../../hooks';
 
 const Clipboard = () => {
-	const language = useLang().homeTabs.clipboard;
+	const lang = useLang().homeTabs.clipboard;
 
 	return (
 		<div className='Clipboard'>
@@ -22,7 +19,7 @@ const Clipboard = () => {
 					</div>
 
 					<div className='Clipboard__pasteGroupBottom'>
-						<div>{language.paste.title}</div>
+						<div>{lang.paste.title}</div>
 						<img
 							className='Clipboard__arrowDown'
 							draggable='false'
@@ -41,7 +38,7 @@ const Clipboard = () => {
 							alt=''
 						/>
 
-						<span className='Clipboard_buttonText'> {language.cut.title}</span>
+						<span className='Clipboard_buttonText'> {lang.cut.title}</span>
 					</div>
 
 					<div className='Clipboard__button'>
@@ -51,11 +48,11 @@ const Clipboard = () => {
 							className='Clipboard__buttonImage'
 							alt=''
 						/>
-						<span className='Clipboard__buttonText'> {language.copy.title}</span>
+						<span className='Clipboard__buttonText'> {lang.copy.title}</span>
 					</div>
 				</div>
 			</div>
-			<div className='Clipboard__description'>{language.title}</div>
+			<div className='Clipboard__description'>{lang.title}</div>
 		</div>
 	);
 };

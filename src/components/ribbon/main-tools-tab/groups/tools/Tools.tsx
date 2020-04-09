@@ -5,6 +5,7 @@ import store from '../../../../../redux/store';
 
 import { AppState, AvailableTools } from '../../../../../types';
 import './Tools.scss';
+import { useLang } from '../../../../../hooks';
 
 type IconType = 1 | 2 | 3;
 
@@ -39,12 +40,14 @@ const ToolsIconRow = ({tools}: {tools: AvailableTools[]}) => {
 };
 
 const Tools = () => {
+	const lang = useLang();
+
 	return <div className='Tools'>
 		<ToolsIconRow tools={[AvailableTools.Pencil, AvailableTools.Fill, AvailableTools.Text]}></ToolsIconRow>
 		<ToolsIconRow tools={[AvailableTools.Eraser, AvailableTools.ColorPicker, AvailableTools.Magnifier]}></ToolsIconRow>
 
 		<div className='Tools__description'>
-			Narzędzia
+			{lang.homeTabs.tools.title}
 		</div>
 	</div>;
 };
