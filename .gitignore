@@ -1,6 +1,8 @@
-dist
-node_modules
+/.idea
+/coverage
+/dist
+/node_modules
+
+*.log
 deploy.sh
 firstDeploy.sh
-.idea
-*.log

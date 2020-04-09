@@ -5,7 +5,8 @@
 		"start": "webpack-dev-server",
 		"start:open": "webpack-dev-server --open",
 		"build": "webpack --mode=production",
-		"test": "jest",
+		"test": "jest --watch --coverage",
+		"test:once": "jest",
 		"lint": "tslint --project ."
 	},
 	"dependencies": {
