@@ -3,9 +3,10 @@ import { useSelector } from 'react-redux';
 
 import { AppState } from '../../../../../types';
 import './Clipboard.scss';
+import { useLang } from '../../../../../hooks/useLang';
 
 const Clipboard = () => {
-	const language = useSelector((state: AppState)  => state.language.homeTabs.clipboard);
+	const language = useLang().homeTabs.clipboard;
 
 	return (
 		<div className='Clipboard'>
