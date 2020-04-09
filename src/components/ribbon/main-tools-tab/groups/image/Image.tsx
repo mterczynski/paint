@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropdown from '../../../../../componentWrappers/dropdown';
+import Dropdown from '../../../../../reusable-components/dropdown';
 import * as actionCreators from '../../../../../redux/action-creators';
 import store from '../../../../../redux/store';
 import { Dropdowns } from '../../../../../types';
