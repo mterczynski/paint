@@ -1,10 +1,21 @@
-import store from '../../redux/store';
+import reduxStore from '../../redux/store';
 import { MouseButton, Point } from '../../types';
 import { drawLine } from '../../components/canvas-area/utils';
 
-export function usePencilDrawingStrategy({lastMousePosition, currentMousePosition}: {
-	lastMousePosition: Point,
+export function usePencilDrawingStrategy({lastMousePosition, currentMousePosition, store = reduxStore}: {
+	lastMousePosition?: Point,
 	currentMousePosition: Point,
+	store?: {
+		getState: () => {
+			mouseButtonPressedOnCanvas: MouseButton,
+			canvasContext: CanvasRenderingContext2D | null,
+			colors: {
+				color1: string,
+				color2: string,
+				selectedMainColorIndex: 1 | 2
+			}
+		}
+	}
 }) {
 	const storeState = store.getState();
 	const mouseButtonPressedOnCanvas = storeState.mouseButtonPressedOnCanvas;
