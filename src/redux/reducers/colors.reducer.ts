@@ -1,7 +1,7 @@
 import { ColorState } from '../../types';
 import { Actions, ActionTypes } from '../action.types';
 
-export const colorReducer = (state: ColorState, action: Actions) => {
+export const colorsReducer = (state: ColorState, action: Actions) => {
 	switch (action.type) {
 		case ActionTypes.SELECT_MAIN_COLOR_INDEX:
 			return {

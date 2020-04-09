@@ -1,7 +1,7 @@
 import { AppState, Dropdowns } from '../../types';
 import { Actions, ActionTypes } from '../action.types';
 import { initialState } from '../initial-state';
-import { colorReducer } from './colors.reducer';
+import { colorsReducer } from './colors.reducer';
 
 export const rootReducer = (state = initialState, action: Actions): AppState => {
 	switch (action.type) {
@@ -55,6 +55,6 @@ export const rootReducer = (state = initialState, action: Actions): AppState => 
 
 	return {
 		...state,
-		colors: colorReducer(state.colors, action),
+		colors: colorsReducer(state.colors, action),
 	};
 };
