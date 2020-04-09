@@ -1,4 +1,4 @@
-import { AvailableTools, IndexOfMainColor, Tabs, ToolSize } from '../types';
+import { AvailableTools, IndexOfMainColor, Tabs, ToolSize, MouseButton } from '../types';
 import { Dropdowns } from '../types';
 import { Actions, ActionTypes } from './action.types';
 import { isRGBColor } from './validators';
@@ -29,6 +29,10 @@ export const setCanvasContext = (context: CanvasRenderingContext2D | null): Acti
 
 export const setDropdown = (dropdown: Dropdowns): Actions => {
 	return { type: ActionTypes.SET_DROPDOWN, dropdown };
+};
+
+export const setPressedMouseButtonOnCanvas = (newPressedButton: MouseButton): Actions => {
+	return { type: ActionTypes.SET_PRESSED_MOUSE_BUTTON_ON_CANVAS, newPressedButton };
 };
 
 export const setSelectedMainColor = (newColor: string): Actions => {

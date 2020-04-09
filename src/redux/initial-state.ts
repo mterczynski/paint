@@ -1,9 +1,10 @@
 import { languages } from '../lang';
-import { AppState, AvailableTools, Tabs } from '../types';
+import { AppState, AvailableTools, Tabs, MouseButton } from '../types';
 import { Dropdowns } from '../types';
 
 export const initialState: AppState = {
 	activeTab: Tabs.MainTools,
+	canvasContext: null,
 	colors: {
 		color1: 'rgb(0,0,0)',
 		color2: 'rgb(255,255,255)',
@@ -20,10 +21,10 @@ export const initialState: AppState = {
 	isMaximized: false,
 	isRibbonCollapsed: false,
 	language: languages.PL,
+	mouseButtonPressedOnCanvas: MouseButton.None,
 	openedDropdown: Dropdowns.none,
 	preventNextAppClick: false,
 	selectedTool: AvailableTools.Pencil,
 	toolSize: 3,
 	zoom: 1,
-	canvasContext: null
 };

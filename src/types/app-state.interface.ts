@@ -19,6 +19,12 @@ export interface ColorState {
 	selectedMainColorIndex: IndexOfMainColor;
 }
 
+export enum MouseButton {
+	None = 'None',
+	Primary = 'Primary',
+	Secondary = 'Secondary'
+}
+
 export interface AppState {
 	activeTab: Tabs;
 	colors: ColorState;
@@ -36,5 +42,6 @@ export interface AppState {
 	selectedTool: AvailableTools;
 	toolSize: ToolSize;
 	zoom: AvailableZoomLevels;
-	canvasContext: CanvasRenderingContext2D | null
+	canvasContext: CanvasRenderingContext2D | null,
+	mouseButtonPressedOnCanvas: MouseButton
 }

@@ -1,36 +1,28 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { useSelector } from 'react-redux';
-import { AppState, AvailableTools } from '../../types';
+import { AppState, AvailableTools, MouseButton } from '../../types';
 import './CanvasArea.scss';
 import { cursors } from './cursors';
 import { Point } from './types';
-import { drawLine, getMousePositionRelativeToCanvas } from './utils';
+import { getMousePositionRelativeToCanvas } from './utils';
 import store from '../../redux/store';
 import * as actionCreators from '../../redux/action-creators';
-
-enum DrawingColor {
-	None = 0,
-	Main = 1,
-	Secondary = 2,
-}
+import { usePencilDrawingStrategy } from '../../core/drawing';
 
 const CanvasArea = () => {
 	const selectedTool = useSelector((state: AppState) => state.selectedTool);
-	const colors = useSelector((state: AppState) => state.colors);
-
-	const selectedColor = colors.selectedMainColorIndex === 1 ? colors.color1 : colors.color2;
-	const secondaryColor = colors.selectedMainColorIndex === 1 ? colors.color2 : colors.color1;
+	const mouseButtonPressedOverCanvas = useSelector((state: AppState) => state.mouseButtonPressedOnCanvas);
 
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const [lastMousePosition, setLastMousePosition] = useState<null | Point>(null);
-	const [drawingColorMode, setDrawingColorMode] = useState(DrawingColor.None);
 
 	const cursor: string = cursors[selectedTool];
 
 	useEffect(() => {
 		const onMouseUp = () => {
-			setDrawingColorMode(DrawingColor.None);
+			store.dispatch(actionCreators.setPressedMouseButtonOnCanvas(MouseButton.None));
+
 			setLastMousePosition(null);
 		};
 
@@ -42,7 +34,7 @@ const CanvasArea = () => {
 	useEffect(() => {
 		window.addEventListener('mousemove', onMouseMove);
 		return () => window.removeEventListener('mousemove', onMouseMove);
-	}, [drawingColorMode, lastMousePosition]);
+	}, [mouseButtonPressedOverCanvas, lastMousePosition]);
 
 	useEffect(() => {
 		const context = canvasRef.current && canvasRef.current.getContext('2d');
@@ -52,7 +44,7 @@ const CanvasArea = () => {
 	}, [canvasRef]);
 
 	function onMouseMove(mouseEvent: MouseEvent) {
-		if (!canvasRef.current || drawingColorMode === DrawingColor.None) {
+		if (!canvasRef.current || mouseButtonPressedOverCanvas === MouseButton.None) {
 			return;
 		}
 
@@ -63,15 +55,9 @@ const CanvasArea = () => {
 		}
 
 		const currentMousePosition = getMousePositionRelativeToCanvas(canvasRef.current, mouseEvent);
-		const drawingColor = drawingColorMode === DrawingColor.Main ? selectedColor : secondaryColor;
 
 		if (lastMousePosition && selectedTool === AvailableTools.Pencil) {
-			drawLine({
-				context,
-				color: drawingColor,
-				from: lastMousePosition,
-				to: currentMousePosition,
-			});
+			usePencilDrawingStrategy({lastMousePosition, currentMousePosition});
 		}
 
 		setLastMousePosition(currentMousePosition);
@@ -79,9 +65,9 @@ const CanvasArea = () => {
 
 	function onMouseDown(e: React.MouseEvent) {
 		if (e.button === 0) {
-			setDrawingColorMode(DrawingColor.Main);
+			store.dispatch(actionCreators.setPressedMouseButtonOnCanvas(MouseButton.Primary));
 		} else if (e.button === 2) {
-			setDrawingColorMode(DrawingColor.Secondary);
+			store.dispatch(actionCreators.setPressedMouseButtonOnCanvas(MouseButton.Secondary));
 		}
 	}
 

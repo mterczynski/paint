@@ -18,20 +18,26 @@ export const rootReducer = (state = initialState, action: Actions): AppState => 
 		case ActionTypes.MAXIMIZE:
 			return { ...state, isMaximized: true };
 
+		case ActionTypes.SELECT_TOOL:
+			return { ...state, selectedTool: action.toolId };
+
 		case ActionTypes.SET_ACTIVE_TAB:
 			return {...state, activeTab: action.tab};
 
 		case ActionTypes.SET_CANVAS_CONTEXT:
 			return {...state, canvasContext: action.context};
 
-		case ActionTypes.SELECT_TOOL:
-			return { ...state, selectedTool: action.toolId };
-
 		case ActionTypes.SET_DROPDOWN:
 			return {
 				...state,
 				openedDropdown: action.dropdown,
 				preventNextAppClick: true,
+			};
+
+		case ActionTypes.SET_PRESSED_MOUSE_BUTTON_ON_CANVAS:
+			return {
+				...state,
+				mouseButtonPressedOnCanvas: action.newPressedButton
 			};
 
 		case ActionTypes.SET_TOOL_SIZE:

@@ -1,4 +1,4 @@
-import { AvailableTools, Dropdowns, IndexOfMainColor, Tabs, ToolSize } from '../types';
+import { AvailableTools, Dropdowns, IndexOfMainColor, Tabs, ToolSize, MouseButton } from '../types';
 
 export enum ActionTypes {
 	APP_CLICK = 'APP_CLICK',
@@ -9,6 +9,7 @@ export enum ActionTypes {
 	SET_ACTIVE_TAB = 'SET_ACTIVE_TAB',
 	SET_CANVAS_CONTEXT = 'SET_CANVAS_CONTEXT',
 	SET_DROPDOWN = 'SET_DROPDOWN',
+	SET_PRESSED_MOUSE_BUTTON_ON_CANVAS='SET_PRESSED_MOUSE_BUTTON_ON_CANVAS',
 	SET_SELECTED_MAIN_COLOR = 'SET_SELECTED_MAIN_COLOR',
 	SET_TOOL_SIZE = 'SET_TOOL_SIZE',
 	TOGGLE_BOTTOM_BAR = 'TOGGLE_BOTTOM_BAR',
@@ -23,6 +24,7 @@ export type Actions = AppClickAction |
 	SetActiveTabAction |
 	SetCanvasContext |
 	SetDropdownAction |
+	SetPressedMouseButtonOnCanvas |
 	SetSelectedMainColorAction |
 	SetToolSize |
 	ToggleBottomBarAction |
@@ -60,6 +62,10 @@ interface SetCanvasContext {
 interface SetDropdownAction {
 	type: ActionTypes.SET_DROPDOWN;
 	dropdown: Dropdowns;
+}
+interface SetPressedMouseButtonOnCanvas {
+	type: ActionTypes.SET_PRESSED_MOUSE_BUTTON_ON_CANVAS,
+	newPressedButton: MouseButton
 }
 
 interface SetSelectedMainColorAction {
