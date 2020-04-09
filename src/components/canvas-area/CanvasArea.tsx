@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { useSelector } from 'react-redux';
-import { AppState, AvailableTools, MouseButton } from '../../types';
+import { AppState, AvailableTools, MouseButton, Point } from '../../types';
 import './CanvasArea.scss';
 import { cursors } from './cursors';
-import { Point } from './types';
 import { getMousePositionRelativeToCanvas } from './utils';
 import store from '../../redux/store';
 import * as actionCreators from '../../redux/action-creators';
