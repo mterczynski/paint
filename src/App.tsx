@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import BottomBar from './components/bottom-bar/BottomBar';
-import CanvasArea from './components/canvas-area/CanvasArea';
-import Ribbon from './components/ribbon/Ribbon';
-import TitleBar from './components/title-bar/TitleBar';
+import BottomBar from './component-tree/bottom-bar/BottomBar';
+import CanvasArea from './component-tree/canvas-area/CanvasArea';
+import Ribbon from './component-tree/ribbon/Ribbon';
+import TitleBar from './component-tree/title-bar/TitleBar';
 import * as actionCreators from './redux/action-creators';
 import store from './redux/store';
 
