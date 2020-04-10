@@ -1,1 +1,1 @@
-export * from './useLang';
+export * from './use-lang';
