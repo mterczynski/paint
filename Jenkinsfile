@@ -37,8 +37,8 @@ pipeline {
 		stage('Deploy') {
 			steps {
 				sh '''
-					scp -r dist root@mterczynski.pl:/var/www/html/paint/dist
-					scp -r index.html root@mterczynski.pl:/var/www/html/paint/index.html
+					scp -r dist root@mterczynski.pl:/var/www/html/paint
+					scp -r index.html root@mterczynski.pl:/var/www/html/paint
 				'''
 			}
 		}
