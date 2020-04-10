@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { AppState, Dropdowns } from '../types';
-import './dropdown.scss';
+import './Dropdown.scss';
 
 const Dropdown = ({ provider, disabled = false, children }: {
 	provider: Dropdowns,
