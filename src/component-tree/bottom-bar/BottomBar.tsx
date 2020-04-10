@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 import { AppState } from '../../types';
 import './BottomBar.scss';
-import { useAppState } from '../../hooks';
 
 const images = {
 	axis: require('../../assets/icons/bottom-bar/axis.png'),
@@ -21,10 +20,10 @@ const images = {
 };
 
 const BottomBar = () => {
-	const isBottomBarVisible = useAppState().isBottomBarVisible;
+	const isBottomBarVisible = useSelector((state: AppState) => state.isBottomBarVisible);
 	const image = {
-		height: useAppState().imageSettings.heightInPx,
-		width: useAppState().imageSettings.widthInPx,
+		height: useSelector((state: AppState) => state.imageSettings.heightInPx),
+		width: useSelector((state: AppState) => state.imageSettings.widthInPx),
 	};
 
 	if (!isBottomBarVisible) {

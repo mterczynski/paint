@@ -1,16 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { AvailableTools, MouseButton, Point } from '../../types';
+
+import { useSelector } from 'react-redux';
+import { AppState, AvailableTools, MouseButton, Point } from '../../types';
 import './CanvasArea.scss';
 import { cursors } from './cursors';
 import { getMousePositionRelativeToCanvas } from './utils';
 import store from '../../redux/store';
 import * as actionCreators from '../../redux/action-creators';
 import { usePencilDrawingStrategy } from '../../core/drawing';
-import { useAppState } from '../../hooks';
 
 const CanvasArea = () => {
-	const selectedTool = useAppState().selectedTool;
-	const mouseButtonPressedOverCanvas = useAppState().mouseButtonPressedOnCanvas;
+	const selectedTool = useSelector((state: AppState) => state.selectedTool);
+	const mouseButtonPressedOverCanvas = useSelector((state: AppState) => state.mouseButtonPressedOnCanvas);
 
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const [lastMousePosition, setLastMousePosition] = useState<null | Point>(null);

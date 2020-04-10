@@ -1,14 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import * as actionCreators from '../../../redux/action-creators';
 import store from '../../../redux/store';
-import { useAppState } from '../../../hooks';
+import { AppState } from '../../../types';
 
 function toggleBottomBar() {
 	store.dispatch(actionCreators.toggleBottomBar());
 }
 
 export const ShowOrHide = () => {
-	const isBottomBarVisible = useAppState().isBottomBarVisible;
+	const isBottomBarVisible = useSelector((state: AppState) => state.isBottomBarVisible);
 
 	return <div className='ViewTab__group'>
 	<div className='ViewTab__content'>

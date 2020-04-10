@@ -5,7 +5,6 @@ import store from '../../../../../redux/store';
 
 import { AppState, IndexOfMainColor } from '../../../../../types';
 import './Colors.scss';
-import { useAppState } from '../../../../../hooks';
 
 const basicColors = Object.freeze([
 	// first row:
@@ -97,7 +96,7 @@ const RowOfColors = ({ colors }: { colors: Readonly<(string | null)[]> }) => {
 };
 
 const Colors = () => {
-	const stateOfColors = useAppState().colors;
+	const stateOfColors = useSelector((appState: AppState) => appState.colors);
 
 	return (
 		<div className='Colors'>

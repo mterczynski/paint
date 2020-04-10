@@ -1,14 +1,15 @@
 import React from 'react';
-import { Dropdowns } from '../types';
+import { useSelector } from 'react-redux';
+
+import { AppState, Dropdowns } from '../types';
 import './Dropdown.scss';
-import { useAppState } from '../hooks';
 
 const Dropdown = ({ provider, disabled = false, children }: {
 	provider: Dropdowns,
 	disabled?: boolean,
 	children: React.ReactNode,
 }) => {
-	const openedDropdown = useAppState().openedDropdown;
+	const openedDropdown = useSelector((state: AppState) => state.openedDropdown);
 
 	if (openedDropdown !== provider || disabled) {
 		return null;

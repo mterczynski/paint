@@ -1,14 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import * as actionCreators from '../../redux/action-creators';
 import store from '../../redux/store';
-import { useAppState } from '../../hooks';
+import { AppState } from '../../types';
 
 const toggleRibbon = () => {
 	store.dispatch(actionCreators.toggleRibbon());
 };
 
 export const RibbonToggler = () => {
-	const isRibbonCollapsed = useAppState().isRibbonCollapsed;
+	const isRibbonCollapsed = useSelector((state: AppState) => state.isRibbonCollapsed);
 
 	return <div
 		className='Ribbon__head__icons__icon'
