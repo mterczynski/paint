@@ -2,33 +2,83 @@ import { usePencilDrawingStrategy } from '..';
 import { MouseButton } from '../../../types';
 
 describe('usePencilDrawingStrategy', () => {
-	test('it should execute without error', () => {
-			const mockCanvas = document.createElement('canvas');
-			const mockStore = {
-				getState: () => ({
-					canvasContext: context,
-					colors: {
-						color1: 'black',
-						color2: 'red',
-						selectedMainColorIndex: 2 as 2
-					},
-					mouseButtonPressedOnCanvas: MouseButton.Primary
-				})
-			};
-			const mockLastMousePosition = {
-				x: 500,
-				y: 500
-			};
-			const mockCurrentMousePosition = {
-				x: 600,
-				y: 600
-			};
-			const context = mockCanvas.getContext('2d') as CanvasRenderingContext2D;
+	test('it should draw a line using primary color when using primary mouse button', () => {
+		const mockCanvas = document.createElement('canvas');
+		const mockStore = {
+			getState: () => ({
+				canvasContext: context,
+				colors: {
+					color1: 'black',
+					color2: 'rgb(255, 0, 0)',
+					selectedMainColorIndex: 2 as 1 | 2
+				},
+				mouseButtonPressedOnCanvas: MouseButton.Primary
+			})
+		};
+		const mockLastMousePosition = {
+			x: 0,
+			y: 0
+		};
+		const mockCurrentMousePosition = {
+			x: 3,
+			y: 0
+		};
+		const context = mockCanvas.getContext('2d') as CanvasRenderingContext2D;
 
-			usePencilDrawingStrategy({
-				currentMousePosition: mockCurrentMousePosition,
-				lastMousePosition: mockLastMousePosition,
-				store: mockStore
-			});
+		usePencilDrawingStrategy({
+			currentMousePosition: mockCurrentMousePosition,
+			lastMousePosition: mockLastMousePosition,
+			store: mockStore
+		});
+
+		expect(Array.from(context.getImageData(0, 0, 3, 2).data)).toEqual([
+			255, 0, 0, 128,
+			255, 0, 0, 128,
+			255, 0, 0, 128,
+
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+		]);
+	});
+
+	test('it should draw a line using secondary color when using secondary mouse button', () => {
+		const mockCanvas = document.createElement('canvas');
+		const mockStore = {
+			getState: () => ({
+				canvasContext: context,
+				colors: {
+					color1: 'black',
+					color2: 'rgb(0, 255, 255)',
+					selectedMainColorIndex: 1 as 1 | 2
+				},
+				mouseButtonPressedOnCanvas: MouseButton.Secondary
+			})
+		};
+		const mockLastMousePosition = {
+			x: 0,
+			y: 0
+		};
+		const mockCurrentMousePosition = {
+			x: 3,
+			y: 0
+		};
+		const context = mockCanvas.getContext('2d') as CanvasRenderingContext2D;
+
+		usePencilDrawingStrategy({
+			currentMousePosition: mockCurrentMousePosition,
+			lastMousePosition: mockLastMousePosition,
+			store: mockStore
+		});
+
+		expect(Array.from(context.getImageData(0, 0, 3, 2).data)).toEqual([
+			0, 255, 255, 128,
+			0, 255, 255, 128,
+			0, 255, 255, 128,
+
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+		]);
 	});
 });
