@@ -1,11 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import * as actionCreators from '../../../../../redux/action-creators';
 import store from '../../../../../redux/store';
 
-import { AppState, AvailableTools } from '../../../../../types';
+import { AvailableTools } from '../../../../../types';
 import './Tools.scss';
-import { useLang } from '../../../../../hooks';
+import { useLang, useAppState } from '../../../../../hooks';
 
 type IconType = 1 | 2 | 3;
 
@@ -17,7 +16,7 @@ const Tool = ({tool, iconType}: {
 	tool: AvailableTools,
 	iconType: IconType,
 }) => {
-	const selectedTool = useSelector((state: AppState) => state.selectedTool);
+	const selectedTool = useAppState().selectedTool;
 
 	const getToolClassName = () => {
 		return `Tools__icon-${iconType} ` + (selectedTool === tool ? 'Tools__icon--active' : '');

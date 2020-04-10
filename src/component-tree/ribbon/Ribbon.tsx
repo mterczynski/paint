@@ -8,10 +8,11 @@ import { HelpIcon } from './HelpIcon';
 import { MainToolsTabLink, ViewTabLink } from './links';
 import './Ribbon.scss';
 import { RibbonToggler } from './RibbonToggler';
+import { useAppState } from '../../hooks';
 
 const Ribbon = () => {
-	const activeTab = useSelector((appState: AppState) => appState.activeTab);
-	const isRibbonCollapsed = useSelector((state: AppState) => state.isRibbonCollapsed);
+	const activeTab = useAppState().activeTab;
+	const isRibbonCollapsed = useAppState().isRibbonCollapsed;
 
 	const ActiveTab = () => {
 		return isRibbonCollapsed === false ? (

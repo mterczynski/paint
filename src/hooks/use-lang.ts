@@ -1,6 +1,5 @@
-import { useSelector } from 'react-redux';
-import { AppState } from '../types';
+import { useAppState } from '.';
 
 export const useLang = () => {
-	return useSelector((state: AppState) => state.language);
+	return useAppState().language;
 };
