@@ -59,4 +59,6 @@ describe('fillWithBucket', () => {
 
 		expect(maxValueOffset).toBeLessThanOrEqual(3);
 	});
+
+	// todo - try to implement tests with image files
 });
