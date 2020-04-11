@@ -21,8 +21,6 @@ function replacePixelColor({ imageData, newColor, pixelPosition, imageSize }: {
 }) {
 	const startIndex = (pixelPosition.x + pixelPosition.y * imageSize.width) * 4;
 
-	console.log('startIndex', startIndex);
-
 	imageData[startIndex] = newColor.red;
 	imageData[startIndex + 1] = newColor.green;
 	imageData[startIndex + 2] = newColor.blue;
@@ -37,7 +35,6 @@ function areRGBAColorsTheSame(color1: RGBAColor, color2: RGBAColor) {
 }
 
 export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRelativeToCanvas }: FillWithBucketArgs) {
-
 	const imageSize = canvasSize;
 	const imageData = context.getImageData(0, 0, canvasSize.width, canvasSize.height);
 
