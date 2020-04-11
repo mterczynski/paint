@@ -1,11 +1,4 @@
-import { Point } from '../../../types';
-
-interface RGBAColor {
-	red: number,
-	green: number,
-	blue: number,
-	alpha: number
-}
+import { Point, RGBAColor } from '../../../types';
 
 interface RectangleSize {
 	height: number,
@@ -18,7 +11,7 @@ export function getPixelColor({pixelPosition, imageData, imageSize}: {
 	imageSize: RectangleSize
 }): RGBAColor {
 	const {x, y} = pixelPosition;
-	const startIndex = y * imageSize.width * 4 + x;
+	const startIndex = (y * imageSize.width + x) * 4;
 
 	return {
 		red: imageData[startIndex],
