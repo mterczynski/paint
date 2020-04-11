@@ -1,5 +1,19 @@
 import { fillWithBucket } from '../fill-with-bucket';
 
+function getMaxValueOffset(expected: number[], acutal: number[]) {
+	if(expected.length !== acutal.length) {
+		throw new Error('lengths of the arrays are not the same');
+	}
+
+	let maxOffset = 0;
+
+	for(let i=0; i<expected.length; i++) {
+		maxOffset = Math.max(maxOffset, Math.abs(expected[i] - acutal[i]));
+	}
+
+	return maxOffset;
+}
+
 describe('fillWithBucket', () => {
 	test('should fill whole canvas with one color if canvas is blank', () => {
 		const width = 5;
@@ -28,7 +42,7 @@ describe('fillWithBucket', () => {
 
 		const pixelData = Array.from(context.getImageData(0, 0, width, height).data);
 
-		expect(pixelData).toEqual([
+		const maxValueOffset = getMaxValueOffset([
 			7, 10, 20, 128,
 			7, 10, 20, 128,
 			7, 10, 20, 128,
@@ -41,6 +55,8 @@ describe('fillWithBucket', () => {
 			7, 10, 20, 128,
 			7, 10, 20, 128,
 			7, 10, 20, 128,
-		]);
+		], pixelData);
+
+		expect(maxValueOffset).toBeLessThanOrEqual(3);
 	});
 });

@@ -19,7 +19,9 @@ function replacePixelColor({ imageData, newColor, pixelPosition, imageSize }: {
 	newColor: RGBAColor,
 	pixelPosition: Point
 }) {
-	const startIndex = (pixelPosition.x + pixelPosition.y * imageSize.height) * 4;
+	const startIndex = (pixelPosition.x + pixelPosition.y * imageSize.width) * 4;
+
+	console.log('startIndex', startIndex);
 
 	imageData[startIndex] = newColor.red;
 	imageData[startIndex + 1] = newColor.green;
@@ -38,10 +40,6 @@ export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRe
 
 	const imageSize = canvasSize;
 	const imageData = context.getImageData(0, 0, canvasSize.width, canvasSize.height);
-	// const imageDataPixels = imageData.join(',')
-	// 	.replace(/(\d+,\d+,\d+,\d+),/g, '$1x')
-	// 	.split('x')
-	// 	.map(subArray => subArray.split(',').map(value => Number(value)));
 
 	const startX = mousePositionRelativeToCanvas.x;
 	const startY = mousePositionRelativeToCanvas.y;
@@ -113,7 +111,6 @@ export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRe
 		if (areRGBAColorsTheSame(tileColor, clickedPixelColor)) {
 			// if yes, paint it, add it to closed list, add its adjacent tiles to open list (if they are not there)
 			replacePixelColor({ imageData: imageData.data, imageSize, newColor: fillColor, pixelPosition: tile });
-			const imgDataParsed = Array.from(imageData.data);
 			addTileNeighborsToOpenList(tile);
 		}
 
@@ -122,11 +119,5 @@ export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRe
 		openList.shift();
 	}
 
-	const imgDataParsed = Array.from(imageData.data);
-
-	console.log(imageData);
-
 	context.putImageData(imageData, 0, 0);
-
-	const finalImageData = context.getImageData(0, 0, canvasSize.width, canvasSize.height).data;
 }
