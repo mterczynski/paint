@@ -9,6 +9,14 @@ import store from '../../redux/store';
 import * as actionCreators from '../../redux/action-creators';
 import { usePencilDrawingStrategy } from '../../core/drawing';
 
+function dispatchPressedMouseButtonEvent(e: React.MouseEvent) {
+	if (e.button === 0) {
+		store.dispatch(actionCreators.setPressedMouseButtonOnCanvas(MouseButton.Primary));
+	} else if (e.button === 2) {
+		store.dispatch(actionCreators.setPressedMouseButtonOnCanvas(MouseButton.Secondary));
+	}
+}
+
 const CanvasArea = () => {
 	const selectedTool = useSelector((state: AppState) => state.selectedTool);
 	const mouseButtonPressedOverCanvas = useSelector((state: AppState) => state.mouseButtonPressedOnCanvas);
@@ -63,11 +71,7 @@ const CanvasArea = () => {
 	}
 
 	function onMouseDown(e: React.MouseEvent) {
-		if (e.button === 0) {
-			store.dispatch(actionCreators.setPressedMouseButtonOnCanvas(MouseButton.Primary));
-		} else if (e.button === 2) {
-			store.dispatch(actionCreators.setPressedMouseButtonOnCanvas(MouseButton.Secondary));
-		}
+		dispatchPressedMouseButtonEvent(e);
 	}
 
 	return (
