@@ -64,7 +64,7 @@ export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRe
 			const comparisonFn = el => el.x === up.x && el.y === up.y;
 			const up = { x: tile.x, y: tile.y - 1 };
 
-			if (up.y >= 0 && !closedList.some(comparisonFn) && !openList.some(comparisonFn)) {
+			if (up.y >= 0 && !openList.some(comparisonFn) && !closedList.some(comparisonFn) ) {
 				openList.push(up);
 			}
 		})();
@@ -73,7 +73,7 @@ export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRe
 			const comparisonFn = el => el.x === right.x && el.y === right.y;
 			const right = { x: tile.x + 1, y: tile.y };
 
-			if (right.x < imageSize.width && !closedList.some(comparisonFn) && !openList.some(comparisonFn)) {
+			if (right.x < imageSize.width && !openList.some(comparisonFn) && !closedList.some(comparisonFn) ) {
 				openList.push(right);
 			}
 		})();
@@ -82,7 +82,7 @@ export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRe
 			const comparisonFn = el => el.x === down.x && el.y === down.y;
 			const down = { x: tile.x, y: tile.y + 1 };
 
-			if (down.y < imageSize.height && !closedList.some(comparisonFn) && !openList.some(comparisonFn)) {
+			if (down.y < imageSize.height && !openList.some(comparisonFn) && !closedList.some(comparisonFn) ) {
 				openList.push(down);
 			}
 
@@ -92,7 +92,7 @@ export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRe
 			const comparisonFn = el => el.x === left.x && el.y === left.y;
 			const left = { x: tile.x - 1, y: tile.y };
 
-			if (left.x >= 0 && !closedList.some(comparisonFn) && !openList.some(comparisonFn)) {
+			if (left.x >= 0 && !openList.some(comparisonFn) && !closedList.some(comparisonFn) ) {
 				openList.push(left);
 			}
 		})();
