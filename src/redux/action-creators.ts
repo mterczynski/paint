@@ -1,7 +1,6 @@
-import { AvailableTools, IndexOfMainColor, Tabs, ToolSize, MouseButton } from '../types';
+import { AvailableTools, IndexOfMainColor, Tabs, ToolSize, MouseButton, RGBAColor } from '../types';
 import { Dropdowns } from '../types';
 import { Actions, ActionTypes } from './action.types';
-import { isRGBColor } from './validators';
 
 export const appClick = (): Actions => {
 	return { type: ActionTypes.APP_CLICK };
@@ -35,8 +34,7 @@ export const setPressedMouseButtonOnCanvas = (newPressedButton: MouseButton): Ac
 	return { type: ActionTypes.SET_PRESSED_MOUSE_BUTTON_ON_CANVAS, newPressedButton };
 };
 
-export const setSelectedMainColor = (newColor: string): Actions => {
-	isRGBColor(newColor);
+export const setSelectedMainColor = (newColor: RGBAColor): Actions => {
 	return { type: ActionTypes.SET_SELECTED_MAIN_COLOR, newColor };
 };
 

@@ -16,7 +16,10 @@ module.exports = {
 			{
 				test: /\.ts(x?)$/,
         use: 'ts-loader',
-        exclude: /node_modules/
+        exclude: [
+					/node_modules/,
+					/\.spec\.ts(x?)$/
+				]
       },
 			{
 				test: /\.css$/,
@@ -44,6 +47,7 @@ module.exports = {
 		]
 	},
 	watchOptions: {
+
 		ignored: /node_modules/
 	}
 }

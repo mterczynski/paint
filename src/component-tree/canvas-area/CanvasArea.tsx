@@ -7,7 +7,7 @@ import { cursors } from './cursors';
 import { getMousePositionRelativeToCanvas } from './utils';
 import store from '../../redux/store';
 import * as actionCreators from '../../redux/action-creators';
-import { usePencilDrawingStrategy } from '../../core/drawing';
+import { usePencilDrawingStrategy, fillWithBucket } from '../../core/drawing';
 
 function dispatchPressedMouseButtonEvent(e: React.MouseEvent) {
 	if (e.button === 0) {
@@ -72,6 +72,29 @@ const CanvasArea = () => {
 
 	function onMouseDown(e: React.MouseEvent) {
 		dispatchPressedMouseButtonEvent(e);
+
+		const storeState = store.getState();
+		const context = storeState.canvasContext;
+
+		if(!canvasRef.current || !context) return;
+
+		const currentMousePosition = getMousePositionRelativeToCanvas(canvasRef.current, e);
+
+		if(storeState.selectedTool === AvailableTools.Fill) {
+			const fillColor = storeState.mouseButtonPressedOnCanvas === MouseButton.Primary ?
+				storeState.colors.color1 :
+				storeState.colors.color2;
+
+			fillWithBucket({
+				context,
+				mousePositionRelativeToCanvas: currentMousePosition,
+				fillColor,
+				canvasSize: {
+					width: storeState.imageSettings.widthInPx,
+					height: storeState.imageSettings.heightInPx,
+				}
+			});
+		}
 	}
 
 	return (

@@ -3,42 +3,43 @@ import { useSelector } from 'react-redux';
 import * as actionCreators from '../../../../../redux/action-creators';
 import store from '../../../../../redux/store';
 
-import { AppState, IndexOfMainColor } from '../../../../../types';
+import { AppState, IndexOfMainColor, RGBAColor } from '../../../../../types';
 import './Colors.scss';
+import { rgbaColorToCssColor } from '../../../../../core/drawing/utils';
 
 const basicColors = Object.freeze([
 	// first row:
 	Object.freeze([
-		'rgb(0,0,0)',
-		'rgb(127,127,127)',
-		'rgb(136,0,21)',
-		'rgb(237,28,36)',
-		'rgb(255,127,39)',
-		'rgb(255,242,0)',
-		'rgb(34,177,76)',
-		'rgb(0,162,232)',
-		'rgb(63,72,204)',
-		'rgb(163,73,164)',
+		{red: 0, green: 0, blue: 0, alpha: 255},
+		{red: 127, green: 127, blue: 127, alpha: 255},
+		{red: 136, green: 0, blue: 21, alpha: 255},
+		{red: 237, green: 28, blue: 36, alpha: 255},
+		{red: 255, green: 127, blue: 39, alpha: 255},
+		{red: 255, green: 242, blue: 0, alpha: 255},
+		{red: 34, green: 177, blue: 76, alpha: 255},
+		{red: 0, green: 162, blue: 232, alpha: 255},
+		{red: 63, green: 72, blue: 204, alpha: 255},
+		{red: 163, green: 73, blue: 127, alpha: 255},
 	]),
 	// second row:
 	Object.freeze([
-		'rgb(255,255,255)',
-		'rgb(195,195,195)',
-		'rgb(185,122,87)',
-		'rgb(255,174,201)',
-		'rgb(255,201,14)',
-		'rgb(239,228,176)',
-		'rgb(181,230,29)',
-		'rgb(153,217,234)',
-		'rgb(112,146,190)',
-		'rgb(200,191,231)',
+		{red: 255, green: 255, blue: 255, alpha: 255},
+		{red: 195, green: 195, blue: 195, alpha: 255},
+		{red: 185, green: 122, blue: 87, alpha: 255},
+		{red: 255, green: 174, blue: 201, alpha: 255},
+		{red: 255, green: 201, blue: 14, alpha: 255},
+		{red: 239, green: 228, blue: 176, alpha: 255},
+		{red: 181, green: 230, blue: 29, alpha: 255},
+		{red: 153, green: 217, blue: 234, alpha: 255},
+		{red: 112, green: 146, blue: 190, alpha: 255},
+		{red: 200, green: 191, blue: 231, alpha: 255},
 	]),
 ]);
 
 const lastUsedCustomColors = Object.freeze([
-	'rgb(255, 111, 0)',
-	'rgb(0, 0, 0)',
-	'rgb(255, 255, 255)',
+	{red: 255, green: 111, blue: 0, alpha: 255},
+	{red: 0, green: 0, blue: 0, alpha: 255},
+	{red: 255, green: 255, blue: 255, alpha: 255},
 	null,
 	null,
 	null,
@@ -52,7 +53,7 @@ function selectMainColorIndex(colorIndex: IndexOfMainColor) {
 	store.dispatch(actionCreators.selectMainColorIndex(colorIndex));
 }
 
-function setSelectedMainColor(color: string) {
+function setSelectedMainColor(color: RGBAColor) {
 	store.dispatch(actionCreators.setSelectedMainColor(color));
 }
 
@@ -71,13 +72,13 @@ const EditColors = () => {
 	</div>;
 };
 
-const RowOfColors = ({ colors }: { colors: Readonly<(string | null)[]> }) => {
+const RowOfColors = ({ colors }: { colors: Readonly<(RGBAColor | null)[]> }) => {
 	return <div className='Colors__colorRow'>
 		{colors.map((color, i) => {
 			if (color) {
 				return (
 					<div
-						style={{ background: color }}
+						style={{ background: rgbaColorToCssColor(color) }}
 						key={i}
 						className='Colors__colorBox Colors__colorBox--tiny'
 						onClick={() => setSelectedMainColor(color)}
@@ -110,7 +111,7 @@ const Colors = () => {
 					onClick={() => selectMainColorIndex(1)}
 				>
 					<div
-						style={{ background: stateOfColors.color1 }}
+						style={{ background: rgbaColorToCssColor(stateOfColors.color1) }}
 						className='Colors__colorBox'
 					/>
 					<div className='Colors__colorBoxText'>
@@ -127,7 +128,7 @@ const Colors = () => {
 					onClick={() => selectMainColorIndex(2)}
 				>
 					<div
-						style={{ background: stateOfColors.color2 }}
+						style={{ background: rgbaColorToCssColor(stateOfColors.color2) }}
 						className='Colors__colorBox Colors__colorBox--small'
 					/>
 					<div className='Colors__colorBoxText'>
