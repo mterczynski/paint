@@ -32,12 +32,12 @@ export function usePencilDrawingStrategy({lastMousePosition, currentMousePositio
 
 	const drawingColor = mouseButtonPressedOnCanvas === MouseButton.Primary ? mainColor : secondaryColor;
 
-		if (lastMousePosition) {
-			drawLine({
-				context,
-				color: rgbaColorToCssColor(drawingColor),
-				from: lastMousePosition,
-				to: currentMousePosition,
-			});
-		}
+	if (lastMousePosition) {
+		drawLine({
+			context,
+			color: rgbaColorToCssColor(drawingColor),
+			from: lastMousePosition,
+			to: currentMousePosition,
+		});
+	}
 }
