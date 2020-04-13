@@ -21,8 +21,6 @@ function replacePixelColor({ imageData, newColor, pixelPosition, imageSize }: {
 }) {
 	const startIndex = (pixelPosition.x + pixelPosition.y * imageSize.width) * 4;
 
-	console.log('startIndex', startIndex);
-
 	imageData[startIndex] = newColor.red;
 	imageData[startIndex + 1] = newColor.green;
 	imageData[startIndex + 2] = newColor.blue;
@@ -36,16 +34,28 @@ function areRGBAColorsTheSame(color1: RGBAColor, color2: RGBAColor) {
 		color1.alpha === color2.alpha;
 }
 
-export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRelativeToCanvas }: FillWithBucketArgs) {
+function hashPoint(point: Point) {
+	return `${point.x};${point.y}`;
+}
 
+function unhashPoint(hashedPoint: string): Point {
+	const splitted = hashedPoint.split(';');
+
+	return {
+		x: Number(splitted[0]),
+		y: Number(splitted[1]),
+	};
+}
+
+export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRelativeToCanvas }: FillWithBucketArgs) {
 	const imageSize = canvasSize;
 	const imageData = context.getImageData(0, 0, canvasSize.width, canvasSize.height);
 
 	const startX = mousePositionRelativeToCanvas.x;
 	const startY = mousePositionRelativeToCanvas.y;
 
-	const openList: { x: number, y: number }[] = [];
-	const closedList: { x: number, y: number }[] = [];
+	const openList: Map<string, 1> = new Map();
+	const closedList: Map<string, 1> = new Map();
 
 	const clickedPixelColor = getPixelColor({
 		imageData: imageData.data,
@@ -53,7 +63,7 @@ export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRe
 		pixelPosition: mousePositionRelativeToCanvas
 	});
 
-	closedList.push(mousePositionRelativeToCanvas);
+	closedList.set(hashPoint(mousePositionRelativeToCanvas), 1);
 	replacePixelColor({
 		imageData: imageData.data,
 		imageSize,
@@ -64,47 +74,48 @@ export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRe
 	function addTileNeighborsToOpenList(tile: { x: number, y: number }) {
 
 		(function checkUp() {
-			const comparisonFn = el => el.x === up.x && el.y === up.y;
 			const up = { x: tile.x, y: tile.y - 1 };
+			const hashedUp = hashPoint(up);
 
-			if (up.y >= 0 && !closedList.some(comparisonFn) && !openList.some(comparisonFn)) {
-				openList.push(up);
+			if (up.y >= 0 && !openList.has(hashedUp) && !closedList.has(hashedUp) ) {
+				openList.set(hashedUp, 1);
 			}
 		})();
 
 		(function checkRight() {
-			const comparisonFn = el => el.x === right.x && el.y === right.y;
 			const right = { x: tile.x + 1, y: tile.y };
+			const hashedRight = hashPoint(right);
 
-			if (right.x < imageSize.width && !closedList.some(comparisonFn) && !openList.some(comparisonFn)) {
-				openList.push(right);
+			if (right.x < imageSize.width && !openList.has(hashedRight) && !closedList.has(hashedRight) ) {
+				openList.set(hashedRight, 1);
 			}
 		})();
 
 		(function checkDown() {
-			const comparisonFn = el => el.x === down.x && el.y === down.y;
 			const down = { x: tile.x, y: tile.y + 1 };
+			const hashedDown = hashPoint(down);
 
-			if (down.y < imageSize.height && !closedList.some(comparisonFn) && !openList.some(comparisonFn)) {
-				openList.push(down);
+			if (down.y < imageSize.height && !openList.has(hashedDown) && !closedList.has(hashedDown) ) {
+				openList.set(hashedDown, 1);
 			}
 
 		})();
 
 		(function checkLeft() {
-			const comparisonFn = el => el.x === left.x && el.y === left.y;
 			const left = { x: tile.x - 1, y: tile.y };
+			const hashedLeft = hashPoint(left);
 
-			if (left.x >= 0 && !closedList.some(comparisonFn) && !openList.some(comparisonFn)) {
-				openList.push(left);
+			if (left.x >= 0 && !openList.has(hashedLeft) && !closedList.has(hashedLeft) ) {
+				openList.set(hashedLeft, 1);
 			}
 		})();
 	}
 
 	addTileNeighborsToOpenList({ x: startX, y: startY });
 
-	while (openList.length > 0) {
-		const tile = openList[0];
+	while (openList.size > 0) {
+		const [[hashedTile]] = openList;
+		const tile = unhashPoint(hashedTile);
 		const tileColor = getPixelColor({ pixelPosition: tile, imageData: imageData.data, imageSize });
 
 		// check if the tile should be painted
@@ -114,9 +125,8 @@ export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRe
 			addTileNeighborsToOpenList(tile);
 		}
 
-		closedList.push(tile);
-
-		openList.shift();
+		closedList.set(hashedTile, 1);
+		openList.delete(hashedTile);
 	}
 
 	context.putImageData(imageData, 0, 0);
