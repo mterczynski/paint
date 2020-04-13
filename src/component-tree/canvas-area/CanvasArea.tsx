@@ -3,11 +3,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AppState, AvailableTools, MouseButton, Point } from '../../types';
 import './CanvasArea.scss';
-import { cursors } from './cursors';
+import { getCursorForTool } from './cursors';
 import { getMousePositionRelativeToCanvas } from './utils';
 import store from '../../redux/store';
 import * as actionCreators from '../../redux/action-creators';
-import { usePencilDrawingStrategy, fillWithBucket } from '../../core/drawing';
+import { usePencilDrawingStrategy } from '../../core/drawing';
+import { fillWithBucket } from '../../core/drawing/fill-with-bucket';
 
 function dispatchPressedMouseButtonEvent(e: React.MouseEvent) {
 	if (e.button === 0) {
@@ -24,7 +25,7 @@ const CanvasArea = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const [lastMousePosition, setLastMousePosition] = useState<null | Point>(null);
 
-	const cursor: string = cursors[selectedTool];
+	const cursor = getCursorForTool(selectedTool);
 
 	useEffect(() => {
 		const onMouseUp = () => {
