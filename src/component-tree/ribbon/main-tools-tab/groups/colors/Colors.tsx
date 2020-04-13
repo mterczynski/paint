@@ -19,7 +19,7 @@ const basicColors = Object.freeze([
 		{red: 34, green: 177, blue: 76, alpha: 128},
 		{red: 0, green: 162, blue: 232, alpha: 128},
 		{red: 63, green: 72, blue: 204, alpha: 128},
-		{red: 163, green: 73, blue: 127, alpha: 164},
+		{red: 163, green: 73, blue: 127, alpha: 128},
 	]),
 	// second row:
 	Object.freeze([
