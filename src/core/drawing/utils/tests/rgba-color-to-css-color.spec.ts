@@ -6,7 +6,7 @@ describe('rgbaColorToCssColor', () => {
 			red: 123,
 			green: 45,
 			blue: 6,
-			alpha: 64
+			alpha: 128
 		};
 
 		expect(rgbaColorToCssColor(color)).toEqual('rgba(123,45,6,0.5)');
