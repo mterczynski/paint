@@ -1,4 +1,4 @@
-import { AvailableTools, Dropdowns, IndexOfMainColor, Tabs, ToolSize, MouseButton } from '../types';
+import { AvailableTools, Dropdowns, IndexOfMainColor, Tabs, ToolSize, MouseButton, RGBAColor } from '../types';
 
 export enum ActionTypes {
 	APP_CLICK = 'APP_CLICK',
@@ -63,6 +63,7 @@ interface SetDropdownAction {
 	type: ActionTypes.SET_DROPDOWN;
 	dropdown: Dropdowns;
 }
+
 interface SetPressedMouseButtonOnCanvas {
 	type: ActionTypes.SET_PRESSED_MOUSE_BUTTON_ON_CANVAS,
 	newPressedButton: MouseButton
@@ -70,7 +71,7 @@ interface SetPressedMouseButtonOnCanvas {
 
 interface SetSelectedMainColorAction {
 	type: ActionTypes.SET_SELECTED_MAIN_COLOR;
-	newColor: string;
+	newColor: RGBAColor;
 }
 
 interface SetToolSize {

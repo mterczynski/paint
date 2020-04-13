@@ -8,8 +8,8 @@ describe('usePencilDrawingStrategy', () => {
 			getState: () => ({
 				canvasContext: context,
 				colors: {
-					color1: 'black',
-					color2: 'rgb(255, 0, 0)',
+					color1: {red: 0, green: 0, blue: 0, alpha: 128},
+					color2: {red: 255, green: 0, blue: 0, alpha: 128},
 					selectedMainColorIndex: 2 as 1 | 2
 				},
 				mouseButtonPressedOnCanvas: MouseButton.Primary
@@ -48,8 +48,8 @@ describe('usePencilDrawingStrategy', () => {
 			getState: () => ({
 				canvasContext: context,
 				colors: {
-					color1: 'black',
-					color2: 'rgb(0, 255, 255)',
+					color1: {red: 0, green: 0, blue: 0, alpha: 128},
+					color2: {red: 0, green: 255, blue: 255, alpha: 128},
 					selectedMainColorIndex: 1 as 1 | 2
 				},
 				mouseButtonPressedOnCanvas: MouseButton.Secondary

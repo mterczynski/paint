@@ -6,8 +6,8 @@ export const initialState: AppState = {
 	activeTab: Tabs.MainTools,
 	canvasContext: null,
 	colors: {
-		color1: 'rgb(0,0,0)',
-		color2: 'rgb(255,255,255)',
+		color1: {red: 0, green: 0, blue: 0, alpha: 128},
+		color2: {red: 255, green: 255, blue: 255, alpha: 128},
 		selectedMainColorIndex: 1,
 		lastUsedCustomColors: new Array(10).fill(null),
 		isEditColorsWindowOpened: false,

@@ -3,9 +3,9 @@ import { ActionTypes } from '../../action.types';
 import { ColorState } from '../../../types';
 
 describe('colorsReducer', () => {
-const getMockState = () => ({
-		color1: 'red',
-		color2: 'white',
+	const getMockState = () => ({
+		color1: {red: 0, green: 0, blue: 0, alpha: 128},
+		color2: {red: 255, green: 255, blue: 255, alpha: 128},
 		isEditColorsWindowOpened: false,
 		lastUsedCustomColors: [],
 		selectedMainColorIndex: 1 as 1 | 2
@@ -34,12 +34,12 @@ test('SELECT_MAIN_COLOR_INDEX', () => {
 
 			const result = colorsReducer(initialState, {
 				type: ActionTypes.SET_SELECTED_MAIN_COLOR,
-				newColor: 'blue'
+				newColor: {red: 0, green: 0, blue: 255, alpha: 128}
 			});
 
 			expect(result).toEqual({
 				...initialState,
-				color1: 'blue'
+				color1: {red: 0, green: 0, blue: 255, alpha: 128}
 			});
 		});
 
@@ -51,12 +51,12 @@ test('SELECT_MAIN_COLOR_INDEX', () => {
 
 			const result = colorsReducer(initialState, {
 				type: ActionTypes.SET_SELECTED_MAIN_COLOR,
-				newColor: 'blue'
+				newColor: {red: 0, green: 0, blue: 255, alpha: 128}
 			});
 
 			expect(result).toEqual({
 				...initialState,
-				color2: 'blue'
+				color2: {red: 0, green: 0, blue: 255, alpha: 128}
 			});
 		});
 	});

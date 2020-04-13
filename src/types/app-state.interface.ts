@@ -1,6 +1,7 @@
 import { AvailableTools } from '.';
 import { Lang } from '../lang';
 import { Dropdowns } from './';
+import { RGBAColor } from './rgba-color';
 
 export type AvailableZoomLevels = 0.125 | 0.25 | 0.5 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 export type IndexOfMainColor = 1 | 2;
@@ -12,8 +13,8 @@ export enum Tabs {
 }
 
 export interface ColorState {
-	color1: string; // rgb color
-	color2: string; // rgb color
+	color1: RGBAColor;
+	color2: RGBAColor;
 	isEditColorsWindowOpened: boolean;
 	lastUsedCustomColors: (null | string)[]; // array of nulls and rgb colors, size of array: 10
 	selectedMainColorIndex: IndexOfMainColor;

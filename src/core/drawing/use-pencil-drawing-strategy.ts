@@ -1,6 +1,7 @@
 import reduxStore from '../../redux/store';
-import { MouseButton, Point } from '../../types';
+import { MouseButton, Point, RGBAColor } from '../../types';
 import { drawLine } from '../../component-tree/canvas-area/utils';
+import { rgbaColorToCssColor } from './utils';
 
 export function usePencilDrawingStrategy({lastMousePosition, currentMousePosition, store = reduxStore}: {
 	lastMousePosition?: Point,
@@ -10,8 +11,8 @@ export function usePencilDrawingStrategy({lastMousePosition, currentMousePositio
 			mouseButtonPressedOnCanvas: MouseButton,
 			canvasContext: CanvasRenderingContext2D | null,
 			colors: {
-				color1: string,
-				color2: string,
+				color1: RGBAColor,
+				color2: RGBAColor,
 				selectedMainColorIndex: 1 | 2
 			}
 		}
@@ -34,7 +35,7 @@ export function usePencilDrawingStrategy({lastMousePosition, currentMousePositio
 		if (lastMousePosition) {
 			drawLine({
 				context,
-				color: drawingColor,
+				color: rgbaColorToCssColor(drawingColor),
 				from: lastMousePosition,
 				to: currentMousePosition,
 			});
