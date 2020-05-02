@@ -27,7 +27,7 @@ const CanvasArea = () => {
 
 	const cursor = getCursorForTool(selectedTool);
 
-	useEffect(() => {
+	function mouseUpHandler () {
 		const onMouseUp = () => {
 			store.dispatch(actionCreators.setPressedMouseButtonOnCanvas(MouseButton.None));
 
@@ -37,19 +37,19 @@ const CanvasArea = () => {
 		window.addEventListener('mouseup', onMouseUp);
 
 		return () => window.removeEventListener('mouseup', onMouseUp);
-	}, []);
+	}
 
-	useEffect(() => {
+	function mouseMoveHandler () {
 		window.addEventListener('mousemove', onMouseMove);
 		return () => window.removeEventListener('mousemove', onMouseMove);
-	}, [mouseButtonPressedOverCanvas, lastMousePosition]);
+	}
 
-	useEffect(() => {
+	function canvasContextHandler() {
 		const context = canvasRef.current && canvasRef.current.getContext('2d');
 		store.dispatch(actionCreators.setCanvasContext(context));
 
 		return () => {store.dispatch(actionCreators.setCanvasContext(null));};
-	}, [canvasRef]);
+	}
 
 	function onMouseMove(mouseEvent: MouseEvent) {
 		if (!canvasRef.current || mouseButtonPressedOverCanvas === MouseButton.None) {
@@ -97,6 +97,10 @@ const CanvasArea = () => {
 			});
 		}
 	}
+
+	useEffect(mouseUpHandler, []);
+	useEffect(mouseMoveHandler, [mouseButtonPressedOverCanvas, lastMousePosition]);
+	useEffect(canvasContextHandler, [canvasRef]);
 
 	return (
 		<div className='CanvasArea'>
