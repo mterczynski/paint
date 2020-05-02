@@ -1,14 +1,14 @@
 import { fillWithBucket } from '../fill-with-bucket';
 
-function getMaxValueOffset(expected: number[], acutal: number[]) {
-	if(expected.length !== acutal.length) {
+function getMaxValueOffset(expected: number[], actual: number[]) {
+	if(expected.length !== actual.length) {
 		throw new Error('lengths of the arrays are not the same');
 	}
 
 	let maxOffset = 0;
 
 	for(let i=0; i<expected.length; i++) {
-		maxOffset = Math.max(maxOffset, Math.abs(expected[i] - acutal[i]));
+		maxOffset = Math.max(maxOffset, Math.abs(expected[i] - actual[i]));
 	}
 
 	return maxOffset;
