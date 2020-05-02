@@ -56,12 +56,6 @@ const CanvasArea = () => {
 			return;
 		}
 
-		const context = store.getState().canvasContext;
-
-		if(!context) {
-			return;
-		}
-
 		const currentMousePosition = getMousePositionRelativeToCanvas(canvasRef.current, mouseEvent);
 
 		if (lastMousePosition && selectedTool === AvailableTools.Pencil) {
