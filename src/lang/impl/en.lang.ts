@@ -1,4 +1,4 @@
-import { Lang } from '../lang.type';
+import { Lang } from '../types';
 
 export const EN_Lang: Lang = Object.freeze({
 	homeTabs: {

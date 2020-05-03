@@ -1,4 +1,4 @@
-import { Lang } from '../lang.type';
+import { Lang } from '../types';
 
 export const PL_Lang: Lang = Object.freeze({
 	homeTabs: {
