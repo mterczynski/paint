@@ -87,9 +87,6 @@ export const EN_Lang: Lang = Object.freeze({
 		},
 		zoom: {
 			title: 'Zoom',
-			hundredPercent: {
-				title: '100 %'
-			},
 			zoomIn: {
 				title: 'Zoom in'
 			},

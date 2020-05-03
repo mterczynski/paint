@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLang } from '../../../hooks';
 
 const imgs = {
 	zoomIn: require('../../../assets/icons/view-tab/zoomIn.png'),
@@ -24,17 +25,19 @@ const Figure = ({imgPath, children}: {
 };
 
 const Zoom = () => {
+	const lang = useLang();
+
 	return <div className='ViewTab__group'>
 		<div className='ViewTab__content'>
-			<Figure imgPath={imgs.zoomIn}>Powiększ</Figure>
-			<Figure imgPath={imgs.zoomOut}>Pomniejsz</Figure>
+			<Figure imgPath={imgs.zoomIn}>{lang.viewTab.zoom.zoomIn.title}</Figure>
+			<Figure imgPath={imgs.zoomOut}>{lang.viewTab.zoom.zoomOut.title}</Figure>
 			<Figure imgPath={imgs.maximize}>
 				100
 				<br/>
 				%
 			</Figure>
 		</div>
-		<h1 className='ViewTab__description'>Powiększenie</h1>
+		<h1 className='ViewTab__description'>{lang.viewTab.zoom.title}</h1>
 	</div>;
 };
 

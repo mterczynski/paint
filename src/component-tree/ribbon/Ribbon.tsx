@@ -8,8 +8,10 @@ import { HelpIcon } from './HelpIcon';
 import { MainToolsTabLink, ViewTabLink } from './links';
 import './Ribbon.scss';
 import { RibbonToggler } from './RibbonToggler';
+import { useLang } from '../../hooks';
 
 const Ribbon = () => {
+	const lang = useLang();
 	const activeTab = useSelector((appState: AppState) => appState.activeTab);
 	const isRibbonCollapsed = useSelector((state: AppState) => state.isRibbonCollapsed);
 
@@ -29,7 +31,7 @@ const Ribbon = () => {
 		<div className='Ribbon'>
 			<div className='Ribbon__head'>
 				<div className='Ribbon__head__tabNames'>
-					<div className='Ribbon__head__tabNames__file'>Plik</div>
+					<div className='Ribbon__head__tabNames__file'>{lang.fileMenu.title}</div>
 					<MainToolsTabLink></MainToolsTabLink>
 					<ViewTabLink></ViewTabLink>
 				</div>

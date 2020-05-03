@@ -8,9 +8,6 @@ export interface ViewTab {
 		zoomOut: {
 			title: string;
 		},
-		hundredPercent: {
-			title: string;
-		}
 	},
 	showOrHide: {
 		title: string;
@@ -30,6 +27,7 @@ export interface ViewTab {
 		};
 		thumbnail: {
 			title: string;
-		}
+		},
+		title: string;
 	}
 }

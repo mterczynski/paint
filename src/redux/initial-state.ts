@@ -20,7 +20,7 @@ export const initialState: AppState = {
 	isBrushActive: false,
 	isMaximized: false,
 	isRibbonCollapsed: false,
-	language: languages.EN,
+	language: languages.PL,
 	mouseButtonPressedOnCanvas: MouseButton.None,
 	openedDropdown: Dropdowns.none,
 	preventNextAppClick: false,
