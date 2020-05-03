@@ -4,6 +4,7 @@ import * as actionCreators from '../../../../../redux/action-creators';
 import store from '../../../../../redux/store';
 import { Dropdowns, ToolSize } from '../../../../../types';
 import './Size.scss';
+import { useLang } from '../../../../../hooks';
 
 function openDropdown() {
 	store.dispatch(actionCreators.setDropdown(Dropdowns.size));
@@ -14,13 +15,15 @@ function setToolSize(toolSize: ToolSize) {
 }
 
 const Size = () => {
+	const lang = useLang();
+
 	return <div className='Size'>
 		<div className='Size__content' onClick={openDropdown}>
 			<img draggable='false' className='Size__mainIcon'
 				src={require('../../../../../assets/icons/main-tools-tab/6_size.png')} alt='' />
 
 			<div>
-				Rozmiar
+				{lang.homeTabs.size.title}
 			</div>
 
 			<img draggable='false' className='Size__arrowDown'

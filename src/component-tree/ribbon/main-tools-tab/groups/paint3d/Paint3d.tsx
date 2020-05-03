@@ -1,7 +1,10 @@
 import React from 'react';
 import './Paint3d.scss';
+import { useLang } from '../../../../../hooks';
 
 const Paint3d = () => {
+	const lang = useLang();
+
 	return (
 		<div className='Paint3d'>
 			<div className='Paint3d__content'>
@@ -12,7 +15,7 @@ const Paint3d = () => {
 					alt=''
 				/>
 
-				<div className='Paint3d__description'>Otwórz aplikację Paint 3D</div>
+				<div className='Paint3d__description'>{lang.homeTabs.paint3d.title}</div>
 			</div>
 		</div>
 	);

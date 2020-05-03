@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './Shapes.scss';
+import { useLang } from '../../../../../hooks';
 
 const lastShapeIndex = 23;
 
@@ -39,6 +40,7 @@ const shapeDescriptions = Object.freeze([
 ]);
 
 const Shapes = () => {
+	const lang = useLang();
 	// images:
 	const arrDown = require('../../../../../assets/icons/arrow_down.png');
 	const contourActive = require('../../../../../assets/icons/main-tools-tab/5_shapes/contour_active.png');
@@ -65,18 +67,18 @@ const Shapes = () => {
 				<div className='Shapes__options'>
 					<div className='Shapes__option Shapes__option--first'>
 						<img draggable='false' src={contourActive} alt='' />
-						<span> Kontur </span>
+						<span> {lang.homeTabs.shapes.outline.title} </span>
 						<img draggable='false' alt='' src={arrDown} />
 					</div>
 
 					<div className='Shapes__option Shapes__option--second'>
 						<img draggable='false' src={fill} alt='' />
-						<span> Wypełnienie </span>
+						<span> {lang.homeTabs.shapes.fill.title} </span>
 						<img draggable='false' alt='' src={arrDown} />
 					</div>
 				</div>
 			</div>
-			<div className='Shapes__description'>Kształty</div>
+			<div className='Shapes__description'>{lang.homeTabs.shapes.title}</div>
 		</div>
 	);
 };

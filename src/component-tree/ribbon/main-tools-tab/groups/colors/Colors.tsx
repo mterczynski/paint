@@ -7,6 +7,7 @@ import { AppState, IndexOfMainColor, RGBAColor } from '../../../../../types';
 import './Colors.scss';
 import { rgbaColorToCssColor } from '../../../../../core/drawing/utils';
 import { defaultColors } from './default-colors';
+import { useLang } from '../../../../../hooks';
 
 const lastUsedCustomColors = Object.freeze([
 	{red: 255, green: 111, blue: 0, alpha: 255},
@@ -30,6 +31,8 @@ function setSelectedMainColor(color: RGBAColor) {
 }
 
 const EditColors = () => {
+	const lang = useLang();
+
 	return <div className='Colors__editColors'>
 		<img
 			className='Colors__editColorsIcon'
@@ -37,9 +40,7 @@ const EditColors = () => {
 			alt=''
 		/>
 		<div className='Colors__colorBoxText'>
-			Edytuj
-			<br />
-			kolory
+			{lang.homeTabs.colors.editColors.title}
 		</div>
 	</div>;
 };
@@ -69,6 +70,7 @@ const RowOfColors = ({ colors }: { colors: Readonly<(RGBAColor | null)[]> }) => 
 };
 
 const Colors = () => {
+	const lang = useLang();
 	const stateOfColors = useSelector((appState: AppState) => appState.colors);
 
 	return (
@@ -87,7 +89,7 @@ const Colors = () => {
 						className='Colors__colorBox'
 					/>
 					<div className='Colors__colorBoxText'>
-						Kolor <br /> 1
+						{lang.homeTabs.colors.color} <br/> 1
 					</div>
 				</div>
 
@@ -104,8 +106,7 @@ const Colors = () => {
 						className='Colors__colorBox Colors__colorBox--small'
 					/>
 					<div className='Colors__colorBoxText'>
-						Kolor
-						<br />2
+						{lang.homeTabs.colors.color} <br/> 2
 					</div>
 				</div>
 
@@ -117,7 +118,7 @@ const Colors = () => {
 
 				<EditColors></EditColors>
 			</div>
-			<div className='Colors__description'>Kolory</div>
+			<div className='Colors__description'>{lang.homeTabs.colors.title}</div>
 		</div>
 	);
 };

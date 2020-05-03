@@ -1,7 +1,10 @@
 import React from 'react';
 import './Brushes.scss';
+import { useLang } from '../../../../../hooks';
 
 const Brushes = () => {
+	const lang = useLang();
+
 	return (
 		<div className='Brushes'>
 			<div className='Brushes__content'>
@@ -14,7 +17,7 @@ const Brushes = () => {
 					/>
 				</div>
 				<div className='Brushes__bottom'>
-					<div>Pędzle</div>
+					<div>{lang.homeTabs.brushes.title}</div>
 
 					<img
 						className='Brushes__arrowDown'

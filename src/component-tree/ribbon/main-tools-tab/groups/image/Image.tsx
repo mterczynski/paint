@@ -5,6 +5,7 @@ import store from '../../../../../redux/store';
 import { Dropdowns } from '../../../../../types';
 
 import './Image.scss';
+import { useLang } from '../../../../../hooks';
 
 const arrowDownImage = require('../../../../../assets/icons/arrow_down.png');
 const selectionFieldImage = require('../../../../../assets/icons/main-tools-tab/2_image/1.png');
@@ -14,6 +15,8 @@ function openDropdown() {
 }
 
 const Image = () => {
+	const lang = useLang();
+
 	return (
 		<div className='Image'>
 			<div className='Image__content'>
@@ -26,7 +29,7 @@ const Image = () => {
 						className='Image__expandSelectionButton'
 						onClick={openDropdown}
 					>
-						Zaznacz
+						{lang.homeTabs.image.select.title}
 							<br />
 						<img src={arrowDownImage} alt='' />
 					</div>
@@ -38,7 +41,7 @@ const Image = () => {
 							src={require('../../../../../assets/icons/main-tools-tab/2_image/2.png')}
 							alt=''
 						/>{' '}
-						Przytnij
+						{lang.homeTabs.image.crop.title}
 					</li>
 
 					<li>
@@ -46,7 +49,7 @@ const Image = () => {
 							src={require('../../../../../assets/icons/main-tools-tab/2_image/3.png')}
 							alt=''
 						/>{' '}
-						Zmień rozmiar
+						{lang.homeTabs.image.resize.title}
 					</li>
 
 					<li>
@@ -54,7 +57,7 @@ const Image = () => {
 							src={require('../../../../../assets/icons/main-tools-tab/2_image/4.png')}
 							alt=''
 						/>{' '}
-						<span>Obróć </span>
+						<span>{lang.homeTabs.image.rotate.title} </span>
 						<img
 							className='Image__rotateLi-arrowDown'
 							src={arrowDownImage}
@@ -73,7 +76,7 @@ const Image = () => {
 				</ul>
 			</Dropdown>
 
-			<div className='Image__description'>Obraz</div>
+			<div className='Image__description'>{lang.homeTabs.image.title}</div>
 		</div>
 	);
 };
