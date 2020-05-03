@@ -57,5 +57,47 @@ export const PL_Lang: Lang = Object.freeze({
 		paint3d: {
 			title: 'Otwórz aplikację Paint 3D',
 		},
+		title: 'Narzędzia główne'
 	},
+
+	fileMenu: {
+		title: 'Plik'
+	},
+
+	viewTab: {
+		title: 'Widok',
+		display: {
+			fullScreen: {
+				title: 'Pełny ekran'
+			},
+			thumbnail: {
+				title: 'Miniatura'
+			},
+			title: 'Wyświetlanie'
+		},
+		showOrHide: {
+			gridlines: {
+				title: 'Linie siatki'
+			},
+			rulers: {
+				title: 'Linijki'
+			},
+			statusBar: {
+				title: 'Pasek stanu'
+			},
+			title: 'Pokazywanie lub ukrywanie'
+		},
+		zoom: {
+			title: 'Powiększanie',
+			hundredPercent: {
+				title: '100 %'
+			},
+			zoomIn: {
+				title: 'Powiększ'
+			},
+			zoomOut: {
+				title: 'Pomniejsz'
+			},
+		}
+	}
 });

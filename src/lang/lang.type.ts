@@ -1,4 +1,8 @@
 export type Lang = Readonly<{
+	fileMenu: {
+		title: string
+	};
+
 	homeTabs: {
 		clipboard: {
 			title: string;
@@ -55,5 +59,42 @@ export type Lang = Readonly<{
 		paint3d: {
 			title: string;
 		},
+		title: string;
+	};
+
+	viewTab: {
+		title: string;
+		zoom: {
+			title: string;
+			zoomIn: {
+				title: string;
+			},
+			zoomOut: {
+				title: string;
+			},
+			hundredPercent: {
+				title: string;
+			}
+		},
+		showOrHide: {
+			title: string;
+			rulers: {
+				title: string;
+			};
+			gridlines: {
+				title: string;
+			};
+			statusBar: {
+				title: string;
+			}
+		},
+		display: {
+			fullScreen: {
+				title: string;
+			};
+			thumbnail: {
+				title: string;
+			}
+		}
 	};
 }>;
