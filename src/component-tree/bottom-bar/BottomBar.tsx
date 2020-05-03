@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { AppState } from '../../types';
 import './BottomBar.scss';
+import { useLang } from '../../hooks';
 
 const images = {
 	axis: require('../../assets/icons/bottom-bar/axis.png'),
@@ -20,6 +21,7 @@ const images = {
 };
 
 const BottomBar = () => {
+	const lang = useLang().statusBar;
 	const isBottomBarVisible = useSelector((state: AppState) => state.isBottomBarVisible);
 	const image = {
 		height: useSelector((state: AppState) => state.imageSettings.heightInPx),
@@ -56,7 +58,7 @@ const BottomBar = () => {
 					alt=''
 					style={{ marginRight: '6px' }}
 				/>
-				{image.width} &times; {image.height}piks.
+				{image.width} &times; {image.height}{lang.pixels}
 			</div>
 			<div className='BottomBar__col BottomBar__col--small' />
 			<div className='BottomBar__col BottomBar__col--stretched' />

@@ -1,100 +1,109 @@
 import { Lang } from '../types';
 
-export const PL_Lang: Lang = Object.freeze({
-	homeTabs: {
-		clipboard: {
-			title: 'Schowek',
-			paste: {
-				title: 'Wklej',
-			},
-			copy: {
-				title: 'Kopiuj',
-			},
-			cut: {
-				title: 'Wytnij',
-			},
+const homeTabs = {
+	clipboard: {
+		title: 'Schowek',
+		paste: {
+			title: 'Wklej',
 		},
-		image: {
-			select: {
-				title: 'Zaznacz',
-			},
-			crop: {
-				title: 'Przytnij',
-			},
-			resize: {
-				title: 'Zmień rozmiar',
-			},
-			rotate: {
-				title: 'Obróć',
-			},
-			title: 'Obraz',
+		copy: {
+			title: 'Kopiuj',
 		},
-		tools: {
-			title: 'Narzędzia',
+		cut: {
+			title: 'Wytnij',
 		},
-		brushes: {
-			title: 'Pędzle',
-		},
-		shapes: {
-			title: 'Kształty',
-			outline: {
-				title: 'Kontur',
-			},
-			fill: {
-				title: 'Wypełnienie',
-			},
-		},
-		size: {
-			title: 'Rozmiar',
-		},
-		colors: {
-			title: 'Kolory',
-			color: 'Kolor',
-			editColors: {
-				title: 'Edytuj kolory',
-			},
-		},
-		paint3d: {
-			title: 'Otwórz aplikację Paint 3D',
-		},
-		title: 'Narzędzia główne'
 	},
-
-	fileMenu: {
-		title: 'Plik'
+	image: {
+		select: {
+			title: 'Zaznacz',
+		},
+		crop: {
+			title: 'Przytnij',
+		},
+		resize: {
+			title: 'Zmień rozmiar',
+		},
+		rotate: {
+			title: 'Obróć',
+		},
+		title: 'Obraz',
 	},
+	tools: {
+		title: 'Narzędzia',
+	},
+	brushes: {
+		title: 'Pędzle',
+	},
+	shapes: {
+		title: 'Kształty',
+		outline: {
+			title: 'Kontur',
+		},
+		fill: {
+			title: 'Wypełnienie',
+		},
+	},
+	size: {
+		title: 'Rozmiar',
+	},
+	colors: {
+		title: 'Kolory',
+		color: 'Kolor',
+		editColors: {
+			title: 'Edytuj kolory',
+		},
+	},
+	paint3d: {
+		title: 'Otwórz aplikację Paint 3D',
+	},
+	title: 'Narzędzia główne'
+};
 
-	viewTab: {
-		title: 'Widok',
-		display: {
-			fullScreen: {
-				title: 'Pełny ekran'
-			},
-			thumbnail: {
-				title: 'Miniatura'
-			},
-			title: 'Wyświetlanie'
+const viewTab = {
+	title: 'Widok',
+	display: {
+		fullScreen: {
+			title: 'Pełny ekran'
 		},
-		showOrHide: {
-			gridlines: {
-				title: 'Linie siatki'
-			},
-			rulers: {
-				title: 'Linijki'
-			},
-			statusBar: {
-				title: 'Pasek stanu'
-			},
-			title: 'Pokazywanie lub ukrywanie'
+		thumbnail: {
+			title: 'Miniatura'
 		},
-		zoom: {
-			title: 'Powiększanie',
-			zoomIn: {
-				title: 'Powiększ'
-			},
-			zoomOut: {
-				title: 'Pomniejsz'
-			},
-		}
+		title: 'Wyświetlanie'
+	},
+	showOrHide: {
+		gridlines: {
+			title: 'Linie siatki'
+		},
+		rulers: {
+			title: 'Linijki'
+		},
+		statusBar: {
+			title: 'Pasek stanu'
+		},
+		title: 'Pokazywanie lub ukrywanie'
+	},
+	zoom: {
+		title: 'Powiększanie',
+		zoomIn: {
+			title: 'Powiększ'
+		},
+		zoomOut: {
+			title: 'Pomniejsz'
+		},
 	}
+};
+
+const fileMenu = {
+	title: 'Plik'
+};
+
+const statusBar = {
+  pixels: 'piks.'
+};
+
+export const PL_Lang: Lang = Object.freeze({
+	homeTabs,
+	fileMenu,
+	viewTab,
+  statusBar
 });
