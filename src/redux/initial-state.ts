@@ -1,4 +1,4 @@
-import { languages } from '../lang';
+import { languages } from '../lang/impl';
 import { AppState, AvailableTools, Tabs, MouseButton } from '../types';
 import { Dropdowns } from '../types';
 

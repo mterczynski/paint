@@ -2,8 +2,7 @@
 
 ## Description
 
-This folder should contain all the strings that are shown to the user and that are subject of translation.
-`src/lang/impl` contains all implementations of `Lang` interface from `lang.type.ts`.
+This folder should contain all the strings that are subject of translation.  
 
 ## Usage
 
