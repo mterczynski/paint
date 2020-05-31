@@ -98,12 +98,12 @@ const fileMenu = {
 };
 
 const statusBar = {
-  pixels: 'piks.'
+	pixels: 'piks.'
 };
 
 export const PL_Lang: Lang = Object.freeze({
 	homeTabs,
 	fileMenu,
 	viewTab,
-  statusBar
+	statusBar
 });
