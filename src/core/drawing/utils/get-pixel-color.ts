@@ -1,9 +1,5 @@
 import { Point, RGBAColor } from '../../../types';
-
-interface RectangleSize {
-	height: number,
-	width: number
-}
+import { RectangleSize } from '../../../lang/types/rectangleSize.type';
 
 export function getPixelColor({pixelPosition, imageData, imageSize}: {
 	pixelPosition: Point

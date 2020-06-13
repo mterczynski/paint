@@ -9,6 +9,8 @@ import store from '../../redux/store';
 import * as actionCreators from '../../redux/action-creators';
 import { usePencilDrawingStrategy } from '../../core/drawing';
 import { fillWithBucket } from '../../core/drawing/fill-with-bucket';
+import { pickColor } from '../../core/drawing/pick-color';
+import { setColor1, setColor2 } from '../../redux/action-creators';
 
 function dispatchPressedMouseButtonEvent(e: React.MouseEvent) {
 	if (e.button === 0) {
@@ -92,14 +94,61 @@ const CanvasArea = () => {
 		}
 	}
 
+	function onClick(mouseEvent: React.MouseEvent, mouseButton: MouseButton.Primary | MouseButton.Secondary) {
+		const storeState = store.getState();
+
+		if (!canvasRef.current || !storeState.canvasContext) {
+			return;
+		}
+
+		if(storeState.selectedTool === AvailableTools.ColorPicker) {
+			const mousePosition = getMousePositionRelativeToCanvas(canvasRef.current, mouseEvent);
+			const pickedColor = pickColor({
+				canvasContextRef: storeState.canvasContext,
+				mousePosition,
+				imageSize: {
+					width: storeState.imageSettings.widthInPx,
+					height: storeState.imageSettings.heightInPx,
+				}
+			});
+
+			const opaqueColor = {
+				...pickedColor,
+				alpha: 255
+			};
+
+			if(mouseButton === MouseButton.Primary) {
+				store.dispatch(setColor1(opaqueColor));
+			} else {
+				store.dispatch(setColor2(opaqueColor));
+			}
+		}
+	}
+
+	function fillCanvasWithWhite() {
+		const storeState = store.getState();
+		const context = storeState.canvasContext;
+
+		if(!canvasRef.current || !context) return;
+
+		const canvasWidth = storeState.imageSettings.widthInPx;
+		const canvasHeight = storeState.imageSettings.heightInPx;
+
+		context.fillStyle = 'rgb(255,255,255)'; // white
+		context.fillRect(0,0, canvasWidth, canvasHeight);
+	}
+
 	useEffect(mouseUpHandler, []);
 	useEffect(mouseMoveHandler, [mouseButtonPressedOverCanvas, lastMousePosition]);
 	useEffect(canvasContextHandler, [canvasRef]);
+	useEffect(fillCanvasWithWhite, []);
 
 	return (
 		<div className='CanvasArea'>
 			<canvas className='CanvasArea__canvas' width='500' height='500'
 				onMouseDown={onMouseDown}
+				onClick={e => onClick(e, MouseButton.Primary)}
+				onContextMenu={e => onClick(e, MouseButton.Secondary)}
 				style={{ cursor }}
 				ref={canvasRef}/>
 		</div>

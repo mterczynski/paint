@@ -4,10 +4,13 @@ export enum ActionTypes {
 	APP_CLICK = 'APP_CLICK',
 	CHANGE_BRUSH = 'CHANGE_BRUSH',
 	MAXIMIZE = 'MAXIMIZE',
+	PICK_COLOR = 'PICK_COLOR',
 	SELECT_MAIN_COLOR_INDEX = 'SELECT_MAIN_COLOR_INDEX',
 	SELECT_TOOL = 'SELECT_TOOL',
 	SET_ACTIVE_TAB = 'SET_ACTIVE_TAB',
 	SET_CANVAS_CONTEXT = 'SET_CANVAS_CONTEXT',
+	SET_COLOR_1 = 'SET_COLOR_1',
+	SET_COLOR_2 = 'SET_COLOR_2',
 	SET_DROPDOWN = 'SET_DROPDOWN',
 	SET_PRESSED_MOUSE_BUTTON_ON_CANVAS='SET_PRESSED_MOUSE_BUTTON_ON_CANVAS',
 	SET_SELECTED_MAIN_COLOR = 'SET_SELECTED_MAIN_COLOR',
@@ -22,11 +25,13 @@ export type Actions = AppClickAction |
 	SelectMainColorIndexAction |
 	SelectToolAction |
 	SetActiveTabAction |
-	SetCanvasContext |
+	SetCanvasContextAction |
+	SetColor1Action |
+	SetColor2Action |
 	SetDropdownAction |
-	SetPressedMouseButtonOnCanvas |
+	SetPressedMouseButtonOnCanvasAction |
 	SetSelectedMainColorAction |
-	SetToolSize |
+	SetToolSizeAction |
 	ToggleBottomBarAction |
 	ToggleBrushAction |
 	ToggleRibbonAction;
@@ -54,9 +59,19 @@ interface SetActiveTabAction {
 	tab: Tabs;
 }
 
-interface SetCanvasContext {
+interface SetCanvasContextAction {
 	type: ActionTypes.SET_CANVAS_CONTEXT;
 	context: CanvasRenderingContext2D | null
+}
+
+interface SetColor1Action {
+	type: ActionTypes.SET_COLOR_1;
+	newColor: RGBAColor;
+}
+
+interface SetColor2Action {
+	type: ActionTypes.SET_COLOR_2;
+	newColor: RGBAColor;
 }
 
 interface SetDropdownAction {
@@ -64,7 +79,7 @@ interface SetDropdownAction {
 	dropdown: Dropdowns;
 }
 
-interface SetPressedMouseButtonOnCanvas {
+interface SetPressedMouseButtonOnCanvasAction {
 	type: ActionTypes.SET_PRESSED_MOUSE_BUTTON_ON_CANVAS,
 	newPressedButton: MouseButton
 }
@@ -74,7 +89,7 @@ interface SetSelectedMainColorAction {
 	newColor: RGBAColor;
 }
 
-interface SetToolSize {
+interface SetToolSizeAction {
 	type: ActionTypes.SET_TOOL_SIZE;
 	toolSize: ToolSize;
 }

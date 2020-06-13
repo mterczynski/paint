@@ -1,10 +1,6 @@
 import { Point, RGBAColor } from '../../types';
 import { getPixelColor } from './utils';
-
-interface RectangleSize {
-	height: number,
-	width: number
-}
+import { RectangleSize } from '../../lang/types/rectangleSize.type';
 
 interface FillWithBucketArgs {
 	context: CanvasRenderingContext2D,

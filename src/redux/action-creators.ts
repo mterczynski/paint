@@ -26,6 +26,14 @@ export const setCanvasContext = (context: CanvasRenderingContext2D | null): Acti
 	return { type: ActionTypes.SET_CANVAS_CONTEXT, context };
 };
 
+export const setColor1 = (newColor: RGBAColor): Actions => {
+	return { type: ActionTypes.SET_COLOR_1, newColor };
+};
+
+export const setColor2 = (newColor: RGBAColor): Actions => {
+	return { type: ActionTypes.SET_COLOR_2, newColor };
+};
+
 export const setDropdown = (dropdown: Dropdowns): Actions => {
 	return { type: ActionTypes.SET_DROPDOWN, dropdown };
 };
