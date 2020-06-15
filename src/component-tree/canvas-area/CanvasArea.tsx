@@ -10,7 +10,7 @@ import * as actionCreators from '../../redux/action-creators';
 import { usePencilDrawingStrategy } from '../../core/drawing';
 import { fillWithBucket } from '../../core/drawing/fill-with-bucket';
 import { pickColor } from '../../core/drawing/pick-color';
-import { setColor1, setColor2 } from '../../redux/action-creators';
+import { setColor1, setColor2 } from '../../redux/colors/colors.action-creators';
 
 function dispatchPressedMouseButtonEvent(e: React.MouseEvent) {
 	if (e.button === 0) {

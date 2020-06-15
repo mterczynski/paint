@@ -1,6 +1,6 @@
-import { colorsReducer } from '../colors.reducer';
-import { ActionTypes } from '../../action.types';
-import { ColorState } from '../../../types';
+import { colorsReducer } from './colors.reducer';
+import { ColorState } from '../../types';
+import { ColorsActionTypes } from './colors.action-types';
 
 describe('colorsReducer', () => {
 	const getMockState = () => ({
@@ -15,7 +15,7 @@ test('SELECT_MAIN_COLOR_INDEX', () => {
 		const initialState = getMockState();
 
 		const result = colorsReducer(initialState, {
-			type: ActionTypes.SELECT_MAIN_COLOR_INDEX,
+			type: ColorsActionTypes.SELECT_MAIN_COLOR_INDEX,
 			colorIndex: 2
 		});
 
@@ -33,7 +33,7 @@ test('SELECT_MAIN_COLOR_INDEX', () => {
 			};
 
 			const result = colorsReducer(initialState, {
-				type: ActionTypes.SET_SELECTED_MAIN_COLOR,
+				type: ColorsActionTypes.SET_SELECTED_MAIN_COLOR,
 				newColor: {red: 0, green: 0, blue: 255, alpha: 128}
 			});
 
@@ -50,7 +50,7 @@ test('SELECT_MAIN_COLOR_INDEX', () => {
 			};
 
 			const result = colorsReducer(initialState, {
-				type: ActionTypes.SET_SELECTED_MAIN_COLOR,
+				type: ColorsActionTypes.SET_SELECTED_MAIN_COLOR,
 				newColor: {red: 0, green: 0, blue: 255, alpha: 128}
 			});
 

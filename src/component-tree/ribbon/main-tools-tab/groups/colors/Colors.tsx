@@ -8,6 +8,10 @@ import './Colors.scss';
 import { rgbaColorToCssColor } from '../../../../../core/drawing/utils';
 import { defaultColors } from './default-colors';
 import { useLang } from '../../../../../hooks';
+import {
+	selectMainColorIndex as selectMainColorIndexActionCreator,
+	setSelectedMainColor as  setSelectedMainColorActionCreator
+} from '../../../../../redux/colors/colors.action-creators';
 
 const lastUsedCustomColors = Object.freeze([
 	{red: 255, green: 111, blue: 0, alpha: 255},
@@ -23,11 +27,11 @@ const lastUsedCustomColors = Object.freeze([
 ]);
 
 function selectMainColorIndex(colorIndex: IndexOfMainColor) {
-	store.dispatch(actionCreators.selectMainColorIndex(colorIndex));
+	store.dispatch(selectMainColorIndexActionCreator(colorIndex));
 }
 
 function setSelectedMainColor(color: RGBAColor) {
-	store.dispatch(actionCreators.setSelectedMainColor(color));
+	store.dispatch(setSelectedMainColorActionCreator(color));
 }
 
 const EditColors = () => {

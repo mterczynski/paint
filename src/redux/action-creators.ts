@@ -10,10 +10,6 @@ export const maximize = (): Actions => ({
 	type: ActionTypes.MAXIMIZE,
 });
 
-export const selectMainColorIndex = (colorIndex: IndexOfMainColor): Actions => {
-	return { type: ActionTypes.SELECT_MAIN_COLOR_INDEX, colorIndex };
-};
-
 export const selectTool = (toolId: AvailableTools): Actions => {
 	return { type: ActionTypes.SELECT_TOOL, toolId };
 };
@@ -26,24 +22,12 @@ export const setCanvasContext = (context: CanvasRenderingContext2D | null): Acti
 	return { type: ActionTypes.SET_CANVAS_CONTEXT, context };
 };
 
-export const setColor1 = (newColor: RGBAColor): Actions => {
-	return { type: ActionTypes.SET_COLOR_1, newColor };
-};
-
-export const setColor2 = (newColor: RGBAColor): Actions => {
-	return { type: ActionTypes.SET_COLOR_2, newColor };
-};
-
 export const setDropdown = (dropdown: Dropdowns): Actions => {
 	return { type: ActionTypes.SET_DROPDOWN, dropdown };
 };
 
 export const setPressedMouseButtonOnCanvas = (newPressedButton: MouseButton): Actions => {
 	return { type: ActionTypes.SET_PRESSED_MOUSE_BUTTON_ON_CANVAS, newPressedButton };
-};
-
-export const setSelectedMainColor = (newColor: RGBAColor): Actions => {
-	return { type: ActionTypes.SET_SELECTED_MAIN_COLOR, newColor };
 };
 
 export const setToolSize = (toolSize: ToolSize): Actions => {

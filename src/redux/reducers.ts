@@ -1,7 +1,7 @@
-import { AppState, Dropdowns } from '../../types';
-import { Actions, ActionTypes } from '../action.types';
-import { initialState } from '../initial-state';
-import { colorsReducer } from './colors.reducer';
+import { AppState, Dropdowns } from '../types';
+import { Actions, ActionTypes } from './action.types';
+import { initialState } from './initial-state';
+import { colorsReducer } from './colors/colors.reducer';
 
 export const rootReducer = (state = initialState, action: Actions): AppState => {
 	switch (action.type) {

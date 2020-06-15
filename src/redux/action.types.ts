@@ -1,19 +1,15 @@
-import { AvailableTools, Dropdowns, IndexOfMainColor, Tabs, ToolSize, MouseButton, RGBAColor } from '../types';
+import { AvailableTools, Dropdowns, Tabs, ToolSize, MouseButton } from '../types';
+import { ColorsActions } from './colors/colors.action-types';
 
 export enum ActionTypes {
 	APP_CLICK = 'APP_CLICK',
 	CHANGE_BRUSH = 'CHANGE_BRUSH',
 	MAXIMIZE = 'MAXIMIZE',
-	PICK_COLOR = 'PICK_COLOR',
-	SELECT_MAIN_COLOR_INDEX = 'SELECT_MAIN_COLOR_INDEX',
 	SELECT_TOOL = 'SELECT_TOOL',
 	SET_ACTIVE_TAB = 'SET_ACTIVE_TAB',
 	SET_CANVAS_CONTEXT = 'SET_CANVAS_CONTEXT',
-	SET_COLOR_1 = 'SET_COLOR_1',
-	SET_COLOR_2 = 'SET_COLOR_2',
 	SET_DROPDOWN = 'SET_DROPDOWN',
 	SET_PRESSED_MOUSE_BUTTON_ON_CANVAS='SET_PRESSED_MOUSE_BUTTON_ON_CANVAS',
-	SET_SELECTED_MAIN_COLOR = 'SET_SELECTED_MAIN_COLOR',
 	SET_TOOL_SIZE = 'SET_TOOL_SIZE',
 	TOGGLE_BOTTOM_BAR = 'TOGGLE_BOTTOM_BAR',
 	TOGGLE_BRUSH = 'TOGGLE_BRUSH',
@@ -22,19 +18,16 @@ export enum ActionTypes {
 
 export type Actions = AppClickAction |
 	MaximizeAction |
-	SelectMainColorIndexAction |
 	SelectToolAction |
 	SetActiveTabAction |
 	SetCanvasContextAction |
-	SetColor1Action |
-	SetColor2Action |
 	SetDropdownAction |
 	SetPressedMouseButtonOnCanvasAction |
-	SetSelectedMainColorAction |
 	SetToolSizeAction |
 	ToggleBottomBarAction |
 	ToggleBrushAction |
-	ToggleRibbonAction;
+	ToggleRibbonAction |
+	ColorsActions; // contains multiple actions
 
 interface AppClickAction {
 	type: ActionTypes.APP_CLICK;
@@ -42,11 +35,6 @@ interface AppClickAction {
 
 interface MaximizeAction {
 	type: ActionTypes.MAXIMIZE;
-}
-
-interface SelectMainColorIndexAction {
-	type: ActionTypes.SELECT_MAIN_COLOR_INDEX;
-	colorIndex: IndexOfMainColor;
 }
 
 interface SelectToolAction {
@@ -64,16 +52,6 @@ interface SetCanvasContextAction {
 	context: CanvasRenderingContext2D | null
 }
 
-interface SetColor1Action {
-	type: ActionTypes.SET_COLOR_1;
-	newColor: RGBAColor;
-}
-
-interface SetColor2Action {
-	type: ActionTypes.SET_COLOR_2;
-	newColor: RGBAColor;
-}
-
 interface SetDropdownAction {
 	type: ActionTypes.SET_DROPDOWN;
 	dropdown: Dropdowns;
@@ -82,11 +60,6 @@ interface SetDropdownAction {
 interface SetPressedMouseButtonOnCanvasAction {
 	type: ActionTypes.SET_PRESSED_MOUSE_BUTTON_ON_CANVAS,
 	newPressedButton: MouseButton
-}
-
-interface SetSelectedMainColorAction {
-	type: ActionTypes.SET_SELECTED_MAIN_COLOR;
-	newColor: RGBAColor;
 }
 
 interface SetToolSizeAction {
