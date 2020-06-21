@@ -7,8 +7,8 @@ import Ribbon from './component-tree/ribbon/Ribbon';
 import TitleBar from './component-tree/title-bar/TitleBar';
 import * as actionCreators from './redux/action-creators';
 import store from './redux/store';
-
 import './App.scss';
+import { MouseButton } from './types';
 
 function onClick() {
 	store.dispatch(actionCreators.appClick());
@@ -39,3 +39,7 @@ ReactDOM.render(
 	<App />,
 	document.getElementById('root'),
 );
+
+window.addEventListener('blur', () => store.dispatch(
+	actionCreators.setPressedMouseButtonOnCanvas(MouseButton.None)
+));
