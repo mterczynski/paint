@@ -1,27 +1,11 @@
 import React from 'react';
 import { useLang } from '../../../hooks';
+import { Figure } from './Figure';
 
 const imgs = {
 	zoomIn: require('../../../assets/icons/view-tab/zoomIn.png'),
 	zoomOut: require('../../../assets/icons/view-tab/zoomOut.png'),
 	maximize: require('../../../assets/icons/view-tab/maximize.png'),
-};
-
-const Figure = ({imgPath, children}: {
-	imgPath: string,
-	children: React.ReactNode,
-}) => {
-	return <figure className='ViewTab__figure'>
-		<img
-			draggable='false'
-			alt=''
-			className='ViewTab__icon'
-			src={imgPath}
-		/>
-		<figcaption className='ViewTab__figcaption'>
-			{children}
-		</figcaption>
-	</figure>;
 };
 
 const Zoom = () => {
