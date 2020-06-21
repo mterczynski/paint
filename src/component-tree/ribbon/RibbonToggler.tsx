@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import * as actionCreators from '../../redux/action-creators';
 import store from '../../redux/store';
 import { AppState } from '../../types';
+import { RibbonIcon, IconImage } from './RibbonStyles';
 
 const toggleRibbon = () => {
 	store.dispatch(actionCreators.toggleRibbon());
@@ -11,19 +12,13 @@ const toggleRibbon = () => {
 export const RibbonToggler = () => {
 	const isRibbonCollapsed = useSelector((state: AppState) => state.isRibbonCollapsed);
 
-	return <div
-		className='Ribbon__head__icons__icon'
+	return <RibbonIcon
 		onClick={toggleRibbon}
 	>
-		<img
+		<IconImage
 			draggable='false'
-			className={
-				'Ribbon__head__icons__icon__image ' +
-				(isRibbonCollapsed
-					? 'Ribbon__head__icons__icon__image--reversed'
-					: '')
-			}
+			reversed = {isRibbonCollapsed}
 			src={require('../../assets/icons/top/collapse.png')}
 		/>
-	</div>;
+	</RibbonIcon>;
 };

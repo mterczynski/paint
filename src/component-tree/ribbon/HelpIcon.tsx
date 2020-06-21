@@ -1,11 +1,11 @@
 import React from 'react';
+import { RibbonIcon, IconImage } from './RibbonStyles';
 
 export const HelpIcon = () => {
-	return <div className='Ribbon__head__icons__icon'>
-		<img
+	return <RibbonIcon>
+		<IconImage
 			draggable='false'
-			className='Ribbon__head__icons__icon__image'
 			src={require('../../assets/icons/top/help.png')}
 		/>
-	</div>;
+	</RibbonIcon>;
 };

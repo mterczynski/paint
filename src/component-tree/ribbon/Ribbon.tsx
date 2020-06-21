@@ -6,9 +6,9 @@ import { useSelector } from 'react-redux';
 import { AppState, Tabs } from '../../types';
 import { HelpIcon } from './HelpIcon';
 import { MainToolsTabLink, ViewTabLink } from './links';
-import './Ribbon.scss';
 import { RibbonToggler } from './RibbonToggler';
 import { useLang } from '../../hooks';
+import { ActiveRibbonTab, RibbonContainer, RibbonHead, RibbonTabs, FileTab, HelperIcons } from './RibbonStyles';
 
 const Ribbon = () => {
 	const lang = useLang();
@@ -17,33 +17,33 @@ const Ribbon = () => {
 
 	const ActiveTab = () => {
 		return isRibbonCollapsed === false ? (
-			<div className='Ribbon__activeTab'>
+			<ActiveRibbonTab>
 				{activeTab === Tabs.MainTools ? (
 					<MainToolsTab />
 				) : (
 						<ViewTab />
 					)}
-			</div>
+			</ActiveRibbonTab>
 		) : null;
 	};
 
 	return (
-		<div className='Ribbon'>
-			<div className='Ribbon__head'>
-				<div className='Ribbon__head__tabNames'>
-					<div className='Ribbon__head__tabNames__file'>{lang.fileMenu.title}</div>
+		<RibbonContainer>
+			<RibbonHead>
+				<RibbonTabs>
+					<FileTab>{lang.fileMenu.title}</FileTab>
 					<MainToolsTabLink></MainToolsTabLink>
 					<ViewTabLink></ViewTabLink>
-				</div>
+				</RibbonTabs>
 
-				<div className='Ribbon__head__icons'>
+				<HelperIcons>
 					<RibbonToggler></RibbonToggler>
 					<HelpIcon></HelpIcon>
-				</div>
-			</div>
+				</HelperIcons>
+			</RibbonHead>
 
 			<ActiveTab></ActiveTab>
-		</div>
+		</RibbonContainer>
 	);
 };
 
