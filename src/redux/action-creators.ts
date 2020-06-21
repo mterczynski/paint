@@ -1,4 +1,4 @@
-import { AvailableTools, IndexOfMainColor, Tabs, ToolSize, MouseButton, RGBAColor } from '../types';
+import { AvailableTools, Tabs, ToolSize, MouseButton } from '../types';
 import { Dropdowns } from '../types';
 import { Actions, ActionTypes } from './action.types';
 
