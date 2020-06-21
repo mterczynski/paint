@@ -1,11 +1,11 @@
 import { AppState, Dropdowns } from '../types';
-import { Actions, ActionTypes } from './action.types';
+import { GenericActions, GenericActionTypes } from './action.types';
 import { initialState } from './initial-state';
 import { colorsReducer } from './colors/colors.reducer';
 
-export const rootReducer = (state = initialState, action: Actions): AppState => {
+export const rootReducer = (state = initialState, action: GenericActions): AppState => {
 	switch (action.type) {
-		case ActionTypes.APP_CLICK:
+		case GenericActionTypes.APP_CLICK:
 			if (state.preventNextAppClick) {
 				return { ...state, preventNextAppClick: false };
 			}
@@ -15,41 +15,41 @@ export const rootReducer = (state = initialState, action: Actions): AppState => 
 				openedDropdown: Dropdowns.none,
 			};
 
-		case ActionTypes.MAXIMIZE:
+		case GenericActionTypes.MAXIMIZE:
 			return { ...state, isMaximized: true };
 
-		case ActionTypes.SELECT_TOOL:
+		case GenericActionTypes.SELECT_TOOL:
 			return { ...state, selectedTool: action.toolId };
 
-		case ActionTypes.SET_ACTIVE_TAB:
+		case GenericActionTypes.SET_ACTIVE_TAB:
 			return {...state, activeTab: action.tab};
 
-		case ActionTypes.SET_CANVAS_CONTEXT:
+		case GenericActionTypes.SET_CANVAS_CONTEXT:
 			return {...state, canvasContext: action.context};
 
-		case ActionTypes.SET_DROPDOWN:
+		case GenericActionTypes.SET_DROPDOWN:
 			return {
 				...state,
 				openedDropdown: action.dropdown,
 				preventNextAppClick: true,
 			};
 
-		case ActionTypes.SET_PRESSED_MOUSE_BUTTON_ON_CANVAS:
+		case GenericActionTypes.SET_PRESSED_MOUSE_BUTTON_ON_CANVAS:
 			return {
 				...state,
 				mouseButtonPressedOnCanvas: action.newPressedButton
 			};
 
-		case ActionTypes.SET_TOOL_SIZE:
+		case GenericActionTypes.SET_TOOL_SIZE:
 			return { ...state, toolSize: action.toolSize };
 
-		case ActionTypes.TOGGLE_BOTTOM_BAR:
+		case GenericActionTypes.TOGGLE_BOTTOM_BAR:
 			return { ...state, isBottomBarVisible: !state.isBottomBarVisible };
 
-		case ActionTypes.TOGGLE_BRUSH:
+		case GenericActionTypes.TOGGLE_BRUSH:
 			return { ...state, isBrushActive: !state.isBrushActive };
 
-		case ActionTypes.TOGGLE_RIBBON:
+		case GenericActionTypes.TOGGLE_RIBBON:
 			return {...state,	isRibbonCollapsed: !state.isRibbonCollapsed};
 	}
 

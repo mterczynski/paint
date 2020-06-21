@@ -1,43 +1,43 @@
 import { AvailableTools, Tabs, ToolSize, MouseButton } from '../types';
 import { Dropdowns } from '../types';
-import { Actions, ActionTypes } from './action.types';
+import { GenericActions, GenericActionTypes } from './action.types';
 
-export const appClick = (): Actions => {
-	return { type: ActionTypes.APP_CLICK };
+export const appClick = (): GenericActions => {
+	return { type: GenericActionTypes.APP_CLICK };
 };
 
-export const maximize = (): Actions => ({
-	type: ActionTypes.MAXIMIZE,
+export const maximize = (): GenericActions => ({
+	type: GenericActionTypes.MAXIMIZE,
 });
 
-export const selectTool = (toolId: AvailableTools): Actions => {
-	return { type: ActionTypes.SELECT_TOOL, toolId };
+export const selectTool = (toolId: AvailableTools): GenericActions => {
+	return { type: GenericActionTypes.SELECT_TOOL, toolId };
 };
 
-export const setActiveTab = (tab: Tabs): Actions => {
-	return { type: ActionTypes.SET_ACTIVE_TAB, tab };
+export const setActiveTab = (tab: Tabs): GenericActions => {
+	return { type: GenericActionTypes.SET_ACTIVE_TAB, tab };
 };
 
-export const setCanvasContext = (context: CanvasRenderingContext2D | null): Actions => {
-	return { type: ActionTypes.SET_CANVAS_CONTEXT, context };
+export const setCanvasContext = (context: CanvasRenderingContext2D | null): GenericActions => {
+	return { type: GenericActionTypes.SET_CANVAS_CONTEXT, context };
 };
 
-export const setDropdown = (dropdown: Dropdowns): Actions => {
-	return { type: ActionTypes.SET_DROPDOWN, dropdown };
+export const setDropdown = (dropdown: Dropdowns): GenericActions => {
+	return { type: GenericActionTypes.SET_DROPDOWN, dropdown };
 };
 
-export const setPressedMouseButtonOnCanvas = (newPressedButton: MouseButton): Actions => {
-	return { type: ActionTypes.SET_PRESSED_MOUSE_BUTTON_ON_CANVAS, newPressedButton };
+export const setPressedMouseButtonOnCanvas = (newPressedButton: MouseButton): GenericActions => {
+	return { type: GenericActionTypes.SET_PRESSED_MOUSE_BUTTON_ON_CANVAS, newPressedButton };
 };
 
-export const setToolSize = (toolSize: ToolSize): Actions => {
-	return { type: ActionTypes.SET_TOOL_SIZE, toolSize };
+export const setToolSize = (toolSize: ToolSize): GenericActions => {
+	return { type: GenericActionTypes.SET_TOOL_SIZE, toolSize };
 };
 
-export const toggleBottomBar = (): Actions => ({
-	type: ActionTypes.TOGGLE_BOTTOM_BAR,
+export const toggleBottomBar = (): GenericActions => ({
+	type: GenericActionTypes.TOGGLE_BOTTOM_BAR,
 });
 
-export const toggleRibbon = (): Actions => {
-	return {type: ActionTypes.TOGGLE_RIBBON};
+export const toggleRibbon = (): GenericActions => {
+	return {type: GenericActionTypes.TOGGLE_RIBBON};
 };

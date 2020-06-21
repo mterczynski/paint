@@ -1,7 +1,6 @@
 import { AvailableTools, Dropdowns, Tabs, ToolSize, MouseButton } from '../types';
-import { ColorsActions } from './colors/colors.action-types';
 
-export enum ActionTypes {
+export enum GenericActionTypes {
 	APP_CLICK = 'APP_CLICK',
 	CHANGE_BRUSH = 'CHANGE_BRUSH',
 	MAXIMIZE = 'MAXIMIZE',
@@ -16,7 +15,7 @@ export enum ActionTypes {
 	TOGGLE_RIBBON = 'TOGGLE_RIBBON',
 }
 
-export type Actions = AppClickAction |
+export type GenericActions = AppClickAction |
 	MaximizeAction |
 	SelectToolAction |
 	SetActiveTabAction |
@@ -26,55 +25,54 @@ export type Actions = AppClickAction |
 	SetToolSizeAction |
 	ToggleBottomBarAction |
 	ToggleBrushAction |
-	ToggleRibbonAction |
-	ColorsActions; // contains multiple actions
+	ToggleRibbonAction;
 
 interface AppClickAction {
-	type: ActionTypes.APP_CLICK;
+	type: GenericActionTypes.APP_CLICK;
 }
 
 interface MaximizeAction {
-	type: ActionTypes.MAXIMIZE;
+	type: GenericActionTypes.MAXIMIZE;
 }
 
 interface SelectToolAction {
-	type: ActionTypes.SELECT_TOOL;
+	type: GenericActionTypes.SELECT_TOOL;
 	toolId: AvailableTools;
 }
 
 interface SetActiveTabAction {
-	type: ActionTypes.SET_ACTIVE_TAB;
+	type: GenericActionTypes.SET_ACTIVE_TAB;
 	tab: Tabs;
 }
 
 interface SetCanvasContextAction {
-	type: ActionTypes.SET_CANVAS_CONTEXT;
+	type: GenericActionTypes.SET_CANVAS_CONTEXT;
 	context: CanvasRenderingContext2D | null
 }
 
 interface SetDropdownAction {
-	type: ActionTypes.SET_DROPDOWN;
+	type: GenericActionTypes.SET_DROPDOWN;
 	dropdown: Dropdowns;
 }
 
 interface SetPressedMouseButtonOnCanvasAction {
-	type: ActionTypes.SET_PRESSED_MOUSE_BUTTON_ON_CANVAS,
+	type: GenericActionTypes.SET_PRESSED_MOUSE_BUTTON_ON_CANVAS,
 	newPressedButton: MouseButton
 }
 
 interface SetToolSizeAction {
-	type: ActionTypes.SET_TOOL_SIZE;
+	type: GenericActionTypes.SET_TOOL_SIZE;
 	toolSize: ToolSize;
 }
 
 interface ToggleBottomBarAction {
-	type: ActionTypes.TOGGLE_BOTTOM_BAR;
+	type: GenericActionTypes.TOGGLE_BOTTOM_BAR;
 }
 
 interface ToggleBrushAction {
-	type: ActionTypes.TOGGLE_BRUSH;
+	type: GenericActionTypes.TOGGLE_BRUSH;
 }
 
 interface ToggleRibbonAction {
-	type: ActionTypes.TOGGLE_RIBBON;
+	type: GenericActionTypes.TOGGLE_RIBBON;
 }
