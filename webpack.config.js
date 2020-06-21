@@ -15,7 +15,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.ts(x?)$/,
-        use: 'ts-loader',
+        use: 'babel-loader',
         exclude: [
 					/node_modules/,
 					/\.spec\.ts(x?)$/
@@ -23,22 +23,17 @@ module.exports = {
       },
 			{
 				test: /\.css$/,
+				exclude: /node_modules/,
 				use: ['style-loader', 'css-loader']
 			},
 			{
 				test: /\.scss$/,
+				exclude: /node_modules/,
 				use: [
 					"style-loader", // creates style nodes from JS strings
 					"css-loader", // translates CSS into CommonJS
 					"sass-loader" // compiles Sass to CSS
 				]
-			},
-			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader'
-				}
 			},
 			{
 				test: /\.(png|jpg|PNG)$/,
@@ -47,7 +42,6 @@ module.exports = {
 		]
 	},
 	watchOptions: {
-
 		ignored: /node_modules/
 	}
 }

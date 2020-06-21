@@ -10,12 +10,10 @@ import Shapes from './groups/shapes/Shapes';
 import Size from './groups/size/Size';
 import Tools from './groups/tools/Tools';
 
-import './MainToolsTab.scss';
-
 const MainToolsTab = () => {
 	return (
 		<Tab>
-			<div className='MainToolsTab'>
+			<div style={{display: 'flex', height: '100%'}}>
 				<Group> <Clipboard /> </Group>
 				<Group>	<Image /> </Group>
 				<Group> <Tools /> </Group>
