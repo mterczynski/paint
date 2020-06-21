@@ -4,5 +4,3 @@
 /node_modules
 
 *.log
-deploy.sh
-firstDeploy.sh
