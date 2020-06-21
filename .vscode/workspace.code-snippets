@@ -2,7 +2,7 @@
 	"Import styled-components": {
 		"prefix": "styled",
 		"body": [
-			"import styled from 'styled-components';",
+			"import styled from 'styled-components';"
 		],
 		"description": "Import styled-components"
 	}

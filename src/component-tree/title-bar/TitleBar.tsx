@@ -8,6 +8,19 @@ function maximizeWindow() {
 	store.dispatch(actionCreators.maximize());
 }
 
+const Icon = (props: {src: string, onClick?: () => void, className?: string}) => {
+	return <div
+		className={`TitleBar__window-icons__icon ${props.className || ''}`}
+		onClick={props.onClick}
+	>
+		<img
+			draggable='false'
+			src={props.src}
+			className='TitleBar__window-icons__icon__image'
+		/>
+	</div>;
+};
+
 const TitleBar = () => {
 	return (
 		<div className='TitleBar'>
@@ -16,24 +29,8 @@ const TitleBar = () => {
 					<div className='TitleBar__window-icons__icon__minimize' />
 				</div>
 
-				<div
-					className='TitleBar__window-icons__icon'
-					onClick={maximizeWindow}
-				>
-					<img
-						draggable='false'
-						src={require('./../../assets/icons/top/maximize.png')}
-						className='TitleBar__window-icons__icon__image'
-					/>
-				</div>
-
-				<div className='TitleBar__window-icons__icon TitleBar__window-icons__icon--close'>
-					<img
-						draggable='false'
-						src={require('./../../assets/icons/top/close.png')}
-						className='TitleBar__window-icons__icon__image'
-					/>
-				</div>
+				<Icon src={require('./../../assets/icons/top/maximize.png')} onClick={maximizeWindow}/>
+				<Icon src={require('./../../assets/icons/top/close.png')} className='TitleBar__window-icons__icon--close'/>
 			</div>
 		</div>
 	);
