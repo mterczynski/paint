@@ -30,8 +30,8 @@ export const ShowOrHide = () => {
 	const lang = useLang().viewTab.showOrHide;
 	const isBottomBarVisible = useSelector((state: AppState) => state.isBottomBarVisible);
 
-	return <div className='ViewTab__group'>
-		<div className='ViewTab__content'>
+	return <div className='ViewTab__group' style={{paddingLeft: '6px', paddingRight: '11px'}}>
+		<div className='ViewTab__content' style={{justifyContent: 'center'}}>
 			<ul className='ViewTab__list'>
 				<li><Checkbox description={lang.rulers.title}/></li>
 				<li><Checkbox description={lang.statusBar.title}/></li>
