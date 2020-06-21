@@ -1,15 +1,15 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-      "mterczynski-tslint"
-    ],
-    "jsRules": {},
-    "rules": {
-			"indent": [true, "tabs"],
-			"object-literal-sort-keys": false,
-			"variable-name": false,
-			"newline-before-return": false,
-			"no-var-requires": false
-		},
-    "rulesDirectory": []
+	"defaultSeverity": "error",
+	"extends": [
+		"mterczynski-tslint"
+	],
+	"jsRules": {},
+	"rules": {
+		"indent": [true, "tabs"],
+		"object-literal-sort-keys": false,
+		"variable-name": false,
+		"newline-before-return": false,
+		"no-var-requires": false
+	},
+	"rulesDirectory": []
 }
