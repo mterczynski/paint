@@ -1,15 +1,12 @@
-import { applyMiddleware, createStore, compose } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
 import { rootReducer } from './reducers';
 
-const reduxDevtoolsExtenstion = (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
-	(window as any).__REDUX_DEVTOOLS_EXTENSION__();
-
 const store = createStore(
 	rootReducer,
-	compose(
+	composeWithDevTools(
 		applyMiddleware(logger),
-		reduxDevtoolsExtenstion
 	)
 );
 export default store;
