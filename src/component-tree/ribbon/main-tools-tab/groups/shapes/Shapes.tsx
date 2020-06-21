@@ -5,7 +5,7 @@ import { useLang } from '../../../../../hooks';
 
 const lastShapeIndex = 23;
 
-const shapeImageUrls = [...Array(lastShapeIndex)].map(
+const shapeImageUrls = Array(lastShapeIndex).fill(null).map(
 	(e, i) => require(`../../../../../assets/icons/main-tools-tab/5_shapes/${i + 1}.png`),
 );
 
