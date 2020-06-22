@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Subheading } from './styles/Subheading';
 import styled from 'styled-components';
 
@@ -65,7 +65,7 @@ const basicColors = [
 
 const Row = styled.div`
 	display: flex;
-	margin-bottom: 6px;
+	margin-bottom: 1px;
 `;
 
 const TileInterior = styled.div<{color: string}>`
@@ -78,24 +78,57 @@ const TileInterior = styled.div<{color: string}>`
 	background: ${props => props.color};
 `;
 
-const Tile = ({color}: {color: string}) => {
-	return <div style={{
-		borderLeft: '1px solid rgb(160,160,160)',
-		borderTop: '1px solid rgb(160,160,160)',
-		borderRight: '1px solid rgb(255,255,255)',
-		borderBottom: '1px solid rgb(255,255,255)',
-		marginRight: '8px'
-	}}>
-		<TileInterior color={color}/>
-	</div>;
+const Tile = ({color, active}: {color: string, active: boolean}) => {
+	const InteriorBorder = styled.div`
+		border-left: 1px solid rgb(160,160,160);
+		border-top: 1px solid rgb(160,160,160);
+		border-right: 1px solid rgb(255,255,255);
+		border-bottom: 1px solid rgb(255,255,255);
+	`;
+
+	const ActiveOutline = styled.div<{active?: boolean}>`
+		outline: 1px dotted ${props => props.active ? `black` : `transparent`};
+		border: 1px solid transparent;
+		margin-right: 3px;
+	`;
+
+	const ActiveBorder = styled.div<{active?: boolean}>`
+		border: 1px solid ${props => props.active ? `black` : `transparent`};
+	`;
+
+	return <ActiveOutline active={active}>
+		<ActiveBorder active={active}>
+			<InteriorBorder>
+				<TileInterior color={color}/>
+			</InteriorBorder>
+		</ActiveBorder>
+	</ActiveOutline>;
 };
 
+interface ColorPosition {
+	rowIndex: number,
+	columnIndex: number
+}
+
+function isColorActive(selectedColorPosition: ColorPosition, colorPosition: ColorPosition) {
+	return selectedColorPosition.rowIndex === colorPosition.rowIndex &&
+		selectedColorPosition.columnIndex === colorPosition.columnIndex;
+}
+
 export const BasicColours = () => {
+	const [selectedColor, setSelectedColor] = useState({rowIndex: 5, columnIndex: 0});
+
 	return <div style={{paddingLeft: '6px'}}>
 		<Subheading>Basic colours:</Subheading>
 
-		{basicColors.map(row => <Row>
-			{row.map(color => <Tile color={color}></Tile>)}
+		{basicColors.map((row, rowIndex) => <Row key={rowIndex}>
+			{row.map((color, columnIndex) =>
+				<Tile
+					color={color}
+					key={columnIndex}
+					active={isColorActive(selectedColor, {rowIndex, columnIndex})}
+				/>
+			)}
 		</Row>)}
 	</div>;
 };
