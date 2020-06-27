@@ -3,6 +3,6 @@ import { EditColoursPopup } from './edit-colours/EditColoursPopup';
 
 export const PopupContainer = () => {
 	return <div>
-		<EditColoursPopup></EditColoursPopup>
+		{/* <EditColoursPopup></EditColoursPopup> */}
 	</div>;
 };

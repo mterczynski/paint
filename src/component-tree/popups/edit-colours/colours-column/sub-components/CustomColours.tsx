@@ -40,7 +40,9 @@ const DefineCustomColors = () => {
 		background: 'rgb(204,204,204)',
 		border: '1px solid rgb(191,191,191)',
 		lineHeight: '19px',
-		outline: 'none'
+		outline: 'none',
+		marginBottom: '4px',
+		fontSize: '0.7em'
 	}}>
 		Define Custom Colours &gt;&gt;
 	</button>;
@@ -49,7 +51,7 @@ const DefineCustomColors = () => {
 export const CustomColours = () => {
 	const [selectedColor, setSelectedColor] = useState<ColorPosition | null>(null);
 
-	return <div style={{paddingLeft: '6px', width: '100%'}}>
+	return <div style={{width: '100%'}}>
 		<Subheading>Custom colours:</Subheading>
 
 		{initialCustomColors.map((row, rowIndex) => <Row key={rowIndex}>
