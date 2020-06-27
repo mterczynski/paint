@@ -2,14 +2,11 @@ import { Popup } from '../Popup';
 import React from 'react';
 import styled from 'styled-components';
 import { BasicColours } from './BasicColours';
+import { CustomColours} from './CustomColours';
 
 const StyledContent = styled.div`
 	background: rgb(240, 240, 240);
 `;
-
-const CustomColours = () => {
-	return <></>;
-};
 
 const CloseButtons = () => {
 	return <></>;
