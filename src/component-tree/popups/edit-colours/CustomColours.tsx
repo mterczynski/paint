@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Subheading } from './styles/Subheading';
 import styled from 'styled-components';
 import { ColorTile } from './ColorTile';
+import { ColorPosition } from './ColorPosition.interface';
+import { isColorActive } from './isColorActive';
 
 const initialCustomColors = [
 	['rgb(255,255,255)',
@@ -29,22 +31,8 @@ const Row = styled.div`
 	margin-bottom: 1px;
 `;
 
-interface ColorPosition {
-	rowIndex: number,
-	columnIndex: number
-}
-
-function isColorActive(selectedColorPosition: ColorPosition | null, colorPosition: ColorPosition) {
-	if(!selectedColorPosition) {
-		return false;
-	}
-
-	return selectedColorPosition.rowIndex === colorPosition.rowIndex &&
-		selectedColorPosition.columnIndex === colorPosition.columnIndex;
-}
-
 export const CustomColours = () => {
-	const [selectedColor, setSelectedColor] = useState<null | {rowIndex: number, columnIndex: number}>(null);
+	const [selectedColor, setSelectedColor] = useState<ColorPosition | null>(null);
 
 	return <div style={{paddingLeft: '6px'}}>
 		<Subheading>Custom colours:</Subheading>

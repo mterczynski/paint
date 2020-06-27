@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Subheading } from './styles/Subheading';
 import styled from 'styled-components';
 import { ColorTile } from './ColorTile';
+import { isColorActive } from './isColorActive';
 
 const basicColors = [
 	['rgb(255,128,128)',
@@ -68,16 +69,6 @@ const Row = styled.div`
 	display: flex;
 	margin-bottom: 1px;
 `;
-
-interface ColorPosition {
-	rowIndex: number,
-	columnIndex: number
-}
-
-function isColorActive(selectedColorPosition: ColorPosition, colorPosition: ColorPosition) {
-	return selectedColorPosition.rowIndex === colorPosition.rowIndex &&
-		selectedColorPosition.columnIndex === colorPosition.columnIndex;
-}
 
 export const BasicColours = () => {
 	const [selectedColor, setSelectedColor] = useState({rowIndex: 5, columnIndex: 0});
