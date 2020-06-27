@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import * as actionCreators from '../../../../../redux/action-creators';
 import store from '../../../../../redux/store';
 
 import { AppState, IndexOfMainColor, RGBAColor } from '../../../../../types';
@@ -39,6 +38,7 @@ const EditColors = () => {
 
 	return <div className='Colors__editColors'>
 		<img
+			draggable='false'
 			className='Colors__editColorsIcon'
 			src={require('../../../../../assets/icons/main-tools-tab/7_colors.png')}
 			alt=''
