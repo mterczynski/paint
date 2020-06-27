@@ -73,7 +73,7 @@ const Row = styled.div`
 export const BasicColours = () => {
 	const [selectedColor, setSelectedColor] = useState({rowIndex: 5, columnIndex: 0});
 
-	return <div style={{paddingLeft: '6px'}}>
+	return <div style={{paddingLeft: '6px', width:'100%'}}>
 		<Subheading>Basic colours:</Subheading>
 
 		{basicColors.map((row, rowIndex) => <Row key={rowIndex}>

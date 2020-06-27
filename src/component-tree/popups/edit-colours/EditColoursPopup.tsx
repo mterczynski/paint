@@ -25,15 +25,15 @@ const AddToCustomColours = () => {
 };
 
 export const EditColoursPopup = () => {
-	return <Popup title='Edit Colours'>
+	return <Popup title='Edit Colours' width='400px'>
 		<StyledContent>
-			<div style={{display: 'flex', flexDirection: 'column'}}>
+			<div style={{display: 'flex', flexDirection: 'column', width: '50%'}}>
 				<BasicColours/>
 				<CustomColours/>
 				<CloseButtons/>
 			</div>
 
-			<div style={{display: 'flex', flexDirection: 'column'}}>
+			<div style={{display: 'flex', flexDirection: 'column', width: '50%'}}>
 				<ColorPicker/>
 				<ColorOptions/>
 				<AddToCustomColours/>

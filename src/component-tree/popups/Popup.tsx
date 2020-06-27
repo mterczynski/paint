@@ -46,8 +46,8 @@ function closePopup() {
 	// store.dispatch();
 }
 
-export const Popup = ({title, children}: {title: string, children: any}) => {
-	return <StyledPopup style={{width: '400px'}}>
+export const Popup = ({title, children, width}: {title: string, children: any, width: string}) => {
+	return <StyledPopup style={{width}}>
 		<PopupHeader>
 			<div style={{height: '100%', paddingLeft: '8px'}}>{title}</div>
 			<StyledXIcon onClick={closePopup}/>

@@ -31,10 +31,25 @@ const Row = styled.div`
 	margin-bottom: 1px;
 `;
 
+const DefineCustomColors = () => {
+	return <button disabled style={{
+		position: 'relative',
+		left: '-1px',
+		width: 'calc(100% + 5px)',
+		height: '19px',
+		background: 'rgb(204,204,204)',
+		border: '1px solid rgb(191,191,191)',
+		lineHeight: '19px',
+		outline: 'none'
+	}}>
+		Define Custom Colours &gt;&gt;
+	</button>;
+};
+
 export const CustomColours = () => {
 	const [selectedColor, setSelectedColor] = useState<ColorPosition | null>(null);
 
-	return <div style={{paddingLeft: '6px'}}>
+	return <div style={{paddingLeft: '6px', width: '100%'}}>
 		<Subheading>Custom colours:</Subheading>
 
 		{initialCustomColors.map((row, rowIndex) => <Row key={rowIndex}>
@@ -47,5 +62,7 @@ export const CustomColours = () => {
 				/>
 			)}
 		</Row>)}
+
+		<DefineCustomColors></DefineCustomColors>
 	</div>;
 };
