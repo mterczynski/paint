@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Subheading } from './styles/Subheading';
 import styled from 'styled-components';
+import { ReactOnClickHandler } from '../../../types/onClickHandler';
 
 const basicColors = [
 	['rgb(255,128,128)',
@@ -78,7 +79,7 @@ const TileInterior = styled.div<{color: string}>`
 	background: ${props => props.color};
 `;
 
-const Tile = ({color, active}: {color: string, active: boolean}) => {
+const Tile = ({color, active, onClick}: {color: string, active: boolean, onClick?: ReactOnClickHandler}) => {
 	const InteriorBorder = styled.div`
 		border-left: 1px solid rgb(160,160,160);
 		border-top: 1px solid rgb(160,160,160);
@@ -96,7 +97,7 @@ const Tile = ({color, active}: {color: string, active: boolean}) => {
 		border: 1px solid ${props => props.active ? `black` : `transparent`};
 	`;
 
-	return <ActiveOutline active={active}>
+	return <ActiveOutline active={active} onClick={onClick}>
 		<ActiveBorder active={active}>
 			<InteriorBorder>
 				<TileInterior color={color}/>
@@ -127,6 +128,7 @@ export const BasicColours = () => {
 					color={color}
 					key={columnIndex}
 					active={isColorActive(selectedColor, {rowIndex, columnIndex})}
+					onClick={() => setSelectedColor({rowIndex, columnIndex})}
 				/>
 			)}
 		</Row>)}
