@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Subheading } from './styles/Subheading';
+import { Subheading } from '../styles/Subheading';
 import styled from 'styled-components';
-import { ColorTile } from './ColorTile';
-import { isColorActive } from './isColorActive';
+import { ColorTile } from '../styles/ColorTile';
+import { isColorActive } from '../utils/isColorActive';
 
 const basicColors = [
 	['rgb(255,128,128)',

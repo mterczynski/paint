@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
-import { ReactOnClickHandler } from '../../../types/onClickHandler';
+import { ReactOnClickHandler } from '../../../../../types/onClickHandler';
 
 const TileInterior = styled.div<{color: string}>`
 	border-left: 1px solid rgb(105, 105, 105);

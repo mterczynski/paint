@@ -1,8 +1,8 @@
 import { Popup } from '../Popup';
 import React from 'react';
 import styled from 'styled-components';
-import { BasicColours } from './BasicColours';
-import { CustomColours} from './CustomColours';
+import { BasicColours } from './colours-column/sub-components/BasicColours';
+import { CustomColours} from './colours-column/sub-components/CustomColours';
 
 const StyledContent = styled.div`
 	background: rgb(240, 240, 240);

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Subheading } from './styles/Subheading';
+import { Subheading } from '../styles/Subheading';
 import styled from 'styled-components';
-import { ColorTile } from './ColorTile';
-import { ColorPosition } from './ColorPosition.interface';
-import { isColorActive } from './isColorActive';
+import { ColorTile } from '../styles/ColorTile';
+import { ColorPosition } from '../types/ColorPosition.interface';
+import { isColorActive } from '../utils/isColorActive';
 
 const initialCustomColors = [
 	['rgb(255,255,255)',
