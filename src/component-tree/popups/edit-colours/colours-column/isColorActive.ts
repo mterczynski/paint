@@ -1,4 +1,4 @@
-import { ColorPosition } from '../colours-column/types/ColorPosition.interface';
+import { ColorPosition } from './types/ColorPosition.interface';
 
 // todo -refactor, change order of args
 export function isColorActive(selectedColorPosition: ColorPosition | null, colorPosition: ColorPosition) {
