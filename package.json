@@ -7,7 +7,8 @@
 		"build": "webpack --mode=production",
 		"test": "jest --watch",
 		"test:once": "jest",
-		"lint": "tslint --project ."
+		"lint": "tslint --project .",
+		"test:e2e": "cypress open"
 	},
 	"dependencies": {
 		"@babel/core": "^7.10.3",
@@ -41,6 +42,7 @@
 	},
 	"devDependencies": {
 		"@types/jest": "^26.0.0",
+		"cypress": "^4.12.1",
 		"canvas": "^2.6.1",
 		"jest": "^26.0.1",
 		"mterczynski-tslint": "^1.12.0",
