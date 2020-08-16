@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { useSelector } from 'react-redux';
+import { useSelector, ReactReduxContextValue } from 'react-redux';
 import { AppState, AvailableTools, MouseButton, Point } from '../../types';
 import './CanvasArea.scss';
 import { getCursorForTool } from './cursors';
@@ -11,6 +11,7 @@ import { usePencilDrawingStrategy } from '../../core/drawing';
 import { fillWithBucket } from '../../core/drawing/fill-with-bucket';
 import { pickColor } from '../../core/drawing/pick-color';
 import { setColor1, setColor2 } from '../../redux/colors/colors.action-creators';
+import { canvasAreaEventHandlers } from './canvasAreaEventHandlers';
 
 function dispatchPressedMouseButtonEvent(e: React.MouseEvent) {
 	if (e.button === 0) {
@@ -29,7 +30,7 @@ const CanvasArea = () => {
 
 	const cursor = getCursorForTool(selectedTool);
 
-	function mouseUpHandler () {
+	function mouseUpHandler() {
 		const onMouseUp = () => {
 			store.dispatch(actionCreators.setPressedMouseButtonOnCanvas(MouseButton.None));
 
@@ -41,7 +42,7 @@ const CanvasArea = () => {
 		return () => window.removeEventListener('mouseup', onMouseUp);
 	}
 
-	function mouseMoveHandler () {
+	function mouseMoveHandler() {
 		window.addEventListener('mousemove', onMouseMove);
 		return () => window.removeEventListener('mousemove', onMouseMove);
 	}
@@ -50,7 +51,7 @@ const CanvasArea = () => {
 		const context = canvasRef.current && canvasRef.current.getContext('2d');
 		store.dispatch(actionCreators.setCanvasContext(context));
 
-		return () => {store.dispatch(actionCreators.setCanvasContext(null));};
+		return () => { store.dispatch(actionCreators.setCanvasContext(null)); };
 	}
 
 	function onMouseMove(mouseEvent: MouseEvent) {
@@ -61,7 +62,7 @@ const CanvasArea = () => {
 		const currentMousePosition = getMousePositionRelativeToCanvas(canvasRef.current, mouseEvent);
 
 		if (lastMousePosition && selectedTool === AvailableTools.Pencil) {
-			usePencilDrawingStrategy({lastMousePosition, currentMousePosition});
+			usePencilDrawingStrategy({ lastMousePosition, currentMousePosition });
 		}
 
 		setLastMousePosition(currentMousePosition);
@@ -69,73 +70,24 @@ const CanvasArea = () => {
 
 	function onMouseDown(e: React.MouseEvent) {
 		dispatchPressedMouseButtonEvent(e);
-
-		const storeState = store.getState();
-		const context = storeState.canvasContext;
-
-		if(!canvasRef.current || !context) return;
-
-		const currentMousePosition = getMousePositionRelativeToCanvas(canvasRef.current, e);
-
-		if(storeState.selectedTool === AvailableTools.Fill) {
-			const fillColor = storeState.mouseButtonPressedOnCanvas === MouseButton.Primary ?
-				storeState.colors.color1 :
-				storeState.colors.color2;
-
-			fillWithBucket({
-				context,
-				mousePositionRelativeToCanvas: currentMousePosition,
-				fillColor,
-				canvasSize: {
-					width: storeState.imageSettings.widthInPx,
-					height: storeState.imageSettings.heightInPx,
-				}
-			});
-		}
+		canvasAreaEventHandlers.mouseDown.fillWithBucketIfNeeded(canvasRef, e);
 	}
 
 	function onClick(mouseEvent: React.MouseEvent, mouseButton: MouseButton.Primary | MouseButton.Secondary) {
-		const storeState = store.getState();
-
-		if (!canvasRef.current || !storeState.canvasContext) {
-			return;
-		}
-
-		if(storeState.selectedTool === AvailableTools.ColorPicker) {
-			const mousePosition = getMousePositionRelativeToCanvas(canvasRef.current, mouseEvent);
-			const pickedColor = pickColor({
-				canvasContextRef: storeState.canvasContext,
-				mousePosition,
-				imageSize: {
-					width: storeState.imageSettings.widthInPx,
-					height: storeState.imageSettings.heightInPx,
-				}
-			});
-
-			const opaqueColor = {
-				...pickedColor,
-				alpha: 255
-			};
-
-			if(mouseButton === MouseButton.Primary) {
-				store.dispatch(setColor1(opaqueColor));
-			} else {
-				store.dispatch(setColor2(opaqueColor));
-			}
-		}
+		canvasAreaEventHandlers.click.pickColorIfNeeded(canvasRef, mouseEvent, mouseButton);
 	}
 
 	function fillCanvasWithWhite() {
 		const storeState = store.getState();
 		const context = storeState.canvasContext;
 
-		if(!canvasRef.current || !context) return;
+		if (!canvasRef.current || !context) return;
 
 		const canvasWidth = storeState.imageSettings.widthInPx;
 		const canvasHeight = storeState.imageSettings.heightInPx;
 
 		context.fillStyle = 'rgb(255,255,255)'; // white
-		context.fillRect(0,0, canvasWidth, canvasHeight);
+		context.fillRect(0, 0, canvasWidth, canvasHeight);
 	}
 
 	useEffect(mouseUpHandler, []);
@@ -150,7 +102,7 @@ const CanvasArea = () => {
 				onClick={e => onClick(e, MouseButton.Primary)}
 				onContextMenu={e => onClick(e, MouseButton.Secondary)}
 				style={{ cursor }}
-				ref={canvasRef}/>
+				ref={canvasRef} />
 		</div>
 	);
 };
