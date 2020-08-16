@@ -1,13 +1,13 @@
 import { languages } from '../lang/impl';
-import { AppState, AvailableTools, Tabs, MouseButton } from '../types';
+import { AppState, AvailableTools, Tabs, MouseButton, ToolSize } from '../types';
 import { Dropdowns } from '../types';
 
 export const initialState: AppState = {
 	activeTab: Tabs.MainTools,
 	canvasContext: null,
 	colors: {
-		color1: {red: 0, green: 0, blue: 0, alpha: 255},
-		color2: {red: 255, green: 255, blue: 255, alpha: 255},
+		color1: { red: 0, green: 0, blue: 0, alpha: 255 },
+		color2: { red: 255, green: 255, blue: 255, alpha: 255 },
 		selectedMainColorIndex: 1,
 		lastUsedCustomColors: new Array(10).fill(null),
 		isEditColorsWindowOpened: false,
@@ -25,6 +25,6 @@ export const initialState: AppState = {
 	openedDropdown: Dropdowns.none,
 	preventNextAppClick: false,
 	selectedTool: AvailableTools.Pencil,
-	toolSize: 3,
+	toolSize: ToolSize.three,
 	zoom: 1,
 };
