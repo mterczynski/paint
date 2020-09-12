@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { setPopup } from '../../redux/action-creators';
+import store from '../../redux/store';
+import {Popup as PopupEnum} from '../../types/popup.enum';
 
 const images = {
 	close: require('../../assets/icons/popups/close.png'),
@@ -42,8 +45,7 @@ const StyledXIcon = styled.button`
 `;
 
 function closePopup() {
-	// todo
-	// store.dispatch();
+	store.dispatch(setPopup(PopupEnum.none));
 }
 
 export const Popup = ({title, children, style}: {

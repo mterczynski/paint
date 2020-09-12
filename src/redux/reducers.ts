@@ -1,9 +1,9 @@
-import { AppState, Dropdowns } from '../types';
-import { GenericActions, GenericActionTypes } from './action.types';
+import { AppState, Dropdowns, Popup } from '../types';
+import { Actions, GenericActionTypes } from './action.types';
 import { initialState } from './initial-state';
 import { colorsReducer } from './colors/colors.reducer';
 
-export const rootReducer = (state = initialState, action: GenericActions): AppState => {
+export const rootReducer = (state = initialState, action: Actions): AppState => {
 	switch (action.type) {
 		case GenericActionTypes.APP_CLICK:
 			if (state.preventNextAppClick) {
@@ -31,7 +31,15 @@ export const rootReducer = (state = initialState, action: GenericActions): AppSt
 			return {
 				...state,
 				openedDropdown: action.dropdown,
+				openedPopup: Popup.none,
 				preventNextAppClick: true,
+			};
+
+		case GenericActionTypes.SET_POPUP:
+			return {
+				...state,
+				openedPopup: action.popup,
+				openedDropdown: Dropdowns.none,
 			};
 
 		case GenericActionTypes.SET_PRESSED_MOUSE_BUTTON_ON_CANVAS:

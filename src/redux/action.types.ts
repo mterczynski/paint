@@ -1,4 +1,5 @@
-import { AvailableTools, Dropdowns, Tabs, ToolSize, MouseButton } from '../types';
+import { AvailableTools, Dropdowns, Tabs, ToolSize, MouseButton, Popup } from '../types';
+import { ColorsActions } from './colors/colors.action-types';
 
 export enum GenericActionTypes {
 	APP_CLICK = 'APP_CLICK',
@@ -8,6 +9,7 @@ export enum GenericActionTypes {
 	SET_ACTIVE_TAB = 'SET_ACTIVE_TAB',
 	SET_CANVAS_CONTEXT = 'SET_CANVAS_CONTEXT',
 	SET_DROPDOWN = 'SET_DROPDOWN',
+	SET_POPUP = 'SET_POPUP',
 	SET_PRESSED_MOUSE_BUTTON_ON_CANVAS='SET_PRESSED_MOUSE_BUTTON_ON_CANVAS',
 	SET_TOOL_SIZE = 'SET_TOOL_SIZE',
 	TOGGLE_BOTTOM_BAR = 'TOGGLE_BOTTOM_BAR',
@@ -21,11 +23,14 @@ export type GenericActions = AppClickAction |
 	SetActiveTabAction |
 	SetCanvasContextAction |
 	SetDropdownAction |
+	SetPopupAction |
 	SetPressedMouseButtonOnCanvasAction |
 	SetToolSizeAction |
 	ToggleBottomBarAction |
 	ToggleBrushAction |
 	ToggleRibbonAction;
+
+export type Actions = GenericActions | ColorsActions;
 
 interface AppClickAction {
 	type: GenericActionTypes.APP_CLICK;
@@ -53,6 +58,11 @@ interface SetCanvasContextAction {
 interface SetDropdownAction {
 	type: GenericActionTypes.SET_DROPDOWN;
 	dropdown: Dropdowns;
+}
+
+interface SetPopupAction {
+	type: GenericActionTypes.SET_POPUP;
+	popup: Popup;
 }
 
 interface SetPressedMouseButtonOnCanvasAction {

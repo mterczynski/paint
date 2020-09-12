@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import store from '../../../../../redux/store';
 
-import { AppState, IndexOfMainColor, RGBAColor } from '../../../../../types';
+import { AppState, IndexOfMainColor, Popup, RGBAColor } from '../../../../../types';
 import './Colors.scss';
 import { rgbaColorToCssColor } from '../../../../../core/drawing/utils';
 import { defaultColors } from './default-colors';
@@ -11,6 +11,7 @@ import {
 	selectMainColorIndex as selectMainColorIndexActionCreator,
 	setSelectedMainColor as  setSelectedMainColorActionCreator
 } from '../../../../../redux/colors/colors.action-creators';
+import { setPopup } from '../../../../../redux/action-creators';
 
 const lastUsedCustomColors = Object.freeze([
 	{red: 255, green: 111, blue: 0, alpha: 255},
@@ -33,10 +34,14 @@ function setSelectedMainColor(color: RGBAColor) {
 	store.dispatch(setSelectedMainColorActionCreator(color));
 }
 
+function openEditColorsPopup() {
+	store.dispatch(setPopup(Popup.editColors));
+}
+
 const EditColors = () => {
 	const lang = useLang();
 
-	return <div className='Colors__editColors'>
+	return <div className='Colors__editColors' onClick={openEditColorsPopup}>
 		<img
 			draggable='false'
 			className='Colors__editColorsIcon'

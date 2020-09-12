@@ -1,4 +1,4 @@
-import { AvailableTools, Tabs, ToolSize, MouseButton } from '../types';
+import { AvailableTools, Tabs, ToolSize, MouseButton, Popup } from '../types';
 import { Dropdowns } from '../types';
 import { GenericActions, GenericActionTypes } from './action.types';
 
@@ -24,6 +24,10 @@ export const setCanvasContext = (context: CanvasRenderingContext2D | null): Gene
 
 export const setDropdown = (dropdown: Dropdowns): GenericActions => {
 	return { type: GenericActionTypes.SET_DROPDOWN, dropdown };
+};
+
+export const setPopup = (popup: Popup): GenericActions => {
+	return { type: GenericActionTypes.SET_POPUP, popup};
 };
 
 export const setPressedMouseButtonOnCanvas = (newPressedButton: MouseButton): GenericActions => {

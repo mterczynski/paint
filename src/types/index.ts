@@ -3,3 +3,4 @@ export * from './available-tools.enum';
 export * from './dropdowns';
 export * from './point';
 export * from './rgba-color';
+export * from './popup.enum';

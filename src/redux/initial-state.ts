@@ -1,6 +1,6 @@
 import { languages } from '../lang/impl';
 import { AppState, AvailableTools, Tabs, MouseButton } from '../types';
-import { Dropdowns } from '../types';
+import { Dropdowns, Popup } from '../types';
 
 export const initialState: AppState = {
 	activeTab: Tabs.MainTools,
@@ -23,6 +23,7 @@ export const initialState: AppState = {
 	language: languages.EN,
 	mouseButtonPressedOnCanvas: MouseButton.None,
 	openedDropdown: Dropdowns.none,
+	openedPopup: Popup.none,
 	preventNextAppClick: false,
 	selectedTool: AvailableTools.Pencil,
 	toolSize: 3,
