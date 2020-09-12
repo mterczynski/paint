@@ -10,6 +10,8 @@ const StyledContent = styled.div`
 	background: rgb(240, 240, 240);
 	padding-bottom: 7px;
 	display: flex;
+	flex-shrink: 0;
+	flex-grow: 0;
 `;
 
 const CloseButtons = () => {
@@ -30,13 +32,13 @@ const AddToCustomColours = () => {
 export const EditColoursPopup = () => {
 	return <Popup title='Edit Colours' style={{width: '447px'}}>
 		<StyledContent>
-			<div style={{display: 'flex', flexDirection: 'column', width: '50%', paddingLeft: '6px'}}>
+			<div style={{display: 'flex', flexDirection: 'column', width: '211px', paddingLeft: '6px', marginRight: '18px'}}>
 				<BasicColours/>
 				<CustomColours/>
 				<CloseButtons/>
 			</div>
 
-			<div style={{display: 'flex', flexDirection: 'column', width: '50%'}}>
+			<div style={{display: 'flex', flexDirection: 'column', width: '219px'}}>
 				<ColorPicker/>
 				<ColorOptions/>
 				<AddToCustomColours/>

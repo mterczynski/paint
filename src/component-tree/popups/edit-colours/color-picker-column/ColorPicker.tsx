@@ -19,13 +19,15 @@ const Crosshair = () => {
 
 export const HueAndSaturationPicker = () => {
 	return <div style={{
+		width: '175px',
+		height: '187px',
 		overflow: 'hidden',
 		position: 'relative'
 	}}>
 		<Crosshair/>
 		<img
-			width='175px'
-			height='187px'
+			width='100%'
+			height='100%'
 			style={{
 				border: '1px solid rgb(160,160,160)',
 				borderBottomColor: 'rgb(240,240,240)',
