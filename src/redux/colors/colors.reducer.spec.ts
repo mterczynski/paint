@@ -8,7 +8,14 @@ describe('colorsReducer', () => {
 		color2: {red: 255, green: 255, blue: 255, alpha: 128},
 		isEditColorsWindowOpened: false,
 		lastUsedCustomColors: [],
-		selectedMainColorIndex: 1 as 1 | 2
+		selectedMainColorIndex: 1 as 1 | 2,
+		colorPicker: {
+			pickedColor: {
+				hue: 160,
+				saturation: 0,
+				luminance: 0
+			}
+		}
 	} as ColorState);
 
 test('SELECT_MAIN_COLOR_INDEX', () => {

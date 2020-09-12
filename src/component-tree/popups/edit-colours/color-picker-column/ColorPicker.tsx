@@ -1,11 +1,28 @@
 import React from 'react';
 
 const assets = {
-	hueAndSaturationPicker: require('../../../../assets/hue-and-saturation-picker.png')
+	hueAndSaturationPicker: require('../../../../assets/hue-and-saturation-picker.png'),
+	crosshair: require('../../../../assets/cursors/crosshair.png')
+};
+
+const Crosshair = () => {
+	return <img style={{
+			transform: 'translate(-50%, -50%)',
+			position: 'absolute'
+		}}
+		src={assets.crosshair}
+		alt=''
+		draggable='false'
+	>
+	</img>;
 };
 
 export const HueAndSaturationPicker = () => {
-	return <div>
+	return <div style={{
+		overflow: 'hidden',
+		position: 'relative'
+	}}>
+		<Crosshair/>
 		<img
 			width='175px'
 			height='187px'

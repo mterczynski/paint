@@ -11,6 +11,13 @@ export const initialState: AppState = {
 		selectedMainColorIndex: 1,
 		lastUsedCustomColors: new Array(10).fill(null),
 		isEditColorsWindowOpened: false,
+		colorPicker: {
+			pickedColor: {
+				hue: 160,
+				saturation: 0,
+				luminance: 0
+			}
+		}
 	},
 	imageSettings: {
 		widthInPx: 500,
