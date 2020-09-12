@@ -22,10 +22,10 @@ export const rootReducer = (state = initialState, action: Actions): AppState => 
 			return { ...state, selectedTool: action.toolId };
 
 		case GenericActionTypes.SET_ACTIVE_TAB:
-			return {...state, activeTab: action.tab};
+			return { ...state, activeTab: action.tab };
 
 		case GenericActionTypes.SET_CANVAS_CONTEXT:
-			return {...state, canvasContext: action.context};
+			return { ...state, canvasContext: action.context };
 
 		case GenericActionTypes.SET_DROPDOWN:
 			return {
@@ -58,7 +58,7 @@ export const rootReducer = (state = initialState, action: Actions): AppState => 
 			return { ...state, isBrushActive: !state.isBrushActive };
 
 		case GenericActionTypes.TOGGLE_RIBBON:
-			return {...state,	isRibbonCollapsed: !state.isRibbonCollapsed};
+			return { ...state, isRibbonCollapsed: !state.isRibbonCollapsed };
 	}
 
 	return {

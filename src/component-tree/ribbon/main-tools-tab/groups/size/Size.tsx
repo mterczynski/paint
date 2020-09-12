@@ -32,10 +32,10 @@ const Size = () => {
 
 		<Dropdown provider={Dropdowns.size}>
 			<ul className='Size__list'>
-				<li className='Size__li' onClick={() => setToolSize(1)}>Size 1px</li>
-				<li className='Size__li' onClick={() => setToolSize(2)}>Size 2px</li>
-				<li className='Size__li' onClick={() => setToolSize(3)}>Size 3px</li>
-				<li className='Size__li' onClick={() => setToolSize(4)}>Size 4px</li>
+				<li className='Size__li' onClick={() => setToolSize(ToolSize.one)}>Size 1px</li>
+				<li className='Size__li' onClick={() => setToolSize(ToolSize.two)}>Size 2px</li>
+				<li className='Size__li' onClick={() => setToolSize(ToolSize.three)}>Size 3px</li>
+				<li className='Size__li' onClick={() => setToolSize(ToolSize.four)}>Size 4px</li>
 			</ul>
 		</Dropdown>
 	</div>;
