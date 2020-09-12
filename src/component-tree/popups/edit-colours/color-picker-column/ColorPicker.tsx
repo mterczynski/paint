@@ -5,18 +5,20 @@ const assets = {
 };
 
 export const HueAndSaturationPicker = () => {
-	return <img
-		width='175px'
-		height='187px'
-		style={{
-			border: '1px solid rgb(160,160,160)',
-			borderBottomColor: 'rgb(240,240,240)',
-			borderRightColor: 'rgb(240,240,240)',
-		}}
-		alt=''
-		draggable='false'
-		src={assets.hueAndSaturationPicker}
-	></img>;
+	return <div>
+		<img
+			width='175px'
+			height='187px'
+			style={{
+				border: '1px solid rgb(160,160,160)',
+				borderBottomColor: 'rgb(240,240,240)',
+				borderRightColor: 'rgb(240,240,240)',
+			}}
+			alt=''
+			draggable='false'
+			src={assets.hueAndSaturationPicker}
+		></img>
+	</div>;
 };
 
 export const LuminosityPicker = () => {

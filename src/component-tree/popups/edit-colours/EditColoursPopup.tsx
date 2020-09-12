@@ -28,7 +28,7 @@ const AddToCustomColours = () => {
 };
 
 export const EditColoursPopup = () => {
-	return <Popup title='Edit Colours' style={{width: '400px'}}>
+	return <Popup title='Edit Colours' style={{width: '447px'}}>
 		<StyledContent>
 			<div style={{display: 'flex', flexDirection: 'column', width: '50%', paddingLeft: '6px'}}>
 				<BasicColours/>
