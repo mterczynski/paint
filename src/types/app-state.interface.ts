@@ -2,6 +2,7 @@ import { AvailableTools } from '.';
 import { Dropdowns } from './';
 import { RGBAColor } from './rgba-color';
 import { Lang } from '../lang/types';
+import { Popup } from './popup.enum';
 
 export type AvailableZoomLevels = 0.125 | 0.25 | 0.5 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 export type IndexOfMainColor = 1 | 2;
@@ -44,6 +45,7 @@ export interface AppState {
 	isRibbonCollapsed: boolean;
 	language: Lang;
 	openedDropdown: Dropdowns;
+	openedPopup: Popup;
 	preventNextAppClick: boolean;
 	selectedTool: AvailableTools;
 	toolSize: ToolSize;

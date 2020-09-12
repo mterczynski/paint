@@ -9,6 +9,7 @@ import * as actionCreators from './redux/action-creators';
 import store from './redux/store';
 import './App.scss';
 import { MouseButton } from './types';
+import { PopupContainer } from './component-tree/popups/PopupContainer';
 
 function onClick() {
 	store.dispatch(actionCreators.appClick());
@@ -30,6 +31,7 @@ const App = () => {
 				<Ribbon />
 				<CanvasArea />
 				<BottomBar />
+				<PopupContainer/>
 			</Provider>
 		</div>
 	);
