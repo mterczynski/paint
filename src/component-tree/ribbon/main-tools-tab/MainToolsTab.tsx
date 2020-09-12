@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Tab from '../tab/Tab';
 import Group from './group/Group';
 import Brushes from './groups/brushes/Brushes';
@@ -9,8 +9,21 @@ import Paint3d from './groups/paint3d/Paint3d';
 import Shapes from './groups/shapes/Shapes';
 import Size from './groups/size/Size';
 import Tools from './groups/tools/Tools';
+import { ToolsContext, ToolsContextProvider } from './ToolsContext';
 
 const MainToolsTab = () => {
+	return (
+		<ToolsContextProvider>
+			<MainToolsTabContent></MainToolsTabContent>
+		</ToolsContextProvider>
+	);
+};
+
+const MainToolsTabContent = () => {
+	const toolsContext = useContext(ToolsContext);
+
+	console.log('toolsContext', toolsContext);
+
 	return (
 		<Tab>
 			<div style={{display: 'flex', height: '100%'}}>
