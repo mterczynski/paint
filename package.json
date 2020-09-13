@@ -6,6 +6,7 @@
 		"start:open": "webpack-dev-server --open",
 		"build": "webpack --mode=production",
 		"test": "jest --watch",
+		"test:cov": "jest --coverage",
 		"test:once": "jest",
 		"lint": "tslint --project ."
 	},
