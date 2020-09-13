@@ -16,7 +16,7 @@ export const initialState: AppState = {
 				hue: 160,
 				saturation: 0,
 				luminance: 0
-			}
+			},
 		}
 	},
 	imageSettings: {
