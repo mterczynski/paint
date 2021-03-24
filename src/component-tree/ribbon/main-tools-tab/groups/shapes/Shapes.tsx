@@ -68,7 +68,7 @@ const Shapes = () => {
 					<div className='Shapes__option Shapes__option--first'>
 						<img draggable='false' src={contourActive} alt='' />
 						<span> {lang.homeTabs.shapes.outline.title} </span>
-						<img draggable='false' alt='' src={arrDown} />
+						<img draggable='false' src={arrDown} alt='' />
 					</div>
 
 					<div className='Shapes__option Shapes__option--second'>
