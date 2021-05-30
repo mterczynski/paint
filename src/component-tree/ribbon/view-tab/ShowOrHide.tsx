@@ -34,7 +34,7 @@ export const ShowOrHide = () => {
 		<div className='ViewTab__content' style={{justifyContent: 'center'}}>
 			<ul className='ViewTab__list'>
 				<li><Checkbox description={lang.rulers.title}/></li>
-				<li><Checkbox description={lang.statusBar.title}/></li>
+				<li><Checkbox description={lang.gridlines.title}/></li>
 				<li><Checkbox checked={isBottomBarVisible} onChange={toggleBottomBar} description={lang.statusBar.title}/></li>
 			</ul>
 		</div>
