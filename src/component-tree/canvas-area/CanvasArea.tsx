@@ -1,17 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-
-import { useSelector, ReactReduxContextValue } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { usePencilDrawingStrategy } from '../../core/drawing';
+import * as actionCreators from '../../redux/action-creators';
+import store from '../../redux/store';
 import { AppState, AvailableTools, MouseButton, Point } from '../../types';
 import './CanvasArea.scss';
+import { canvasAreaEventHandlers } from './canvasAreaEventHandlers';
 import { getCursorForTool } from './cursors';
 import { getMousePositionRelativeToCanvas } from './utils';
-import store from '../../redux/store';
-import * as actionCreators from '../../redux/action-creators';
-import { usePencilDrawingStrategy } from '../../core/drawing';
-import { fillWithBucket } from '../../core/drawing/fill-with-bucket';
-import { pickColor } from '../../core/drawing/pick-color';
-import { setColor1, setColor2 } from '../../redux/colors/colors.action-creators';
-import { canvasAreaEventHandlers } from './canvasAreaEventHandlers';
 
 function dispatchPressedMouseButtonEvent(e: React.MouseEvent) {
 	if (e.button === 0) {
