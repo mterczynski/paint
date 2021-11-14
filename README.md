@@ -7,37 +7,37 @@ Windows 10 Paint clone made with React and Redux
 ## Installing dependencies
 
 ```
-yarn
+npm i
 ```
 
 ## Starting the application in watch mode
 
 ```
 # starts dev-server
-yarn start
+npm start
 
 # starts dev-server, opens the app in deafult browser
-yarn start:open 
+npm run start:open 
 ```
 
 ## Building the application
 
 ```
-yarn build
+npm run build
 ```
 
 ## Running unit tests
 
 ```
 # Watch mode
-yarn test
+npm test
 
 # Runs all unit tests once
-yarn test:once
+npm run test:once
 ```
 
 ## Linting code
 
 ```
-yarn lint
+npm run lint
 ```

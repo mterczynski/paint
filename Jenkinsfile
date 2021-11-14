@@ -9,7 +9,7 @@ pipeline {
 		stage('Install') {
 			steps{
 				sh '''
-					yarn
+					npm i
 				'''
 			}
 		}
@@ -17,7 +17,7 @@ pipeline {
 		stage('TSLint') {
 			steps {
 				sh '''
-					yarn lint
+					npm run lint
 				'''
 			}
 		}
@@ -25,7 +25,7 @@ pipeline {
 		stage('Test') {
 			steps {
 				sh '''
-					yarn test:once
+					npm run test:once
 				'''
 			}
 		}
@@ -33,7 +33,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				sh '''
-					yarn build
+					npm run build
 				'''
 			}
 		}
