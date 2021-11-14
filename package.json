@@ -8,7 +8,6 @@
 		"test": "jest --watch",
 		"test:cov": "jest --coverage",
 		"test:once": "jest",
-		"lint:old": "tslint --project .",
 		"lint": "eslint \"**/*.{ts,tsx}\""
 	},
 	"dependencies": {
@@ -50,9 +49,7 @@
 		"eslint-plugin-react": "^7.27.0",
 		"eslint-plugin-react-hooks": "^4.3.0",
 		"jest": "^27.3.1",
-		"mterczynski-tslint": "^1.12.0",
 		"ts-jest": "^27.0.7",
-		"tslint": "^6.1.3",
 		"webpack-dev-server": "^3.11.0"
 	},
 	"resolutions": {

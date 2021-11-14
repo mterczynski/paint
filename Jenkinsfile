@@ -14,7 +14,7 @@ pipeline {
 			}
 		}
 
-		stage('TSLint') {
+		stage('Lint') {
 			steps {
 				sh '''
 					npm run lint
