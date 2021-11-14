@@ -1,1 +1,2 @@
-export type ReactOnClickHandler<T = any> = ((event: React.MouseEvent<T, MouseEvent>) => void) | undefined;
+import React from 'react';
+export type ReactOnClickHandler<T = Element> = ((event: React.MouseEvent<T, MouseEvent>) => void) | undefined;

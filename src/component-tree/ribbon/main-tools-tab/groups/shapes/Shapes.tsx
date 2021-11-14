@@ -9,6 +9,9 @@ const shapeImageUrls = Array(lastShapeIndex).fill(null).map(
 	(e, i) => require(`../../../../../assets/icons/main-tools-tab/5_shapes/${i + 1}.png`),
 );
 
+// todo - use translations
+// todo - to be used
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const shapeDescriptions = Object.freeze([
 	// first row:
 	'Linia',

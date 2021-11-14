@@ -1,2 +1,2 @@
-export * from './use-pencil-drawing-strategy';
+export * from './draw-with-pencil';
 export * from './fill-with-bucket';

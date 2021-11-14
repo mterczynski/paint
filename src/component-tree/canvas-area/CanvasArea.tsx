@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { usePencilDrawingStrategy } from '../../core/drawing';
+import { drawWithPencil } from '../../core/drawing';
 import * as actionCreators from '../../redux/action-creators';
 import store from '../../redux/store';
 import { AppState, AvailableTools, MouseButton, Point } from '../../types';
@@ -50,7 +50,7 @@ const CanvasArea = () => {
 		return () => { store.dispatch(actionCreators.setCanvasContext(null)); };
 	}
 
-	function onMouseMove(mouseEvent: MouseEvent) {
+	const onMouseMove = useCallback((mouseEvent: MouseEvent) => {
 		if (!canvasRef.current || mouseButtonPressedOverCanvas === MouseButton.None) {
 			return;
 		}
@@ -58,11 +58,11 @@ const CanvasArea = () => {
 		const currentMousePosition = getMousePositionRelativeToCanvas(canvasRef.current, mouseEvent);
 
 		if (lastMousePosition && selectedTool === AvailableTools.Pencil) {
-			usePencilDrawingStrategy({ lastMousePosition, currentMousePosition });
+			drawWithPencil({ lastMousePosition, currentMousePosition });
 		}
 
 		setLastMousePosition(currentMousePosition);
-	}
+	}, [mouseButtonPressedOverCanvas, lastMousePosition, selectedTool]);
 
 	function onMouseDown(e: React.MouseEvent) {
 		dispatchPressedMouseButtonEvent(e);
@@ -87,7 +87,7 @@ const CanvasArea = () => {
 	}
 
 	useEffect(mouseUpHandler, []);
-	useEffect(mouseMoveHandler, [mouseButtonPressedOverCanvas, lastMousePosition]);
+	useEffect(mouseMoveHandler, [mouseButtonPressedOverCanvas, lastMousePosition, onMouseMove]);
 	useEffect(canvasContextHandler, [canvasRef]);
 	useEffect(fillCanvasWithWhite, []);
 

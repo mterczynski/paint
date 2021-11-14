@@ -1,7 +1,7 @@
-import { usePencilDrawingStrategy } from '..';
+import { drawWithPencil } from '..';
 import { MouseButton } from '../../../types';
 
-describe('usePencilDrawingStrategy', () => {
+describe('drawWithPencil', () => {
 	test('it should draw a line using primary color when using primary mouse button', () => {
 		const mockCanvas = document.createElement('canvas');
 		const mockStore = {
@@ -25,7 +25,7 @@ describe('usePencilDrawingStrategy', () => {
 		};
 		const context = mockCanvas.getContext('2d') as CanvasRenderingContext2D;
 
-		usePencilDrawingStrategy({
+		drawWithPencil({
 			currentMousePosition: mockCurrentMousePosition,
 			lastMousePosition: mockLastMousePosition,
 			store: mockStore
@@ -65,7 +65,7 @@ describe('usePencilDrawingStrategy', () => {
 		};
 		const context = mockCanvas.getContext('2d') as CanvasRenderingContext2D;
 
-		usePencilDrawingStrategy({
+		drawWithPencil({
 			currentMousePosition: mockCurrentMousePosition,
 			lastMousePosition: mockLastMousePosition,
 			store: mockStore

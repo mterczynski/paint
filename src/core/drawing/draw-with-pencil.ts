@@ -3,7 +3,7 @@ import { MouseButton, Point, RGBAColor } from '../../types';
 import { drawLine } from '../../component-tree/canvas-area/utils';
 import { rgbaColorToCssColor } from './utils';
 
-export function usePencilDrawingStrategy({lastMousePosition, currentMousePosition, store = reduxStore}: {
+export function drawWithPencil({lastMousePosition, currentMousePosition, store = reduxStore}: {
 	lastMousePosition?: Point,
 	currentMousePosition: Point,
 	store?: {

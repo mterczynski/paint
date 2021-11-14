@@ -9,8 +9,6 @@ const images = {
 	closeActive: require('../../assets/icons/popups/close-active.png'),
 };
 
-const a = `background: ${images.close};`;
-
 const StyledPopup = styled.div`
 	position: absolute;
 	left: 50%;
@@ -50,7 +48,7 @@ function closePopup() {
 
 export const Popup = ({title, children, style}: {
 	title: string,
-	children: any,
+	children: React.ReactNode,
 	style?: React.CSSProperties,
 }) => {
 	return <StyledPopup style={{...style}}>
