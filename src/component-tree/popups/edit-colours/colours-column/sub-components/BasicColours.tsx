@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Subheading } from '../styles/Subheading';
 import styled from 'styled-components';
 import { ColorTile } from '../styles/ColorTile';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { RibbonIcon, IconImage } from './RibbonStyles';
 
 export const HelpIcon = () => {

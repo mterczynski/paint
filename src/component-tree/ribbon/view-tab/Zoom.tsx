@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLang } from '../../../hooks';
 import { Figure } from './Figure';
 

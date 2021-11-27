@@ -1,4 +1,3 @@
-import React from 'react';
 import './Clipboard.scss';
 import { useLang } from '../../../../../hooks';
 

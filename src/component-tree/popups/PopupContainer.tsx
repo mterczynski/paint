@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { AppState, Popup } from '../../types';
 import { EditColoursPopup } from './edit-colours/EditColoursPopup';

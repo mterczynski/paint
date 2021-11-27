@@ -1,4 +1,3 @@
-import React from 'react';
 import './Paint3d.scss';
 import { useLang } from '../../../../../hooks';
 

@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { drawWithPencil } from '../../core/drawing';
 import * as actionCreators from '../../redux/action-creators';

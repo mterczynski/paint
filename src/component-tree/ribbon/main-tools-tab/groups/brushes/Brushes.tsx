@@ -1,4 +1,3 @@
-import React from 'react';
 import './Brushes.scss';
 import { useLang } from '../../../../../hooks';
 

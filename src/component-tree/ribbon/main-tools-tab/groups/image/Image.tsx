@@ -1,4 +1,3 @@
-import React from 'react';
 import * as actionCreators from '../../../../../redux/action-creators';
 import Dropdown from '../../../../../reusable-components/Dropdown';
 import store from '../../../../../redux/store';
