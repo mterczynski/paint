@@ -1,5 +1,3 @@
-import React from 'react';
-
 const assets = {
 	hueAndSaturationPicker: require('../../../../assets/hue-and-saturation-picker.png'),
 	crosshair: require('../../../../assets/cursors/crosshair.png')

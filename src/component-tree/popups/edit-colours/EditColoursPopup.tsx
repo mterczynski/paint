@@ -1,5 +1,4 @@
 import { Popup } from '../Popup';
-import React from 'react';
 import styled from 'styled-components';
 import { BasicColours } from './colours-column/sub-components/BasicColours';
 import { CustomColours} from './colours-column/sub-components/CustomColours';

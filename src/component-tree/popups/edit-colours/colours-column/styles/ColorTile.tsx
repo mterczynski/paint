@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import React from 'react';
 import { ReactOnClickHandler } from '../../../../../types/onClickHandler';
 
 const TileInterior = styled.div<{color: string}>`

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import * as actionCreators from '../../redux/action-creators';
 import store from '../../redux/store';

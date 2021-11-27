@@ -1,5 +1,3 @@
-import React from 'react';
-
 import './Shapes.scss';
 import { useLang } from '../../../../../hooks';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import Tab from '../tab/Tab';
 
 import Display from './Display';

@@ -1,4 +1,3 @@
-import React from 'react';
 import Tab from '../tab/Tab';
 import Group from './group/Group';
 import Brushes from './groups/brushes/Brushes';

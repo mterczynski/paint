@@ -1,4 +1,3 @@
-import React from 'react';
 import MainToolsTab from './main-tools-tab/MainToolsTab';
 import ViewTab from './view-tab/ViewTab';
 
