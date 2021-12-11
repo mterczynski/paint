@@ -1,4 +1,6 @@
 # Paint
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmterczynski%2Fpaint.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmterczynski%2Fpaint?ref=badge_shield)
+
 
 Windows 10 Paint clone made with React and Redux
 
@@ -41,3 +43,7 @@ npm run test:once
 ```
 npm run lint
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmterczynski%2Fpaint.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmterczynski%2Fpaint?ref=badge_large)
