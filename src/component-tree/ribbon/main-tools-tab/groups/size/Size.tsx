@@ -1,4 +1,4 @@
-import Dropdown from '../../../../../reusable-components/Dropdown';
+import Dropdown from '../../../../../reusable-components/dropdown';
 import * as actionCreators from '../../../../../redux/action-creators';
 import store from '../../../../../redux/store';
 import { Dropdowns, ToolSize } from '../../../../../types';
