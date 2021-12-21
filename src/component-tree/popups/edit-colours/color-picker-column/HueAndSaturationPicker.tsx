@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Crosshair } from "./Crosshair";
 
 const assets = {
@@ -5,13 +6,33 @@ const assets = {
 };
 
 export const HueAndSaturationPicker = () => {
+	const [isMouseDown, setIsMouseDown] = useState(false);
+	const [crosshairPosition, setCrosshairPosition] = useState({x: 0, y: 0});
+
+	const onMouseDown = () => {
+		setIsMouseDown(true);
+	}
+
+	const onMouseUp = () => {
+		setIsMouseDown(false);
+	}
+
+	const onMouseMove = (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+		const x = event.nativeEvent.offsetX;
+		const y = event.nativeEvent.offsetY;
+
+		console.log('onMouseMove');
+
+		setCrosshairPosition({x, y});
+	}
+
 	return <div style={{
 		width: '175px',
 		height: '187px',
 		overflow: 'hidden',
 		position: 'relative'
 	}}>
-		<Crosshair/>
+		<Crosshair position={crosshairPosition}/>
 		<img
 			width='100%'
 			height='100%'
@@ -23,6 +44,9 @@ export const HueAndSaturationPicker = () => {
 			alt=''
 			draggable='false'
 			src={assets.hueAndSaturationPicker}
+			onMouseDown={onMouseDown}
+			onMouseUp={onMouseUp}
+			onMouseMove={isMouseDown ? onMouseMove : undefined}
 		></img>
 	</div>;
 };

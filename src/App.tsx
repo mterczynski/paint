@@ -10,6 +10,7 @@ import store from './redux/store';
 import './App.scss';
 import { MouseButton } from './types';
 import { PopupContainer } from './component-tree/popups/PopupContainer';
+import dotenv from 'dotenv';
 
 function onClick() {
 	store.dispatch(actionCreators.appClick());
@@ -45,3 +46,5 @@ ReactDOM.render(
 window.addEventListener('blur', () => store.dispatch(
 	actionCreators.setPressedMouseButtonOnCanvas(MouseButton.None)
 ));
+
+dotenv.config();

@@ -2,8 +2,10 @@
 	"name": "react-mspaint",
 	"version": "0.0.1",
 	"scripts": {
+		"postinstall": "npm run generate:env",
 		"start": "webpack-dev-server",
 		"start:open": "webpack-dev-server --open",
+		"generate:env": "cp template.env .env",
 		"build": "webpack --mode=production",
 		"test": "jest --watch",
 		"test:cov": "jest --coverage",
@@ -26,6 +28,7 @@
 		"babel-loader": "^8.2.3",
 		"babel-plugin-styled-components": "^1.13.3",
 		"css-loader": "^4.3.0",
+		"dotenv": "^10.0.0",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-redux": "^7.2.6",

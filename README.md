@@ -10,6 +10,11 @@ Windows 10 Paint clone made with React and Redux
 npm i
 ```
 
+## Working with environment variables
+
+
+Generation of [.env](https://github.com/motdotla/dotenv) files happens automatically after `npm i`, it can also be done manually by running `npm run generate:env`. Content of the generated [.env](https://github.com/motdotla/dotenv) files can be adjusted to the needs of the developers.
+
 ## Starting the application in watch mode
 
 ```
