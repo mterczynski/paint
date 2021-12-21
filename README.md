@@ -55,4 +55,4 @@ npm run lint
 
 ### CI/CD
 
-This project uses CircleCI for CI/CD, previous versions used Jenkins.
+This project uses CircleCI for CI/CD, previous versions of this project have used [Jenkins](https://github.com/mterczynski/paint/commit/150d952fe0ab09254635b1b3d943a0f9846aecec) instead.
