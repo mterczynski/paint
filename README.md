@@ -1,8 +1,15 @@
 # Paint
 
+## Description
+
 Windows 10 Paint clone made with React and Redux
 
 <img src="preview.PNG" height=400 width=800>
+
+## Prerequisites
+
+- Node.js (recommended versions: 16.x)
+- npm
 
 ## Installing dependencies
 
