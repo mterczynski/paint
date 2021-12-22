@@ -5,10 +5,8 @@
 	// List of extensions which should be recommended for users of this workspace.
 	"recommendations": [
 		"kisstkondoros.vscode-gutter-preview",
-		"coenraads.bracket-pair-colorizer-2",
 		"editorconfig.editorconfig",
 		"eamodio.gitlens",
-		"christian-kohler.path-intellisense",
 		"jpoissonnier.vscode-styled-components",
 		"dbaeumer.vscode-eslint"
 	],
