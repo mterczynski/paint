@@ -16,6 +16,7 @@ const Icon = (props: {src: string, onClick?: () => void, className?: string}) =>
 			draggable='false'
 			src={props.src}
 			className='TitleBar__window-icons__icon__image'
+			alt=""
 		/>
 	</div>;
 };

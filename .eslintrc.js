@@ -18,6 +18,7 @@ module.exports = {
   },
   plugins: [
     "@typescript-eslint",
+		"jsx-a11y"
   ],
 	settings: {
 		react: {
@@ -29,5 +30,6 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": ["warn"],
 		"@typescript-eslint/no-var-requires": "off",
 		"react/react-in-jsx-scope": "off",
+		"jsx-a11y/alt-text": "error"
   }
 }
