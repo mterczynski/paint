@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import BottomBar from './component-tree/bottom-bar/BottomBar';
 import CanvasArea from './component-tree/canvas-area/CanvasArea';
@@ -37,10 +37,8 @@ const App = () => {
 	);
 };
 
-ReactDOM.render(
-	<App />,
-	document.getElementById('root'),
-);
+const root = createRoot(document.getElementById('root'));
+root.render(<App />);
 
 window.addEventListener('blur', () => store.dispatch(
 	actionCreators.setPressedMouseButtonOnCanvas(MouseButton.None)
