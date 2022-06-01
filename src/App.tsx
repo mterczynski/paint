@@ -22,18 +22,21 @@ function blockContextMenu(e: React.MouseEvent) {
 
 const App = () => {
 	return (
-		<div className='App'
-			onClick={onClick}
-			onContextMenu={blockContextMenu}
-		>
-			<Provider store={store}>
-				<TitleBar />
-				<Ribbon />
-				<CanvasArea />
-				<BottomBar />
-				<PopupContainer/>
-			</Provider>
-		</div>
+			<div className='App'
+				onClick={onClick}
+				onContextMenu={blockContextMenu}
+			>
+
+				<Provider store={store}>
+					<React.StrictMode>
+						<TitleBar />
+						<Ribbon />
+						<CanvasArea />
+						<BottomBar />
+						<PopupContainer/>
+					</React.StrictMode>
+				</Provider>
+			</div>
 	);
 };
 
