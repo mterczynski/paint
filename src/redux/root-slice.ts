@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppState, AvailableTools, Dropdowns, MouseButton, Popup, Tabs, ToolSize } from '../types';
-import { colorsReducer } from './colors/colors.reducer';
+import { colorsReducer } from './colors-slice';
 import { initialState } from './initial-state';
 
 export const rootSlice = createSlice({

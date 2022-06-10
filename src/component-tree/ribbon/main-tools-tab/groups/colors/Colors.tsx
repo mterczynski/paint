@@ -6,11 +6,8 @@ import './Colors.scss';
 import { rgbaColorToCssColor } from '../../../../../core/drawing/utils';
 import { defaultColors } from './default-colors';
 import { useLang } from '../../../../../hooks';
-import {
-	selectMainColorIndex as selectMainColorIndexActionCreator,
-	setSelectedMainColor as  setSelectedMainColorActionCreator
-} from '../../../../../redux/colors/colors.action-creators';
 import { setPopup } from '../../../../../redux/root-slice';
+import { selectMainColorIndex, setSelectedMainColor } from '../../../../../redux/colors-slice';
 
 const lastUsedCustomColors = Object.freeze([
 	{red: 255, green: 111, blue: 0, alpha: 255},
@@ -25,12 +22,12 @@ const lastUsedCustomColors = Object.freeze([
 	null,
 ]);
 
-function selectMainColorIndex(colorIndex: IndexOfMainColor) {
-	store.dispatch(selectMainColorIndexActionCreator(colorIndex));
+function dispatchSelectMainColorIndex(colorIndex: IndexOfMainColor) {
+	store.dispatch(selectMainColorIndex(colorIndex));
 }
 
-function setSelectedMainColor(color: RGBAColor) {
-	store.dispatch(setSelectedMainColorActionCreator(color));
+function dispatchSetSelectedMainColor(color: RGBAColor) {
+	store.dispatch(setSelectedMainColor(color));
 }
 
 function openEditColorsPopup() {
@@ -62,7 +59,7 @@ const RowOfColors = ({ colors }: { colors: Readonly<(RGBAColor | null)[]> }) => 
 						style={{ background: rgbaColorToCssColor(color) }}
 						key={i}
 						className='Colors__colorBox Colors__colorBox--tiny'
-						onClick={() => setSelectedMainColor(color)}
+						onClick={() => dispatchSetSelectedMainColor(color)}
 					/>
 				);
 			}
@@ -90,7 +87,7 @@ const Colors = () => {
 							? 'Colors__mainColor--active'
 							: '') + ' Colors__mainColor'
 					}
-					onClick={() => selectMainColorIndex(1)}
+					onClick={() => dispatchSelectMainColorIndex(1)}
 				>
 					<div
 						style={{ background: rgbaColorToCssColor(stateOfColors.color1) }}
@@ -107,7 +104,7 @@ const Colors = () => {
 							? 'Colors__mainColor--active'
 							: '') + ' Colors__mainColor'
 					}
-					onClick={() => selectMainColorIndex(2)}
+					onClick={() => dispatchSelectMainColorIndex(2)}
 				>
 					<div
 						style={{ background: rgbaColorToCssColor(stateOfColors.color2) }}

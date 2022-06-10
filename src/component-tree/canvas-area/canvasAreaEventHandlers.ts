@@ -3,8 +3,8 @@ import {store} from '../../redux/store';
 import { getMousePositionRelativeToCanvas } from './utils';
 import { AvailableTools, MouseButton } from '../../types';
 import { pickColor } from '../../core/drawing/pick-color';
-import { setColor1, setColor2 } from '../../redux/colors/colors.action-creators';
 import { getCanvasContext } from '../../core/drawing/utils/get-canvas-context';
+import { setColor1, setColor2 } from '../../redux/colors-slice';
 
 export const canvasAreaEventHandlers = {
 	click: {
