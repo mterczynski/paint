@@ -1,15 +1,15 @@
-import reduxStore from '../../redux/store';
+import {store as reduxStore} from '../../redux/store';
 import { MouseButton, Point, RGBAColor } from '../../types';
 import { drawLine } from '../../component-tree/canvas-area/utils';
 import { rgbaColorToCssColor } from './utils';
 
-export function drawWithPencil({lastMousePosition, currentMousePosition, store = reduxStore}: {
+export function drawWithPencil({canvasContext, lastMousePosition, currentMousePosition, store = reduxStore}: {
+	canvasContext: CanvasRenderingContext2D,
 	lastMousePosition?: Point,
 	currentMousePosition: Point,
 	store?: {
 		getState: () => {
 			mouseButtonPressedOnCanvas: MouseButton,
-			canvasContext: CanvasRenderingContext2D | null,
 			colors: {
 				color1: RGBAColor,
 				color2: RGBAColor,
@@ -20,9 +20,8 @@ export function drawWithPencil({lastMousePosition, currentMousePosition, store =
 }) {
 	const storeState = store.getState();
 	const mouseButtonPressedOnCanvas = storeState.mouseButtonPressedOnCanvas;
-	const context = storeState.canvasContext;
 
-	if(!context) return;
+	if(!canvasContext) return;
 
 	const firstColor = storeState.colors.color1;
 	const secondColor = storeState.colors.color2;
@@ -34,7 +33,7 @@ export function drawWithPencil({lastMousePosition, currentMousePosition, store =
 
 	if (lastMousePosition) {
 		drawLine({
-			context,
+			context: canvasContext,
 			color: rgbaColorToCssColor(drawingColor),
 			from: lastMousePosition,
 			to: currentMousePosition,

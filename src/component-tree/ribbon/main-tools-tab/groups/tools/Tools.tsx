@@ -1,15 +1,15 @@
 import { useSelector } from 'react-redux';
-import * as actionCreators from '../../../../../redux/action-creators';
-import store from '../../../../../redux/store';
+import {store} from '../../../../../redux/store';
 
 import { AppState, AvailableTools } from '../../../../../types';
 import './Tools.scss';
 import { useLang } from '../../../../../hooks';
+import { selectTool } from '../../../../../redux/root-slice';
 
 type IconType = 1 | 2 | 3;
 
-function selectTool(tool: AvailableTools) {
-	store.dispatch(actionCreators.selectTool(tool));
+function dispatchSelectTool(tool: AvailableTools) {
+	store.dispatch(selectTool(tool));
 }
 
 const Tool = ({tool, iconType}: {
@@ -22,7 +22,7 @@ const Tool = ({tool, iconType}: {
 		return `Tools__icon-${iconType} ` + (selectedTool === tool ? 'Tools__icon--active' : '');
 	};
 
-	return <div onClick={() => selectTool(tool)}
+	return <div onClick={() => dispatchSelectTool(tool)}
 		className={getToolClassName()}
 	>
 		<img className='Tools__iconImage' draggable='false'

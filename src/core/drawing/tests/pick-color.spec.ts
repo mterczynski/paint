@@ -14,7 +14,7 @@ describe('pickColor', () => {
 		ctx.fillRect(x, y, 1, 1);
 
 		const result = pickColor({
-			canvasContextRef: ctx,
+			canvasContext: ctx,
 			mousePosition: {x,y},
 			imageSize: {width: canvasSize, height: canvasSize}}
 		);

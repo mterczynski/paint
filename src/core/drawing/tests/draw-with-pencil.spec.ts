@@ -6,7 +6,6 @@ describe('drawWithPencil', () => {
 		const mockCanvas = document.createElement('canvas');
 		const mockStore = {
 			getState: () => ({
-				canvasContext: context,
 				colors: {
 					color1: {red: 0, green: 0, blue: 0, alpha: 128},
 					color2: {red: 255, green: 0, blue: 0, alpha: 128},
@@ -26,6 +25,7 @@ describe('drawWithPencil', () => {
 		const context = mockCanvas.getContext('2d') as CanvasRenderingContext2D;
 
 		drawWithPencil({
+			canvasContext: context,
 			currentMousePosition: mockCurrentMousePosition,
 			lastMousePosition: mockLastMousePosition,
 			store: mockStore
@@ -46,7 +46,6 @@ describe('drawWithPencil', () => {
 		const mockCanvas = document.createElement('canvas');
 		const mockStore = {
 			getState: () => ({
-				canvasContext: context,
 				colors: {
 					color1: {red: 0, green: 0, blue: 0, alpha: 128},
 					color2: {red: 0, green: 255, blue: 255, alpha: 128},
@@ -66,6 +65,7 @@ describe('drawWithPencil', () => {
 		const context = mockCanvas.getContext('2d') as CanvasRenderingContext2D;
 
 		drawWithPencil({
+			canvasContext: context,
 			currentMousePosition: mockCurrentMousePosition,
 			lastMousePosition: mockLastMousePosition,
 			store: mockStore

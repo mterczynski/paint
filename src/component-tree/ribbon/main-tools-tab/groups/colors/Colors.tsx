@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import store from '../../../../../redux/store';
+import {store} from '../../../../../redux/store';
 
 import { AppState, IndexOfMainColor, Popup, RGBAColor } from '../../../../../types';
 import './Colors.scss';
@@ -10,7 +10,7 @@ import {
 	selectMainColorIndex as selectMainColorIndexActionCreator,
 	setSelectedMainColor as  setSelectedMainColorActionCreator
 } from '../../../../../redux/colors/colors.action-creators';
-import { setPopup } from '../../../../../redux/action-creators';
+import { setPopup } from '../../../../../redux/root-slice';
 
 const lastUsedCustomColors = Object.freeze([
 	{red: 255, green: 111, blue: 0, alpha: 255},

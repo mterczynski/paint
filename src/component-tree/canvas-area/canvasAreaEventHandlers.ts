@@ -1,23 +1,26 @@
 import { fillWithBucket } from '../../core/drawing';
-import store from '../../redux/store';
+import {store} from '../../redux/store';
 import { getMousePositionRelativeToCanvas } from './utils';
 import { AvailableTools, MouseButton } from '../../types';
 import { pickColor } from '../../core/drawing/pick-color';
 import { setColor1, setColor2 } from '../../redux/colors/colors.action-creators';
+import { getCanvasContext } from '../../core/drawing/utils/get-canvas-context';
 
 export const canvasAreaEventHandlers = {
 	click: {
 		pickColorIfNeeded(canvasRef: React.RefObject<HTMLCanvasElement>, mouseEvent: React.MouseEvent, mouseButton: MouseButton) {
 			const storeState = store.getState();
+			const canvasContext = getCanvasContext(canvasRef);
 
-			if (!canvasRef.current || !storeState.canvasContext) {
+			if (!canvasRef.current || !canvasContext) {
 				return;
 			}
+
 
 			if (storeState.selectedTool === AvailableTools.ColorPicker) {
 				const mousePosition = getMousePositionRelativeToCanvas(canvasRef.current, mouseEvent);
 				const pickedColor = pickColor({
-					canvasContextRef: storeState.canvasContext,
+					canvasContext,
 					mousePosition,
 					imageSize: {
 						width: storeState.imageSettings.widthInPx,
@@ -41,7 +44,7 @@ export const canvasAreaEventHandlers = {
 	mouseDown: {
 		fillWithBucketIfNeeded(canvasRef: React.RefObject<HTMLCanvasElement>, clickEvent: React.MouseEvent) {
 			const storeState = store.getState();
-			const context = storeState.canvasContext;
+			const context = getCanvasContext(canvasRef);
 
 			if (!canvasRef.current || !context) return;
 

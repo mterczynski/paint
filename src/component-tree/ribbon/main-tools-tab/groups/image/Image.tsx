@@ -1,16 +1,16 @@
-import * as actionCreators from '../../../../../redux/action-creators';
 import Dropdown from '../../../../../reusable-components/dropdown';
-import store from '../../../../../redux/store';
+import {store} from '../../../../../redux/store';
 import { Dropdowns } from '../../../../../types';
 
 import './Image.scss';
 import { useLang } from '../../../../../hooks';
+import { setDropdown } from '../../../../../redux/root-slice';
 
 const arrowDownImage = require('../../../../../assets/icons/arrow_down.png');
 const selectionFieldImage = require('../../../../../assets/icons/main-tools-tab/2_image/1.png');
 
 function openDropdown() {
-	store.dispatch(actionCreators.setDropdown(Dropdowns.selection));
+	store.dispatch(setDropdown(Dropdowns.selection));
 }
 
 const Image = () => {
