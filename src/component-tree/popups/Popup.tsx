@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { setPopup } from '../../redux/action-creators';
-import store from '../../redux/store';
+import { setPopup } from '../../redux/root-slice';
+import {store} from '../../redux/store';
 import {Popup as PopupEnum} from '../../types/popup.enum';
 
 const images = {

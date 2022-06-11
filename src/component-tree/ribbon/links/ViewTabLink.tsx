@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
-import * as actionCreators from '../../../redux/action-creators';
-import store from '../../../redux/store';
+import {store} from '../../../redux/store';
 import { AppState, Tabs } from '../../../types';
 import { useLang } from '../../../hooks';
 import { StyledTab } from '../RibbonStyles';
+import { setActiveTab } from '../../../redux/root-slice';
 
-const setActiveTab = (tab: Tabs) => {
-	store.dispatch(actionCreators.setActiveTab(tab));
+const dispatchSetActiveTab = (tab: Tabs) => {
+	store.dispatch(setActiveTab(tab));
 };
 
 export const ViewTabLink = () => {
@@ -14,7 +14,7 @@ export const ViewTabLink = () => {
 	const activeTab = useSelector((appState: AppState) => appState.activeTab);
 
 	return <StyledTab
-		onClick={() => setActiveTab(Tabs.View)}
+		onClick={() => dispatchSetActiveTab(Tabs.View)}
 		active={activeTab === Tabs.View}
 	>
 		{lang.viewTab.title}

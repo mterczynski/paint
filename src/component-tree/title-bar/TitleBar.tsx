@@ -1,10 +1,10 @@
-import * as actionCreators from '../../redux/action-creators';
-import store from '../../redux/store';
+import { maximize } from '../../redux/root-slice';
+import {store} from '../../redux/store';
 
 import './TitleBar.scss';
 
 function maximizeWindow() {
-	store.dispatch(actionCreators.maximize());
+	store.dispatch(maximize());
 }
 
 const Icon = (props: {src: string, onClick?: () => void, className?: string}) => {

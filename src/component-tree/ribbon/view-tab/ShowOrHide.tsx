@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
-import * as actionCreators from '../../../redux/action-creators';
-import store from '../../../redux/store';
+import {store} from '../../../redux/store';
 import { AppState } from '../../../types';
 import { useLang } from '../../../hooks';
+import { toggleBottomBar } from '../../../redux/root-slice';
 
-function toggleBottomBar() {
-	store.dispatch(actionCreators.toggleBottomBar());
+function dispatchToggleBottomBar() {
+	store.dispatch(toggleBottomBar());
 }
 
 const Checkbox = ({checked, onChange, description}: {
@@ -35,7 +35,7 @@ export const ShowOrHide = () => {
 			<ul className='ViewTab__list'>
 				<li><Checkbox description={lang.rulers.title}/></li>
 				<li><Checkbox description={lang.gridlines.title}/></li>
-				<li><Checkbox checked={isBottomBarVisible} onChange={toggleBottomBar} description={lang.statusBar.title}/></li>
+				<li><Checkbox checked={isBottomBarVisible} onChange={dispatchToggleBottomBar} description={lang.statusBar.title}/></li>
 			</ul>
 		</div>
 		<h1 className='ViewTab__description'>{lang.title}</h1>

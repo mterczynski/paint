@@ -1,3 +1,4 @@
+// todo - rename this enum and this file to Dropdown/dropdown.ts
 export enum Dropdowns {
 	// file window:
 	file = 'file',
