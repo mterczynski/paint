@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppState, AvailableTools, Dropdowns, MouseButton, Popup, Tabs, ToolSize } from '../types';
 import { colorsReducer } from './colors-slice';
 import { initialState } from './initial-state';
@@ -56,7 +56,7 @@ export const { appClick, maximize, selectTool, setActiveTab,
 
 const rootReducerWithoutChildReducers = rootSlice.reducer;
 
-export const rootReducer = (state: AppState | undefined, action: any) => {
+export const rootReducer = (state: AppState | undefined, action: AnyAction) => {
 	return {
 		...rootReducerWithoutChildReducers(state, action),
 		// child reducers are added here:
