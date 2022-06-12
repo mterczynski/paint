@@ -1,6 +1,4 @@
-import { useSelector } from 'react-redux';
 import { useLang } from '../../../hooks';
-import { AppState } from '../../../types';
 import { Figure } from './Figure';
 
 const imgs = {
@@ -10,7 +8,6 @@ const imgs = {
 };
 
 const Zoom = () => {
-	const currentZoom = useSelector((state: AppState) => state.zoom);
 	const lang = useLang();
 
 	return <div className='ViewTab__group'>
@@ -18,7 +15,7 @@ const Zoom = () => {
 			<Figure imgPath={imgs.zoomIn}>{lang.viewTab.zoom.zoomIn.title}</Figure>
 			<Figure imgPath={imgs.zoomOut}>{lang.viewTab.zoom.zoomOut.title}</Figure>
 			<Figure imgPath={imgs.maximize}>
-				{currentZoom * 100}
+				100
 				<br/>
 				%
 			</Figure>
