@@ -20,6 +20,7 @@ const images = {
 };
 
 const BottomBar = () => {
+	const zoom = useSelector((state: AppState) => state.zoom);
 	const lang = useLang().statusBar;
 	const isBottomBarVisible = useSelector((state: AppState) => state.isBottomBarVisible);
 	const image = {
@@ -62,7 +63,7 @@ const BottomBar = () => {
 			<div className='BottomBar__col BottomBar__col--small' />
 			<div className='BottomBar__col BottomBar__col--stretched' />
 			<div className='BottomBar__col BottomBar__col--medium'>
-				<span className='BottomBar__zoom-indicator'>100%</span>
+				<span className='BottomBar__zoom-indicator'>{zoom * 100}%</span>
 
 				<div className='BottomBar__minus' />
 
