@@ -1,8 +1,9 @@
 import { rgbaColorToCssColor } from '..';
+import { RGBAColor } from '../../../../types';
 
 describe('rgbaColorToCssColor', () => {
 	test('should return valid css rgba color', () => {
-		const color = {
+		const color: RGBAColor = {
 			red: 123,
 			green: 45,
 			blue: 6,
