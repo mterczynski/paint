@@ -8,7 +8,10 @@
 		"test": "jest --watch",
 		"test:cov": "jest --coverage",
 		"test:once": "jest",
-		"lint": "eslint \"**/*.{ts,tsx}\""
+		"prettier:check": "prettier --check .",
+		"prettier:fix": "prettier --write .",
+		"eslint:check": "eslint \"**/*.{ts,tsx}\"",
+		"eslint:fix": "eslint \"**/*.{ts,tsx}\" --fix"
 	},
 	"dependencies": {
 		"@babel/core": "^7.18.2",
