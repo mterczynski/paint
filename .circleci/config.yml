@@ -9,6 +9,9 @@ jobs:
       - image: circleci/node:lts
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "SHA256:b2vnvJDRad5xpl6J6ZbPlK6hx8/WzhHmRxEd70ynDJk"
       - checkout
       - run: npm install
       - run: npm run build
