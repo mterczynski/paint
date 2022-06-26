@@ -45,10 +45,10 @@ npm test
 npm run test:once
 ```
 
-## Linting code
+## Styling code
 
 ```
-npm run lint
+npm run style-code
 ```
 
 ## Notes
