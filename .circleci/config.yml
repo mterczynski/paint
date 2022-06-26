@@ -22,4 +22,4 @@ workflows:
   ci:
     jobs:
       - ci:
-        context: SSH
+          context: SSH
