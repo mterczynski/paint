@@ -15,7 +15,7 @@ jobs:
       - run: npm run test:once
       - run: npm run eslint:check
       - run: scp -r dist $SSH_URL:var/www/html/paint
-			- run: scp -r index.html $SSH_URL:var/www/html/paint
+      - run: scp -r index.html $SSH_URL:var/www/html/paint
 
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
