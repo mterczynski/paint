@@ -48,7 +48,7 @@ npm run test:once
 ## Styling code
 
 ```
-npm run style-code
+npm run style:fix
 ```
 
 ## Notes
