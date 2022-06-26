@@ -1,4 +1,4 @@
-import { Point } from '../../../types';
+import { Point } from "../../../types";
 
 interface DrawLineArgs {
 	color: string;
@@ -7,7 +7,7 @@ interface DrawLineArgs {
 	to: Point;
 }
 
-export function drawLine({color, context, from, to}: DrawLineArgs) {
+export function drawLine({ color, context, from, to }: DrawLineArgs) {
 	context.beginPath();
 	context.moveTo(from.x, from.y);
 	context.lineTo(to.x, to.y);

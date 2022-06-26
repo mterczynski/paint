@@ -1,27 +1,32 @@
-import MainToolsTab from './main-tools-tab/MainToolsTab';
-import ViewTab from './view-tab/ViewTab';
+import MainToolsTab from "./main-tools-tab/MainToolsTab";
+import ViewTab from "./view-tab/ViewTab";
 
-import { useSelector } from 'react-redux';
-import { AppState, Tabs } from '../../types';
-import { HelpIcon } from './HelpIcon';
-import { MainToolsTabLink, ViewTabLink } from './links';
-import { RibbonToggler } from './RibbonToggler';
-import { useLang } from '../../hooks';
-import { ActiveRibbonTab, RibbonContainer, RibbonHead, RibbonTabs, FileTab, HelperIcons } from './RibbonStyles';
+import { useSelector } from "react-redux";
+import { AppState, Tabs } from "../../types";
+import { HelpIcon } from "./HelpIcon";
+import { MainToolsTabLink, ViewTabLink } from "./links";
+import { RibbonToggler } from "./RibbonToggler";
+import { useLang } from "../../hooks";
+import {
+	ActiveRibbonTab,
+	RibbonContainer,
+	RibbonHead,
+	RibbonTabs,
+	FileTab,
+	HelperIcons,
+} from "./RibbonStyles";
 
 const Ribbon = () => {
 	const lang = useLang();
 	const activeTab = useSelector((appState: AppState) => appState.activeTab);
-	const isRibbonCollapsed = useSelector((state: AppState) => state.isRibbonCollapsed);
+	const isRibbonCollapsed = useSelector(
+		(state: AppState) => state.isRibbonCollapsed
+	);
 
 	const ActiveTab = () => {
 		return isRibbonCollapsed === false ? (
 			<ActiveRibbonTab>
-				{activeTab === Tabs.MainTools ? (
-					<MainToolsTab />
-				) : (
-						<ViewTab />
-					)}
+				{activeTab === Tabs.MainTools ? <MainToolsTab /> : <ViewTab />}
 			</ActiveRibbonTab>
 		) : null;
 	};

@@ -1,5 +1,5 @@
 export interface HSLColor {
-	hue: number,
-	saturation: number,
-	luminance: number
+	hue: number;
+	saturation: number;
+	luminance: number;
 }

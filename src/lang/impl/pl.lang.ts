@@ -1,109 +1,109 @@
-import { Lang } from '../types';
+import { Lang } from "../types";
 
 const homeTabs = {
 	clipboard: {
-		title: 'Schowek',
+		title: "Schowek",
 		paste: {
-			title: 'Wklej',
+			title: "Wklej",
 		},
 		copy: {
-			title: 'Kopiuj',
+			title: "Kopiuj",
 		},
 		cut: {
-			title: 'Wytnij',
+			title: "Wytnij",
 		},
 	},
 	image: {
 		select: {
-			title: 'Zaznacz',
+			title: "Zaznacz",
 		},
 		crop: {
-			title: 'Przytnij',
+			title: "Przytnij",
 		},
 		resize: {
-			title: 'Zmień rozmiar',
+			title: "Zmień rozmiar",
 		},
 		rotate: {
-			title: 'Obróć',
+			title: "Obróć",
 		},
-		title: 'Obraz',
+		title: "Obraz",
 	},
 	tools: {
-		title: 'Narzędzia',
+		title: "Narzędzia",
 	},
 	brushes: {
-		title: 'Pędzle',
+		title: "Pędzle",
 	},
 	shapes: {
-		title: 'Kształty',
+		title: "Kształty",
 		outline: {
-			title: 'Kontur',
+			title: "Kontur",
 		},
 		fill: {
-			title: 'Wypełnienie',
+			title: "Wypełnienie",
 		},
 	},
 	size: {
-		title: 'Rozmiar',
+		title: "Rozmiar",
 	},
 	colors: {
-		title: 'Kolory',
-		color: 'Kolor',
+		title: "Kolory",
+		color: "Kolor",
 		editColors: {
-			title: 'Edytuj kolory',
+			title: "Edytuj kolory",
 		},
 	},
 	paint3d: {
-		title: 'Otwórz aplikację Paint 3D',
+		title: "Otwórz aplikację Paint 3D",
 	},
-	title: 'Narzędzia główne'
+	title: "Narzędzia główne",
 };
 
 const viewTab = {
-	title: 'Widok',
+	title: "Widok",
 	display: {
 		fullScreen: {
-			title: 'Pełny ekran'
+			title: "Pełny ekran",
 		},
 		thumbnail: {
-			title: 'Miniatura'
+			title: "Miniatura",
 		},
-		title: 'Wyświetlanie'
+		title: "Wyświetlanie",
 	},
 	showOrHide: {
 		gridlines: {
-			title: 'Linie siatki'
+			title: "Linie siatki",
 		},
 		rulers: {
-			title: 'Linijki'
+			title: "Linijki",
 		},
 		statusBar: {
-			title: 'Pasek stanu'
+			title: "Pasek stanu",
 		},
-		title: 'Pokazywanie lub ukrywanie'
+		title: "Pokazywanie lub ukrywanie",
 	},
 	zoom: {
-		title: 'Powiększanie',
+		title: "Powiększanie",
 		zoomIn: {
-			title: 'Powiększ'
+			title: "Powiększ",
 		},
 		zoomOut: {
-			title: 'Pomniejsz'
+			title: "Pomniejsz",
 		},
-	}
+	},
 };
 
 const fileMenu = {
-	title: 'Plik'
+	title: "Plik",
 };
 
 const statusBar = {
-	pixels: 'piks.'
+	pixels: "piks.",
 };
 
 export const PL_Lang: Lang = Object.freeze({
 	homeTabs,
 	fileMenu,
 	viewTab,
-	statusBar
+	statusBar,
 });

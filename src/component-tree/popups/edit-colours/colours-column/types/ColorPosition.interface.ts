@@ -1,4 +1,4 @@
 export interface ColorPosition {
-	rowIndex: number,
-	columnIndex: number
+	rowIndex: number;
+	columnIndex: number;
 }

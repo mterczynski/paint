@@ -1,4 +1,4 @@
 export enum Popup {
-	none = 'none',
-	editColors = 'editColors'
+	none = "none",
+	editColors = "editColors",
 }

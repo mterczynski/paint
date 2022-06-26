@@ -1,14 +1,22 @@
-import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AppState, AvailableTools, Dropdowns, MouseButton, Popup, Tabs, ToolSize } from '../types';
-import { colorsReducer } from './colors-slice';
-import { initialState } from './initial-state';
+import { AnyAction, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {
+	AppState,
+	AvailableTools,
+	Dropdowns,
+	MouseButton,
+	Popup,
+	Tabs,
+	ToolSize,
+} from "../types";
+import { colorsReducer } from "./colors-slice";
+import { initialState } from "./initial-state";
 
 export const rootSlice = createSlice({
-	name: 'root',
+	name: "root",
 	initialState,
 	reducers: {
 		appClick(state) {
-			if(!state.preventNextAppClick) {
+			if (!state.preventNextAppClick) {
 				state.openedDropdown = Dropdowns.none;
 			}
 			state.preventNextAppClick = false;
@@ -32,7 +40,7 @@ export const rootSlice = createSlice({
 			state.openedDropdown = Dropdowns.none;
 		},
 		setPressedMouseButtonOnCanvas(state, action: PayloadAction<MouseButton>) {
-			state.mouseButtonPressedOnCanvas = action.payload
+			state.mouseButtonPressedOnCanvas = action.payload;
 		},
 		setToolSize(state, action: PayloadAction<ToolSize>) {
 			state.toolSize = action.payload;
@@ -45,13 +53,22 @@ export const rootSlice = createSlice({
 		},
 		toggleRibbon(state) {
 			state.isRibbonCollapsed = !state.isRibbonCollapsed;
-		}
+		},
 	},
-})
+});
 
-export const { appClick, maximize, selectTool, setActiveTab,
-	setDropdown, setPopup, setPressedMouseButtonOnCanvas, setToolSize,
-	toggleBottomBar, toggleBrush, toggleRibbon,
+export const {
+	appClick,
+	maximize,
+	selectTool,
+	setActiveTab,
+	setDropdown,
+	setPopup,
+	setPressedMouseButtonOnCanvas,
+	setToolSize,
+	toggleBottomBar,
+	toggleBrush,
+	toggleRibbon,
 } = rootSlice.actions;
 
 const rootReducerWithoutChildReducers = rootSlice.reducer;
@@ -61,5 +78,5 @@ export const rootReducer = (state: AppState | undefined, action: AnyAction) => {
 		...rootReducerWithoutChildReducers(state, action),
 		// child reducers are added here:
 		colors: colorsReducer(state?.colors, action),
-	}
-}
+	};
+};

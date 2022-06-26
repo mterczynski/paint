@@ -8,7 +8,12 @@
 		"test": "jest --watch",
 		"test:cov": "jest --coverage",
 		"test:once": "jest",
-		"lint": "eslint \"**/*.{ts,tsx}\""
+		"style:fix": "npm run prettier:fix && npm run eslint:fix",
+		"style:check": "npm run prettier:check && npm run eslint:check",
+		"prettier:check": "prettier --check .",
+		"prettier:fix": "prettier --write .",
+		"eslint:check": "eslint \"**/*.{ts,tsx}\"",
+		"eslint:fix": "eslint \"**/*.{ts,tsx}\" --fix"
 	},
 	"dependencies": {
 		"@babel/core": "^7.18.2",
@@ -51,6 +56,7 @@
 		"eslint-plugin-react": "^7.27.0",
 		"eslint-plugin-react-hooks": "^4.3.0",
 		"jest": "^27.3.1",
+		"prettier": "2.7.1",
 		"ts-jest": "^27.0.7",
 		"webpack-dev-server": "^3.11.0"
 	},

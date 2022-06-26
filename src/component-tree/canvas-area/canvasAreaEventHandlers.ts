@@ -1,14 +1,18 @@
-import { fillWithBucket } from '../../core/drawing';
-import {store} from '../../redux/store';
-import { getMousePositionRelativeToCanvas } from './utils';
-import { AvailableTools, MouseButton } from '../../types';
-import { pickColor } from '../../core/drawing/pick-color';
-import { getCanvasContext } from '../../core/drawing/utils/get-canvas-context';
-import { setColor1, setColor2 } from '../../redux/colors-slice';
+import { fillWithBucket } from "../../core/drawing";
+import { store } from "../../redux/store";
+import { getMousePositionRelativeToCanvas } from "./utils";
+import { AvailableTools, MouseButton } from "../../types";
+import { pickColor } from "../../core/drawing/pick-color";
+import { getCanvasContext } from "../../core/drawing/utils/get-canvas-context";
+import { setColor1, setColor2 } from "../../redux/colors-slice";
 
 export const canvasAreaEventHandlers = {
 	click: {
-		pickColorIfNeeded(canvasRef: React.RefObject<HTMLCanvasElement>, mouseEvent: React.MouseEvent, mouseButton: MouseButton) {
+		pickColorIfNeeded(
+			canvasRef: React.RefObject<HTMLCanvasElement>,
+			mouseEvent: React.MouseEvent,
+			mouseButton: MouseButton
+		) {
 			const storeState = store.getState();
 			const canvasContext = getCanvasContext(canvasRef);
 
@@ -16,21 +20,23 @@ export const canvasAreaEventHandlers = {
 				return;
 			}
 
-
 			if (storeState.selectedTool === AvailableTools.ColorPicker) {
-				const mousePosition = getMousePositionRelativeToCanvas(canvasRef.current, mouseEvent);
+				const mousePosition = getMousePositionRelativeToCanvas(
+					canvasRef.current,
+					mouseEvent
+				);
 				const pickedColor = pickColor({
 					canvasContext,
 					mousePosition,
 					imageSize: {
 						width: storeState.imageSettings.widthInPx,
 						height: storeState.imageSettings.heightInPx,
-					}
+					},
 				});
 
 				const opaqueColor = {
 					...pickedColor,
-					alpha: 255
+					alpha: 255,
 				};
 
 				if (mouseButton === MouseButton.Primary) {
@@ -39,21 +45,28 @@ export const canvasAreaEventHandlers = {
 					store.dispatch(setColor2(opaqueColor));
 				}
 			}
-		}
+		},
 	},
 	mouseDown: {
-		fillWithBucketIfNeeded(canvasRef: React.RefObject<HTMLCanvasElement>, clickEvent: React.MouseEvent) {
+		fillWithBucketIfNeeded(
+			canvasRef: React.RefObject<HTMLCanvasElement>,
+			clickEvent: React.MouseEvent
+		) {
 			const storeState = store.getState();
 			const context = getCanvasContext(canvasRef);
 
 			if (!canvasRef.current || !context) return;
 
-			const currentMousePosition = getMousePositionRelativeToCanvas(canvasRef.current, clickEvent);
+			const currentMousePosition = getMousePositionRelativeToCanvas(
+				canvasRef.current,
+				clickEvent
+			);
 
 			if (storeState.selectedTool === AvailableTools.Fill) {
-				const fillColor = storeState.mouseButtonPressedOnCanvas === MouseButton.Primary ?
-					storeState.colors.color1 :
-					storeState.colors.color2;
+				const fillColor =
+					storeState.mouseButtonPressedOnCanvas === MouseButton.Primary
+						? storeState.colors.color1
+						: storeState.colors.color2;
 
 				fillWithBucket({
 					context,
@@ -62,9 +75,9 @@ export const canvasAreaEventHandlers = {
 					canvasSize: {
 						width: storeState.imageSettings.widthInPx,
 						height: storeState.imageSettings.heightInPx,
-					}
+					},
 				});
 			}
-		}
-	}
+		},
+	},
 };

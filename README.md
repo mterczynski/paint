@@ -26,7 +26,7 @@ npm i
 npm start
 
 # starts dev-server, opens the app in deafult browser
-npm run start:open 
+npm run start:open
 ```
 
 ## Building the application
@@ -45,10 +45,10 @@ npm test
 npm run test:once
 ```
 
-## Linting code
+## Styling code
 
 ```
-npm run lint
+npm run style:fix
 ```
 
 ## Notes

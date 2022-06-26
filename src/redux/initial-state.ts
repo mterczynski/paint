@@ -1,6 +1,12 @@
-import { languages } from '../lang/impl';
-import { Dropdowns, Popup } from '../types';
-import { AppState, AvailableTools, Tabs, MouseButton, ToolSize } from '../types';
+import { languages } from "../lang/impl";
+import { Dropdowns, Popup } from "../types";
+import {
+	AppState,
+	AvailableTools,
+	Tabs,
+	MouseButton,
+	ToolSize,
+} from "../types";
 
 export const initialState: AppState = {
 	activeTab: Tabs.MainTools,
@@ -14,9 +20,9 @@ export const initialState: AppState = {
 			pickedColor: {
 				hue: 160,
 				saturation: 0,
-				luminance: 0
+				luminance: 0,
 			},
-		}
+		},
 	},
 	imageSettings: {
 		widthInPx: 500,

@@ -1,22 +1,33 @@
-import { AvailableTools } from '.';
-import { Dropdowns } from './';
-import { RGBAColor } from './rgba-color';
-import { Lang } from '../lang/types';
-import { Popup } from './popup.enum';
-import { HSLColor } from './hsl-color';
+import { AvailableTools } from ".";
+import { Dropdowns } from "./";
+import { RGBAColor } from "./rgba-color";
+import { Lang } from "../lang/types";
+import { Popup } from "./popup.enum";
+import { HSLColor } from "./hsl-color";
 
-export type AvailableZoomLevels = 0.125 | 0.25 | 0.5 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+export type AvailableZoomLevels =
+	| 0.125
+	| 0.25
+	| 0.5
+	| 1
+	| 2
+	| 3
+	| 4
+	| 5
+	| 6
+	| 7
+	| 8;
 export type IndexOfMainColor = 1 | 2;
 export enum ToolSize {
 	one = 1,
 	two = 2,
 	three = 3,
-	four = 4
+	four = 4,
 }
 
 export enum Tabs {
-	MainTools = 'MainTools',
-	View = 'View',
+	MainTools = "MainTools",
+	View = "View",
 }
 
 export interface ColorState {
@@ -27,21 +38,21 @@ export interface ColorState {
 	selectedMainColorIndex: IndexOfMainColor;
 	colorPicker: {
 		pickedColor: HSLColor;
-	}
+	};
 }
 
 export enum MouseButton {
-	None = 'None',
-	Primary = 'Primary',
-	Secondary = 'Secondary'
+	None = "None",
+	Primary = "Primary",
+	Secondary = "Secondary",
 }
 
 export interface AppState {
 	activeTab: Tabs;
 	colors: ColorState;
 	imageSettings: {
-		widthInPx: number,
-		heightInPx: number,
+		widthInPx: number;
+		heightInPx: number;
 	};
 	isBottomBarVisible: boolean;
 	isBrushActive: boolean;
@@ -54,5 +65,5 @@ export interface AppState {
 	selectedTool: AvailableTools;
 	toolSize: ToolSize;
 	zoom: AvailableZoomLevels;
-	mouseButtonPressedOnCanvas: MouseButton
+	mouseButtonPressedOnCanvas: MouseButton;
 }
