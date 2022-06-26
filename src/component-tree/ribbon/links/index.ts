@@ -1,2 +1,2 @@
-export * from './MainToolsTabLink';
-export * from './ViewTabLink';
+export * from "./MainToolsTabLink";
+export * from "./ViewTabLink";

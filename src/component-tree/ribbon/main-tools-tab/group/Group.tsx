@@ -1,9 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 
-import './Group.scss';
+import "./Group.scss";
 
-const Group = ({children}: {children: React.ReactNode}) => (
-	<div className='MainToolsTab__group'>{children}</div>
+const Group = ({ children }: { children: React.ReactNode }) => (
+	<div className="MainToolsTab__group">{children}</div>
 );
 
 export default Group;

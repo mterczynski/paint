@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Subheading = styled.h4`
 	font-weight: 500;

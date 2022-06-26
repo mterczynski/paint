@@ -1,109 +1,109 @@
-import { Lang } from '../types';
+import { Lang } from "../types";
 
 const homeTabs = {
 	clipboard: {
-		title: 'Clipboard',
+		title: "Clipboard",
 		paste: {
-			title: 'Paste',
+			title: "Paste",
 		},
 		copy: {
-			title: 'Copy',
+			title: "Copy",
 		},
 		cut: {
-			title: 'Cut',
+			title: "Cut",
 		},
 	},
 	image: {
 		select: {
-			title: 'Select',
+			title: "Select",
 		},
 		crop: {
-			title: 'Crop',
+			title: "Crop",
 		},
 		resize: {
-			title: 'Resize',
+			title: "Resize",
 		},
 		rotate: {
-			title: 'Rotate',
+			title: "Rotate",
 		},
-		title: 'Image',
+		title: "Image",
 	},
 	tools: {
-		title: 'Tools',
+		title: "Tools",
 	},
 	brushes: {
-		title: 'Brushes',
+		title: "Brushes",
 	},
 	shapes: {
-		title: 'Shapes',
+		title: "Shapes",
 		outline: {
-			title: 'Outline',
+			title: "Outline",
 		},
 		fill: {
-			title: 'Fill',
+			title: "Fill",
 		},
 	},
 	size: {
-		title: 'Size',
+		title: "Size",
 	},
 	colors: {
-		title: 'Colours',
-		color: 'Colour',
+		title: "Colours",
+		color: "Colour",
 		editColors: {
-			title: 'Edit colours',
+			title: "Edit colours",
 		},
 	},
 	paint3d: {
-		title: 'Edit with Paint 3D',
+		title: "Edit with Paint 3D",
 	},
-	title: 'Home'
+	title: "Home",
 };
 
 const fileMenu = {
-	title: 'File'
+	title: "File",
 };
 
 const viewTab = {
-	title: 'View',
+	title: "View",
 	display: {
 		fullScreen: {
-			title: 'Full screen'
+			title: "Full screen",
 		},
 		thumbnail: {
-			title: 'Thumbnail'
+			title: "Thumbnail",
 		},
-		title: 'Display'
+		title: "Display",
 	},
 	showOrHide: {
 		gridlines: {
-			title: 'Gridlines'
+			title: "Gridlines",
 		},
 		rulers: {
-			title: 'Rulers'
+			title: "Rulers",
 		},
 		statusBar: {
-			title: 'Status bar'
+			title: "Status bar",
 		},
-		title: 'Show or hide'
+		title: "Show or hide",
 	},
 	zoom: {
-		title: 'Zoom',
+		title: "Zoom",
 		zoomIn: {
-			title: 'Zoom in'
+			title: "Zoom in",
 		},
 		zoomOut: {
-			title: 'Zoom out'
+			title: "Zoom out",
 		},
-	}
+	},
 };
 
 const statusBar = {
-	pixels: 'px'
+	pixels: "px",
 };
 
 export const EN_Lang: Lang = Object.freeze({
 	homeTabs,
 	fileMenu,
 	viewTab,
-	statusBar
+	statusBar,
 });

@@ -1,21 +1,21 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IndexOfMainColor, RGBAColor } from '../types';
-import { initialState } from './initial-state';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IndexOfMainColor, RGBAColor } from "../types";
+import { initialState } from "./initial-state";
 
 export const colorsSlice = createSlice({
-	name: 'colors',
+	name: "colors",
 	initialState: initialState.colors,
 	reducers: {
-		selectMainColorIndex(state, action: PayloadAction<IndexOfMainColor>)  {
+		selectMainColorIndex(state, action: PayloadAction<IndexOfMainColor>) {
 			state.selectedMainColorIndex = action.payload;
 		},
-		setColor1(state, action: PayloadAction<RGBAColor>)  {
+		setColor1(state, action: PayloadAction<RGBAColor>) {
 			state.color1 = action.payload;
 		},
-		setColor2(state, action: PayloadAction<RGBAColor>)  {
+		setColor2(state, action: PayloadAction<RGBAColor>) {
 			state.color2 = action.payload;
 		},
-		setSelectedMainColor(state, action: PayloadAction<RGBAColor>)  {
+		setSelectedMainColor(state, action: PayloadAction<RGBAColor>) {
 			if (state.selectedMainColorIndex === 1) {
 				state.color1 = action.payload;
 			} else {
@@ -23,10 +23,13 @@ export const colorsSlice = createSlice({
 			}
 		},
 	},
-})
+});
 
 export const {
-	selectMainColorIndex, setColor1, setColor2, setSelectedMainColor
+	selectMainColorIndex,
+	setColor1,
+	setColor2,
+	setSelectedMainColor,
 } = colorsSlice.actions;
 
 export const colorsReducer = colorsSlice.reducer;

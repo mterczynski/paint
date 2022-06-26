@@ -1,29 +1,29 @@
-import { pickColor } from '../pick-color';
+import { pickColor } from "../pick-color";
 
-describe('pickColor', () => {
-	test('it should return RGBA color of selected pixel on canvas', () => {
+describe("pickColor", () => {
+	test("it should return RGBA color of selected pixel on canvas", () => {
 		const canvasSize = 100;
-		const mockCanvas = document.createElement('canvas');
+		const mockCanvas = document.createElement("canvas");
 		mockCanvas.width = canvasSize;
 		mockCanvas.height = canvasSize;
-		const ctx = mockCanvas.getContext('2d') as CanvasRenderingContext2D;
+		const ctx = mockCanvas.getContext("2d") as CanvasRenderingContext2D;
 		const x = 4;
 		const y = 5;
 
-		ctx.fillStyle = 'rgba(128, 114, 100, 1)';
+		ctx.fillStyle = "rgba(128, 114, 100, 1)";
 		ctx.fillRect(x, y, 1, 1);
 
 		const result = pickColor({
 			canvasContext: ctx,
-			mousePosition: {x,y},
-			imageSize: {width: canvasSize, height: canvasSize}}
-		);
+			mousePosition: { x, y },
+			imageSize: { width: canvasSize, height: canvasSize },
+		});
 
 		expect(result).toEqual({
 			red: 128,
 			green: 114,
 			blue: 100,
-			alpha: 255
+			alpha: 255,
 		});
 	});
 });

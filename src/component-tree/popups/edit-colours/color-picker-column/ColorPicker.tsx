@@ -5,8 +5,10 @@ const LuminosityPicker = () => {
 };
 
 export const ColorPicker = () => {
-	return <div>
-		<HueAndSaturationPicker></HueAndSaturationPicker>
-		<LuminosityPicker></LuminosityPicker>
-	</div>;
+	return (
+		<div>
+			<HueAndSaturationPicker></HueAndSaturationPicker>
+			<LuminosityPicker></LuminosityPicker>
+		</div>
+	);
 };

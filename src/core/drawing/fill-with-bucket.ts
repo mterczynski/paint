@@ -1,19 +1,24 @@
-import { Point, RGBAColor } from '../../types';
-import { getPixelColor } from './utils';
-import { RectangleSize } from '../../lang/types/rectangleSize.type';
+import { Point, RGBAColor } from "../../types";
+import { getPixelColor } from "./utils";
+import { RectangleSize } from "../../lang/types/rectangleSize.type";
 
 interface FillWithBucketArgs {
-	context: CanvasRenderingContext2D,
-	mousePositionRelativeToCanvas: Point,
-	canvasSize: RectangleSize,
-	fillColor: RGBAColor
+	context: CanvasRenderingContext2D;
+	mousePositionRelativeToCanvas: Point;
+	canvasSize: RectangleSize;
+	fillColor: RGBAColor;
 }
 
-function replacePixelColor({ imageData, newColor, pixelPosition, imageSize }: {
-	imageData: Uint8ClampedArray,
-	imageSize: RectangleSize
-	newColor: RGBAColor,
-	pixelPosition: Point
+function replacePixelColor({
+	imageData,
+	newColor,
+	pixelPosition,
+	imageSize,
+}: {
+	imageData: Uint8ClampedArray;
+	imageSize: RectangleSize;
+	newColor: RGBAColor;
+	pixelPosition: Point;
 }) {
 	const startIndex = (pixelPosition.x + pixelPosition.y * imageSize.width) * 4;
 
@@ -24,10 +29,12 @@ function replacePixelColor({ imageData, newColor, pixelPosition, imageSize }: {
 }
 
 function areRGBAColorsTheSame(color1: RGBAColor, color2: RGBAColor) {
-	return color1.red === color2.red &&
+	return (
+		color1.red === color2.red &&
 		color1.green === color2.green &&
 		color1.blue === color2.blue &&
-		color1.alpha === color2.alpha;
+		color1.alpha === color2.alpha
+	);
 }
 
 function hashPoint(point: Point) {
@@ -35,7 +42,7 @@ function hashPoint(point: Point) {
 }
 
 function unhashPoint(hashedPoint: string): Point {
-	const splitted = hashedPoint.split(';');
+	const splitted = hashedPoint.split(";");
 
 	return {
 		x: Number(splitted[0]),
@@ -43,9 +50,19 @@ function unhashPoint(hashedPoint: string): Point {
 	};
 }
 
-export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRelativeToCanvas }: FillWithBucketArgs) {
+export function fillWithBucket({
+	context,
+	fillColor,
+	canvasSize,
+	mousePositionRelativeToCanvas,
+}: FillWithBucketArgs) {
 	const imageSize = canvasSize;
-	const imageData = context.getImageData(0, 0, canvasSize.width, canvasSize.height);
+	const imageData = context.getImageData(
+		0,
+		0,
+		canvasSize.width,
+		canvasSize.height
+	);
 
 	const startX = mousePositionRelativeToCanvas.x;
 	const startY = mousePositionRelativeToCanvas.y;
@@ -56,7 +73,7 @@ export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRe
 	const clickedPixelColor = getPixelColor({
 		imageData: imageData.data,
 		imageSize,
-		pixelPosition: mousePositionRelativeToCanvas
+		pixelPosition: mousePositionRelativeToCanvas,
 	});
 
 	closedList.set(hashPoint(mousePositionRelativeToCanvas), 1);
@@ -64,16 +81,15 @@ export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRe
 		imageData: imageData.data,
 		imageSize,
 		newColor: fillColor,
-		pixelPosition: mousePositionRelativeToCanvas
+		pixelPosition: mousePositionRelativeToCanvas,
 	});
 
-	function addTileNeighborsToOpenList(tile: { x: number, y: number }) {
-
+	function addTileNeighborsToOpenList(tile: { x: number; y: number }) {
 		(function checkUp() {
 			const up = { x: tile.x, y: tile.y - 1 };
 			const hashedUp = hashPoint(up);
 
-			if (up.y >= 0 && !openList.has(hashedUp) && !closedList.has(hashedUp) ) {
+			if (up.y >= 0 && !openList.has(hashedUp) && !closedList.has(hashedUp)) {
 				openList.set(hashedUp, 1);
 			}
 		})();
@@ -82,7 +98,11 @@ export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRe
 			const right = { x: tile.x + 1, y: tile.y };
 			const hashedRight = hashPoint(right);
 
-			if (right.x < imageSize.width && !openList.has(hashedRight) && !closedList.has(hashedRight) ) {
+			if (
+				right.x < imageSize.width &&
+				!openList.has(hashedRight) &&
+				!closedList.has(hashedRight)
+			) {
 				openList.set(hashedRight, 1);
 			}
 		})();
@@ -91,17 +111,24 @@ export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRe
 			const down = { x: tile.x, y: tile.y + 1 };
 			const hashedDown = hashPoint(down);
 
-			if (down.y < imageSize.height && !openList.has(hashedDown) && !closedList.has(hashedDown) ) {
+			if (
+				down.y < imageSize.height &&
+				!openList.has(hashedDown) &&
+				!closedList.has(hashedDown)
+			) {
 				openList.set(hashedDown, 1);
 			}
-
 		})();
 
 		(function checkLeft() {
 			const left = { x: tile.x - 1, y: tile.y };
 			const hashedLeft = hashPoint(left);
 
-			if (left.x >= 0 && !openList.has(hashedLeft) && !closedList.has(hashedLeft) ) {
+			if (
+				left.x >= 0 &&
+				!openList.has(hashedLeft) &&
+				!closedList.has(hashedLeft)
+			) {
 				openList.set(hashedLeft, 1);
 			}
 		})();
@@ -112,12 +139,21 @@ export function fillWithBucket({ context, fillColor, canvasSize, mousePositionRe
 	while (openList.size > 0) {
 		const [[hashedTile]] = openList;
 		const tile = unhashPoint(hashedTile);
-		const tileColor = getPixelColor({ pixelPosition: tile, imageData: imageData.data, imageSize });
+		const tileColor = getPixelColor({
+			pixelPosition: tile,
+			imageData: imageData.data,
+			imageSize,
+		});
 
 		// check if the tile should be painted
 		if (areRGBAColorsTheSame(tileColor, clickedPixelColor)) {
 			// if yes, paint it, add it to closed list, add its adjacent tiles to open list (if they are not there)
-			replacePixelColor({ imageData: imageData.data, imageSize, newColor: fillColor, pixelPosition: tile });
+			replacePixelColor({
+				imageData: imageData.data,
+				imageSize,
+				newColor: fillColor,
+				pixelPosition: tile,
+			});
 			addTileNeighborsToOpenList(tile);
 		}
 

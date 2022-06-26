@@ -1,9 +1,12 @@
 {
 	"presets": ["@babel/preset-react", "@babel/preset-typescript"],
 	"plugins": [
-		["@babel/plugin-transform-react-jsx", {
-      "runtime": "automatic"
-    }],
+		[
+			"@babel/plugin-transform-react-jsx",
+			{
+				"runtime": "automatic"
+			}
+		],
 		"@babel/plugin-proposal-optional-chaining",
 		"@babel/plugin-transform-spread",
 		"@babel/plugin-proposal-object-rest-spread",

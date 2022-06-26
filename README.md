@@ -26,7 +26,7 @@ npm i
 npm start
 
 # starts dev-server, opens the app in deafult browser
-npm run start:open 
+npm run start:open
 ```
 
 ## Building the application

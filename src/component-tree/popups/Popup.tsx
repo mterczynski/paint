@@ -1,12 +1,12 @@
-import * as React from 'react';
-import styled from 'styled-components';
-import { setPopup } from '../../redux/root-slice';
-import {store} from '../../redux/store';
-import {Popup as PopupEnum} from '../../types/popup.enum';
+import * as React from "react";
+import styled from "styled-components";
+import { setPopup } from "../../redux/root-slice";
+import { store } from "../../redux/store";
+import { Popup as PopupEnum } from "../../types/popup.enum";
 
 const images = {
-	close: require('../../assets/icons/popups/close.png'),
-	closeActive: require('../../assets/icons/popups/close-active.png'),
+	close: require("../../assets/icons/popups/close.png"),
+	closeActive: require("../../assets/icons/popups/close-active.png"),
 };
 
 const StyledPopup = styled.div`
@@ -27,7 +27,7 @@ const PopupHeader = styled.header`
 `;
 
 const StyledXIcon = styled.button`
-  display: block;
+	display: block;
 	text-align: center;
 	background: url(${images.close});
 	width: 31px;
@@ -46,18 +46,22 @@ function closePopup() {
 	store.dispatch(setPopup(PopupEnum.none));
 }
 
-export const Popup = ({title, children, style}: {
-	title: string,
-	children: React.ReactNode,
-	style?: React.CSSProperties,
+export const Popup = ({
+	title,
+	children,
+	style,
+}: {
+	title: string;
+	children: React.ReactNode;
+	style?: React.CSSProperties;
 }) => {
-	return <StyledPopup style={{...style}}>
-		<PopupHeader>
-			<div style={{height: '100%', paddingLeft: '8px'}}>{title}</div>
-			<StyledXIcon onClick={closePopup}/>
-		</PopupHeader>
-		<div>
-			{children}
-		</div>
-	</StyledPopup>;
+	return (
+		<StyledPopup style={{ ...style }}>
+			<PopupHeader>
+				<div style={{ height: "100%", paddingLeft: "8px" }}>{title}</div>
+				<StyledXIcon onClick={closePopup} />
+			</PopupHeader>
+			<div>{children}</div>
+		</StyledPopup>
+	);
 };

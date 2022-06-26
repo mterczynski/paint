@@ -1,9 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 
-import './Tab.scss';
+import "./Tab.scss";
 
-const Tab = ({ children }: {children: React.ReactNode}) => {
-	return <div className='Tab'>{children}</div>;
+const Tab = ({ children }: { children: React.ReactNode }) => {
+	return <div className="Tab">{children}</div>;
 };
 
 export default Tab;

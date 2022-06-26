@@ -4,11 +4,11 @@ export interface ViewTab {
 		title: string;
 		zoomIn: {
 			title: string;
-		},
+		};
 		zoomOut: {
 			title: string;
-		},
-	},
+		};
+	};
 	showOrHide: {
 		title: string;
 		rulers: {
@@ -19,15 +19,15 @@ export interface ViewTab {
 		};
 		statusBar: {
 			title: string;
-		}
-	},
+		};
+	};
 	display: {
 		fullScreen: {
 			title: string;
 		};
 		thumbnail: {
 			title: string;
-		},
+		};
 		title: string;
-	}
+	};
 }

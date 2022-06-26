@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ActiveRibbonTab = styled.div`
 	position: relative;
@@ -70,16 +70,17 @@ export const RibbonIcon = styled.div`
 	}
 `;
 
-export const IconImage = styled.img<{reversed?: boolean}>`
+export const IconImage = styled.img<{ reversed?: boolean }>`
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
 
-	${props => props.reversed && `transform: translate(-50%, -50%) rotate(180deg);`}
+	${(props) =>
+		props.reversed && `transform: translate(-50%, -50%) rotate(180deg);`}
 `;
 
-export const StyledTab = styled.div<{active?: boolean}>`
+export const StyledTab = styled.div<{ active?: boolean }>`
 	padding: 0 13px;
 	position: relative;
 	height: calc(100% + 1px);
@@ -96,7 +97,9 @@ export const StyledTab = styled.div<{active?: boolean}>`
 		border-bottom: none;
 	}
 
-	${props => props.active && `
+	${(props) =>
+		props.active &&
+		`
 		background: rgb(245, 246, 247) !important;
 		border: 1px solid rgb(218, 219, 220) !important;
 		border-bottom: none !important;
