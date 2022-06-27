@@ -18,7 +18,7 @@ jobs:
       # - add_ssh_keys:
       #     fingerprints:
       #       - "e8:62:91:14:a5:c1:65:7a:99:23:af:0f:7b:6b:c9:8e"
-      - run: ls ~
+      - run: ls -al ~/.ssh
       - run: find ~ -type d -name .ssh
       - run: mkdir -p ~/.ssh
       - run: touch ~/.ssh/known_hosts
