@@ -14,7 +14,8 @@ jobs:
             - "e8:62:91:14:a5:c1:65:7a:99:23:af:0f:7b:6b:c9:8e"
       - run: ls ~
       - run: find ~ -type d -name .ssh
-      - run: mkdir -p .ssh
+      - run: mkdir -p ~/.ssh
+      - run: touch ~/.ssh/known_hosts
       - run: ssh-keyscan -H mterczynski.pl >> ~/.ssh/known_hosts
       - checkout
       - run: npm install
