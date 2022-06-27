@@ -11,14 +11,14 @@ jobs:
     steps:
       - add_ssh_keys
       - run: touch ~/.ssh/known_hosts
-      - run: ssh-keyscan -H mterczynski.pl >> ~/.ssh/known_hosts
+      - run: ssh-keyscan -H $SERVER_DOMAIN_NAME >> ~/.ssh/known_hosts
       - checkout
       - run: npm install
       - run: npm run build
       - run: npm run test:once
       - run: npm run eslint:check
-      - run: scp -r dist $SSH_URL:/var/www/html/paint
-      - run: scp -r index.html $SSH_URL:/var/www/html/paint
+      - run: scp -r dist $SSH_USER@$SERVER_DOMAIN_NAME:$DESTINATION_FOLDER
+      - run: scp -r index.html $SSH_USER@$SERVER_DOMAIN_NAME:$DESTINATION_FOLDER
 
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
