@@ -19,12 +19,14 @@ jobs:
       - run: touch ~/.ssh/known_hosts
       - run: ssh-keyscan -H mterczynski.pl >> ~/.ssh/known_hosts
       - checkout
-      - run: npm install
-      - run: npm run build
-      - run: npm run test:once
-      - run: npm run eslint:check
-      - run: scp -r dist $SSH_URL:var/www/html/paint
-      - run: scp -r index.html $SSH_URL:var/www/html/paint
+      - run: echo $SSH_URL
+      - run: echo ${SSH_URL}
+      # - run: npm install
+      # - run: npm run build
+      # - run: npm run test:once
+      # - run: npm run eslint:check
+      # - run: scp -r dist $SSH_URL:var/www/html/paint
+      # - run: scp -r index.html $SSH_URL:var/www/html/paint
 
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
