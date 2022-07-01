@@ -26,6 +26,7 @@ module.exports = {
 		"no-unused-vars": "off",
 		"@typescript-eslint/no-unused-vars": ["warn"],
 		"@typescript-eslint/no-var-requires": "off",
+		"@typescript-eslint/no-non-null-assertion": "off",
 		"react/react-in-jsx-scope": "off",
 		"jsx-a11y/alt-text": "error",
 	},

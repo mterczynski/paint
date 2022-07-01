@@ -36,7 +36,7 @@ const App = () => {
 	);
 };
 
-const root = createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root")!);
 root.render(<App />);
 
 window.addEventListener("blur", () =>
