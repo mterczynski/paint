@@ -1,9 +1,13 @@
-import { Popup } from "../Popup";
 import styled from "styled-components";
 import { BasicColours } from "./colours-column/sub-components/BasicColours";
 import { CustomColours } from "./colours-column/sub-components/CustomColours";
 import { ModalButton } from "./styles/ModalButton";
 import { ColorPicker } from "./color-picker-column/ColorPicker";
+import { useCallback } from "react";
+import { store } from "../../../redux/store";
+import { setPopup } from "../../../redux/root-slice";
+import { Popup as PopupType } from "../../../types";
+import { Popup } from "../Popup";
 
 const StyledContent = styled.div`
 	background: rgb(240, 240, 240);
@@ -14,12 +18,16 @@ const StyledContent = styled.div`
 `;
 
 const CloseButtons = () => {
+	const closePopup = useCallback(() => {
+		store.dispatch(setPopup(PopupType.none));
+	}, []);
+
 	return (
 		<div style={{ position: "relative", left: "-1px" }}>
-			<ModalButton style={{ width: "62px", marginRight: "8px" }}>
+			<ModalButton onClick={closePopup} style={{ width: "62px", marginRight: "8px" }}>
 				OK
 			</ModalButton>
-			<ModalButton style={{ width: "62px" }}>Cancel</ModalButton>
+			<ModalButton onClick={closePopup} style={{ width: "62px" }}>Cancel</ModalButton>
 		</div>
 	);
 };
