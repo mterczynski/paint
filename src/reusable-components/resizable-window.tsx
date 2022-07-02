@@ -48,6 +48,19 @@ const TopBorder = styled.div`
 	top: -3px;
 	left: -3px;
 	width: calc(100% + 6px);
+	background: red;
+	opacity: 0;
+	z-index: 2;
+	position: absolute;
+	cursor: ns-resize;
+`;
+
+const BottomBorder = styled.div`
+	height: 6px;
+	bottom: -3px;
+	left: -3px;
+	width: calc(100% + 6px);
+	background: red;
 	opacity: 0;
 	z-index: 2;
 	position: absolute;
@@ -101,6 +114,53 @@ const TopResizeHandler = ({
 	return <TopBorder ref={ref}></TopBorder>;
 };
 
+const BottomResizeHandler = ({
+	onBottomChange,
+}: {
+	onBottomChange: (mouseY: number) => unknown;
+}) => {
+	const [isDragged, setIsDragged] = useState(false);
+	const ref = useRef<HTMLDivElement>(null);
+
+	useEffect(
+		function attachMouseDownAndMouseUpListeners() {
+			const currentRef = ref.current;
+			const onMouseDown = () => setIsDragged(true);
+			const onMouseUp = () => {
+				setIsDragged(false);
+			};
+			currentRef?.addEventListener("mousedown", onMouseDown);
+			window.addEventListener("mouseup", onMouseUp);
+
+			return () => {
+				currentRef?.removeEventListener("mousedown", onMouseDown);
+				window?.removeEventListener("mouseup", onMouseUp);
+			};
+		},
+		[ref]
+	);
+
+	useEffect(
+		function attachMousemoveListenerOnMouseDown() {
+			if (!isDragged) {
+				return;
+			}
+
+			const onMouseMove = (event: MouseEvent) => {
+				onBottomChange(event.clientY);
+			};
+			window.addEventListener("mousemove", onMouseMove);
+
+			return () => {
+				window.removeEventListener("mousemove", onMouseMove);
+			};
+		},
+		[isDragged, onBottomChange]
+	);
+
+	return <BottomBorder ref={ref}></BottomBorder>;
+};
+
 interface ResizableWindowProps {
 	initialSize: RectangleSize;
 	initialPosition: Point;
@@ -135,6 +195,10 @@ export const ResizableWindow = ({
 			<TopResizeHandler
 				onTopChange={(mouseY) => setSides({ ...sides, top: mouseY })}
 			></TopResizeHandler>
+
+			<BottomResizeHandler
+				onBottomChange={(mouseY) => setSides({ ...sides, bottom: mouseY })}
+			></BottomResizeHandler>
 			{children}
 		</ResizableWindowContainer>
 	);
