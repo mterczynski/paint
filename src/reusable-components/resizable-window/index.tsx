@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Point, RectangleSize } from "../../types";
 import { ResizeHandler } from "./resize-handler";
@@ -22,7 +22,8 @@ const ResizableWindowContainer = styled.div<{
 
 interface ResizableWindowProps {
 	initialSize: RectangleSize;
-	initialPosition: Point;
+	position: Point;
+	setPosition: (newPosition: Point) => unknown;
 	children?: React.ReactNode;
 	className?: string;
 	onClick?: React.MouseEventHandler;
@@ -31,18 +32,28 @@ interface ResizableWindowProps {
 
 export const ResizableWindow = ({
 	initialSize,
-	initialPosition,
+	position,
 	children,
 	className,
 	onClick,
 	onContextMenu,
+	setPosition,
 }: ResizableWindowProps) => {
 	const [sides, setSides] = useState<RectangleSidePositions>({
-		left: initialPosition.x,
-		top: initialPosition.y,
-		right: initialPosition.x + initialSize.width,
-		bottom: initialPosition.y + initialSize.height,
+		left: position.x,
+		top: position.y,
+		right: position.x + initialSize.width,
+		bottom: position.y + initialSize.height,
 	});
+
+	useEffect(() => {
+		setSides({
+			left: position.x,
+			top: position.y,
+			right: position.x + initialSize.width,
+			bottom: position.y + initialSize.height,
+		});
+	}, [position, setSides, initialSize]);
 
 	return (
 		<ResizableWindowContainer

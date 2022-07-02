@@ -29,5 +29,6 @@ module.exports = {
 		"@typescript-eslint/no-non-null-assertion": "off",
 		"react/react-in-jsx-scope": "off",
 		"jsx-a11y/alt-text": "error",
+		"react/display-name": "off" // disabled because of a problem similar to this one: https://github.com/jsx-eslint/eslint-plugin-react/issues/2269
 	},
 };

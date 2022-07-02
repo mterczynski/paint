@@ -11,6 +11,7 @@ import { MouseButton } from "./types";
 import { PopupContainer } from "./component-tree/popups/PopupContainer";
 import { appClick, setPressedMouseButtonOnCanvas } from "./redux/root-slice";
 import { ResizableWindow } from "./reusable-components/resizable-window";
+import { useMovableWindow } from "./hooks/use-movable-window";
 
 function onClick() {
 	store.dispatch(appClick());
@@ -22,6 +23,12 @@ function blockContextMenu(e: React.MouseEvent) {
 }
 
 const App = () => {
+	const initialPosition = { x: 50, y: 50 };
+	const { movableElementRef, position, setPosition } =
+		useMovableWindow(initialPosition);
+
+	console.log("position", position);
+
 	return (
 		<Provider store={store}>
 			<React.StrictMode>
@@ -30,9 +37,15 @@ const App = () => {
 					onClick={onClick}
 					onContextMenu={blockContextMenu}
 					initialSize={{ width: 1600, height: 750 }}
-					initialPosition={{ x: 50, y: 50 }}
+					position={position}
 				>
-					<TitleBar />
+					<TitleBar
+						ref={
+							movableElementRef as
+								| React.MutableRefObject<HTMLDivElement>
+								| undefined
+						}
+					/>
 					<Ribbon />
 
 					<CanvasArea />

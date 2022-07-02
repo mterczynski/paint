@@ -1,3 +1,4 @@
+import { ForwardedRef, forwardRef } from "react";
 import { maximize } from "../../redux/root-slice";
 import { store } from "../../redux/store";
 
@@ -27,9 +28,9 @@ const Icon = (props: {
 	);
 };
 
-const TitleBar = () => {
+const TitleBar = forwardRef((props, ref?: ForwardedRef<HTMLDivElement>) => {
 	return (
-		<div className="TitleBar">
+		<div className="TitleBar" ref={ref}>
 			<div className="TitleBar__window-icons">
 				<div className="TitleBar__window-icons__icon TitleBar__window-icons__icon__minimizeTile">
 					<div className="TitleBar__window-icons__icon__minimize" />
@@ -46,6 +47,6 @@ const TitleBar = () => {
 			</div>
 		</div>
 	);
-};
+});
 
 export default TitleBar;
