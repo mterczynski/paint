@@ -4,3 +4,4 @@ export * from "./dropdowns";
 export * from "./point";
 export * from "./rgba-color";
 export * from "./popup.enum";
+export * from "./window-size.interface";

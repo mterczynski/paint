@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import BottomBar from "./component-tree/bottom-bar/BottomBar";
@@ -10,6 +10,7 @@ import "./App.scss";
 import { MouseButton } from "./types";
 import { PopupContainer } from "./component-tree/popups/PopupContainer";
 import { appClick, setPressedMouseButtonOnCanvas } from "./redux/root-slice";
+import { ResizableWindow } from "./reusable-components/resizable-window";
 
 function onClick() {
 	store.dispatch(appClick());
@@ -22,17 +23,24 @@ function blockContextMenu(e: React.MouseEvent) {
 
 const App = () => {
 	return (
-		<div className="App" onClick={onClick} onContextMenu={blockContextMenu}>
-			<Provider store={store}>
-				<React.StrictMode>
+		<Provider store={store}>
+			<React.StrictMode>
+				<ResizableWindow
+					className="App"
+					onClick={onClick}
+					onContextMenu={blockContextMenu}
+					initialSize={{ width: 1600, height: 750 }}
+					initialPosition={{ x: 50, y: 50 }}
+				>
 					<TitleBar />
 					<Ribbon />
+
 					<CanvasArea />
 					<BottomBar />
 					<PopupContainer />
-				</React.StrictMode>
-			</Provider>
-		</div>
+				</ResizableWindow>
+			</React.StrictMode>
+		</Provider>
 	);
 };
 
