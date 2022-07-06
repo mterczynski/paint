@@ -51,8 +51,6 @@ npm run test:once
 npm run style:fix
 ```
 
-## Notes
+## Dev Notes
 
-### CI/CD
-
-This project uses CircleCI for CI/CD, previous versions of this project have used [Jenkins](https://github.com/mterczynski/paint/commit/150d952fe0ab09254635b1b3d943a0f9846aecec) instead.
+Styled components is the current method of styling components in this project which succeeds the deprecated method of styling components with scss.
