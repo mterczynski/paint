@@ -122,8 +122,8 @@ const CanvasArea = () => {
 		<div className="CanvasArea">
 			<canvas
 				className="CanvasArea__canvas"
-				width="500"
-				height="500"
+				width="1400"
+				height="600"
 				onMouseDown={onMouseDown}
 				onClick={(e) => onClick(e, MouseButton.Primary)}
 				onContextMenu={(e) => onClick(e, MouseButton.Secondary)}

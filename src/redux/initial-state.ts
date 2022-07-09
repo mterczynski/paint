@@ -25,8 +25,8 @@ export const initialState: AppState = {
 		},
 	},
 	imageSettings: {
-		widthInPx: 500,
-		heightInPx: 500,
+		widthInPx: 1400,
+		heightInPx: 600,
 	},
 	isBottomBarVisible: false,
 	isBrushActive: false,

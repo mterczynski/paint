@@ -56,6 +56,16 @@ export function fillWithBucket({
 	canvasSize,
 	mousePositionRelativeToCanvas,
 }: FillWithBucketArgs) {
+	const start = Date.now();
+	let timeSpentReplacing = 0;
+	let timeSpentGettingPixelColors = 0;
+	let timeSpentCheckingIfColorsAreTheSame = 0;
+	let timeSpentInAddTileNeighborsToOpenList = 0;
+	let timeSpentInWhile = 0;
+	let timeSpentInTestMark = 0;
+	let timeSpentUnhashing = 0;
+	let timeSpentHashing = 0;
+
 	const imageSize = canvasSize;
 	const imageData = context.getImageData(
 		0,
@@ -76,7 +86,13 @@ export function fillWithBucket({
 		pixelPosition: mousePositionRelativeToCanvas,
 	});
 
-	closedList.set(hashPoint(mousePositionRelativeToCanvas), 1);
+	const beforeHash = Date.now();
+	const hashedPoint = hashPoint(mousePositionRelativeToCanvas);
+	const afterHash = Date.now();
+
+	timeSpentHashing += afterHash - beforeHash;
+
+	closedList.set(hashedPoint, 1);
 	replacePixelColor({
 		imageData: imageData.data,
 		imageSize,
@@ -85,6 +101,7 @@ export function fillWithBucket({
 	});
 
 	function addTileNeighborsToOpenList(tile: { x: number; y: number }) {
+		const beforeAddTileNeighborsToOpenList = Date.now();
 		function isNotOnAnyList(hashedPoint: string) {
 			return !openList.has(hashedPoint) && !closedList.has(hashedPoint);
 		}
@@ -124,21 +141,47 @@ export function fillWithBucket({
 				openList.set(hashedLeft, 1);
 			}
 		})();
+
+		const afterAddTileNeighborsToOpenList = Date.now();
+
+		timeSpentInAddTileNeighborsToOpenList =
+			afterAddTileNeighborsToOpenList - beforeAddTileNeighborsToOpenList;
 	}
 
 	addTileNeighborsToOpenList({ x: startX, y: startY });
 
 	while (openList.size > 0) {
+		const beforeWhileIteration = Date.now();
+		const beforeTestMark = Date.now();
 		const [[hashedTile]] = openList;
+		const beforeUnHash = Date.now();
 		const tile = unhashPoint(hashedTile);
+		const afterUnhash = Date.now();
+		timeSpentUnhashing += afterUnhash - beforeUnHash;
+
+		const beforeGetPixelColor = Date.now();
 		const tileColor = getPixelColor({
 			pixelPosition: tile,
 			imageData: imageData.data,
 			imageSize,
 		});
+		const afterGetPixelColor = Date.now();
+
+		timeSpentGettingPixelColors += afterGetPixelColor - beforeGetPixelColor;
+
+		const beforeAreColorsTheSame = Date.now();
+		const areColorsTheSame = areRGBAColorsTheSame(tileColor, clickedPixelColor);
+		const afterAreColorsTheSame = Date.now();
+
+		timeSpentCheckingIfColorsAreTheSame =
+			afterAreColorsTheSame - beforeAreColorsTheSame;
+
+		const afterTestMark = Date.now();
+		timeSpentInTestMark += afterTestMark - beforeTestMark;
 
 		// check if the tile should be painted
 		if (areRGBAColorsTheSame(tileColor, clickedPixelColor)) {
+			const beforeReplace = Date.now();
 			// if yes, paint it, add it to closed list, add its adjacent tiles to open list (if they are not there)
 			replacePixelColor({
 				imageData: imageData.data,
@@ -146,12 +189,35 @@ export function fillWithBucket({
 				newColor: fillColor,
 				pixelPosition: tile,
 			});
+			const afterReplace = Date.now();
+
+			timeSpentReplacing += afterReplace - beforeReplace;
+
 			addTileNeighborsToOpenList(tile);
 		}
 
 		closedList.set(hashedTile, 1);
 		openList.delete(hashedTile);
+		const afterWhileIteration = Date.now();
+
+		timeSpentInWhile += afterWhileIteration - beforeWhileIteration;
 	}
 
+	const beforePutImageData = Date.now();
 	context.putImageData(imageData, 0, 0);
+	const afterPutImageData = Date.now();
+
+	const end = Date.now();
+	console.log({
+		total: end - start,
+		timeSpentReplacing,
+		timeSpentGettingPixelColors,
+		timeSpentCheckingIfColorsAreTheSame,
+		timeSpentPuttingImageData: afterPutImageData - beforePutImageData,
+		timeSpentInAddTileNeighborsToOpenList,
+		timeSpentInWhile,
+		timeSpentInTestMark,
+		timeSpentUnhashing,
+		timeSpentHashing,
+	});
 }
