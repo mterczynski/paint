@@ -67,8 +67,8 @@ export function fillWithBucket({
 	const startX = mousePositionRelativeToCanvas.x;
 	const startY = mousePositionRelativeToCanvas.y;
 
-	const openList: Map<string, 1> = new Map();
-	const closedList: Map<string, 1> = new Map();
+	const openList: Set<string> = new Set();
+	const closedList: Set<string> = new Set();
 
 	const clickedPixelColor = getPixelColor({
 		imageData: imageData.data,
@@ -76,7 +76,7 @@ export function fillWithBucket({
 		pixelPosition: mousePositionRelativeToCanvas,
 	});
 
-	closedList.set(hashPoint(mousePositionRelativeToCanvas), 1);
+	closedList.add(hashPoint(mousePositionRelativeToCanvas));
 	replacePixelColor({
 		imageData: imageData.data,
 		imageSize,
@@ -94,7 +94,7 @@ export function fillWithBucket({
 			const hashedUp = hashPoint(up);
 
 			if (up.y >= 0 && isNotOnAnyList(hashedUp)) {
-				openList.set(hashedUp, 1);
+				openList.add(hashedUp);
 			}
 		})();
 
@@ -103,7 +103,7 @@ export function fillWithBucket({
 			const hashedRight = hashPoint(right);
 
 			if (right.x < imageSize.width && isNotOnAnyList(hashedRight)) {
-				openList.set(hashedRight, 1);
+				openList.add(hashedRight);
 			}
 		})();
 
@@ -112,7 +112,7 @@ export function fillWithBucket({
 			const hashedDown = hashPoint(down);
 
 			if (down.y < imageSize.height && isNotOnAnyList(hashedDown)) {
-				openList.set(hashedDown, 1);
+				openList.add(hashedDown);
 			}
 		})();
 
@@ -121,7 +121,7 @@ export function fillWithBucket({
 			const hashedLeft = hashPoint(left);
 
 			if (left.x >= 0 && isNotOnAnyList(hashedLeft)) {
-				openList.set(hashedLeft, 1);
+				openList.add(hashedLeft);
 			}
 		})();
 	}
@@ -129,7 +129,7 @@ export function fillWithBucket({
 	addTileNeighborsToOpenList({ x: startX, y: startY });
 
 	while (openList.size > 0) {
-		const [[hashedTile]] = openList;
+		const [hashedTile] = openList;
 		const tile = unhashPoint(hashedTile);
 		const tileColor = getPixelColor({
 			pixelPosition: tile,
@@ -149,7 +149,7 @@ export function fillWithBucket({
 			addTileNeighborsToOpenList(tile);
 		}
 
-		closedList.set(hashedTile, 1);
+		closedList.add(hashedTile);
 		openList.delete(hashedTile);
 	}
 
