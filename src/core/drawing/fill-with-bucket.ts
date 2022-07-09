@@ -122,7 +122,7 @@ export function fillWithBucket({
 		})();
 	}
 
-	addTileNeighborsToOpenList({ x: startX, y: startY });
+	addTileNeighborsToOpenList(mousePositionRelativeToCanvas);
 
 	while (openList.size > 0) {
 		const [hashedTile] = openList;
