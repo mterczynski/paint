@@ -85,11 +85,15 @@ export function fillWithBucket({
 	});
 
 	function addTileNeighborsToOpenList(tile: { x: number; y: number }) {
+		function isNotOnAnyList(hashedPoint: string) {
+			return !openList.has(hashedPoint) && !closedList.has(hashedPoint);
+		}
+
 		(function checkUp() {
 			const up = { x: tile.x, y: tile.y - 1 };
 			const hashedUp = hashPoint(up);
 
-			if (up.y >= 0 && !openList.has(hashedUp) && !closedList.has(hashedUp)) {
+			if (up.y >= 0 && isNotOnAnyList(hashedUp)) {
 				openList.set(hashedUp, 1);
 			}
 		})();
@@ -98,11 +102,7 @@ export function fillWithBucket({
 			const right = { x: tile.x + 1, y: tile.y };
 			const hashedRight = hashPoint(right);
 
-			if (
-				right.x < imageSize.width &&
-				!openList.has(hashedRight) &&
-				!closedList.has(hashedRight)
-			) {
+			if (right.x < imageSize.width && isNotOnAnyList(hashedRight)) {
 				openList.set(hashedRight, 1);
 			}
 		})();
@@ -111,11 +111,7 @@ export function fillWithBucket({
 			const down = { x: tile.x, y: tile.y + 1 };
 			const hashedDown = hashPoint(down);
 
-			if (
-				down.y < imageSize.height &&
-				!openList.has(hashedDown) &&
-				!closedList.has(hashedDown)
-			) {
+			if (down.y < imageSize.height && isNotOnAnyList(hashedDown)) {
 				openList.set(hashedDown, 1);
 			}
 		})();
@@ -124,11 +120,7 @@ export function fillWithBucket({
 			const left = { x: tile.x - 1, y: tile.y };
 			const hashedLeft = hashPoint(left);
 
-			if (
-				left.x >= 0 &&
-				!openList.has(hashedLeft) &&
-				!closedList.has(hashedLeft)
-			) {
+			if (left.x >= 0 && isNotOnAnyList(hashedLeft)) {
 				openList.set(hashedLeft, 1);
 			}
 		})();
