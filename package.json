@@ -8,6 +8,7 @@
 		"test": "jest --watch",
 		"test:cov": "jest --coverage",
 		"test:once": "jest",
+		"check-ts": "tsc",
 		"style:fix": "npm run prettier:fix && npm run eslint:fix",
 		"style:check": "npm run prettier:check && npm run eslint:check",
 		"prettier:check": "prettier --check .",

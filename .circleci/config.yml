@@ -14,6 +14,7 @@ jobs:
       - run: ssh-keyscan -H $SERVER_DOMAIN_NAME >> ~/.ssh/known_hosts
       - checkout
       - run: npm install
+      - run: npm run check-ts
       - run: npm run build
       - run: npm run test:once
       - run: npm run eslint:check
