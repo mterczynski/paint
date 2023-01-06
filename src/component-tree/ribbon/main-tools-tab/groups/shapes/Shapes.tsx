@@ -3,11 +3,9 @@ import { useLang } from "../../../../../hooks";
 
 const lastShapeIndex = 23;
 
-// const shapeImageUrls = Array(lastShapeIndex)
-// 	.fill(null)
-// 	.map((e, i) =>
-// 		require(`../../../../../assets/icons/main-tools-tab/5_shapes/${i + 1}.png`)
-// 	);
+const shapeImageUrls = Array(lastShapeIndex)
+	.fill(null)
+	.map((e, i) => `/assets/icons/main-tools-tab/5_shapes/${i + 1}.png`);
 
 // todo - use translations
 // todo - to be used
@@ -44,17 +42,13 @@ const shapeDescriptions = Object.freeze([
 
 const Shapes = () => {
 	const lang = useLang();
-	// images:
-	// const arrDown = require("../../../../../assets/icons/arrow_down.png");
-	// const contourActive = require("../../../../../assets/icons/main-tools-tab/5_shapes/contour_active.png");
-	// const fill = require("../../../../../assets/icons/main-tools-tab/5_shapes/fill_active.png");
 
 	return (
 		<div className="Shapes">
 			<div className="Shapes__content">
 				<div className="Shapes__shapeList">
 					<div className="Shapes__shapeListContent">
-						{/* {shapeImageUrls.map((shape, i) => (
+						{shapeImageUrls.map((shape, i) => (
 							<img
 								draggable="false"
 								className="Shapes__shape"
@@ -62,24 +56,32 @@ const Shapes = () => {
 								alt=""
 								key={i}
 							/>
-						))} */}
+						))}
 					</div>
 					<div className="Shapes__shapeListControls" />
 				</div>
-				{/*
+
 				<div className="Shapes__options">
 					<div className="Shapes__option Shapes__option--first">
-						<img draggable="false" src={contourActive} alt="" />
+						<img
+							draggable="false"
+							src="/assets/icons/main-tools-tab/5_shapes/contour_active.png"
+							alt=""
+						/>
 						<span> {lang.homeTabs.shapes.outline.title} </span>
-						<img draggable="false" src={arrDown} alt="" />
+						<img draggable="false" src="/assets/icons/arrow_down.png" alt="" />
 					</div>
 
 					<div className="Shapes__option Shapes__option--second">
-						<img draggable="false" src={fill} alt="" />
+						<img
+							draggable="false"
+							src="/assets/icons/main-tools-tab/5_shapes/fill_active.png"
+							alt=""
+						/>
 						<span> {lang.homeTabs.shapes.fill.title} </span>
-						<img draggable="false" alt="" src={arrDown} />
+						<img draggable="false" alt="" src="/assets/icons/arrow_down.png" />
 					</div>
-				</div> */}
+				</div>
 			</div>
 			<div className="Shapes__description">{lang.homeTabs.shapes.title}</div>
 		</div>
