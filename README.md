@@ -53,4 +53,4 @@ npm run style:fix
 
 ## Dev Notes
 
-Styled components is the current method of styling components in this project which succeeds the deprecated method of styling components with scss.
+Styled components is the current method of styling components in this project which replaces the previous method of styling components with scss.
