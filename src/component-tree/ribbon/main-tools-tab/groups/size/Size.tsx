@@ -4,6 +4,8 @@ import { Dropdowns, ToolSize } from "../../../../../types";
 import "./Size.scss";
 import { useLang } from "../../../../../hooks";
 import { setDropdown, setToolSize } from "../../../../../redux/root-slice";
+import sizeImage from "/assets/icons/main-tools-tab/6_size.png";
+import arrowDownImage from "/assets/icons/arrow_down.png";
 
 function dispatchOpenDropdown() {
 	store.dispatch(setDropdown(Dropdowns.size));
@@ -22,7 +24,7 @@ const Size = () => {
 				<img
 					draggable="false"
 					className="Size__mainIcon"
-					// src={require("../../../../../assets/icons/main-tools-tab/6_size.png")}
+					src={sizeImage}
 					alt=""
 				/>
 
@@ -31,7 +33,7 @@ const Size = () => {
 				<img
 					draggable="false"
 					className="Size__arrowDown"
-					// src={require("../../../../../assets/icons/arrow_down.png")}
+					src={arrowDownImage}
 					alt=""
 				/>
 			</div>

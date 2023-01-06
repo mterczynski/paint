@@ -1,9 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Crosshair } from "./Crosshair";
-
-// const assets = {
-// 	hueAndSaturationPicker: require("../../../../assets/hue-and-saturation-picker.png"),
-// };
+import hueAndSaturationPickerImage from "/assets/hue-and-saturation-picker.png";
 
 export const HueAndSaturationPicker = () => {
 	const imageRef = useRef<HTMLImageElement>(null);
@@ -67,7 +64,7 @@ export const HueAndSaturationPicker = () => {
 				}}
 				alt=""
 				draggable="false"
-				// src={assets.hueAndSaturationPicker}
+				src={hueAndSaturationPickerImage}
 				onMouseDown={onMouseDown}
 				onMouseMove={activeMouseMoveListener}
 			></img>

@@ -16,6 +16,7 @@ import {
 	selectMainColorIndex,
 	setSelectedMainColor,
 } from "../../../../../redux/colors-slice";
+import colorsImage from "/assets/icons/main-tools-tab/7_colors.png";
 
 const lastUsedCustomColors = Object.freeze([
 	{ red: 255, green: 111, blue: 0, alpha: 255 },
@@ -50,7 +51,7 @@ const EditColors = () => {
 			<img
 				draggable="false"
 				className="Colors__editColorsIcon"
-				// src={require("../../../../../assets/icons/main-tools-tab/7_colors.png")}
+				src={colorsImage}
 				alt=""
 			/>
 			<div className="Colors__colorBoxText">

@@ -4,10 +4,8 @@ import { setPopup } from "../../redux/root-slice";
 import { store } from "../../redux/store";
 import { Popup as PopupEnum } from "../../types/popup.enum";
 
-// const images = {
-// 	close: require("../../assets/icons/popups/close.png"),
-// 	closeActive: require("../../assets/icons/popups/close-active.png"),
-// };
+import closeImage from "/assets/icons/popups/close.png";
+import closeActiveImage from "/assets/icons/popups/close-active.png";
 
 const StyledPopup = styled.div`
 	position: absolute;
