@@ -1,5 +1,9 @@
 import "./Clipboard.scss";
 import { useLang } from "../../../../../hooks";
+import clipboardImage from "/assets/icons/main-tools-tab/1_clipboard/1.png"; // todo - rename (?)
+import arrowDownImage from "/assets/icons/arrow_down.png";
+import scissorsImage from "/assets/icons/main-tools-tab/1_clipboard/scissors.png";
+import activeClipboardImage from "/assets/icons/main-tools-tab/1_clipboard/3_active.png"; // todo - rename (?)
 
 const Clipboard = () => {
 	const lang = useLang().homeTabs.clipboard;
@@ -12,7 +16,7 @@ const Clipboard = () => {
 						<img
 							className="Clipboard__pasteImage"
 							draggable="false"
-							src={require("../../../../../assets/icons/main-tools-tab/1_clipboard/1.png")}
+							src={clipboardImage}
 							alt=""
 						/>
 					</div>
@@ -22,7 +26,7 @@ const Clipboard = () => {
 						<img
 							className="Clipboard__arrowDown"
 							draggable="false"
-							src={require("../../../../../assets/icons/arrow_down.png")}
+							src={arrowDownImage}
 							alt=""
 						/>
 					</div>
@@ -32,7 +36,7 @@ const Clipboard = () => {
 					<div className="Clipboard__button">
 						<img
 							draggable="false"
-							src={require("../../../../../assets/icons/main-tools-tab/1_clipboard/scissors.png")}
+							src={scissorsImage}
 							className="Clipboard__buttonImage"
 							alt=""
 						/>
@@ -43,7 +47,7 @@ const Clipboard = () => {
 					<div className="Clipboard__button">
 						<img
 							draggable="false"
-							src={require("../../../../../assets/icons/main-tools-tab/1_clipboard/3_active.png")}
+							src={activeClipboardImage}
 							className="Clipboard__buttonImage"
 							alt=""
 						/>

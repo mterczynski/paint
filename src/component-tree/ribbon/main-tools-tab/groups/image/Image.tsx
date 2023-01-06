@@ -6,8 +6,11 @@ import "./Image.scss";
 import { useLang } from "../../../../../hooks";
 import { setDropdown } from "../../../../../redux/root-slice";
 
-const arrowDownImage = require("../../../../../assets/icons/arrow_down.png");
-const selectionFieldImage = require("../../../../../assets/icons/main-tools-tab/2_image/1.png");
+import arrowDownImage from "/assets/icons/arrow_down.png";
+import selectionFieldImage from "/assets/icons/main-tools-tab/2_image/1.png";
+import secondImage from "/assets/icons/main-tools-tab/2_image/2.png"; // todo - rename
+import thirdImage from "/assets/icons/main-tools-tab/2_image/3.png"; // todo - rename
+import fourthImage from "/assets/icons/main-tools-tab/2_image/4.png"; // todo - rename
 
 function openDropdown() {
 	store.dispatch(setDropdown(Dropdowns.selection));
@@ -33,26 +36,15 @@ const Image = () => {
 
 				<ul className="Image__rightColumn">
 					<li>
-						<img
-							src={require("../../../../../assets/icons/main-tools-tab/2_image/2.png")}
-							alt=""
-						/>{" "}
-						{lang.homeTabs.image.crop.title}
+						<img src={secondImage} alt="" /> {lang.homeTabs.image.crop.title}
 					</li>
 
 					<li>
-						<img
-							src={require("../../../../../assets/icons/main-tools-tab/2_image/3.png")}
-							alt=""
-						/>{" "}
-						{lang.homeTabs.image.resize.title}
+						<img src={thirdImage} alt="" /> {lang.homeTabs.image.resize.title}
 					</li>
 
 					<li>
-						<img
-							src={require("../../../../../assets/icons/main-tools-tab/2_image/4.png")}
-							alt=""
-						/>{" "}
+						<img src={fourthImage} alt="" />{" "}
 						<span>{lang.homeTabs.image.rotate.title} </span>
 						<img
 							className="Image__rotateLi-arrowDown"

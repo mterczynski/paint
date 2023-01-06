@@ -1,7 +1,8 @@
 import { maximize } from "../../redux/root-slice";
 import { store } from "../../redux/store";
-
 import "./TitleBar.scss";
+import maximizeImage from "/assets/icons/top/maximize.png";
+import closeImage from "/assets/icons/top/close.png";
 
 function maximizeWindow() {
 	store.dispatch(maximize());
@@ -35,12 +36,9 @@ const TitleBar = () => {
 					<div className="TitleBar__window-icons__icon__minimize" />
 				</div>
 
+				<Icon src={maximizeImage} onClick={maximizeWindow} />
 				<Icon
-					src={require("./../../assets/icons/top/maximize.png")}
-					onClick={maximizeWindow}
-				/>
-				<Icon
-					src={require("./../../assets/icons/top/close.png")}
+					src={closeImage}
 					className="TitleBar__window-icons__icon--close"
 				/>
 			</div>

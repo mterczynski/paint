@@ -3,6 +3,7 @@ import { store } from "../../redux/store";
 import { AppState } from "../../types";
 import { RibbonIcon, IconImage } from "./RibbonStyles";
 import { toggleRibbon } from "../../redux/root-slice";
+import collapseImage from "/assets/icons/top/collapse.png";
 
 const dispatchToggleRibbon = () => {
 	store.dispatch(toggleRibbon());
@@ -18,7 +19,7 @@ export const RibbonToggler = () => {
 			<IconImage
 				draggable="false"
 				reversed={isRibbonCollapsed}
-				src={require("../../assets/icons/top/collapse.png")}
+				src={collapseImage}
 				alt=""
 			/>
 		</RibbonIcon>

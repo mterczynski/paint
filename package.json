@@ -2,9 +2,8 @@
 	"name": "react-mspaint",
 	"version": "0.0.1",
 	"scripts": {
-		"start": "webpack-dev-server",
-		"start:open": "webpack-dev-server --open",
-		"build": "webpack --mode=production",
+		"start": "vite",
+    "build": "tsc && vite build",
 		"test": "jest --watch",
 		"test:cov": "jest --coverage",
 		"test:once": "jest",
@@ -29,22 +28,15 @@
 		"@types/react-dom": "^18.0.5",
 		"@types/react-redux": "^7.1.20",
 		"@types/styled-components": "^5.1.15",
-		"babel-loader": "^8.2.5",
 		"babel-plugin-styled-components": "^2.0.7",
-		"css-loader": "^4.3.0",
 		"react": "^18.1.0",
 		"react-dom": "^18.1.0",
 		"react-redux": "^8.0.2",
 		"redux": "^4.1.2",
 		"redux-devtools-extension": "^2.13.9",
-		"sass": "^1.26.10",
-		"sass-loader": "^10.0.2",
-		"style-loader": "^1.2.1",
 		"styled-components": "^5.3.3",
 		"typescript": "^4.7.3",
-		"url-loader": "^2.3.0",
-		"webpack": "^4.44.1",
-		"webpack-cli": "^3.3.12"
+		"vite": "^4.0.4"
 	},
 	"devDependencies": {
 		"@babel/plugin-proposal-optional-chaining": "^7.17.12",
@@ -58,8 +50,7 @@
 		"eslint-plugin-react-hooks": "^4.3.0",
 		"jest": "^27.3.1",
 		"prettier": "2.7.1",
-		"ts-jest": "^27.0.7",
-		"webpack-dev-server": "^3.11.0"
+		"ts-jest": "^27.0.7"
 	},
 	"resolutions": {
 		"styled-components": "^5"

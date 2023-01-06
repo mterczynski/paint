@@ -1,8 +1,5 @@
 import { Point } from "../../../../types";
-
-const assets = {
-	crosshair: require("../../../../assets/cursors/crosshair.png"),
-};
+import crosshairImage from "/assets/cursors/crosshair.png";
 
 export const Crosshair = ({ position }: { position: Point }) => {
 	return (
@@ -13,7 +10,7 @@ export const Crosshair = ({ position }: { position: Point }) => {
 				left: position.x + "px",
 				top: position.y + "px",
 			}}
-			src={assets.crosshair}
+			src={crosshairImage}
 			alt=""
 			draggable="false"
 		></img>

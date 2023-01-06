@@ -1,5 +1,6 @@
 import "./Paint3d.scss";
 import { useLang } from "../../../../../hooks";
+import paint3dImage from "/assets/icons/main-tools-tab/8_paint3d.png";
 
 const Paint3d = () => {
 	const lang = useLang();
@@ -10,7 +11,7 @@ const Paint3d = () => {
 				<img
 					draggable="false"
 					className="Paint3d__mainIcon"
-					src={require("../../../../../assets/icons/main-tools-tab/8_paint3d.png")}
+					src={paint3dImage}
 					alt=""
 				/>
 

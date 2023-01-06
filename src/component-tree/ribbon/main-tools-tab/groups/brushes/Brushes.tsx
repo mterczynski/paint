@@ -1,5 +1,7 @@
 import "./Brushes.scss";
 import { useLang } from "../../../../../hooks";
+import mainBrushImage from "/assets/icons/main-tools-tab/4_brushes/1.png";
+import arrowDownImage from "/assets/icons/arrow_down.png";
 
 const Brushes = () => {
 	const lang = useLang();
@@ -11,7 +13,7 @@ const Brushes = () => {
 					<img
 						className="Brushes__mainIcon"
 						draggable="false"
-						src={require("../../../../../assets/icons/main-tools-tab/4_brushes/1.png")}
+						src={mainBrushImage}
 						alt=""
 					/>
 				</div>
@@ -21,7 +23,7 @@ const Brushes = () => {
 					<img
 						className="Brushes__arrowDown"
 						draggable="false"
-						src={require("../../../../../assets/icons/arrow_down.png")}
+						src={arrowDownImage}
 						alt=""
 					/>
 				</div>
