@@ -4,20 +4,11 @@ import { AppState } from "../../types";
 import "./BottomBar.scss";
 import { useLang } from "../../hooks";
 
-const images = {
-	axis: require("../../assets/icons/bottom-bar/axis.png"),
-	floppy: require("../../assets/icons/bottom-bar/floppy.png"),
-	image_size: require("../../assets/icons/bottom-bar/image_size.png"),
-	minus: require("../../assets/icons/bottom-bar/minus.png"),
-	minus_hover: require("../../assets/icons/bottom-bar/minus_hover.png"),
-	minus_pressed: require("../../assets/icons/bottom-bar/minus_pressed.png"),
-	plus: require("../../assets/icons/bottom-bar/plus.png"),
-	plus_hover: require("../../assets/icons/bottom-bar/plus_hover.png"),
-	plus_pressed: require("../../assets/icons/bottom-bar/plus_pressed.png"),
-	selection: require("../../assets/icons/bottom-bar/selection.png"),
-	slider: require("../../assets/icons/bottom-bar/slider.png"),
-	dots: require("../../assets/icons/bottom-bar/dots.png"),
-};
+import axisImage from "/assets/icons/bottom-bar/axis.png";
+import imageSizeImage from "/assets/icons/bottom-bar/image_size.png";
+import selectionImage from "/assets/icons/bottom-bar/selection.png";
+import sliderImage from "/assets/icons/bottom-bar/slider.png";
+import dotsImage from "/assets/icons/bottom-bar/dots.png";
 
 const BottomBar = () => {
 	const zoom = useSelector((state: AppState) => state.zoom);
@@ -40,7 +31,7 @@ const BottomBar = () => {
 				<img
 					className="BottomBar__iconImage"
 					draggable="false"
-					src={images.axis}
+					src={axisImage}
 					alt=""
 				/>
 			</div>
@@ -48,7 +39,7 @@ const BottomBar = () => {
 				<img
 					className="BottomBar__iconImage--top1"
 					draggable="false"
-					src={images.selection}
+					src={selectionImage}
 					alt=""
 				/>
 			</div>
@@ -56,7 +47,7 @@ const BottomBar = () => {
 				<img
 					className="BottomBar__iconImage--top1"
 					draggable="false"
-					src={images.image_size}
+					src={imageSizeImage}
 					alt=""
 					style={{ marginRight: "6px" }}
 				/>
@@ -74,7 +65,7 @@ const BottomBar = () => {
 					<div className="BottomBar__slider-background" />
 					<img
 						draggable="false"
-						src={images.slider}
+						src={sliderImage}
 						alt=""
 						className="BottomBar__slider-image"
 					/>
@@ -85,7 +76,7 @@ const BottomBar = () => {
 				<img
 					className="BottomBar__iconImage--dots"
 					draggable="false"
-					src={images.dots}
+					src={dotsImage}
 					alt=""
 				/>
 			</div>

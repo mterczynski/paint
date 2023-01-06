@@ -10,7 +10,7 @@ const Paint3d = () => {
 				<img
 					draggable="false"
 					className="Paint3d__mainIcon"
-					src={require("../../../../../assets/icons/main-tools-tab/8_paint3d.png")}
+					// src={require("../../../../../assets/icons/main-tools-tab/8_paint3d.png")}
 					alt=""
 				/>
 

@@ -12,7 +12,7 @@ const Clipboard = () => {
 						<img
 							className="Clipboard__pasteImage"
 							draggable="false"
-							src={require("../../../../../assets/icons/main-tools-tab/1_clipboard/1.png")}
+							// src={require("../../../../../assets/icons/main-tools-tab/1_clipboard/1.png")}
 							alt=""
 						/>
 					</div>
@@ -22,7 +22,7 @@ const Clipboard = () => {
 						<img
 							className="Clipboard__arrowDown"
 							draggable="false"
-							src={require("../../../../../assets/icons/arrow_down.png")}
+							// src={require("../../../../../assets/icons/arrow_down.png")}
 							alt=""
 						/>
 					</div>
@@ -32,7 +32,7 @@ const Clipboard = () => {
 					<div className="Clipboard__button">
 						<img
 							draggable="false"
-							src={require("../../../../../assets/icons/main-tools-tab/1_clipboard/scissors.png")}
+							// src={require("../../../../../assets/icons/main-tools-tab/1_clipboard/scissors.png")}
 							className="Clipboard__buttonImage"
 							alt=""
 						/>
@@ -43,7 +43,7 @@ const Clipboard = () => {
 					<div className="Clipboard__button">
 						<img
 							draggable="false"
-							src={require("../../../../../assets/icons/main-tools-tab/1_clipboard/3_active.png")}
+							// src={require("../../../../../assets/icons/main-tools-tab/1_clipboard/3_active.png")}
 							className="Clipboard__buttonImage"
 							alt=""
 						/>

@@ -11,7 +11,7 @@ const Brushes = () => {
 					<img
 						className="Brushes__mainIcon"
 						draggable="false"
-						src={require("../../../../../assets/icons/main-tools-tab/4_brushes/1.png")}
+						// src={require("../../../../../assets/icons/main-tools-tab/4_brushes/1.png")}
 						alt=""
 					/>
 				</div>
@@ -21,7 +21,7 @@ const Brushes = () => {
 					<img
 						className="Brushes__arrowDown"
 						draggable="false"
-						src={require("../../../../../assets/icons/arrow_down.png")}
+						// src={require("../../../../../assets/icons/arrow_down.png")}
 						alt=""
 					/>
 				</div>

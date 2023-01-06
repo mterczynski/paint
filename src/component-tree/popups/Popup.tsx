@@ -4,10 +4,10 @@ import { setPopup } from "../../redux/root-slice";
 import { store } from "../../redux/store";
 import { Popup as PopupEnum } from "../../types/popup.enum";
 
-const images = {
-	close: require("../../assets/icons/popups/close.png"),
-	closeActive: require("../../assets/icons/popups/close-active.png"),
-};
+// const images = {
+// 	close: require("../../assets/icons/popups/close.png"),
+// 	closeActive: require("../../assets/icons/popups/close-active.png"),
+// };
 
 const StyledPopup = styled.div`
 	position: absolute;
@@ -29,12 +29,10 @@ const PopupHeader = styled.header`
 const StyledXIcon = styled.button`
 	display: block;
 	text-align: center;
-	background: url(${images.close});
 	width: 31px;
 	height: 29px;
 	border: none;
 	&:hover {
-		background: url(${images.closeActive});
 		color: white;
 	}
 	&:focus {

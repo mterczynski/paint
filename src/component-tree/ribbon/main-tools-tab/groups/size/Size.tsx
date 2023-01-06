@@ -22,7 +22,7 @@ const Size = () => {
 				<img
 					draggable="false"
 					className="Size__mainIcon"
-					src={require("../../../../../assets/icons/main-tools-tab/6_size.png")}
+					// src={require("../../../../../assets/icons/main-tools-tab/6_size.png")}
 					alt=""
 				/>
 
@@ -31,7 +31,7 @@ const Size = () => {
 				<img
 					draggable="false"
 					className="Size__arrowDown"
-					src={require("../../../../../assets/icons/arrow_down.png")}
+					// src={require("../../../../../assets/icons/arrow_down.png")}
 					alt=""
 				/>
 			</div>

@@ -5,7 +5,7 @@ export const HelpIcon = () => {
 		<RibbonIcon>
 			<IconImage
 				draggable="false"
-				src={require("../../assets/icons/top/help.png")}
+				// src={require("../../assets/icons/top/help.png")}
 				alt=""
 			/>
 		</RibbonIcon>

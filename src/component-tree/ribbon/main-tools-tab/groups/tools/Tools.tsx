@@ -36,7 +36,7 @@ const Tool = ({
 			<img
 				className="Tools__iconImage"
 				draggable="false"
-				src={require(`../../../../../assets/icons/main-tools-tab/3_tools/${tool}.png`)}
+				// src={require(`../../../../../assets/icons/main-tools-tab/3_tools/${tool}.png`)}
 				alt=""
 			/>
 		</div>

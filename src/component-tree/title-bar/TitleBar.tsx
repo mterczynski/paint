@@ -35,14 +35,14 @@ const TitleBar = () => {
 					<div className="TitleBar__window-icons__icon__minimize" />
 				</div>
 
-				<Icon
+				{/* <Icon
 					src={require("./../../assets/icons/top/maximize.png")}
 					onClick={maximizeWindow}
 				/>
 				<Icon
 					src={require("./../../assets/icons/top/close.png")}
 					className="TitleBar__window-icons__icon--close"
-				/>
+				/> */}
 			</div>
 		</div>
 	);

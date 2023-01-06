@@ -6,8 +6,8 @@ import "./Image.scss";
 import { useLang } from "../../../../../hooks";
 import { setDropdown } from "../../../../../redux/root-slice";
 
-const arrowDownImage = require("../../../../../assets/icons/arrow_down.png");
-const selectionFieldImage = require("../../../../../assets/icons/main-tools-tab/2_image/1.png");
+// const arrowDownImage = require("../../../../../assets/icons/arrow_down.png");
+// const selectionFieldImage = require("../../../../../assets/icons/main-tools-tab/2_image/1.png");
 
 function openDropdown() {
 	store.dispatch(setDropdown(Dropdowns.selection));
@@ -21,20 +21,20 @@ const Image = () => {
 			<div className="Image__content">
 				<div className="Image__leftColumn">
 					<div className="Image__selectionIcon">
-						<img src={selectionFieldImage} alt="" />
+						{/* <img src={selectionFieldImage} alt="" /> */}
 					</div>
 
 					<div className="Image__expandSelectionButton" onClick={openDropdown}>
 						{lang.homeTabs.image.select.title}
 						<br />
-						<img src={arrowDownImage} alt="" />
+						{/* <img src={arrowDownImage} alt="" /> */}
 					</div>
 				</div>
 
 				<ul className="Image__rightColumn">
 					<li>
 						<img
-							src={require("../../../../../assets/icons/main-tools-tab/2_image/2.png")}
+							// src={require("../../../../../assets/icons/main-tools-tab/2_image/2.png")}
 							alt=""
 						/>{" "}
 						{lang.homeTabs.image.crop.title}
@@ -42,7 +42,7 @@ const Image = () => {
 
 					<li>
 						<img
-							src={require("../../../../../assets/icons/main-tools-tab/2_image/3.png")}
+							// src={require("../../../../../assets/icons/main-tools-tab/2_image/3.png")}
 							alt=""
 						/>{" "}
 						{lang.homeTabs.image.resize.title}
@@ -50,13 +50,13 @@ const Image = () => {
 
 					<li>
 						<img
-							src={require("../../../../../assets/icons/main-tools-tab/2_image/4.png")}
+							// src={require("../../../../../assets/icons/main-tools-tab/2_image/4.png")}
 							alt=""
 						/>{" "}
 						<span>{lang.homeTabs.image.rotate.title} </span>
 						<img
 							className="Image__rotateLi-arrowDown"
-							src={arrowDownImage}
+							// src={arrowDownImage}
 							alt=""
 						/>
 					</li>

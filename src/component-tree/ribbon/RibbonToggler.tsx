@@ -18,7 +18,7 @@ export const RibbonToggler = () => {
 			<IconImage
 				draggable="false"
 				reversed={isRibbonCollapsed}
-				src={require("../../assets/icons/top/collapse.png")}
+				// src={require("../../assets/icons/top/collapse.png")}
 				alt=""
 			/>
 		</RibbonIcon>

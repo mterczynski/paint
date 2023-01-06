@@ -50,7 +50,7 @@ const EditColors = () => {
 			<img
 				draggable="false"
 				className="Colors__editColorsIcon"
-				src={require("../../../../../assets/icons/main-tools-tab/7_colors.png")}
+				// src={require("../../../../../assets/icons/main-tools-tab/7_colors.png")}
 				alt=""
 			/>
 			<div className="Colors__colorBoxText">
