@@ -20,7 +20,6 @@ jobs:
       - run: npm run eslint:check
       - run: mv dist paint
       - run: scp -r paint $SSH_USER@$SERVER_DOMAIN_NAME:$DESTINATION_FOLDER
-      - run: scp -r index.html $SSH_USER@$SERVER_DOMAIN_NAME:$DESTINATION_FOLDER
 
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
