@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"scripts": {
 		"start": "vite",
-    "build": "tsc && vite build --base=./",
+		"build": "tsc && vite build --base=./",
 		"test": "jest --watch",
 		"test:cov": "jest --coverage",
 		"test:once": "jest",
@@ -50,6 +50,7 @@
 		"eslint-plugin-react-hooks": "^4.3.0",
 		"jest": "^27.3.1",
 		"prettier": "2.7.1",
+		"sass": "^1.77.4",
 		"ts-jest": "^27.0.7"
 	},
 	"resolutions": {
