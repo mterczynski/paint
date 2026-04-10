@@ -19,7 +19,7 @@ module.exports = {
 	plugins: ["@typescript-eslint", "jsx-a11y"],
 	settings: {
 		react: {
-			version: "latest",
+			version: "detect",
 		},
 	},
 	rules: {
