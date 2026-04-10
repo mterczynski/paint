@@ -1,4 +1,4 @@
-import { AnyAction, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { UnknownAction, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
 	AppState,
 	AvailableTools,
@@ -73,7 +73,7 @@ export const {
 
 const rootReducerWithoutChildReducers = rootSlice.reducer;
 
-export const rootReducer = (state: AppState | undefined, action: AnyAction) => {
+export const rootReducer = (state: AppState | undefined, action: UnknownAction) => {
 	return {
 		...rootReducerWithoutChildReducers(state, action),
 		// child reducers are added here:

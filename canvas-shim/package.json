@@ -1,0 +1,6 @@
+{
+	"name": "canvas",
+	"version": "2.11.2",
+	"description": "Canvas shim using @napi-rs/canvas for Node.js environments without native build tools",
+	"main": "index.js"
+}
