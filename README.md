@@ -1,7 +1,5 @@
 # Paint
 
-[![CircleCI](https://circleci.com/gh/mterczynski/paint/tree/master.svg?style=svg)](https://circleci.com/gh/mterczynski/paint/tree/master)
-
 ## Description
 
 Windows 10 Paint clone made with React and Redux
